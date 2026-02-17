@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Houdini Master Program – Film &amp; Game (VCAD)</title>
+  <meta name="description" content="VCAD Houdini Master Program: Film FX, Game FX, Procedural Tech Art for 12 months." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=IBM+Plex+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --paper: #fffdf8;
+      --ink: #1f1d1a;
+      --muted: #685f52;
+      --brand: #0d8a73;
+      --brand-2: #e45e2f;
+      --line: #ded6c8;
+      --shadow: 0 18px 40px rgba(28, 22, 14, 0.08);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans KR", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 85% -5%, rgba(228, 94, 47, 0.18) 0%, transparent 46%),
+        radial-gradient(circle at 10% 8%, rgba(13, 138, 115, 0.16) 0%, transparent 38%),
+        var(--bg);
+      line-height: 1.55;
+    }
+
+    .container {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(244, 239, 230, 0.82);
+      border-bottom: 1px solid rgba(104, 95, 82, 0.18);
+    }
+
+    .topbar {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 0.92rem;
+      padding: 8px 10px;
+      border-radius: 999px;
+      transition: background .2s ease;
+    }
+
+    nav a:hover {
+      background: rgba(13, 138, 115, 0.12);
+    }
+
+    .hero {
+      padding: 72px 0 44px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 34px;
+      animation: rise .65s ease-out both;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      display: inline-block;
+      font-size: 0.82rem;
+      background: rgba(13, 138, 115, 0.12);
+      color: #096856;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-weight: 600;
+    }
+
+    h1, h2, h3 { font-family: "Space Grotesk", sans-serif; letter-spacing: -0.02em; margin: 0; }
+
+    h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); line-height: 1.05; }
+    h2 { font-size: clamp(1.4rem, 3.2vw, 2.1rem); margin-bottom: 14px; }
+    h3 { font-size: 1.15rem; margin-bottom: 10px; }
+
+    .hero p { margin: 16px 0 0; color: var(--muted); }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      background: #fff;
+    }
+
+    .stat strong {
+      display: block;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.08rem;
+      margin-bottom: 4px;
+    }
+
+    .hero-media {
+      min-height: 320px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      animation: rise .8s ease-out both;
+      animation-delay: .08s;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.02);
+    }
+
+    section { padding: 40px 0; }
+
+    .section-intro {
+      margin-bottom: 20px;
+      color: var(--muted);
+      max-width: 74ch;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .phase-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .chip {
+      font-size: .8rem;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(130deg, var(--brand), #176fbe);
+      border-radius: 999px;
+      padding: 4px 9px;
+    }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .track {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .track::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(175deg, transparent 60%, rgba(13, 138, 115, 0.08));
+    }
+
+    .track:nth-child(2)::before { background: linear-gradient(175deg, transparent 60%, rgba(228, 94, 47, 0.08)); }
+    .track:nth-child(3)::before { background: linear-gradient(175deg, transparent 60%, rgba(39, 95, 180, 0.09)); }
+
+    .track p { margin: 0; color: var(--muted); }
+
+    .columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .banner {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      min-height: 240px;
+      margin-top: 16px;
+    }
+
+    .banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .cta {
+      margin-top: 20px;
+      background: linear-gradient(120deg, #0d8a73, #1a6ca1);
+      color: #f7fffd;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .cta p { margin: 8px 0 0; color: rgba(245, 255, 252, 0.9); }
+
+    footer {
+      padding: 28px 0 46px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: rise .6s ease-out forwards;
+    }
+
+    .fade-in:nth-child(2) { animation-delay: .08s; }
+    .fade-in:nth-child(3) { animation-delay: .14s; }
+    .fade-in:nth-child(4) { animation-delay: .2s; }
+
+    @keyframes rise {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 1000px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid-3 { grid-template-columns: 1fr; }
+      .columns { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .topbar { align-items: flex-start; padding: 12px 0; }
+      nav { gap: 4px; }
+      nav a { padding: 6px 8px; font-size: .83rem; }
+      .hero-card { padding: 22px; }
+      .grid-4 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container topbar">
+      <div class="brand">VCAD • Houdini Master Program</div>
+      <nav>
+        <a href="#overview">Overview</a>
+        <a href="#phases">Phases</a>
+        <a href="#tracks">Tracks</a>
+        <a href="#studio">Studio Model</a>
+        <a href="#career">Career</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="overview">
+      <article class="hero-card">
+        <span class="eyebrow">Advanced Diploma / Master Certificate</span>
+        <h1>Houdini Master Program – Film &amp; Game (VCAD)</h1>
+        <p>
+          Think Tank형 성장 곡선에 VCAD의 실시간 제작 역량을 결합한 12개월 집중 과정.
+          Houdini 기반 Procedural FX를 Film, Game, Tech Art production으로 연결합니다.
+        </p>
+        <div class="hero-stats">
+          <div class="stat"><strong>12 Months</strong>48–52 weeks</div>
+          <div class="stat"><strong>3 Tracks</strong>Film / Game / Tech Art</div>
+          <div class="stat"><strong>Pipeline</strong>Houdini → Unreal / Niagara / PCG</div>
+          <div class="stat"><strong>Outcome</strong>Demo Reel + Portfolio + Studio Workflow</div>
+        </div>
+      </article>
+      <aside class="hero-media" aria-label="Houdini FX visual">
+        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" alt="Abstract digital visual with cinematic atmosphere" loading="lazy" />
+      </aside>
+    </section>
+
+    <section>
+      <h2>Program Vision</h2>
+      <p class="section-intro">
+        Houdini Specialist를 넘어 Real-Time과 Pipeline을 이해하는 Production-ready artist를 육성합니다.
+        핵심 차별 요소는 FX + Environment + Tech Art 융합, Mentor 중심 피드백, Studio-style 팀 제작입니다.
+      </p>
+      <div class="grid grid-3">
+        <article class="card fade-in">
+          <h3>Procedural Mindset</h3>
+          <p>노드/속성/시스템 관점으로 재사용 가능한 디자인 구조를 설계합니다.</p>
+        </article>
+        <article class="card fade-in">
+          <h3>Real-Time Integration</h3>
+          <p>Houdini 결과물을 Unreal, Niagara, PCG 파이프라인으로 연결합니다.</p>
+        </article>
+        <article class="card fade-in">
+          <h3>Studio Simulation</h3>
+          <p>실무처럼 역할 분화된 팀 스프린트와 산업 멘토 크리틱으로 완성도를 높입니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="phases">
+      <h2>Overall Structure</h2>
+      <p class="section-intro">총 4개 Phase로 기초부터 포트폴리오 제작까지 연결됩니다.</p>
+      <div class="grid grid-4">
+        <article class="card fade-in">
+          <div class="phase-title"><span class="chip">Phase 1</span><h3>Procedural Foundations</h3></div>
+          <p><strong>12 weeks</strong> · Houdini 사고방식과 노드 기반 제작</p>
+          <ul>
+            <li>Houdini Fundamentals, Procedural Modeling, Attributes &amp; VEX</li>
+            <li>Lookdev &amp; Lighting, Intro FX, USD Scene Structure</li>
+            <li>Project: Procedural Asset Pack / Parametric Props / Modular Kit</li>
+          </ul>
+        </article>
+        <article class="card fade-in">
+          <div class="phase-title"><span class="chip">Phase 2</span><h3>FX &amp; Simulation Specialist</h3></div>
+          <p><strong>12 weeks</strong> · 시뮬레이션 핵심 능력 집중</p>
+          <ul>
+            <li>Particles, RBD, Pyro, FLIP, Vellum, Groom</li>
+            <li>FX Optimization, Rendering &amp; Caching</li>
+            <li>Project: FX Shot (Film) + FX Asset (Game)</li>
+          </ul>
+        </article>
+        <article class="card fade-in">
+          <div class="phase-title"><span class="chip">Phase 3</span><h3>Track Specialization</h3></div>
+          <p><strong>12 weeks</strong> · Film / Game / Procedural Tech Art 트랙 심화</p>
+          <ul>
+            <li>목표 직무 기반 모듈 선택</li>
+            <li>트랙별 대표 산출물 제작</li>
+            <li>캡스톤 초안 및 실무형 리뷰</li>
+          </ul>
+        </article>
+        <article class="card fade-in">
+          <div class="phase-title"><span class="chip">Phase 4</span><h3>Master Production</h3></div>
+          <p><strong>12–16 weeks</strong> · 포트폴리오와 실전 제작</p>
+          <ul>
+            <li>Industry mentor pairing, Studio sprint</li>
+            <li>Demo reel, Career branding, Interview prep</li>
+            <li>Final: AAA FX shots / Real-time system / Procedural tools</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="tracks">
+      <h2>Phase 3 Tracks</h2>
+      <p class="section-intro">트랙마다 결과물의 기준이 다릅니다. Film은 샷 완성도, Game은 실시간 최적화, Tech Art는 툴/파이프라인 재사용성이 핵심입니다.</p>
+      <div class="grid grid-3">
+        <article class="card track fade-in">
+          <h3>Film FX Track</h3>
+          <p>고품질 시뮬레이션 샷을 설계, 라이팅, 렌더, 컴포지팅까지 완성.</p>
+          <ul>
+            <li>Hero Pyro/FLIP/RBD/Vellum 시뮬레이션</li>
+            <li>Solaris/USD, Karma, AOVs, Nuke comp</li>
+            <li>포트폴리오: Film FX Shots 2–3 + Breakdown Package</li>
+          </ul>
+        </article>
+        <article class="card track fade-in">
+          <h3>Game FX Track</h3>
+          <p>게임 플레이 환경에서 안정적으로 동작하는 리얼타임 FX 제작.</p>
+          <ul>
+            <li>Niagara 시스템, 이벤트, 리본, GPU/CPU</li>
+            <li>Shader/Material 기반 stylized FX</li>
+            <li>포트폴리오: FX Pack 10~20 + Playable Showcase + Budget Sheet</li>
+          </ul>
+        </article>
+        <article class="card track fade-in">
+          <h3>Procedural Tech Art Track</h3>
+          <p>아티스트와 레벨팀을 위한 프로시저럴 툴/월드 시스템 구축.</p>
+          <ul>
+            <li>HDA 설계/배포, Houdini Engine for Unreal</li>
+            <li>PCG Graph + Houdini Hybrid Workflow</li>
+            <li>포트폴리오: Environment Toolset + UE PCG Demo</li>
+          </ul>
+        </article>
+      </div>
+      <div class="banner">
+        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&amp;fit=crop&amp;w=1600&amp;q=80" alt="Team-based digital production workspace" loading="lazy" />
+      </div>
+    </section>
+
+    <section id="studio">
+      <h2>VCAD Studio Production Model</h2>
+      <div class="columns">
+        <article class="card">
+          <h3>Junior Studio Concept</h3>
+          <ul>
+            <li>역할 분화: FX Artist / Procedural Modeler / Tech Artist / Environment Artist</li>
+            <li>팀 프로젝트: Game level FX package, Cinematic destruction, Procedural city tool</li>
+            <li>실무형 스프린트로 협업/핸드오프/피드백 루프 경험</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>VCAD Signature Modules</h3>
+          <ul>
+            <li>Procedural Thinking for Artists</li>
+            <li>Houdini for Level Design</li>
+            <li>Real-Time FX Architecture</li>
+            <li>FX Optimization for Games</li>
+            <li>Procedural World Systems / AI + Houdini Workflows</li>
+          </ul>
+        </article>
+      </div>
+      <div class="cta">
+        <h3>Delivery Model</h3>
+        <p>Weekly Lab · Live FX Demo · Mentor Critique · Studio Review · Recorded Library</p>
+      </div>
+    </section>
+
+    <section id="career">
+      <h2>Career &amp; Admissions</h2>
+      <div class="columns">
+        <article class="card">
+          <h3>Career Outcomes</h3>
+          <ul>
+            <li>FX Artist (Film)</li>
+            <li>FX Artist (Games)</li>
+            <li>Technical Artist</li>
+            <li>Procedural Artist</li>
+            <li>Houdini Environment Artist / Simulation Artist</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Admission Level</h3>
+          <ul>
+            <li>3D fundamentals or equivalent</li>
+            <li>또는 VCAD 3D/GDD 졸업자</li>
+            <li>또는 포트폴리오 심사</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      Houdini Master Program – Film &amp; Game (VCAD) · Advanced Diploma / Master Certificate
+    </div>
+  </footer>
+</body>
+</html>
