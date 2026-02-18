@@ -410,38 +410,6 @@
       font-size: 0.92rem;
     }
 
-    .palette-chart {
-      display: grid;
-      grid-template-columns: 6fr 3fr 1fr;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      margin-top: 14px;
-    }
-
-    .swatch {
-      padding: 18px;
-      min-height: 112px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      font-family: "Space Grotesk", sans-serif;
-    }
-
-    .swatch strong { font-size: 1rem; }
-    .swatch span { font-size: .86rem; opacity: .9; }
-
-    .swatch-60 { background: #dddfb8; color: #2b3127; }
-    .swatch-30 { background: #a9c591; color: #1f251d; }
-    .swatch-10 { background: #b52326; color: #fff8e9; }
-
-    .palette-notes {
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: .93rem;
-    }
-
     .fade-in {
       opacity: 0;
       transform: translateY(16px);
@@ -461,7 +429,6 @@
       .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .grid-3 { grid-template-columns: 1fr; }
       .columns { grid-template-columns: 1fr; }
-      .palette-chart { grid-template-columns: 1fr; }
       .portal-hero { grid-template-columns: 1fr; }
       .portal-grid { grid-template-columns: 1fr; }
       .split { grid-template-columns: 1fr; }
@@ -547,23 +514,6 @@
           <a class="feature-link" href="#studio">Studio Model</a>
         </article>
       </div>
-      <div class="palette-chart" aria-label="Color balance chart for refined 60-30-10 composition">
-        <div class="swatch swatch-60">
-          <strong>60% Base · Cream Field</strong>
-          <span>#DDDFB8 · Main background and large surfaces</span>
-        </div>
-        <div class="swatch swatch-30">
-          <strong>30% Core · Soft Green</strong>
-          <span>#A9C591 · Brand blocks and hierarchy anchors</span>
-        </div>
-        <div class="swatch swatch-10">
-          <strong>10% Accent · Deep Red</strong>
-          <span>#B52326 · Emphasis and action points</span>
-        </div>
-      </div>
-      <p class="palette-notes">
-        보조 톤은 Green Base(#6EA153), Paper(#F4F2E3), Ink(#1F251D)로 구성해 가독성과 대비를 강화했습니다.
-      </p>
     </section>
 
     <section id="phases">
