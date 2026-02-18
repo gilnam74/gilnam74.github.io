@@ -160,6 +160,151 @@
       display: block;
     }
 
+    .portal-hero {
+      padding: 74px 0 48px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .portal-copy {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 34px;
+    }
+
+    .kicker {
+      font-size: .76rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .portal-copy p { color: var(--muted); margin: 14px 0 0; }
+
+    .portal-art {
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      min-height: 320px;
+    }
+
+    .portal-art img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .feature-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .feature-card h3 { margin: 0; }
+    .feature-card p { margin: 0; color: var(--muted); }
+
+    .feature-link {
+      margin-top: auto;
+      text-decoration: none;
+      color: var(--brand);
+      font-weight: 700;
+      font-size: .9rem;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .split-media {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      min-height: 240px;
+      box-shadow: var(--shadow);
+    }
+
+    .split-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .pill-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .pill-links a {
+      text-decoration: none;
+      border: 1px solid rgba(31, 94, 102, .3);
+      border-radius: 999px;
+      padding: 7px 12px;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: .86rem;
+      background: rgba(31, 94, 102, .08);
+    }
+
+    .triple {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    .product-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-copy { padding: 16px; }
+    .product-copy p { color: var(--muted); margin: 8px 0 0; }
+
     section { padding: 40px 0; }
 
     .section-intro {
@@ -315,6 +460,11 @@
       .grid-3 { grid-template-columns: 1fr; }
       .columns { grid-template-columns: 1fr; }
       .palette-chart { grid-template-columns: 1fr; }
+      .portal-hero { grid-template-columns: 1fr; }
+      .portal-grid { grid-template-columns: 1fr; }
+      .split { grid-template-columns: 1fr; }
+      .triple { grid-template-columns: 1fr; }
+      .product-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 640px) {
@@ -331,203 +481,169 @@
     <div class="container topbar">
       <div class="brand">DOOBOB • Houdini Master Program</div>
       <nav>
-        <a href="#overview">Overview</a>
-        <a href="#phases">Phases</a>
-        <a href="#tracks">Tracks</a>
-        <a href="#studio">Studio Model</a>
-        <a href="#career">Career</a>
+        <a href="#portal">Start Here</a>
+        <a href="#foundations">Foundations</a>
+        <a href="#education">Education</a>
+        <a href="#production">Production</a>
+        <a href="#products">Products</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <section class="hero" id="overview">
-      <article class="hero-card">
-        <span class="eyebrow">Advanced Diploma / Master Certificate</span>
-        <h1>Houdini Master Program – Film &amp; Game (DOOBOB)</h1>
+    <section class="portal-hero" id="portal">
+      <article class="portal-copy">
+        <span class="kicker">Start Here</span>
+        <h1>DOOBOB Houdini Learning Portal</h1>
         <p>
-          Think Tank형 성장 곡선에 DOOBOB의 실시간 제작 역량을 결합한 12개월 집중 과정.
-          Houdini 기반 Procedural FX를 Film, Game, Tech Art production으로 연결합니다.
+          학습 경로, 튜토리얼 라이브러리, 실무형 콘텐츠를 한 페이지에서 시작할 수 있도록 재구성했습니다.
+          SideFX Start Here 흐름처럼 입문부터 실전까지 단계적으로 이동할 수 있습니다.
         </p>
-        <div class="hero-stats">
-          <div class="stat"><strong>12 Months</strong>48–52 weeks</div>
-          <div class="stat"><strong>3 Tracks</strong>Film / Game / Tech Art</div>
-          <div class="stat"><strong>Pipeline</strong>Houdini → Unreal / Niagara / PCG</div>
-          <div class="stat"><strong>Outcome</strong>Demo Reel + Portfolio + Studio Workflow</div>
+        <div class="pill-links">
+          <a href="#foundations">Foundations</a>
+          <a href="#education">Education Programs</a>
+          <a href="#production">Production Resources</a>
         </div>
       </article>
-      <aside class="hero-media" aria-label="Houdini FX visual">
-        <img src="https://www.sidefx.com/media/uploads/products/features/modeling2.png" alt="Houdini modeling visual from SideFX" loading="lazy" />
+      <aside class="portal-art" aria-label="Learning portal key visual">
+        <img
+          src="https://images.pexels.com/photos/32573503/pexels-photo-32573503.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=2200&amp;dpr=1"
+          srcset="https://images.pexels.com/photos/32573503/pexels-photo-32573503.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600&amp;dpr=1 1600w, https://images.pexels.com/photos/32573503/pexels-photo-32573503.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=2200&amp;dpr=1 2200w, https://images.pexels.com/photos/32573503/pexels-photo-32573503.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=2800&amp;dpr=1 2800w"
+          sizes="(max-width: 1000px) 92vw, 48vw"
+          alt="Abstract geometric portal visual"
+          loading="lazy"
+        />
       </aside>
     </section>
 
     <section>
-      <h2>Program Vision</h2>
-      <p class="section-intro">
-        Houdini Specialist를 넘어 Real-Time과 Pipeline을 이해하는 Production-ready artist를 육성합니다.
-        핵심 차별 요소는 FX + Environment + Tech Art 융합, Mentor 중심 피드백, Studio-style 팀 제작입니다.
-      </p>
-      <div class="grid grid-3">
-        <article class="card fade-in">
-          <h3>Procedural Mindset</h3>
-          <p>노드/속성/시스템 관점으로 재사용 가능한 디자인 구조를 설계합니다.</p>
+      <h2>Learning Hub</h2>
+      <p class="section-intro">SideFX Start Here와 같은 3-입구 구조로 구성했습니다. 먼저 경로를 고르고, 튜토리얼로 학습한 뒤, 개인 학습 트래킹으로 이어집니다.</p>
+      <div class="portal-grid">
+        <article class="feature-card">
+          <span class="kicker">01</span>
+          <h3>Learning Paths</h3>
+          <p>관심 분야별 큐레이션 경로로 빠르게 시작하고 순서대로 역량을 쌓습니다.</p>
+          <a class="feature-link" href="#foundations">Explore Paths</a>
         </article>
-        <article class="card fade-in">
-          <h3>Real-Time Integration</h3>
-          <p>Houdini 결과물을 Unreal, Niagara, PCG 파이프라인으로 연결합니다.</p>
+        <article class="feature-card">
+          <span class="kicker">02</span>
+          <h3>Learning Library</h3>
+          <p>튜토리얼, 프로젝트 파일, 발표 자료를 한 곳에서 검색하고 활용합니다.</p>
+          <a class="feature-link" href="#production">Browse Library</a>
         </article>
-        <article class="card fade-in">
-          <h3>Studio Simulation</h3>
-          <p>실무처럼 역할 분화된 팀 스프린트와 산업 멘토 크리틱으로 완성도를 높입니다.</p>
+        <article class="feature-card">
+          <span class="kicker">03</span>
+          <h3>My Learning</h3>
+          <p>북마크, 진도, 재학습 리스트를 구성해 개인별 학습 리듬을 유지합니다.</p>
+          <a class="feature-link" href="#products">Track Progress</a>
         </article>
       </div>
-      <div class="palette-chart" aria-label="Color balance chart for refined 60-30-10 composition">
-        <div class="swatch swatch-60">
-          <strong>60% Base · Ivory Mist</strong>
-          <span>#FBF8F2 · Main background and large surfaces</span>
-        </div>
-        <div class="swatch swatch-30">
-          <strong>30% Core · Deep Teal</strong>
-          <span>#1F5E66 · Brand blocks and hierarchy anchors</span>
-        </div>
-        <div class="swatch swatch-10">
-          <strong>10% Accent · Copper Clay</strong>
-          <span>#B86C42 · Emphasis and action points</span>
-        </div>
-      </div>
-      <p class="palette-notes">
-        보조 톤은 Slate Ink(#1D2328), Blue Steel(#345C86), Sage Dust(#7A8F6A)로 구성해 대비와 안정감을 동시에 확보했습니다.
-      </p>
     </section>
 
-    <section id="phases">
-      <h2>Overall Structure</h2>
-      <p class="section-intro">총 4개 Phase로 기초부터 포트폴리오 제작까지 연결됩니다.</p>
-      <div class="grid grid-4">
-        <article class="card fade-in">
-          <div class="phase-title"><span class="chip">Phase 1</span><h3>Procedural Foundations</h3></div>
-          <p><strong>12 weeks</strong> · Houdini 사고방식과 노드 기반 제작</p>
+    <section id="foundations">
+      <span class="kicker">Getting Started</span>
+      <h2>Houdini Foundations</h2>
+      <div class="split">
+        <article class="card">
+          <p>노드 기반 절차적 제작의 핵심을 단계별로 학습합니다. 기초 수업은 영상과 PDF를 함께 제공해 반복 학습이 가능합니다.</p>
           <ul>
-            <li>Houdini Fundamentals, Procedural Modeling, Attributes &amp; VEX</li>
-            <li>Lookdev &amp; Lighting, Intro FX, USD Scene Structure</li>
-            <li>Project: Procedural Asset Pack / Parametric Props / Modular Kit</li>
+            <li>Node Workflow / Attributes / VEX 입문</li>
+            <li>Procedural Modeling + Intro FX</li>
+            <li>Mini Project 기반 결과물 생성</li>
+          </ul>
+          <div class="pill-links">
+            <a href="#">Foundations Path</a>
+            <a href="#">Shortcuts</a>
+          </div>
+        </article>
+        <aside class="split-media">
+          <img
+            src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=2200"
+            alt="Procedural learning interface mood image"
+            loading="lazy"
+          />
+        </aside>
+      </div>
+    </section>
+
+    <section id="education">
+      <span class="kicker">Education</span>
+      <h2>Pursue a Deeper Understanding</h2>
+      <p class="section-intro">학생, 강사, 교육기관이 각각 필요한 학습 지원을 받을 수 있도록 교육 전용 흐름을 제공합니다.</p>
+      <div class="columns">
+        <article class="card">
+          <h3>For Students</h3>
+          <ul>
+            <li>학습 순서 추천과 과제 체크리스트</li>
+            <li>기초부터 포트폴리오 단계까지 단계화</li>
+            <li>입문자 기준의 도구/용어 가이드</li>
           </ul>
         </article>
-        <article class="card fade-in">
-          <div class="phase-title"><span class="chip">Phase 2</span><h3>FX &amp; Simulation Specialist</h3></div>
-          <p><strong>12 weeks</strong> · 시뮬레이션 핵심 능력 집중</p>
+        <article class="card">
+          <h3>For Instructors &amp; Schools</h3>
           <ul>
-            <li>Particles, RBD, Pyro, FLIP, Vellum, Groom</li>
-            <li>FX Optimization, Rendering &amp; Caching</li>
-            <li>Project: FX Shot (Film) + FX Asset (Game)</li>
-          </ul>
-        </article>
-        <article class="card fade-in">
-          <div class="phase-title"><span class="chip">Phase 3</span><h3>Track Specialization</h3></div>
-          <p><strong>12 weeks</strong> · Film / Game / Procedural Tech Art 트랙 심화</p>
-          <ul>
-            <li>목표 직무 기반 모듈 선택</li>
-            <li>트랙별 대표 산출물 제작</li>
-            <li>캡스톤 초안 및 실무형 리뷰</li>
-          </ul>
-        </article>
-        <article class="card fade-in">
-          <div class="phase-title"><span class="chip">Phase 4</span><h3>Master Production</h3></div>
-          <p><strong>12–16 weeks</strong> · 포트폴리오와 실전 제작</p>
-          <ul>
-            <li>Industry mentor pairing, Studio sprint</li>
-            <li>Demo reel, Career branding, Interview prep</li>
-            <li>Final: AAA FX shots / Real-time system / Procedural tools</li>
+            <li>커리큘럼 템플릿과 수업 운영 가이드</li>
+            <li>실습 중심 평가 루브릭</li>
+            <li>스튜디오형 팀 프로젝트 운영 모델</li>
           </ul>
         </article>
       </div>
     </section>
 
-    <section id="tracks">
-      <h2>Phase 3 Tracks</h2>
-      <p class="section-intro">트랙마다 결과물의 기준이 다릅니다. Film은 샷 완성도, Game은 실시간 최적화, Tech Art는 툴/파이프라인 재사용성이 핵심입니다.</p>
-      <div class="grid grid-3">
-        <article class="card track fade-in">
-          <h3>Film FX Track</h3>
-          <p>고품질 시뮬레이션 샷을 설계, 라이팅, 렌더, 컴포지팅까지 완성.</p>
-          <ul>
-            <li>Hero Pyro/FLIP/RBD/Vellum 시뮬레이션</li>
-            <li>Solaris/USD, Karma, AOVs, Nuke comp</li>
-            <li>포트폴리오: Film FX Shots 2–3 + Breakdown Package</li>
-          </ul>
+    <section id="production">
+      <span class="kicker">In Production</span>
+      <h2>Take Learning to the Next Level</h2>
+      <p class="section-intro">튜토리얼 기반 지식에서 실무 적용으로 넘어가는 구간입니다. 발표, 데모, 콘텐츠 자산을 조합해 실제 파이프라인 감각을 강화합니다.</p>
+      <div class="triple">
+        <article class="card">
+          <h3>Talks &amp; Webinars</h3>
+          <p>산업 전문가의 워크플로우와 문제 해결 사례를 학습합니다.</p>
         </article>
-        <article class="card track fade-in">
-          <h3>Game FX Track</h3>
-          <p>게임 플레이 환경에서 안정적으로 동작하는 리얼타임 FX 제작.</p>
-          <ul>
-            <li>Niagara 시스템, 이벤트, 리본, GPU/CPU</li>
-            <li>Shader/Material 기반 stylized FX</li>
-            <li>포트폴리오: FX Pack 10~20 + Playable Showcase + Budget Sheet</li>
-          </ul>
+        <article class="card">
+          <h3>Tech Demos</h3>
+          <p>기능 중심 데모를 통해 툴의 의도와 실제 적용 패턴을 익힙니다.</p>
         </article>
-        <article class="card track fade-in">
-          <h3>Procedural Tech Art Track</h3>
-          <p>아티스트와 레벨팀을 위한 프로시저럴 툴/월드 시스템 구축.</p>
-          <ul>
-            <li>HDA 설계/배포, Houdini Engine for Unreal</li>
-            <li>PCG Graph + Houdini Hybrid Workflow</li>
-            <li>포트폴리오: Environment Toolset + UE PCG Demo</li>
-          </ul>
+        <article class="card">
+          <h3>Content Library</h3>
+          <p>씬 파일/HDA를 분석하고 프로젝트에 바로 재활용합니다.</p>
         </article>
       </div>
       <div class="banner">
-        <img src="https://www.sidefx.com/media/uploads/products/features/pryofx.png" alt="Houdini Pyro FX visual from SideFX" loading="lazy" />
+        <img
+          src="https://images.pexels.com/photos/26559576/pexels-photo-26559576.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=2600&amp;dpr=1"
+          srcset="https://images.pexels.com/photos/26559576/pexels-photo-26559576.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1800&amp;dpr=1 1800w, https://images.pexels.com/photos/26559576/pexels-photo-26559576.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=2600&amp;dpr=1 2600w, https://images.pexels.com/photos/26559576/pexels-photo-26559576.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=3200&amp;dpr=1 3200w"
+          sizes="92vw"
+          alt="Production workflow themed visual"
+          loading="lazy"
+        />
       </div>
     </section>
 
-    <section id="studio">
-      <h2>DOOBOB Studio Production Model</h2>
-      <div class="columns">
-        <article class="card">
-          <h3>Junior Studio Concept</h3>
-          <ul>
-            <li>역할 분화: FX Artist / Procedural Modeler / Tech Artist / Environment Artist</li>
-            <li>팀 프로젝트: Game level FX package, Cinematic destruction, Procedural city tool</li>
-            <li>실무형 스프린트로 협업/핸드오프/피드백 루프 경험</li>
-          </ul>
+    <section id="products">
+      <span class="kicker">Learning Products</span>
+      <h2>Choose Your Access Level</h2>
+      <div class="product-grid">
+        <article class="product-card">
+          <img src="https://images.pexels.com/photos/32573503/pexels-photo-32573503.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" alt="Apprentice plan visual" loading="lazy" />
+          <div class="product-copy">
+            <h3>Houdini Apprentice</h3>
+            <p>개인 비상업 학습용 무료 옵션으로 대부분의 핵심 기능을 실습할 수 있습니다.</p>
+          </div>
         </article>
-        <article class="card">
-          <h3>DOOBOB Signature Modules</h3>
-          <ul>
-            <li>Procedural Thinking for Artists</li>
-            <li>Houdini for Level Design</li>
-            <li>Real-Time FX Architecture</li>
-            <li>FX Optimization for Games</li>
-            <li>Procedural World Systems / AI + Houdini Workflows</li>
-          </ul>
+        <article class="product-card">
+          <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" alt="Education plan visual" loading="lazy" />
+          <div class="product-copy">
+            <h3>Houdini Education</h3>
+            <p>학교 및 트레이닝 센터 학습자를 위한 라이선스 기반 교육용 접근입니다.</p>
+          </div>
         </article>
-      </div>
-      <div class="cta">
-        <h3>Delivery Model</h3>
-        <p>Weekly Lab · Live FX Demo · Mentor Critique · Studio Review · Recorded Library</p>
-      </div>
-    </section>
-
-    <section id="career">
-      <h2>Career &amp; Admissions</h2>
-      <div class="columns">
-        <article class="card">
-          <h3>Career Outcomes</h3>
-          <ul>
-            <li>FX Artist (Film)</li>
-            <li>FX Artist (Games)</li>
-            <li>Technical Artist</li>
-            <li>Procedural Artist</li>
-            <li>Houdini Environment Artist / Simulation Artist</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Admission Level</h3>
-          <ul>
-            <li>3D fundamentals or equivalent</li>
-            <li>또는 DOOBOB 3D/GDD 졸업자</li>
-            <li>또는 포트폴리오 심사</li>
-          </ul>
+        <article class="product-card">
+          <img src="https://images.pexels.com/photos/26559576/pexels-photo-26559576.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" alt="Indie plan visual" loading="lazy" />
+          <div class="product-copy">
+            <h3>Houdini Indie</h3>
+            <p>독립 제작자와 소규모 팀의 제한적 상업 프로젝트를 위한 선택지입니다.</p>
+          </div>
         </article>
       </div>
     </section>
