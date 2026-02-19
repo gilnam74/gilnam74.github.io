@@ -269,11 +269,77 @@ section { padding: 40px 0; }
 
 #phases {
   background:
-    radial-gradient(circle at 86% 16%, rgba(162, 126, 82, 0.3), transparent 46%),
-    linear-gradient(180deg, rgba(194, 178, 136, 0.42), rgba(179, 157, 113, 0.22));
-  border: 1px solid rgba(136, 102, 62, 0.34);
+    radial-gradient(circle at 86% 14%, rgba(42, 68, 112, 0.18), transparent 46%),
+    linear-gradient(180deg, rgba(229, 236, 245, 0.88), rgba(213, 224, 238, 0.58));
+  border: 1px solid rgba(63, 91, 132, 0.24);
   border-radius: 20px;
   padding: 28px;
+}
+
+.phase-stack {
+  display: grid;
+  gap: 14px;
+}
+
+.phase-row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(63, 91, 132, 0.28);
+  background: rgba(247, 250, 255, 0.92);
+  box-shadow: 0 12px 30px rgba(23, 34, 54, 0.08);
+}
+
+.phase-label {
+  background:
+    linear-gradient(160deg, #25385f 0%, #314a7b 100%);
+  color: #f4f7ff;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.phase-chip {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  border-radius: 999px;
+  background: rgba(248, 193, 96, 0.22);
+  border: 1px solid rgba(248, 193, 96, 0.45);
+  color: #ffe8b2;
+  padding: 6px 10px;
+}
+
+.phase-label strong {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+}
+
+.phase-content {
+  padding: 20px 20px 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(243, 247, 254, 0.88));
+}
+
+.phase-content h3 {
+  margin: 0 0 6px;
+}
+
+.phase-content p {
+  margin: 0;
+  color: #4c5973;
+}
+
+.phase-content ul {
+  margin-top: 12px;
 }
 
 #tracks {
@@ -452,6 +518,8 @@ footer {
   .portal-hero { grid-template-columns: 1fr; }
   .portal-grid { grid-template-columns: 1fr; }
   .triple { grid-template-columns: 1fr; }
+  .phase-row { grid-template-columns: 1fr; }
+  .phase-label { border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
   #vision,
   #phases,
   #tracks,

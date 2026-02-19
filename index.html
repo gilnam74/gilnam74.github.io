@@ -10,11 +10,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #33444f;
-      --panel: #c9cdd1;
-      --ink: #222a31;
-      --line: #b5bcc2;
-      --accent: #f39a52;
+      --bg: #d7d5c3;
+      --panel: #ece8d9;
+      --ink: #20263a;
+      --line: #c4bea6;
+      --accent: #2f3f63;
+      --accent-2: #314a7b;
+      --pill: #ffe8b2;
     }
 
     * { box-sizing: border-box; }
@@ -23,8 +25,12 @@
       margin: 0;
       min-height: 100vh;
       font-family: "Google Sans", "Google Sans Text", "Product Sans", sans-serif;
-      background: radial-gradient(circle at 15% 8%, #415361 0%, #33444f 45%, #2b3943 100%);
-      color: #e9ecf0;
+      background:
+        radial-gradient(circle at 84% -10%, rgba(55, 61, 89, 0.16) 0%, transparent 44%),
+        radial-gradient(circle at 10% 12%, rgba(159, 173, 184, 0.22) 0%, transparent 40%),
+        linear-gradient(180deg, rgba(207, 199, 170, 0.2) 0%, rgba(215, 213, 195, 0.04) 40%),
+        var(--bg);
+      color: var(--ink);
       padding: 28px;
     }
 
@@ -57,7 +63,7 @@
     .subtitle {
       margin: 2px 0 0;
       font-size: 1rem;
-      color: #d7dde3;
+      color: #4e5868;
     }
 
     .program-grid {
@@ -69,13 +75,13 @@
     .program-card {
       background: var(--panel);
       border: 1px solid var(--line);
-      outline: 3px solid rgba(255, 255, 255, 0.28);
+      outline: 3px solid rgba(255, 255, 255, 0.34);
       outline-offset: -3px;
       border-radius: 22px;
       padding: 34px 30px;
       color: var(--ink);
       text-align: center;
-      box-shadow: 0 18px 36px rgba(9, 13, 17, 0.2);
+      box-shadow: 0 18px 36px rgba(13, 16, 22, 0.14);
       transition: transform 320ms cubic-bezier(.22, .61, .36, 1),
                   box-shadow 320ms cubic-bezier(.22, .61, .36, 1),
                   border-color 240ms ease,
@@ -86,10 +92,10 @@
 
     .program-card:hover {
       transform: translateY(-10px) scale(1.012);
-      box-shadow: 0 30px 58px rgba(9, 13, 17, 0.34);
-      border-color: #8e97a0;
-      outline-color: rgba(243, 154, 82, 0.9);
-      background: linear-gradient(160deg, #d2d6da 0%, #c5cbd0 100%);
+      box-shadow: 0 30px 58px rgba(13, 16, 22, 0.22);
+      border-color: #9ea8bf;
+      outline-color: rgba(49, 74, 123, 0.45);
+      background: linear-gradient(160deg, #f1eddf 0%, #e8e2cf 100%);
     }
 
     .icon {
@@ -123,13 +129,13 @@
       margin: 18px 0 22px;
       font-size: 1.05rem;
       line-height: 1.6;
-      color: #394550;
+      color: #4e5868;
       transition: color 260ms ease;
     }
 
     .program-card a {
       text-decoration: none;
-      color: #24303a;
+      color: #2f3653;
       font-weight: 600;
       letter-spacing: 0.04em;
       border-bottom: 2px solid transparent;
@@ -139,11 +145,11 @@
 
     .program-card a:hover {
       border-bottom-color: var(--accent);
-      color: #1d2a34;
+      color: #25304f;
     }
 
     .program-card:hover h2 {
-      color: #c96f20;
+      color: var(--accent-2);
     }
 
     .coming {
@@ -151,8 +157,9 @@
       margin-top: 8px;
       padding: 7px 12px;
       border-radius: 999px;
-      background: #f39a52;
-      color: #172029;
+      background: rgba(49, 74, 123, 0.14);
+      border: 1px solid rgba(49, 74, 123, 0.32);
+      color: #2f3f63;
       font-size: 0.84rem;
       font-weight: 700;
       letter-spacing: 0.04em;
@@ -166,7 +173,7 @@
     .site-footer {
       margin-top: 22px;
       text-align: center;
-      color: #d4dbe2;
+      color: #5b6575;
       font-size: 0.92rem;
       letter-spacing: 0.02em;
     }
