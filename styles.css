@@ -337,6 +337,24 @@ section { padding: 40px 0; }
 
 .cta p { margin: 8px 0 0; color: rgba(245, 255, 252, 0.9); }
 
+.source-links {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.source-links a {
+  text-decoration: none;
+  border: 1px solid rgba(55, 61, 89, .35);
+  border-radius: 999px;
+  padding: 7px 12px;
+  color: #2f3653;
+  font-weight: 600;
+  font-size: .84rem;
+  background: rgba(55, 61, 89, .08);
+}
+
 footer {
   padding: 28px 0 46px;
   color: var(--muted);
