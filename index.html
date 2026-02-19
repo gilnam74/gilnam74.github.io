@@ -10,138 +10,163 @@
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink: #f4f1e7;
-      --panel: #323a56;
-      --panel-alt: #5f6f86;
-      --line: #9ba8b8;
-      --accent: #d8cbb0;
-      --bg: radial-gradient(circle at 20% 20%, #5b6681 0%, #323a56 45%, #262d43 100%);
+      --bg: #33444f;
+      --panel: #c9cdd1;
+      --ink: #222a31;
+      --line: #b5bcc2;
+      --accent: #f39a52;
     }
 
     * { box-sizing: border-box; }
-
-    .google-sans-main {
-      font-family: "Google Sans", sans-serif;
-      font-optical-sizing: auto;
-      font-weight: 400;
-      font-style: normal;
-      font-variation-settings: "GRAD" 0;
-    }
 
     body {
       margin: 0;
       min-height: 100vh;
       font-family: "Google Sans", "Google Sans Text", "Product Sans", sans-serif;
-      color: var(--ink);
-      background: var(--bg);
-      display: grid;
-      place-items: center;
-      padding: 32px 20px;
+      background: radial-gradient(circle at 15% 8%, #415361 0%, #33444f 45%, #2b3943 100%);
+      color: #e9ecf0;
+      padding: 28px;
     }
 
-    .gateway {
-      width: min(1100px, 100%);
-      display: grid;
-      gap: 22px;
+    .wrap {
+      width: min(1220px, 100%);
+      margin: 0 auto;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 14px;
-      padding: 20px 6px 4px;
+      margin-bottom: 24px;
     }
 
     .brand img {
-      width: 62px;
-      height: 62px;
+      width: 54px;
+      height: 54px;
       object-fit: contain;
-      border-radius: 12px;
+      border-radius: 10px;
     }
 
     .brand h1 {
       margin: 0;
-      font-size: clamp(2rem, 4vw, 3rem);
-      letter-spacing: 0.03em;
-    }
-
-    .subtitle {
-      margin: 0;
-      padding: 0 6px 8px;
-      color: #ddd7c8;
-      font-size: clamp(0.95rem, 1.6vw, 1.1rem);
-      font-weight: 500;
+      font-size: clamp(1.7rem, 3.6vw, 2.5rem);
+      font-weight: 600;
       letter-spacing: 0.02em;
     }
 
-    .program {
-      border: 1px solid color-mix(in oklab, var(--line), #000 10%);
-      border-radius: 20px;
-      padding: 28px;
-      background: linear-gradient(150deg, color-mix(in oklab, var(--panel), #fff 4%), var(--panel));
-      box-shadow: 0 20px 50px rgba(10, 15, 28, 0.28);
-      transition: background 180ms ease, border-color 180ms ease;
+    .subtitle {
+      margin: 2px 0 0;
+      font-size: 1rem;
+      color: #d7dde3;
     }
 
-    .program:hover {
-      background: linear-gradient(150deg, #de8a2f, #c96f20);
-      border-color: #f3cfab;
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
     }
 
-    h2 {
-      margin: 0;
-      font-size: clamp(1.85rem, 4vw, 3rem);
-      line-height: 1.15;
-      letter-spacing: 0.01em;
-      font-family: "Google Sans", "Google Sans Text", "Product Sans", sans-serif;
-      font-weight: 400;
-    }
-
-    .program-link {
-      display: block;
+    .program-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 34px 30px;
       color: var(--ink);
+      text-align: center;
+      box-shadow: 0 18px 36px rgba(9, 13, 17, 0.2);
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .program-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 44px rgba(9, 13, 17, 0.27);
+      border-color: #929ca4;
+    }
+
+    .icon {
+      font-size: 2.4rem;
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+
+    .program-card h2 {
+      margin: 0;
+      font-weight: 500;
+      font-size: clamp(1.45rem, 2.4vw, 2rem);
+      line-height: 1.2;
+    }
+
+    .program-card p {
+      margin: 18px 0 22px;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #394550;
+    }
+
+    .program-card a {
       text-decoration: none;
-      transition: transform 160ms ease;
-      font-family: "Google Sans", "Google Sans Text", "Product Sans", sans-serif !important;
+      color: #24303a;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 3px;
     }
 
-    .program-link * {
-      font-family: inherit !important;
-    }
-
-    .program-link:hover {
-      transform: translateY(-2px);
+    .program-card a:hover {
+      border-bottom-color: var(--accent);
+      color: #1d2a34;
     }
 
     .coming {
-      margin-top: 16px;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #f5e8c9;
+      display: inline-block;
+      margin-top: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #f39a52;
+      color: #172029;
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 1024px) {
+      .program-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <main class="gateway" aria-label="Program list">
-    <header>
-      <div class="brand">
-        <img src="assets/images/Doobob Games Logo_400size.png" alt="DOOBOB logo" />
+  <main class="wrap" aria-label="Program list">
+    <header class="brand">
+      <img src="assets/images/Doobob Games Logo_400size.png" alt="DOOBOB logo" />
+      <div>
         <h1>DOOBOB</h1>
+        <p class="subtitle">Visual Effect | Game | Commercial | Tech Art</p>
       </div>
-      <p class="subtitle">Visual Effect | Game | Commercial | Tech Art</p>
     </header>
 
-    <section class="program">
-      <a class="program-link" href="houdini.html">
-        <h2 class="google-sans-main">Houdini Master Program - Film &amp; Game</h2>
-      </a>
-    </section>
+    <section class="program-grid">
+      <article class="program-card">
+        <div class="icon" aria-hidden="true">FX</div>
+        <h2>Houdini Master Program</h2>
+        <p>Production-focused training for Film and Game workflows with Houdini, Unreal, and real studio practices.</p>
+        <a href="houdini.html">LEARN MORE</a>
+      </article>
 
-    <section class="program">
-      <a class="program-link" href="ai-driven-program.html">
-        <h2 class="google-sans-main">AI Driven Program - Film &amp; Commercial</h2>
-      </a>
-      <p class="coming">Coming Soon</p>
+      <article class="program-card">
+        <div class="icon" aria-hidden="true">AI</div>
+        <h2>AI Driven Program</h2>
+        <p>Film and Commercial focused curriculum that blends AI workflows with production-ready technical direction.</p>
+        <a href="ai-driven-program.html">LEARN MORE</a>
+      </article>
+
+      <article class="program-card">
+        <div class="icon" aria-hidden="true">KO</div>
+        <h2>Houdini Program (Korean)</h2>
+        <p>Korean-language version of the Houdini Master Program for localized overview and curriculum navigation.</p>
+        <a href="index-ko.html">LEARN MORE</a>
+        <span class="coming">Ready</span>
+      </article>
     </section>
   </main>
 </body>
