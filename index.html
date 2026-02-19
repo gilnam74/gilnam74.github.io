@@ -113,6 +113,17 @@
       animation: spin360 1.1s linear infinite;
     }
 
+    .program-thumb {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid rgba(34, 42, 49, 0.14);
+      margin: 2px 0 16px;
+      display: block;
+      box-shadow: 0 8px 18px rgba(9, 13, 17, 0.16);
+    }
+
     @keyframes spin360 {
       from { transform: translateY(-2px) scale(1.08) rotate(0deg); }
       to { transform: translateY(-2px) scale(1.08) rotate(360deg); }
@@ -192,6 +203,7 @@
     <section class="program-grid">
       <a class="program-card" href="houdini.html" aria-label="Houdini Master Program - Film and Game">
         <img class="icon" src="https://api.iconify.design/heroicons:film.svg?color=%23222a31" alt="" aria-hidden="true" />
+        <img class="program-thumb" src="assets/images/title.webp" alt="Houdini visual preview" loading="lazy" />
         <h2>Houdini Master Program – Film &amp; Game</h2>
         <p>Production-focused training for Film and Game workflows with Houdini, Unreal, and real studio practices.</p>
         <span class="learn-more">LEARN MORE</span>
