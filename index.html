@@ -74,13 +74,18 @@
       color: var(--ink);
       text-align: center;
       box-shadow: 0 18px 36px rgba(9, 13, 17, 0.2);
-      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+      transition: transform 320ms cubic-bezier(.22, .61, .36, 1),
+                  box-shadow 320ms cubic-bezier(.22, .61, .36, 1),
+                  border-color 240ms ease,
+                  background 320ms ease;
+      will-change: transform, box-shadow;
     }
 
     .program-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 24px 44px rgba(9, 13, 17, 0.27);
-      border-color: #929ca4;
+      transform: translateY(-10px) scale(1.012);
+      box-shadow: 0 30px 58px rgba(9, 13, 17, 0.34);
+      border-color: #8e97a0;
+      background: linear-gradient(160deg, #d2d6da 0%, #c5cbd0 100%);
     }
 
     .icon {
@@ -88,6 +93,12 @@
       height: 52px;
       margin: 0 auto 18px;
       display: block;
+      transition: transform 320ms cubic-bezier(.22, .61, .36, 1), filter 320ms ease;
+    }
+
+    .program-card:hover .icon {
+      transform: translateY(-2px) scale(1.08);
+      filter: drop-shadow(0 8px 14px rgba(34, 42, 49, 0.22));
     }
 
     .program-card h2 {
@@ -95,6 +106,7 @@
       font-weight: 500;
       font-size: clamp(1.45rem, 2.4vw, 2rem);
       line-height: 1.2;
+      transition: color 260ms ease;
     }
 
     .program-card p {
@@ -102,6 +114,7 @@
       font-size: 1.05rem;
       line-height: 1.6;
       color: #394550;
+      transition: color 260ms ease;
     }
 
     .program-card a {
@@ -111,11 +124,18 @@
       letter-spacing: 0.04em;
       border-bottom: 2px solid transparent;
       padding-bottom: 3px;
+      transition: color 260ms ease, border-bottom-color 260ms ease;
     }
 
     .program-card a:hover {
       border-bottom-color: var(--accent);
       color: #1d2a34;
+    }
+
+    .program-card:hover h2,
+    .program-card:hover p,
+    .program-card:hover a {
+      color: #c96f20;
     }
 
     .coming {
