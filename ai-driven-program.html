@@ -3,81 +3,268 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Driven Program - Film & Commercial - Coming Soon</title>
-  <meta name="description" content="AI Driven Program - Film & Commercial page coming soon." />
+  <title>AI Driven Program (DOOBOB)</title>
+  <meta name="description" content="DOOBOB Houdini Master Program: Film FX, Game FX, Procedural Tech Art for 12 months." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #1f2538;
-      --panel: #2b3350;
-      --ink: #f0ecdf;
-      --muted: #c8c1ad;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      background: radial-gradient(circle at 15% 20%, #3f4d73 0%, #1f2538 48%, #181d2c 100%);
-      color: var(--ink);
-      font-family: "Space Grotesk", sans-serif;
-    }
-
-    .card {
-      width: min(760px, 100%);
-      border-radius: 20px;
-      border: 1px solid #68759f;
-      background: linear-gradient(155deg, #33406a, var(--panel));
-      padding: 32px;
-      box-shadow: 0 16px 42px rgba(5, 8, 17, 0.35);
-    }
-
-    h1 {
-      margin: 0 0 12px;
-      font-size: clamp(1.7rem, 4.2vw, 2.7rem);
-      line-height: 1.2;
-    }
-
-    p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    .links {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-    }
-
-    a {
-      display: inline-block;
-      text-decoration: none;
-      color: var(--ink);
-      border: 1px solid #92a2d3;
-      border-radius: 999px;
-      padding: 9px 14px;
-      font-weight: 600;
-      background: rgba(7, 10, 18, 0.2);
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=IBM+Plex+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="card">
-    <h1>AI Driven Program - Film &amp; Commercial</h1>
-    <p>Coming Soon</p>
-    <div class="links">
-      <a href="index.html">Back to Program List</a>
-      <a href="houdini.html">Houdini Master Program (EN)</a>
-      <a href="index-ko.html">Houdini Master Program (KO)</a>
+  <header>
+    <div class="container topbar">
+      <div class="brand">
+        <img src="assets/images/Doobob Games Logo_400size.png" alt="DOOBOB logo" />
+        DOOBOB • AI Driven Program
+      </div>
+      <nav>
+        <a href="#overview">Overview</a>
+        <a href="#phases">Phases</a>
+        <a href="#tracks">Tracks</a>
+        <a href="#studio">Studio Model</a>
+        <a href="#instructor">Instructor</a>
+        <a href="#career">Career</a>
+        <a href="ai-driven-program.html">AI Program</a>
+      </nav>
+      <div class="lang-switch" aria-label="Language switch">
+        <a href="index-ko.html">KO</a>
+        <a href="houdini.html" class="active">EN</a>
+      </div>
     </div>
+  </header>
+
+  <main class="container">
+    <section class="portal-hero" id="overview">
+      <article class="portal-copy">
+        <span class="kicker">Advanced Diploma / Master Certificate</span>
+        <h1>AI Driven Program (DOOBOB)</h1>
+        <p>
+          Build blockbuster-grade FX in 12 months with DOOBOB's high-impact, production-first training.
+          The curriculum is built around Hollywood FX, Game FX, Tech Art, and Procedural Asset production workflows.
+        </p>
+        <div class="hero-stats">
+          <div class="stat"><strong>12 Months</strong>48–52 weeks</div>
+          <div class="stat"><strong>3 Tracks</strong>Film / Game / Tech Art</div>
+          <div class="stat"><strong>Workflow</strong>Houdini → Unreal / Niagara / PCG</div>
+          <div class="stat"><strong>Outcome</strong>Demo Reel + Portfolio + Studio Workflow</div>
+        </div>
+        <div class="pill-links">
+          <a href="#phases">Phases</a>
+          <a href="#tracks">Tracks</a>
+          <a href="#career">Career</a>
+          <a href="ai-driven-program.html">AI Program</a>
+        </div>
+      </article>
+      <aside class="portal-art" aria-label="Learning portal key visual">
+        <img
+          src="assets/images/title.webp"
+          alt="Houdini FX visual"
+          loading="lazy"
+        />
+      </aside>
+    </section>
+
+    <section id="vision">
+      <h2>Program Vision</h2>
+      <p class="section-intro">
+        We train production-ready artists who go beyond Houdini specialization to understand real-time workflows and pipelines.
+        Core differentiators are the integration of FX + Environment + Tech Art, mentor-driven feedback, and studio-style team production.
+      </p>
+      <div class="portal-grid">
+        <article class="feature-card">
+          <h3>Procedural Mindset</h3>
+          <p>Design reusable structures through node, attribute, and systems thinking.</p>
+          <a class="feature-link" href="#phases">See Structure</a>
+        </article>
+        <article class="feature-card">
+          <h3>Real-Time Integration</h3>
+          <p>Connect Houdini outputs to Unreal, Niagara, and PCG pipelines.</p>
+          <a class="feature-link" href="#tracks">View Tracks</a>
+        </article>
+        <article class="feature-card">
+          <h3>Studio Simulation</h3>
+          <p>Raise quality through role-based team sprints and industry mentor critiques, just like production.</p>
+          <a class="feature-link" href="#studio">Studio Model</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="phases">
+      <span class="kicker">Program Structure</span>
+      <h2>Overall Structure</h2>
+      <p class="section-intro">The curriculum is structured in four phases, from fundamentals to portfolio production.</p>
+      <div class="portal-grid portal-grid-2">
+        <article class="feature-card">
+          <h3>Phase 1 · Procedural Foundations</h3>
+          <p><strong>12 weeks</strong> · Houdini mindset and node-based production</p>
+          <ul>
+            <li>Houdini Fundamentals, Procedural Modeling, Attributes &amp; VEX</li>
+            <li>Lookdev &amp; Lighting, Intro FX, USD Scene Structure</li>
+            <li>Project: Procedural Asset Pack / Parametric Props / Modular Kit</li>
+          </ul>
+        </article>
+        <article class="feature-card">
+          <h3>Phase 2 · FX &amp; Simulation Specialist</h3>
+          <p><strong>12 weeks</strong> · Intensive focus on core simulation skills</p>
+          <ul>
+            <li>Particles, RBD, Pyro, FLIP, Vellum, Groom</li>
+            <li>FX Optimization, Rendering &amp; Caching</li>
+            <li>Project: FX Shot (Film) + FX Asset (Game)</li>
+          </ul>
+        </article>
+        <article class="feature-card">
+          <h3>Phase 3 · Track Specialization</h3>
+          <p><strong>12 weeks</strong> · Advanced specialization in Film / Game / Procedural Tech Art tracks</p>
+          <ul>
+            <li>Select modules based on target job roles</li>
+            <li>Create flagship deliverables for each track</li>
+            <li>Develop capstone drafts with production-style reviews</li>
+          </ul>
+        </article>
+        <article class="feature-card">
+          <h3>Phase 4 · Master Production</h3>
+          <p><strong>12–16 weeks</strong> · Portfolio building and real production practice</p>
+          <ul>
+            <li>Industry mentor pairing, Studio sprint</li>
+            <li>Demo reel, Career branding, Interview prep</li>
+            <li>Final: AAA FX shots / Real-time system / Procedural tools</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="tracks">
+      <span class="kicker">Track Specialization</span>
+      <h2>Phase 3 Tracks</h2>
+      <p class="section-intro">Each track uses different output standards: Film focuses on shot quality, Game on real-time optimization, and Tech Art on tool and pipeline reusability.</p>
+      <div class="triple">
+        <article class="card track">
+          <h3>Film FX Track</h3>
+          <p>Create high-quality simulation shots from design to lighting, rendering, and compositing.</p>
+          <ul>
+            <li>Hero Pyro/FLIP/RBD/Vellum simulations</li>
+            <li>Solaris/USD, Karma, AOVs, Nuke comp</li>
+            <li>Portfolio: 2-3 Film FX shots + breakdown package</li>
+          </ul>
+        </article>
+        <article class="card track">
+          <h3>Game FX Track</h3>
+          <p>Create real-time FX that run reliably in live gameplay environments.</p>
+          <ul>
+            <li>Niagara systems, events, ribbons, GPU/CPU workflows</li>
+            <li>Shader/material-based stylized FX</li>
+            <li>Portfolio: 10-20 FX pack + playable showcase + budget sheet</li>
+          </ul>
+        </article>
+        <article class="card track">
+          <h3>Procedural Tech Art Track</h3>
+          <p>Build procedural tools and world systems for artists and level teams.</p>
+          <ul>
+            <li>HDA design/deployment, Houdini Engine for Unreal</li>
+            <li>PCG Graph + Houdini Hybrid Workflow</li>
+            <li>Portfolio: Environment toolset + UE PCG demo</li>
+          </ul>
+        </article>
+      </div>
+      <div class="banner">
+        <img
+          src="assets/images/twiterBanner.png"
+          alt="Team-based digital production workspace"
+          loading="lazy"
+        />
+      </div>
+    </section>
+
+    <section id="studio">
+      <span class="kicker">Studio Model</span>
+      <h2>DOOBOB Studio Production Model</h2>
+      <div class="columns">
+        <article class="card">
+          <h3>Junior Studio Concept</h3>
+          <ul>
+            <li>Role specialization: FX Artist / Procedural Modeler / Tech Artist / Environment Artist</li>
+            <li>Team projects: Game level FX package, cinematic destruction, procedural city tool</li>
+            <li>Experience collaboration, handoff, and feedback loops through production-style sprints</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>DOOBOB Signature Modules</h3>
+          <ul>
+            <li>Procedural Thinking for Artists</li>
+            <li>Houdini for Level Design</li>
+            <li>Real-Time FX Architecture</li>
+            <li>FX Optimization for Games</li>
+            <li>Procedural World Systems / AI + Houdini Workflows</li>
+          </ul>
+        </article>
+      </div>
+      <div class="cta">
+        <h3>Delivery Model</h3>
+        <p>Weekly Lab · Live FX Demo · Mentor Critique · Studio Review · Recorded Library</p>
+      </div>
+    </section>
+
+    <section id="instructor">
+      <span class="kicker">Instructor</span>
+      <h2>Lead Instructor: Gil Nam Choi</h2>
+      <div class="columns">
+        <article class="card">
+          <img class="instructor-headshot" src="assets/images/mypicture_2026_v02.jpg" alt="Portrait of Gil Nam Choi" loading="lazy" />
+          <h3>Career Highlights</h3>
+          <ul>
+            <li>20+ years in blockbuster film VFX and AAA game development</li>
+            <li>Led and supervised teams at ILM, MPC, Weta FX, DNEG, Scanline, and Method Games</li>
+            <li>Technical Art Director at Kong Studios, focusing on Houdini-Unreal and AI pipelines</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Selected Credits & Teaching</h3>
+          <ul>
+            <li>Selected films: Kraven the Hunter, Shazam 2, The Adam Project, The Tomorrow War, Justice League, Sonic, Aquaman, Warcraft, Avengers: Age of Ultron, Transformers: Age of Extinction, Pacific Rim</li>
+            <li>Selected games: Call of Duty: Vanguard, Back 4 Blood, and current undisclosed AAA project</li>
+            <li>Head of Media Program (VCAD), SideFX Houdini Certified Instructor, and KPU Houdini mentor</li>
+            <li>MA in Multimedia (De Montfort University, UK)</li>
+          </ul>
+        </article>
+      </div>
+      <div class="source-links" aria-label="External profile sources">
+        <a href="https://www.linkedin.com/in/choi-gil-nam-6a441132/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+        <a href="https://vimeo.com/326981893" target="_blank" rel="noopener noreferrer">Film Showreel</a>
+        <a href="https://vimeo.com/784287548" target="_blank" rel="noopener noreferrer">Game Reel</a>
+        <a href="https://www.youtube.com/@doobobvfx" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+    </section>
+
+    <section id="career">
+      <span class="kicker">Admissions</span>
+      <h2>Career &amp; Admissions</h2>
+      <div class="columns">
+        <article class="card">
+          <h3>Career Outcomes</h3>
+          <ul>
+            <li>FX Artist (Film)</li>
+            <li>FX Artist (Games)</li>
+            <li>Technical Artist</li>
+            <li>Procedural Artist</li>
+            <li>Houdini Environment Artist / Simulation Artist</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Admission Level</h3>
+          <ul>
+            <li>3D fundamentals or equivalent</li>
+            <li>or DOOBOB 3D/GDD graduates</li>
+            <li>or portfolio review</li>
+          </ul>
+        </article>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div class="container">
+      AI Driven Program (DOOBOB) · Advanced Diploma / Master Certificate
+    </div>
+  </footer>
 </body>
 </html>
