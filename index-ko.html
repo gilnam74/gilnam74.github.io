@@ -61,11 +61,22 @@
     }
 
     .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-family: "Space Grotesk", sans-serif;
       font-size: 1rem;
       font-weight: 700;
       letter-spacing: 0.02em;
       color: #f4f3e7;
+    }
+
+    .brand img {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      object-fit: cover;
+      display: block;
     }
 
     nav {
@@ -471,7 +482,10 @@
 <body>
   <header>
     <div class="container topbar">
-      <div class="brand">DOOBOB • Houdini Master Program</div>
+      <div class="brand">
+        <img src="assets/images/Doobob Games Logo_400size.png" alt="DOOBOB logo" />
+        DOOBOB • Houdini Master Program
+      </div>
       <nav>
         <a href="#overview">Overview</a>
         <a href="#phases">Phases</a>
@@ -509,9 +523,7 @@
       </article>
       <aside class="portal-art" aria-label="Learning portal key visual">
         <img
-          src="https://images.pexels.com/photos/32573503/pexels-photo-32573503.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=2200&amp;dpr=1"
-          srcset="https://images.pexels.com/photos/32573503/pexels-photo-32573503.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600&amp;dpr=1 1600w, https://images.pexels.com/photos/32573503/pexels-photo-32573503.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=2200&amp;dpr=1 2200w, https://images.pexels.com/photos/32573503/pexels-photo-32573503.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=2800&amp;dpr=1 2800w"
-          sizes="(max-width: 1000px) 92vw, 48vw"
+          src="assets/images/title.webp"
           alt="Houdini FX visual"
           loading="lazy"
         />
@@ -622,9 +634,7 @@
       </div>
       <div class="banner">
         <img
-          src="https://images.pexels.com/photos/26559576/pexels-photo-26559576.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=2600&amp;dpr=1"
-          srcset="https://images.pexels.com/photos/26559576/pexels-photo-26559576.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1800&amp;dpr=1 1800w, https://images.pexels.com/photos/26559576/pexels-photo-26559576.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=2600&amp;dpr=1 2600w, https://images.pexels.com/photos/26559576/pexels-photo-26559576.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=3200&amp;dpr=1 3200w"
-          sizes="92vw"
+          src="assets/images/twiterBanner.png"
           alt="Team-based digital production workspace"
           loading="lazy"
         />
