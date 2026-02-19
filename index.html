@@ -7,7 +7,7 @@
   <meta name="description" content="DOOBOB program gateway: Houdini Master Program and AI Driven Program - Film & Commercial." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
   <style>
     :root {
       --ink: #f4f1e7;
@@ -20,10 +20,18 @@
 
     * { box-sizing: border-box; }
 
+    .google-sans-main {
+      font-family: "Google Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+      font-variation-settings: "GRAD" 0;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: "Google Sans", "Google Sans Text", "Product Sans", "Roboto", sans-serif;
+      font-family: "Google Sans", "Google Sans Text", "Product Sans", sans-serif;
       color: var(--ink);
       background: var(--bg);
       display: grid;
@@ -85,8 +93,8 @@
       font-size: clamp(1.85rem, 4vw, 3rem);
       line-height: 1.15;
       letter-spacing: 0.01em;
-      font-family: "Google Sans", "Google Sans Text", "Product Sans", "Roboto", sans-serif;
-      font-weight: 200;
+      font-family: "Google Sans", "Google Sans Text", "Product Sans", sans-serif;
+      font-weight: 400;
     }
 
     .program-link {
@@ -94,7 +102,7 @@
       color: var(--ink);
       text-decoration: none;
       transition: transform 160ms ease;
-      font-family: "Google Sans", "Google Sans Text", "Product Sans", "Roboto", sans-serif !important;
+      font-family: "Google Sans", "Google Sans Text", "Product Sans", sans-serif !important;
     }
 
     .program-link * {
@@ -125,13 +133,13 @@
 
     <section class="program">
       <a class="program-link" href="houdini.html">
-        <h2>Houdini Master Program - Film &amp; Game</h2>
+        <h2 class="google-sans-main">Houdini Master Program - Film &amp; Game</h2>
       </a>
     </section>
 
     <section class="program">
       <a class="program-link" href="ai-driven-program.html">
-        <h2>AI Driven Program - Film &amp; Commercial</h2>
+        <h2 class="google-sans-main">AI Driven Program - Film &amp; Commercial</h2>
       </a>
       <p class="coming">Coming Soon</p>
     </section>
