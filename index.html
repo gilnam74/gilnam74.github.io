@@ -69,8 +69,8 @@
     .program-card {
       background: var(--panel);
       border: 1px solid var(--line);
-      outline: 1px solid rgba(255, 255, 255, 0.28);
-      outline-offset: -1px;
+      outline: 3px solid rgba(255, 255, 255, 0.28);
+      outline-offset: -3px;
       border-radius: 22px;
       padding: 34px 30px;
       color: var(--ink);
@@ -103,6 +103,12 @@
     .program-card:hover .icon {
       transform: translateY(-2px) scale(1.08);
       filter: drop-shadow(0 8px 14px rgba(34, 42, 49, 0.22));
+      animation: spin360 1.1s linear infinite;
+    }
+
+    @keyframes spin360 {
+      from { transform: translateY(-2px) scale(1.08) rotate(0deg); }
+      to { transform: translateY(-2px) scale(1.08) rotate(360deg); }
     }
 
     .program-card h2 {
