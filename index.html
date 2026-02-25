@@ -90,6 +90,9 @@
       position: relative;
       overflow: hidden;
       isolation: isolate;
+      --hover-accent: #f39a52;
+      --hover-accent-rgb: 243, 154, 82;
+      --hover-title: #c96f20;
     }
 
     .program-card > * {
@@ -130,25 +133,37 @@
 
     .program-grid > .program-card:nth-child(1) {
       background: #cdd2d6;
+      --hover-accent: #f39a52;
+      --hover-accent-rgb: 243, 154, 82;
+      --hover-title: #c96f20;
     }
 
     .program-grid > .program-card:nth-child(2) {
       background: #d0d5da;
+      --hover-accent: #7fd8ff;
+      --hover-accent-rgb: 127, 216, 255;
+      --hover-title: #2f90c2;
     }
 
     .program-grid > .program-card:nth-child(3) {
       background: #c9cfd4;
+      --hover-accent: #ff98d6;
+      --hover-accent-rgb: 255, 152, 214;
+      --hover-title: #c25a99;
     }
 
     .program-grid > .program-card:nth-child(4) {
       background: #d4d8dc;
+      --hover-accent: #ff7f7f;
+      --hover-accent-rgb: 255, 127, 127;
+      --hover-title: #c84a4a;
     }
 
     .program-card:hover {
       transform: translateY(-10px) scale(1.012);
       box-shadow: 0 30px 58px rgba(9, 13, 17, 0.34);
       border-color: #8e97a0;
-      outline-color: rgba(243, 154, 82, 0.9);
+      outline-color: rgba(var(--hover-accent-rgb), 0.92);
       background: linear-gradient(160deg, #d2d6da 0%, #c5cbd0 100%);
     }
 
@@ -158,7 +173,7 @@
     }
 
     .program-card:focus-visible {
-      outline-color: rgba(243, 154, 82, 0.9);
+      outline-color: rgba(var(--hover-accent-rgb), 0.92);
     }
 
     .icon {
@@ -231,12 +246,12 @@
     }
 
     .program-card:hover .learn-more {
-      border-bottom-color: var(--accent);
+      border-bottom-color: var(--hover-accent);
       color: #1d2a34;
     }
 
     .program-card:hover h2 {
-      color: #c96f20;
+      color: var(--hover-title);
     }
 
     .coming {
