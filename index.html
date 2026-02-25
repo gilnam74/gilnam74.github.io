@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DOOBOB Programs</title>
-  <meta name="description" content="DOOBOB program gateway: Houdini Master Program and AI-Powered Film & Animation Program." />
+  <meta name="description" content="DOOBOB program gateway: Houdini Foundation, Houdini Master, Procedural Generation, and Portfolio Program." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
@@ -62,7 +62,7 @@
 
     .program-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 28px;
     }
 
@@ -177,7 +177,11 @@
       text-transform: uppercase;
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1280px) {
+      .program-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 760px) {
       .program-grid { grid-template-columns: 1fr; }
     }
 
@@ -201,11 +205,19 @@
     </header>
 
     <section class="program-grid">
-      <a class="program-card" href="houdini.html" aria-label="Houdini Master Program - Film and Game, 24 weeks">
+      <a class="program-card" href="houdini.html" aria-label="Houdini Foundation, 6 weeks">
         <img class="icon" src="https://api.iconify.design/heroicons:film.svg?color=%23222a31" alt="" aria-hidden="true" />
-        <img class="program-thumb" src="assets/images/title.webp" alt="Houdini visual preview" loading="lazy" />
-        <h2>Houdini Master Program – Film &amp; Game (24 weeks)</h2>
-        <p>Production-focused training for Film and Game workflows with Houdini, Unreal, and real studio practices.</p>
+        <img class="program-thumb" src="assets/images/title.webp" alt="Houdini foundation visual preview" loading="lazy" />
+        <h2>Houdini Foundation (6 weeks)</h2>
+        <p>Core Houdini essentials for beginners: modeling, attributes, simulations, and practical node workflow basics.</p>
+        <span class="learn-more">LEARN MORE</span>
+      </a>
+
+      <a class="program-card" href="houdini.html" aria-label="Houdini Master Program - Film and Game, 18 weeks">
+        <img class="icon" src="https://api.iconify.design/heroicons:sparkles.svg?color=%23222a31" alt="" aria-hidden="true" />
+        <img class="program-thumb" src="assets/images/HoudiniVFXGameThumnail.jpg" alt="Houdini master film and game visual preview" loading="lazy" />
+        <h2>Houdini Master Program - Film &amp; Game (18 weeks)</h2>
+        <p>Advanced production track for Film and Game pipelines with FX, procedural assets, and studio-ready workflows.</p>
         <span class="learn-more">LEARN MORE</span>
       </a>
 
@@ -217,11 +229,11 @@
         <span class="learn-more">LEARN MORE</span>
       </div>
 
-      <div class="program-card" aria-label="AI-Powered Film and Animation Program">
-        <img class="icon" src="https://api.iconify.design/heroicons:cpu-chip.svg?color=%23222a31" alt="" aria-hidden="true" />
-        <img class="program-thumb" src="assets/images/aipowered_banner.png" alt="AI-powered film and animation visual preview" loading="lazy" />
-        <h2>AI-Powered Film &amp; Animation Program</h2>
-        <p>Film and Commercial focused curriculum that blends AI workflows with production-ready technical direction.</p>
+      <div class="program-card" aria-label="Portfolio Program">
+        <img class="icon" src="https://api.iconify.design/heroicons:briefcase.svg?color=%23222a31" alt="" aria-hidden="true" />
+        <img class="program-thumb" src="assets/images/twiterBanner.png" alt="Portfolio program visual preview" loading="lazy" />
+        <h2>Portfolio Program</h2>
+        <p>Mentored portfolio development focused on final shots, breakdown quality, and presentation for studio applications.</p>
         <span class="learn-more">LEARN MORE</span>
       </div>
     </section>
