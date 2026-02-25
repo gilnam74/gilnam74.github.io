@@ -1,63 +1,88 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">Procedural Generation Banner</title>
-  <desc id="desc">Abstract procedural network with nodes, grids, and geometric forms.</desc>
+  <title id="title">Procedural Modeling Cityscape</title>
+  <desc id="desc">Text-free procedural city skyline with geometric buildings, terrain, and node-like connections.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0f1722"/>
-      <stop offset="55%" stop-color="#1c2c39"/>
-      <stop offset="100%" stop-color="#304759"/>
+      <stop offset="0%" stop-color="#101923"/>
+      <stop offset="52%" stop-color="#1b2b39"/>
+      <stop offset="100%" stop-color="#2e465a"/>
     </linearGradient>
-    <linearGradient id="gridGlow" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.1"/>
-      <stop offset="100%" stop-color="#34d399" stop-opacity="0.08"/>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2f4a5d"/>
+      <stop offset="100%" stop-color="#192a36"/>
     </linearGradient>
-    <radialGradient id="core" cx="0.5" cy="0.5" r="0.55">
-      <stop offset="0%" stop-color="#6ee7b7" stop-opacity="0.95"/>
-      <stop offset="100%" stop-color="#6ee7b7" stop-opacity="0"/>
+    <linearGradient id="towerFaceA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7dd3fc" stop-opacity="0.48"/>
+      <stop offset="100%" stop-color="#0f1722" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="towerFaceB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.44"/>
+      <stop offset="100%" stop-color="#0f1722" stop-opacity="0.86"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.35" r="0.7">
+      <stop offset="0%" stop-color="#93c5fd" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#93c5fd" stop-opacity="0"/>
     </radialGradient>
-    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="7" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
   </defs>
 
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#gridGlow)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
 
-  <g stroke="#8bb0c6" stroke-opacity="0.22" stroke-width="1">
-    <path d="M0 90H1200M0 180H1200M0 270H1200M0 360H1200M0 450H1200M0 540H1200"/>
-    <path d="M90 0V630M180 0V630M270 0V630M360 0V630M450 0V630M540 0V630M630 0V630M720 0V630M810 0V630M900 0V630M990 0V630M1080 0V630"/>
+  <g stroke="#8fb2c7" stroke-opacity="0.2" stroke-width="1">
+    <path d="M0 84H1200M0 168H1200M0 252H1200M0 336H1200M0 420H1200M0 504H1200M0 588H1200"/>
+    <path d="M80 0V630M160 0V630M240 0V630M320 0V630M400 0V630M480 0V630M560 0V630M640 0V630M720 0V630M800 0V630M880 0V630M960 0V630M1040 0V630M1120 0V630"/>
   </g>
 
-  <g stroke="#7dd3fc" stroke-opacity="0.6" stroke-width="2" fill="none">
-    <path d="M120 470C230 430 260 360 350 330C460 293 560 350 660 300C730 265 810 200 920 225C990 240 1040 285 1110 310"/>
-    <path d="M120 210C220 250 290 250 350 220C440 175 530 125 640 160C730 189 820 270 900 260C980 250 1030 195 1110 170" stroke-opacity="0.42"/>
+  <path d="M0 480 L130 450 L250 470 L360 430 L470 455 L610 405 L760 445 L910 395 L1030 430 L1200 390 L1200 630 L0 630 Z" fill="url(#ground)"/>
+
+  <g stroke="#89a9bd" stroke-opacity="0.35" fill="none" stroke-width="2">
+    <path d="M90 505 L210 465 L320 495 L430 448 L550 470 L680 430 L820 468 L940 420 L1080 448"/>
+    <path d="M120 530 L245 485 L355 515 L470 470 L600 495 L730 455 L865 490 L990 445 L1120 472" stroke-opacity="0.25"/>
   </g>
 
-  <g fill="#93c5fd" fill-opacity="0.9" filter="url(#softGlow)">
-    <circle cx="120" cy="470" r="7"/>
-    <circle cx="350" cy="330" r="9"/>
-    <circle cx="660" cy="300" r="10"/>
-    <circle cx="920" cy="225" r="9"/>
-    <circle cx="1110" cy="310" r="8"/>
-    <circle cx="350" cy="220" r="8"/>
-    <circle cx="640" cy="160" r="9"/>
-    <circle cx="900" cy="260" r="8"/>
-    <circle cx="1110" cy="170" r="7"/>
+  <g>
+    <g transform="translate(120 292)">
+      <polygon points="0,210 72,172 72,18 0,56" fill="url(#towerFaceA)"/>
+      <polygon points="72,172 138,206 138,52 72,18" fill="url(#towerFaceB)"/>
+      <polygon points="0,56 72,18 138,52 66,90" fill="#9dd7ff" fill-opacity="0.32"/>
+    </g>
+
+    <g transform="translate(300 250)">
+      <polygon points="0,250 94,202 94,14 0,62" fill="url(#towerFaceA)"/>
+      <polygon points="94,202 182,246 182,58 94,14" fill="url(#towerFaceB)"/>
+      <polygon points="0,62 94,14 182,58 88,106" fill="#9ff4d1" fill-opacity="0.28"/>
+    </g>
+
+    <g transform="translate(530 282)">
+      <polygon points="0,220 80,180 80,36 0,76" fill="url(#towerFaceA)"/>
+      <polygon points="80,180 156,218 156,74 80,36" fill="url(#towerFaceB)"/>
+      <polygon points="0,76 80,36 156,74 76,114" fill="#9dd7ff" fill-opacity="0.3"/>
+    </g>
+
+    <g transform="translate(730 222)">
+      <polygon points="0,280 104,228 104,8 0,60" fill="url(#towerFaceA)"/>
+      <polygon points="104,228 202,278 202,58 104,8" fill="url(#towerFaceB)"/>
+      <polygon points="0,60 104,8 202,58 98,110" fill="#9ff4d1" fill-opacity="0.3"/>
+    </g>
+
+    <g transform="translate(980 264)">
+      <polygon points="0,236 86,192 86,26 0,70" fill="url(#towerFaceA)"/>
+      <polygon points="86,192 168,234 168,68 86,26" fill="url(#towerFaceB)"/>
+      <polygon points="0,70 86,26 168,68 82,112" fill="#9dd7ff" fill-opacity="0.29"/>
+    </g>
   </g>
 
-  <g transform="translate(740 320)">
-    <circle cx="0" cy="0" r="130" fill="url(#core)"/>
-    <polygon points="0,-88 76,-44 76,44 0,88 -76,44 -76,-44" fill="none" stroke="#6ee7b7" stroke-width="5" stroke-opacity="0.85"/>
-    <polygon points="0,-58 50,-29 50,29 0,58 -50,29 -50,-29" fill="none" stroke="#bae6fd" stroke-width="3" stroke-opacity="0.85"/>
-    <circle cx="0" cy="0" r="8" fill="#ecfeff"/>
+  <g stroke="#c7f9ff" stroke-opacity="0.5" stroke-width="2" fill="none">
+    <path d="M190 350 C280 320, 350 355, 430 330 C500 307, 580 292, 660 320 C740 350, 830 335, 920 300"/>
+    <path d="M340 370 C430 345, 520 362, 610 336 C700 311, 790 320, 890 350" stroke-opacity="0.35"/>
   </g>
 
-  <g fill="#dbeafe" font-family="Arial, sans-serif">
-    <text x="88" y="118" font-size="30" font-weight="700" letter-spacing="2">PROCEDURAL GENERATION</text>
-    <text x="88" y="154" font-size="17" font-weight="500" fill-opacity="0.88">NODE-BASED SYSTEMS • ALGORITHMIC DESIGN • SCALABLE CONTENT</text>
+  <g fill="#e0f2fe" fill-opacity="0.9">
+    <circle cx="190" cy="350" r="5"/>
+    <circle cx="430" cy="330" r="6"/>
+    <circle cx="660" cy="320" r="6"/>
+    <circle cx="920" cy="300" r="5"/>
+    <circle cx="610" cy="336" r="4"/>
+    <circle cx="340" cy="370" r="4"/>
   </g>
 </svg>
