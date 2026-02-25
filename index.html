@@ -40,6 +40,53 @@
       align-items: center;
       gap: 14px;
       margin-bottom: 24px;
+      position: relative;
+      padding: 14px 18px;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 14% 18%, rgba(56, 122, 206, 0.34), transparent 42%),
+        radial-gradient(circle at 85% 82%, rgba(50, 158, 255, 0.24), transparent 45%),
+        linear-gradient(102deg, #071a35 0%, #0d2f5b 52%, #123f76 100%);
+      border: 1px solid rgba(142, 189, 255, 0.24);
+      box-shadow: 0 14px 28px rgba(3, 9, 18, 0.42), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+      overflow: hidden;
+    }
+
+    .brand::before,
+    .brand::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      border-radius: 999px;
+      z-index: 0;
+    }
+
+    .brand > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand::before {
+      width: 220px;
+      height: 220px;
+      right: -120px;
+      top: -130px;
+      background: radial-gradient(circle, rgba(83, 170, 255, 0.24) 0%, rgba(83, 170, 255, 0) 70%);
+    }
+
+    .brand::after {
+      width: 7px;
+      height: 7px;
+      left: 46%;
+      top: 22%;
+      background: rgba(153, 218, 255, 0.85);
+      box-shadow:
+        86px 22px 0 rgba(121, 198, 255, 0.62),
+        -94px 40px 0 rgba(170, 143, 255, 0.58),
+        48px 58px 0 rgba(255, 173, 117, 0.6),
+        -36px 74px 0 rgba(137, 228, 255, 0.62),
+        142px 74px 0 rgba(157, 124, 255, 0.5);
+      animation: brandStars 6.5s ease-in-out infinite;
     }
 
     .brand img {
@@ -47,6 +94,8 @@
       height: 54px;
       object-fit: contain;
       border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(2, 8, 18, 0.48);
+      z-index: 1;
     }
 
     .brand h1 {
@@ -95,8 +144,11 @@
     .subtitle {
       margin: 2px 0 0;
       font-size: 0.9rem;
-      color: #e1e7ec;
+      color: #ecf4ff;
       letter-spacing: 0.04em;
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.28);
+      position: relative;
+      z-index: 1;
     }
 
     .program-grid {
@@ -273,6 +325,11 @@
     @keyframes titleOrbitB {
       0%, 100% { transform: rotate(0deg) translateY(0); opacity: 0.68; }
       50% { transform: rotate(-180deg) translateY(-2px); opacity: 0.9; }
+    }
+
+    @keyframes brandStars {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.9; }
+      50% { transform: translateY(2px) scale(1.06); opacity: 1; }
     }
 
     .program-card h2 {
