@@ -1,0 +1,195 @@
+:root {
+  --wallpaper: url("assets/images/subpage_wall_1.jpg");
+  --overlay: rgba(10, 17, 24, 0.72);
+  --text: #eaf0f4;
+  --back-color: #89d4ff;
+  --hero-bg: #203041;
+  --hero-border: #31485f;
+  --hero-img-border: #39526a;
+  --meta: #9fc3dd;
+  --copy: #cfdee8;
+  --brand-sub: #bcd2e2;
+  --hero-image-width: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", "IBM Plex Sans KR", sans-serif;
+  background: linear-gradient(var(--overlay), var(--overlay)), var(--wallpaper) center / cover no-repeat fixed;
+  color: var(--text);
+}
+
+.wrap {
+  width: min(960px, 100%);
+  margin: 0 auto;
+  padding: 28px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.site-brand img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  border-radius: 9px;
+}
+
+.site-brand h1 {
+  margin: 0;
+  font-size: 1.08rem;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  isolation: isolate;
+  --hue: 0deg;
+}
+
+.site-brand h1 .char {
+  display: inline-block;
+  color: hsl(calc(var(--hue) + var(--offset)) 100% 79%);
+  text-shadow:
+    0 0 6px hsl(calc(var(--hue) + var(--offset)) 100% 70% / 0.82),
+    0 0 12px hsl(calc(var(--hue) + var(--offset)) 100% 60% / 0.6);
+  animation: doobobNeonChar 5.8s linear infinite;
+}
+
+.site-brand h1 .char:nth-child(1) { --offset: 0deg; }
+.site-brand h1 .char:nth-child(2) { --offset: 56deg; }
+.site-brand h1 .char:nth-child(3) { --offset: 112deg; }
+.site-brand h1 .char:nth-child(4) { --offset: 168deg; }
+.site-brand h1 .char:nth-child(5) { --offset: 224deg; }
+.site-brand h1 .char:nth-child(6) { --offset: 280deg; }
+
+.site-brand h1::before,
+.site-brand h1::after {
+  content: "";
+  position: absolute;
+  inset: -6px -12px;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.site-brand h1::before {
+  background:
+    radial-gradient(circle at 6% 48%, rgba(124, 227, 255, 0.8) 0 2px, transparent 3px),
+    radial-gradient(circle at 52% 78%, rgba(194, 144, 255, 0.7) 0 2px, transparent 3px),
+    radial-gradient(circle at 94% 60%, rgba(255, 135, 120, 0.72) 0 2px, transparent 3px);
+  animation: titleOrbitA 8s linear infinite;
+}
+
+.site-brand h1::after {
+  background:
+    radial-gradient(circle at 14% 82%, rgba(124, 227, 255, 0.62) 0 3px, transparent 5px),
+    radial-gradient(circle at 86% 84%, rgba(210, 159, 255, 0.58) 0 3px, transparent 5px);
+  animation: titleOrbitB 6.5s ease-in-out infinite;
+}
+
+.site-brand p {
+  margin: 2px 0 0;
+  font-size: 0.7rem;
+  color: var(--brand-sub);
+  letter-spacing: 0.05em;
+}
+
+.back {
+  color: var(--back-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.lang {
+  display: inline-flex;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+
+.lang a {
+  color: var(--meta);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.lang a.active {
+  background: #2a3f52;
+  color: #eaf0f4;
+}
+
+.hero {
+  margin-top: 18px;
+  background: var(--hero-bg);
+  border: 1px solid var(--hero-border);
+  border-radius: 16px;
+  padding: 22px;
+}
+
+.hero img {
+  width: var(--hero-image-width);
+  border-radius: 12px;
+  border: 1px solid var(--hero-img-border);
+  margin: 0 auto 16px;
+  display: block;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(1.55rem, 3vw, 2.05rem);
+}
+
+.meta {
+  margin: 8px 0 0;
+  color: var(--meta);
+  font-weight: 600;
+}
+
+p {
+  line-height: 1.7;
+  color: var(--copy);
+}
+
+ul {
+  line-height: 1.7;
+  color: var(--copy);
+}
+
+@property --hue {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+
+@keyframes doobobNeonChar {
+  from { --hue: 0deg; }
+  to { --hue: 360deg; }
+}
+
+@keyframes titleOrbitA {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes titleOrbitB {
+  0%, 100% { transform: rotate(0deg); opacity: 0.7; }
+  50% { transform: rotate(-180deg); opacity: 0.95; }
+}

@@ -7,26 +7,25 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="subpage-shared.css" />
   <style>
-    body { margin: 0; font-family: "Space Grotesk", "IBM Plex Sans KR", sans-serif; background: linear-gradient(rgba(10, 17, 24, 0.72), rgba(10, 17, 24, 0.72)), url("assets/images/subpage_wall_4.jpg") center / cover no-repeat fixed; color: #eaf0f4; }
-    .wrap { width: min(960px, 100%); margin: 0 auto; padding: 28px; }
-    .top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-    .top-right { display: flex; align-items: center; gap: 14px; }
-    .site-brand { display: inline-flex; align-items: center; gap: 10px; }
-    .site-brand img { width: 38px; height: 38px; object-fit: contain; border-radius: 9px; }
-    .site-brand strong { display: block; font-size: 1.08rem; letter-spacing: 0.04em; }
-    .site-brand span { display: block; font-size: 0.76rem; color: #bcd2e2; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 1px; }
-    .back { color: #89d4ff; text-decoration: none; font-weight: 600; }
-    .lang { display: inline-flex; gap: 6px; font-size: 0.9rem; }
-    .lang a { color: #9fc3dd; text-decoration: none; font-weight: 600; padding: 2px 6px; border-radius: 6px; }
-    .lang a.active { background: #2a3f52; color: #eaf0f4; }
-    .hero { margin-top: 18px; background: #203041; border: 1px solid #31485f; border-radius: 16px; padding: 22px; }
-    .hero img { width: 50%; border-radius: 12px; border: 1px solid #39526a; margin: 0 auto 16px; display: block; }
-    h1 { margin: 0; font-size: clamp(1.6rem, 3.2vw, 2.1rem); }
-    .meta { margin: 8px 0 0; color: #9fc3dd; font-weight: 600; }
+    :root {
+      --wallpaper: url("assets/images/subpage_wall_4.jpg");
+      --overlay: rgba(10, 17, 24, 0.72);
+      --text: #eaf0f4;
+      --back-color: #89d4ff;
+      --hero-bg: #203041;
+      --hero-border: #31485f;
+      --hero-img-border: #39526a;
+      --meta: #9fc3dd;
+      --copy: #cfdee8;
+      --brand-sub: #bcd2e2;
+      --hero-image-width: 50%;
+    }
+
     h2 { margin: 24px 0 10px; font-size: 1.15rem; color: #e8f2f8; }
-    p { line-height: 1.7; color: #cfdee8; margin: 10px 0; }
-    ul { line-height: 1.7; color: #cfdee8; margin: 8px 0 0; padding-left: 20px; }
+    p { margin: 10px 0; }
+    ul { margin: 8px 0 0; padding-left: 20px; }
     .week-list li { margin-bottom: 10px; }
     .panel {
       margin-top: 14px;
@@ -36,13 +35,17 @@
       background: #1b2a38;
     }
   </style>
+  <script src="assets/js/brand-neon.js" defer></script>
 </head>
 <body>
   <main class="wrap">
     <div class="top">
       <div class="site-brand">
         <img src="assets/images/Doobob Games Logo_400size.png" alt="DOOBOB logo" />
-        <div><strong>DOOBOB</strong><span>Program</span></div>
+        <div>
+          <h1 data-neon>DOOBOB</h1>
+          <p>Visual Effect | Game | Commercial | Tech Art</p>
+        </div>
       </div>
       <div class="top-right">
         <div class="lang" aria-label="Language switch">

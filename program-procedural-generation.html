@@ -7,29 +7,33 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="subpage-shared.css" />
   <style>
-    body { margin: 0; font-family: "Space Grotesk", "IBM Plex Sans KR", sans-serif; background: linear-gradient(rgba(7, 18, 18, 0.72), rgba(7, 18, 18, 0.72)), url("assets/images/subpage_wall_2.jpg") center / cover no-repeat fixed; color: #e7f1ee; }
-    .wrap { width: min(960px, 100%); margin: 0 auto; padding: 28px; }
-    .top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-    .site-brand { display: inline-flex; align-items: center; gap: 10px; }
-    .site-brand img { width: 38px; height: 38px; object-fit: contain; border-radius: 9px; }
-    .site-brand strong { display: block; font-size: 1.08rem; letter-spacing: 0.04em; }
-    .site-brand span { display: block; font-size: 0.76rem; color: #b9d8d1; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 1px; }
-    .back { color: #75d6b0; text-decoration: none; font-weight: 600; }
-    .hero { margin-top: 18px; background: #1b3338; border: 1px solid #2a4b52; border-radius: 16px; padding: 22px; }
-    .hero img { width: 100%; border-radius: 12px; border: 1px solid #39666f; margin-bottom: 16px; }
-    h1 { margin: 0; font-size: clamp(1.55rem, 3vw, 2.05rem); }
-    .meta { margin: 8px 0 0; color: #84e9c1; font-weight: 600; }
-    p { line-height: 1.7; color: #cbe3dd; }
-    ul { line-height: 1.7; color: #cbe3dd; }
+    :root {
+      --wallpaper: url("assets/images/subpage_wall_2.jpg");
+      --overlay: rgba(7, 18, 18, 0.72);
+      --text: #e7f1ee;
+      --back-color: #75d6b0;
+      --hero-bg: #1b3338;
+      --hero-border: #2a4b52;
+      --hero-img-border: #39666f;
+      --meta: #84e9c1;
+      --copy: #cbe3dd;
+      --brand-sub: #b9d8d1;
+      --hero-image-width: 100%;
+    }
   </style>
+  <script src="assets/js/brand-neon.js" defer></script>
 </head>
 <body>
   <main class="wrap">
     <div class="top">
       <div class="site-brand">
         <img src="assets/images/Doobob Games Logo_400size.png" alt="DOOBOB logo" />
-        <div><strong>DOOBOB</strong><span>Program</span></div>
+        <div>
+          <h1 data-neon>DOOBOB</h1>
+          <p>Visual Effect | Game | Commercial | Tech Art</p>
+        </div>
       </div>
       <a class="back" href="index.html">Back to Programs</a>
     </div>
