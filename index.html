@@ -181,25 +181,34 @@
 
     .program-card::before {
       background:
-        radial-gradient(circle at 10% 92%, rgba(132, 236, 255, 0.8) 0 3px, transparent 5px),
-        radial-gradient(circle at 20% 82%, rgba(245, 137, 104, 0.74) 0 3px, transparent 5px),
-        radial-gradient(circle at 32% 90%, rgba(159, 180, 255, 0.84) 0 3px, transparent 5px),
-        radial-gradient(circle at 44% 82%, rgba(187, 132, 255, 0.72) 0 3px, transparent 5px),
-        radial-gradient(circle at 56% 91%, rgba(123, 213, 255, 0.8) 0 3px, transparent 5px),
-        radial-gradient(circle at 68% 83%, rgba(255, 173, 95, 0.72) 0 3px, transparent 5px),
-        radial-gradient(circle at 80% 90%, rgba(124, 230, 255, 0.78) 0 3px, transparent 5px),
-        radial-gradient(circle at 92% 81%, rgba(255, 161, 100, 0.72) 0 3px, transparent 5px);
-      animation: particleRise 2.8s linear infinite;
+        linear-gradient(118deg,
+          transparent 28%,
+          rgba(var(--hover-accent-rgb), 0) 38%,
+          rgba(var(--hover-accent-rgb), 0.84) 48%,
+          rgba(var(--hover-accent-rgb), 0) 58%,
+          transparent 68%),
+        linear-gradient(118deg,
+          transparent 12%,
+          rgba(152, 224, 255, 0) 20%,
+          rgba(152, 224, 255, 0.72) 30%,
+          rgba(152, 224, 255, 0) 40%,
+          transparent 50%);
+      background-size: 240% 240%, 260% 260%;
+      animation: laserSweep 1.6s linear infinite;
     }
 
     .program-card::after {
       background:
-        radial-gradient(circle at 18% 85%, rgba(95, 201, 255, 0.58) 0 4px, transparent 7px),
-        radial-gradient(circle at 40% 88%, rgba(193, 136, 255, 0.52) 0 4px, transparent 7px),
-        radial-gradient(circle at 62% 83%, rgba(255, 161, 100, 0.54) 0 4px, transparent 7px),
-        radial-gradient(circle at 82% 87%, rgba(146, 224, 255, 0.54) 0 4px, transparent 7px);
-      filter: blur(0.8px);
-      animation: particleDrift 2.2s ease-in-out infinite;
+        repeating-linear-gradient(90deg,
+          rgba(255, 255, 255, 0) 0 24px,
+          rgba(var(--hover-accent-rgb), 0.34) 24px 26px,
+          rgba(255, 255, 255, 0) 26px 56px),
+        linear-gradient(180deg,
+          transparent 43%,
+          rgba(var(--hover-accent-rgb), 0.7) 50%,
+          transparent 57%);
+      filter: blur(0.5px);
+      animation: laserScan 2.3s ease-in-out infinite;
     }
 
     .program-grid > .program-card:nth-child(1) {
@@ -284,14 +293,14 @@
       to { transform: translateY(-2px) scale(1.08) rotate(360deg); }
     }
 
-    @keyframes particleRise {
-      0% { transform: translateY(18px); }
-      100% { transform: translateY(-14px); }
+    @keyframes laserSweep {
+      0% { background-position: -180% 120%, -160% 0; }
+      100% { background-position: 220% -80%, 240% 0; }
     }
 
-    @keyframes particleDrift {
-      0%, 100% { transform: translateY(8px) translateX(0); }
-      50% { transform: translateY(-6px) translateX(4px); }
+    @keyframes laserScan {
+      0%, 100% { transform: translateX(-6px); opacity: 0.65; }
+      50% { transform: translateX(6px); opacity: 1; }
     }
 
     @keyframes titleOrbitA {
