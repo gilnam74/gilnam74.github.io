@@ -20,29 +20,49 @@
     * { box-sizing: border-box; }
 
     body {
+      --weather-overlay: rgba(20, 27, 34, 0.62);
+      --weather-bg: url("assets/images/city_vancouver.jpg");
       margin: 0;
       min-height: 100vh;
       font-family: "Google Sans", "Google Sans Text", "Product Sans", sans-serif;
       background:
-        linear-gradient(rgba(20, 27, 34, 0.62), rgba(20, 27, 34, 0.62)),
-        url("assets/images/unreal_wallpaper.png") center / cover no-repeat fixed;
+        linear-gradient(var(--weather-overlay), var(--weather-overlay)),
+        var(--weather-bg) center / cover no-repeat fixed;
       color: #e9ecf0;
       padding: 28px;
+      transition: background 420ms ease;
     }
+
+    body.weather-clear { --weather-overlay: rgba(10, 20, 34, 0.52); }
+    body.weather-cloudy { --weather-overlay: rgba(16, 20, 28, 0.62); }
+    body.weather-rain { --weather-overlay: rgba(9, 15, 23, 0.72); }
+    body.weather-snow { --weather-overlay: rgba(18, 28, 42, 0.56); }
+    body.weather-fog { --weather-overlay: rgba(19, 24, 32, 0.7); }
+    body.weather-storm { --weather-overlay: rgba(8, 12, 20, 0.76); }
 
     .wrap {
       width: min(1220px, 100%);
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
       margin-bottom: 24px;
     }
 
-    .brand > div {
+    .brand-main {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-main > div {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -126,6 +146,89 @@
       font-size: 0.9rem;
       color: #e1e7ec;
       letter-spacing: 0.04em;
+    }
+
+    .weather-panel {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(10, 16, 24, 0.42);
+      border: 1px solid rgba(206, 230, 255, 0.26);
+      border-radius: 12px;
+      padding: 8px 10px;
+      backdrop-filter: blur(4px);
+    }
+
+    .weather-city {
+      border: 1px solid rgba(184, 213, 245, 0.35);
+      background: rgba(0, 0, 0, 0.18);
+      color: #ecf5ff;
+      border-radius: 8px;
+      font: inherit;
+      font-size: 0.82rem;
+      padding: 7px 9px;
+      min-width: 120px;
+    }
+
+    .weather-chip {
+      color: #ecf5ff;
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .weather-chip strong {
+      color: #9dd8ff;
+      font-weight: 700;
+    }
+
+    .weather-fx {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity 260ms ease;
+    }
+
+    .weather-fx.active { opacity: 1; }
+
+    .wx-particle {
+      position: absolute;
+      border-radius: 999px;
+      will-change: transform, opacity;
+    }
+
+    .wx-rain {
+      width: 2px;
+      height: 30px;
+      background: linear-gradient(to bottom, rgba(180, 225, 255, 0.08), rgba(180, 225, 255, 0.85));
+      animation: wxRain linear infinite;
+    }
+
+    .wx-snow {
+      width: 7px;
+      height: 7px;
+      background: rgba(233, 245, 255, 0.9);
+      box-shadow: 0 0 10px rgba(233, 245, 255, 0.45);
+      animation: wxSnow linear infinite;
+    }
+
+    .wx-fog {
+      width: 220px;
+      height: 36px;
+      background: radial-gradient(circle, rgba(220, 228, 236, 0.22) 0%, rgba(220, 228, 236, 0) 70%);
+      filter: blur(1px);
+      animation: wxFog linear infinite;
+    }
+
+    .wx-spark {
+      width: 5px;
+      height: 5px;
+      background: rgba(255, 198, 123, 0.8);
+      box-shadow: 0 0 12px rgba(255, 198, 123, 0.62);
+      animation: wxSpark ease-in-out infinite;
     }
 
     .program-grid {
@@ -299,6 +402,29 @@
       50% { transform: translateX(6px); opacity: 1; }
     }
 
+    @keyframes wxRain {
+      from { transform: translateY(-130vh) translateX(0) rotate(12deg); opacity: 0; }
+      15% { opacity: 1; }
+      to { transform: translateY(120vh) translateX(32px) rotate(12deg); opacity: 0; }
+    }
+
+    @keyframes wxSnow {
+      from { transform: translateY(-120vh) translateX(0); opacity: 0; }
+      15% { opacity: 1; }
+      to { transform: translateY(120vh) translateX(40px); opacity: 0; }
+    }
+
+    @keyframes wxFog {
+      from { transform: translateX(-28vw); opacity: 0.2; }
+      50% { opacity: 0.55; }
+      to { transform: translateX(128vw); opacity: 0.2; }
+    }
+
+    @keyframes wxSpark {
+      0%, 100% { transform: translateY(0) scale(0.8); opacity: 0.35; }
+      50% { transform: translateY(-8px) scale(1.2); opacity: 1; }
+    }
+
     @keyframes titleOrbitA {
       from { transform: rotate(0deg) scale(1); opacity: 0.82; }
       to { transform: rotate(360deg) scale(1.02); opacity: 0.82; }
@@ -372,6 +498,7 @@
     @media (max-width: 760px) {
       .program-grid { grid-template-columns: 1fr; }
       .program-card h2 { min-height: 0; }
+      .weather-panel { width: 100%; justify-content: space-between; }
     }
 
     .site-footer {
@@ -386,10 +513,21 @@
 <body>
   <main class="wrap" aria-label="Program list">
     <header class="brand">
-      <img src="assets/images/Doobob Games Logo_400size.png" alt="DOOBOB logo" />
-      <div>
-        <h1><span class="char">D</span><span class="char">O</span><span class="char">O</span><span class="char">B</span><span class="char">O</span><span class="char">B</span></h1>
-        <p class="subtitle">Visual Effect | Game | Commercial | Tech Art</p>
+      <div class="brand-main">
+        <img src="assets/images/Doobob Games Logo_400size.png" alt="DOOBOB logo" />
+        <div>
+          <h1><span class="char">D</span><span class="char">O</span><span class="char">O</span><span class="char">B</span><span class="char">O</span><span class="char">B</span></h1>
+          <p class="subtitle">Visual Effect | Game | Commercial | Tech Art</p>
+        </div>
+      </div>
+      <div class="weather-panel">
+        <select id="city-select" class="weather-city" aria-label="Select city weather">
+          <option value="vancouver" selected>Vancouver</option>
+          <option value="seoul">Seoul</option>
+          <option value="los_angeles">Los Angeles</option>
+          <option value="london">London</option>
+        </select>
+        <div class="weather-chip" id="weather-chip"><strong>Vancouver</strong> Weather loading...</div>
       </div>
     </header>
 
@@ -431,5 +569,7 @@
       © 2026 DOOBOB. All rights reserved.
     </footer>
   </main>
+  <div class="weather-fx" id="weather-fx" aria-hidden="true"></div>
+  <script src="assets/js/city-weather-wallpaper.js" defer></script>
 </body>
 </html>
