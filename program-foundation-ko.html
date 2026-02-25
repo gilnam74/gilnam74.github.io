@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Houdini Foundation (6주) | DOOBOB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; font-family: "Space Grotesk", "IBM Plex Sans KR", sans-serif; background: #161f28; color: #eaf0f4; }
+    .wrap { width: min(960px, 100%); margin: 0 auto; padding: 28px; }
+    .top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .top-right { display: flex; align-items: center; gap: 14px; }
+    .back { color: #89d4ff; text-decoration: none; font-weight: 600; }
+    .lang { display: inline-flex; gap: 6px; font-size: 0.9rem; }
+    .lang a { color: #9fc3dd; text-decoration: none; font-weight: 600; padding: 2px 6px; border-radius: 6px; }
+    .lang a.active { background: #2a3f52; color: #eaf0f4; }
+    .hero { margin-top: 18px; background: #203041; border: 1px solid #31485f; border-radius: 16px; padding: 22px; }
+    .hero img { width: 50%; border-radius: 12px; border: 1px solid #39526a; margin: 0 auto 16px; display: block; }
+    h1 { margin: 0; font-size: clamp(1.6rem, 3.2vw, 2.1rem); }
+    .meta { margin: 8px 0 0; color: #9fc3dd; font-weight: 600; }
+    h2 { margin: 24px 0 10px; font-size: 1.15rem; color: #e8f2f8; }
+    p { line-height: 1.7; color: #cfdee8; margin: 10px 0; }
+    ul { line-height: 1.7; color: #cfdee8; margin: 8px 0 0; padding-left: 20px; }
+    .week-list li { margin-bottom: 10px; }
+    .panel { margin-top: 14px; padding: 14px 16px; border-radius: 12px; border: 1px solid #355067; background: #1b2a38; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="top">
+      <strong>DOOBOB Program</strong>
+      <div class="top-right">
+        <div class="lang" aria-label="언어 전환">
+          <a href="program-foundation.html">EN</a>
+          <a href="program-foundation-ko.html" class="active">KO</a>
+        </div>
+        <a class="back" href="index.html">프로그램 목록으로</a>
+      </div>
+    </div>
+    <section class="hero">
+      <img src="assets/images/h21_keynote_thmb.png" alt="Houdini Foundation 미리보기" loading="lazy" />
+      <h1>Houdini Foundation</h1>
+      <p class="meta">기간: 6주</p>
+      <p>Houdini 입문자를 위한 6주 기초 프로그램입니다. 인터페이스 이해부터 절차적(Procedural) 사고, 기초 시뮬레이션, 간단한 결과물 제작까지 밀도 있게 학습합니다.</p>
+
+      <h2>학습 목표</h2>
+      <ul>
+        <li>노드 기반 작업 방식과 데이터 흐름을 이해한다.</li>
+        <li>절차적 모델링과 Attribute 제어를 직접 구성한다.</li>
+        <li>재사용 가능한 씬 구조와 정리된 작업 습관을 만든다.</li>
+      </ul>
+
+      <h2>6주 커리큘럼</h2>
+      <ul class="week-list">
+        <li><strong>1주차:</strong> Houdini UI, 노드 그래프 기초, SOP 컨텍스트, 파일 관리</li>
+        <li><strong>2주차:</strong> Procedural Modeling 기본, Group/Transform/Copy 응용</li>
+        <li><strong>3주차:</strong> Attribute 이해, 랜덤/분포 제어, 기본 표현식</li>
+        <li><strong>4주차:</strong> VOP/VEX 입문, 파라미터 기반 셋업 구성</li>
+        <li><strong>5주차:</strong> 기본 시뮬레이션(파티클/RBD 입문), 캐시 개념, 씬 정리</li>
+        <li><strong>6주차:</strong> 파이널 미니 프로젝트 제작, 리뷰, 다음 단계 가이드</li>
+      </ul>
+
+      <div class="panel">
+        <h2>최종 산출물</h2>
+        <ul>
+          <li>절차적 모델링 결과물 1종</li>
+          <li>기초 시뮬레이션 샷 1종</li>
+          <li>노드 구조 캡처 + 간단한 작업 설명 문서</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h2>권장 대상</h2>
+        <ul>
+          <li>Houdini를 처음 시작하는 아티스트/학생</li>
+          <li>Maya/Blender/C4D 경험은 있지만 절차적 워크플로우가 처음인 분</li>
+          <li>Master/Procedural Generation 과정 진입을 준비하는 분</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

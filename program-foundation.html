@@ -11,31 +11,80 @@
     body { margin: 0; font-family: "Space Grotesk", "IBM Plex Sans KR", sans-serif; background: #161f28; color: #eaf0f4; }
     .wrap { width: min(960px, 100%); margin: 0 auto; padding: 28px; }
     .top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .top-right { display: flex; align-items: center; gap: 14px; }
     .back { color: #89d4ff; text-decoration: none; font-weight: 600; }
+    .lang { display: inline-flex; gap: 6px; font-size: 0.9rem; }
+    .lang a { color: #9fc3dd; text-decoration: none; font-weight: 600; padding: 2px 6px; border-radius: 6px; }
+    .lang a.active { background: #2a3f52; color: #eaf0f4; }
     .hero { margin-top: 18px; background: #203041; border: 1px solid #31485f; border-radius: 16px; padding: 22px; }
     .hero img { width: 50%; border-radius: 12px; border: 1px solid #39526a; margin: 0 auto 16px; display: block; }
     h1 { margin: 0; font-size: clamp(1.6rem, 3.2vw, 2.1rem); }
     .meta { margin: 8px 0 0; color: #9fc3dd; font-weight: 600; }
-    p { line-height: 1.7; color: #cfdee8; }
-    ul { line-height: 1.7; color: #cfdee8; }
+    h2 { margin: 24px 0 10px; font-size: 1.15rem; color: #e8f2f8; }
+    p { line-height: 1.7; color: #cfdee8; margin: 10px 0; }
+    ul { line-height: 1.7; color: #cfdee8; margin: 8px 0 0; padding-left: 20px; }
+    .week-list li { margin-bottom: 10px; }
+    .panel {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid #355067;
+      background: #1b2a38;
+    }
   </style>
 </head>
 <body>
   <main class="wrap">
     <div class="top">
       <strong>DOOBOB Program</strong>
-      <a class="back" href="index.html">Back to Programs</a>
+      <div class="top-right">
+        <div class="lang" aria-label="Language switch">
+          <a href="program-foundation.html" class="active">EN</a>
+          <a href="program-foundation-ko.html">KO</a>
+        </div>
+        <a class="back" href="index.html">Back to Programs</a>
+      </div>
     </div>
     <section class="hero">
       <img src="assets/images/h21_keynote_thmb.png" alt="Houdini Foundation preview" loading="lazy" />
       <h1>Houdini Foundation</h1>
       <p class="meta">Duration: 6 weeks</p>
-      <p>This starter program focuses on building strong Houdini basics so students can move into advanced production classes with confidence.</p>
+      <p>This 6-week beginner track builds practical Houdini fundamentals, from interface fluency to procedural thinking, basic simulation, and small production-ready outputs.</p>
+
+      <h2>Learning Goals</h2>
       <ul>
-        <li>Houdini interface, nodes, attributes, and geometry workflow</li>
-        <li>Procedural modeling and basic simulation introduction</li>
-        <li>Mini assignments for weekly output and review</li>
+        <li>Understand node-based workflows and data flow logic.</li>
+        <li>Build procedural modeling setups with attribute control.</li>
+        <li>Create reusable scene structures with clean organization.</li>
       </ul>
+
+      <h2>6-Week Curriculum</h2>
+      <ul class="week-list">
+        <li><strong>Week 1:</strong> Houdini UI, node graph basics, SOP context, and file discipline</li>
+        <li><strong>Week 2:</strong> Procedural modeling fundamentals with Group/Transform/Copy workflows</li>
+        <li><strong>Week 3:</strong> Attribute fundamentals, randomness, and controlled variation</li>
+        <li><strong>Week 4:</strong> Intro to VOP/VEX and simple parameter-driven setup design</li>
+        <li><strong>Week 5:</strong> Basic simulation intro (particles/RBD), cache concept, and scene cleanup</li>
+        <li><strong>Week 6:</strong> Final mini project, critique session, and next-step study roadmap</li>
+      </ul>
+
+      <div class="panel">
+        <h2>Final Deliverables</h2>
+        <ul>
+          <li>One procedural modeling output</li>
+          <li>One basic simulation shot</li>
+          <li>Node network captures with short process notes</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h2>Recommended For</h2>
+        <ul>
+          <li>Students and artists starting Houdini for the first time</li>
+          <li>Creators with DCC experience who are new to procedural workflows</li>
+          <li>Learners preparing for Master or Procedural Generation tracks</li>
+        </ul>
+      </div>
     </section>
   </main>
 </body>
