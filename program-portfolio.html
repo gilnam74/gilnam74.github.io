@@ -8,9 +8,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    body { margin: 0; font-family: "Space Grotesk", "IBM Plex Sans KR", sans-serif; background: #1e1820; color: #f1e9f2; }
+    body { margin: 0; font-family: "Space Grotesk", "IBM Plex Sans KR", sans-serif; background: linear-gradient(rgba(17, 10, 19, 0.72), rgba(17, 10, 19, 0.72)), url("assets/images/subpage_wall_3.jpg") center / cover no-repeat fixed; color: #f1e9f2; }
     .wrap { width: min(960px, 100%); margin: 0 auto; padding: 28px; }
     .top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .site-brand { display: inline-flex; align-items: center; gap: 10px; }
+    .site-brand img { width: 38px; height: 38px; object-fit: contain; border-radius: 9px; }
+    .site-brand strong { display: block; font-size: 1.08rem; letter-spacing: 0.04em; }
+    .site-brand span { display: block; font-size: 0.76rem; color: #e4c8e7; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 1px; }
     .back { color: #e9b4ef; text-decoration: none; font-weight: 600; }
     .hero { margin-top: 18px; background: #322537; border: 1px solid #4b3652; border-radius: 16px; padding: 22px; }
     .hero img { width: 100%; border-radius: 12px; border: 1px solid #674a70; margin-bottom: 16px; }
@@ -23,7 +27,10 @@
 <body>
   <main class="wrap">
     <div class="top">
-      <strong>DOOBOB Program</strong>
+      <div class="site-brand">
+        <img src="assets/images/Doobob Games Logo_400size.png" alt="DOOBOB logo" />
+        <div><strong>DOOBOB</strong><span>Program</span></div>
+      </div>
       <a class="back" href="index.html">Back to Programs</a>
     </div>
     <section class="hero">
