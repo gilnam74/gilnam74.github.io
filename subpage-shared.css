@@ -73,19 +73,19 @@ body {
 
 .site-brand h1 .char {
   display: inline-block;
-  color: hsl(calc(var(--hue) + var(--offset)) 100% 79%);
+  color: #dff6ff;
   text-shadow:
-    0 0 6px hsl(calc(var(--hue) + var(--offset)) 100% 70% / 0.82),
-    0 0 12px hsl(calc(var(--hue) + var(--offset)) 100% 60% / 0.6);
-  animation: doobobNeonChar 5.8s linear infinite;
+    0 0 8px rgba(95, 210, 255, 0.72),
+    0 0 16px rgba(95, 210, 255, 0.52);
+  animation: doobobNeon 6s linear infinite;
 }
 
-.site-brand h1 .char:nth-child(1) { --offset: 0deg; }
-.site-brand h1 .char:nth-child(2) { --offset: 56deg; }
-.site-brand h1 .char:nth-child(3) { --offset: 112deg; }
-.site-brand h1 .char:nth-child(4) { --offset: 168deg; }
-.site-brand h1 .char:nth-child(5) { --offset: 224deg; }
-.site-brand h1 .char:nth-child(6) { --offset: 280deg; }
+.site-brand h1 .char:nth-child(1) { animation-delay: 0s; }
+.site-brand h1 .char:nth-child(2) { animation-delay: -1s; }
+.site-brand h1 .char:nth-child(3) { animation-delay: -2s; }
+.site-brand h1 .char:nth-child(4) { animation-delay: -3s; }
+.site-brand h1 .char:nth-child(5) { animation-delay: -4s; }
+.site-brand h1 .char:nth-child(6) { animation-delay: -5s; }
 
 .site-brand h1::before,
 .site-brand h1::after {
@@ -175,15 +175,27 @@ ul {
   color: var(--copy);
 }
 
-@property --hue {
-  syntax: "<angle>";
-  inherits: true;
-  initial-value: 0deg;
-}
-
-@keyframes doobobNeonChar {
-  from { --hue: 0deg; }
-  to { --hue: 360deg; }
+@keyframes doobobNeon {
+  0% {
+    color: #dff6ff;
+    text-shadow: 0 0 8px rgba(95, 210, 255, 0.72), 0 0 16px rgba(95, 210, 255, 0.52);
+  }
+  25% {
+    color: #ffd8f1;
+    text-shadow: 0 0 8px rgba(255, 145, 223, 0.74), 0 0 16px rgba(255, 145, 223, 0.54);
+  }
+  50% {
+    color: #ffe5cd;
+    text-shadow: 0 0 8px rgba(255, 175, 107, 0.74), 0 0 16px rgba(255, 175, 107, 0.54);
+  }
+  75% {
+    color: #e1dcff;
+    text-shadow: 0 0 8px rgba(177, 160, 255, 0.74), 0 0 16px rgba(177, 160, 255, 0.54);
+  }
+  100% {
+    color: #dff6ff;
+    text-shadow: 0 0 8px rgba(95, 210, 255, 0.72), 0 0 16px rgba(95, 210, 255, 0.52);
+  }
 }
 
 @keyframes titleOrbitA {
