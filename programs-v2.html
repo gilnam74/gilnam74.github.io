@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOOBOB Programs V2</title>
+  <meta name="description" content="DOOBOB new program gateway with four dedicated program pages." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #2f2438;
+      --panel: #eee5d9;
+      --ink: #2a2431;
+      --line: #d9cbb8;
+      --accent: #d9734e;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Google Sans", "Google Sans Text", "Product Sans", sans-serif;
+      background: #33444f;
+      color: #efeaf2;
+      padding: 28px;
+    }
+
+    .wrap {
+      width: min(1280px, 100%);
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .brand img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: clamp(1.7rem, 3.2vw, 2.3rem);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .subtitle {
+      margin: 2px 0 0;
+      font-size: 1rem;
+      color: #e6ddeb;
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .program-card {
+      display: block;
+      text-decoration: none;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      outline: 3px solid rgba(255, 255, 255, 0.34);
+      outline-offset: -3px;
+      border-radius: 20px;
+      padding: 24px;
+      color: var(--ink);
+      text-align: center;
+      box-shadow: 0 14px 30px rgba(12, 10, 16, 0.25);
+      transition: transform 280ms ease, box-shadow 280ms ease, border-color 220ms ease;
+    }
+
+    .program-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 22px 44px rgba(12, 10, 16, 0.36);
+      border-color: #b9977e;
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 14px;
+      display: block;
+    }
+
+    .program-thumb {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid rgba(42, 36, 49, 0.15);
+      margin: 0 0 14px;
+      display: block;
+    }
+
+    .program-card h2 {
+      margin: 0;
+      font-size: clamp(1.15rem, 1.45vw, 1.45rem);
+      line-height: 1.3;
+      font-weight: 600;
+      min-height: 3.9em;
+      text-wrap: balance;
+    }
+
+    .program-card p {
+      margin: 14px 0 18px;
+      font-size: 0.98rem;
+      line-height: 1.55;
+      color: #4f4458;
+    }
+
+    .learn-more {
+      color: #31243a;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 3px;
+    }
+
+    .program-card:hover .learn-more {
+      border-bottom-color: var(--accent);
+    }
+
+    .site-footer {
+      margin-top: 22px;
+      text-align: center;
+      color: #e3d7ea;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 1280px) {
+      .program-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 760px) {
+      .program-grid { grid-template-columns: 1fr; }
+      .program-card h2 { min-height: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap" aria-label="Program list">
+    <header class="brand">
+      <img src="assets/images/Doobob Games Logo_400size.png" alt="DOOBOB logo" />
+      <div>
+        <h1>DOOBOB Programs V2</h1>
+        <p class="subtitle">New Link Hub • Separate Program Pages</p>
+      </div>
+    </header>
+
+    <section class="program-grid">
+      <a class="program-card" href="program-foundation.html" aria-label="Houdini Foundation, 6 weeks">
+        <img class="icon" src="https://api.iconify.design/heroicons:academic-cap.svg?color=%232a2431" alt="" aria-hidden="true" />
+        <img class="program-thumb" src="assets/images/title.webp" alt="Houdini foundation visual preview" loading="lazy" />
+        <h2>Houdini Foundation (6 weeks)</h2>
+        <p>Start with core Houdini concepts and practical node workflow fundamentals.</p>
+        <span class="learn-more">OPEN PAGE</span>
+      </a>
+
+      <a class="program-card" href="program-master-film-game.html" aria-label="Houdini Master Program - Film and Game, 16 weeks">
+        <img class="icon" src="https://api.iconify.design/heroicons:sparkles.svg?color=%232a2431" alt="" aria-hidden="true" />
+        <img class="program-thumb" src="assets/images/HoudiniVFXGameThumnail.jpg" alt="Houdini master film and game visual preview" loading="lazy" />
+        <h2>Houdini Master Program - Film &amp; Game (16 weeks)</h2>
+        <p>Advanced production training for cinematic FX and game-ready procedural workflows.</p>
+        <span class="learn-more">OPEN PAGE</span>
+      </a>
+
+      <a class="program-card" href="program-procedural-generation.html" aria-label="Procedural Generation Program, 16 weeks">
+        <img class="icon" src="https://api.iconify.design/heroicons:cube-transparent.svg?color=%232a2431" alt="" aria-hidden="true" />
+        <img class="program-thumb" src="assets/images/procedural_generation_banner.svg" alt="Procedural generation visual preview" loading="lazy" />
+        <h2>Procedural Generation Program (16 weeks)</h2>
+        <p>Build scalable systems for procedural assets, environments, and reusable content tools.</p>
+        <span class="learn-more">OPEN PAGE</span>
+      </a>
+
+      <a class="program-card" href="program-portfolio.html" aria-label="Portfolio Program">
+        <img class="icon" src="https://api.iconify.design/heroicons:briefcase.svg?color=%232a2431" alt="" aria-hidden="true" />
+        <img class="program-thumb" src="assets/images/twiterBanner.png" alt="Portfolio program visual preview" loading="lazy" />
+        <h2>Portfolio Program</h2>
+        <p>Finalize a studio-ready portfolio with mentor feedback and polished breakdowns.</p>
+        <span class="learn-more">OPEN PAGE</span>
+      </a>
+    </section>
+
+    <footer class="site-footer">
+      © 2026 DOOBOB. All rights reserved.
+    </footer>
+  </main>
+</body>
+</html>
