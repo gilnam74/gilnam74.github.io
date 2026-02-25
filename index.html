@@ -20,47 +20,14 @@
     * { box-sizing: border-box; }
 
     body {
-      --weather-overlay: rgba(20, 27, 34, 0.62);
-      --weather-bg: url("assets/images/unreal_wallpaper.png");
       margin: 0;
       min-height: 100vh;
       font-family: "Google Sans", "Google Sans Text", "Product Sans", sans-serif;
       background:
-        linear-gradient(var(--weather-overlay), var(--weather-overlay)),
-        var(--weather-bg) center / cover no-repeat fixed;
+        linear-gradient(rgba(20, 27, 34, 0.62), rgba(20, 27, 34, 0.62)),
+        url("assets/images/unreal_wallpaper.png") center / cover no-repeat fixed;
       color: #e9ecf0;
       padding: 28px;
-      transition: background 520ms ease;
-    }
-
-    body.weather-clear {
-      --weather-overlay: rgba(10, 20, 34, 0.52);
-      --weather-bg: url("assets/images/subpage_wall_2.jpg");
-    }
-
-    body.weather-cloudy {
-      --weather-overlay: rgba(15, 18, 26, 0.62);
-      --weather-bg: url("assets/images/subpage_wall_1.jpg");
-    }
-
-    body.weather-rain {
-      --weather-overlay: rgba(9, 15, 23, 0.72);
-      --weather-bg: url("assets/images/subpage_wall_4.jpg");
-    }
-
-    body.weather-snow {
-      --weather-overlay: rgba(18, 28, 42, 0.56);
-      --weather-bg: url("assets/images/subpage_wall_5.jpg");
-    }
-
-    body.weather-fog {
-      --weather-overlay: rgba(19, 24, 32, 0.7);
-      --weather-bg: url("assets/images/subpage_wall_3.jpg");
-    }
-
-    body.weather-storm {
-      --weather-overlay: rgba(8, 12, 20, 0.76);
-      --weather-bg: url("assets/images/matrix_city.jpeg");
     }
 
     .wrap {
@@ -71,8 +38,6 @@
     .brand {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
       gap: 10px;
       margin-bottom: 24px;
     }
@@ -161,73 +126,6 @@
       font-size: 0.9rem;
       color: #e1e7ec;
       letter-spacing: 0.04em;
-    }
-
-    .weather-chip {
-      min-width: 210px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(207, 231, 255, 0.3);
-      background: rgba(8, 15, 24, 0.42);
-      color: #eaf4ff;
-      font-size: 0.84rem;
-      letter-spacing: 0.02em;
-      backdrop-filter: blur(4px);
-      text-align: center;
-    }
-
-    .weather-chip strong {
-      font-weight: 700;
-      color: #9dd8ff;
-    }
-
-    .weather-fx {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: opacity 320ms ease;
-    }
-
-    .weather-fx.active { opacity: 1; }
-
-    .wx-particle {
-      position: absolute;
-      border-radius: 999px;
-      will-change: transform, opacity;
-    }
-
-    .wx-rain {
-      width: 2px;
-      height: 28px;
-      background: linear-gradient(to bottom, rgba(180, 225, 255, 0.05), rgba(180, 225, 255, 0.8));
-      animation: wxRain linear infinite;
-    }
-
-    .wx-snow {
-      width: 7px;
-      height: 7px;
-      background: rgba(233, 245, 255, 0.9);
-      box-shadow: 0 0 10px rgba(233, 245, 255, 0.45);
-      animation: wxSnow linear infinite;
-    }
-
-    .wx-fog {
-      width: 220px;
-      height: 36px;
-      background: radial-gradient(circle, rgba(220, 228, 236, 0.22) 0%, rgba(220, 228, 236, 0) 70%);
-      filter: blur(1px);
-      animation: wxFog linear infinite;
-    }
-
-    .wx-spark {
-      width: 5px;
-      height: 5px;
-      background: rgba(255, 198, 123, 0.8);
-      box-shadow: 0 0 12px rgba(255, 198, 123, 0.62);
-      animation: wxSpark ease-in-out infinite;
     }
 
     .program-grid {
@@ -416,29 +314,6 @@
       to { --hue: 360deg; }
     }
 
-    @keyframes wxRain {
-      from { transform: translateY(-130vh) translateX(0) rotate(12deg); opacity: 0; }
-      15% { opacity: 1; }
-      to { transform: translateY(120vh) translateX(32px) rotate(12deg); opacity: 0; }
-    }
-
-    @keyframes wxSnow {
-      from { transform: translateY(-120vh) translateX(0); opacity: 0; }
-      15% { opacity: 1; }
-      to { transform: translateY(120vh) translateX(40px); opacity: 0; }
-    }
-
-    @keyframes wxFog {
-      from { transform: translateX(-28vw); opacity: 0.2; }
-      50% { opacity: 0.55; }
-      to { transform: translateX(128vw); opacity: 0.2; }
-    }
-
-    @keyframes wxSpark {
-      0%, 100% { transform: translateY(0) scale(0.8); opacity: 0.35; }
-      50% { transform: translateY(-8px) scale(1.2); opacity: 1; }
-    }
-
     .program-card h2 {
       margin: 0;
       font-weight: 600;
@@ -516,7 +391,6 @@
         <h1><span class="char">D</span><span class="char">O</span><span class="char">O</span><span class="char">B</span><span class="char">O</span><span class="char">B</span></h1>
         <p class="subtitle">Visual Effect | Game | Commercial | Tech Art</p>
       </div>
-      <div class="weather-chip" id="weather-chip"><strong>Vancouver</strong> Weather loading...</div>
     </header>
 
     <section class="program-grid">
@@ -557,7 +431,5 @@
       © 2026 DOOBOB. All rights reserved.
     </footer>
   </main>
-  <div class="weather-fx" id="weather-fx" aria-hidden="true"></div>
-  <script src="assets/js/vancouver-weather-wallpaper.js" defer></script>
 </body>
 </html>
