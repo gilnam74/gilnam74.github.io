@@ -51,15 +51,18 @@
 
     .brand h1 {
       margin: 0;
-      font-size: clamp(1.7rem, 3.6vw, 2.5rem);
-      font-weight: 600;
-      letter-spacing: 0.02em;
+      font-size: clamp(1.45rem, 2.8vw, 2.05rem);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.28);
     }
 
     .subtitle {
       margin: 2px 0 0;
-      font-size: 1rem;
-      color: #d7dde3;
+      font-size: 0.9rem;
+      color: #e1e7ec;
+      letter-spacing: 0.04em;
     }
 
     .program-grid {
@@ -93,6 +96,7 @@
       --hover-accent: #f39a52;
       --hover-accent-rgb: 243, 154, 82;
       --hover-title: #c96f20;
+      --hover-glow-rgb: 243, 154, 82;
     }
 
     .program-card > * {
@@ -109,26 +113,30 @@
       opacity: 0;
       transition: opacity 240ms ease;
       z-index: 0;
+      mix-blend-mode: screen;
     }
 
     .program-card::before {
       background:
-        radial-gradient(circle at 14% 86%, rgba(132, 236, 255, 0.58) 0 2px, transparent 3px),
-        radial-gradient(circle at 27% 70%, rgba(245, 137, 104, 0.48) 0 2px, transparent 3px),
-        radial-gradient(circle at 44% 84%, rgba(159, 180, 255, 0.6) 0 2px, transparent 3px),
-        radial-gradient(circle at 62% 76%, rgba(187, 132, 255, 0.5) 0 2px, transparent 3px),
-        radial-gradient(circle at 78% 88%, rgba(123, 213, 255, 0.56) 0 2px, transparent 3px),
-        radial-gradient(circle at 90% 72%, rgba(255, 173, 95, 0.48) 0 2px, transparent 3px);
-      animation: particleRise 3.6s linear infinite;
+        radial-gradient(circle at 10% 92%, rgba(132, 236, 255, 0.8) 0 3px, transparent 5px),
+        radial-gradient(circle at 20% 82%, rgba(245, 137, 104, 0.74) 0 3px, transparent 5px),
+        radial-gradient(circle at 32% 90%, rgba(159, 180, 255, 0.84) 0 3px, transparent 5px),
+        radial-gradient(circle at 44% 82%, rgba(187, 132, 255, 0.72) 0 3px, transparent 5px),
+        radial-gradient(circle at 56% 91%, rgba(123, 213, 255, 0.8) 0 3px, transparent 5px),
+        radial-gradient(circle at 68% 83%, rgba(255, 173, 95, 0.72) 0 3px, transparent 5px),
+        radial-gradient(circle at 80% 90%, rgba(124, 230, 255, 0.78) 0 3px, transparent 5px),
+        radial-gradient(circle at 92% 81%, rgba(255, 161, 100, 0.72) 0 3px, transparent 5px);
+      animation: particleRise 2.8s linear infinite;
     }
 
     .program-card::after {
       background:
-        radial-gradient(circle at 18% 85%, rgba(95, 201, 255, 0.38) 0 3px, transparent 4px),
-        radial-gradient(circle at 52% 82%, rgba(193, 136, 255, 0.34) 0 3px, transparent 4px),
-        radial-gradient(circle at 82% 87%, rgba(255, 161, 100, 0.34) 0 3px, transparent 4px);
-      filter: blur(0.5px);
-      animation: particleDrift 2.8s ease-in-out infinite;
+        radial-gradient(circle at 18% 85%, rgba(95, 201, 255, 0.58) 0 4px, transparent 7px),
+        radial-gradient(circle at 40% 88%, rgba(193, 136, 255, 0.52) 0 4px, transparent 7px),
+        radial-gradient(circle at 62% 83%, rgba(255, 161, 100, 0.54) 0 4px, transparent 7px),
+        radial-gradient(circle at 82% 87%, rgba(146, 224, 255, 0.54) 0 4px, transparent 7px);
+      filter: blur(0.8px);
+      animation: particleDrift 2.2s ease-in-out infinite;
     }
 
     .program-grid > .program-card:nth-child(1) {
@@ -136,6 +144,7 @@
       --hover-accent: #f39a52;
       --hover-accent-rgb: 243, 154, 82;
       --hover-title: #c96f20;
+      --hover-glow-rgb: 243, 154, 82;
     }
 
     .program-grid > .program-card:nth-child(2) {
@@ -143,6 +152,7 @@
       --hover-accent: #7fd8ff;
       --hover-accent-rgb: 127, 216, 255;
       --hover-title: #2f90c2;
+      --hover-glow-rgb: 127, 216, 255;
     }
 
     .program-grid > .program-card:nth-child(3) {
@@ -150,6 +160,7 @@
       --hover-accent: #ff98d6;
       --hover-accent-rgb: 255, 152, 214;
       --hover-title: #c25a99;
+      --hover-glow-rgb: 255, 152, 214;
     }
 
     .program-grid > .program-card:nth-child(4) {
@@ -157,13 +168,17 @@
       --hover-accent: #ff7f7f;
       --hover-accent-rgb: 255, 127, 127;
       --hover-title: #c84a4a;
+      --hover-glow-rgb: 255, 127, 127;
     }
 
     .program-card:hover {
       transform: translateY(-10px) scale(1.012);
-      box-shadow: 0 30px 58px rgba(9, 13, 17, 0.34);
-      border-color: #8e97a0;
-      outline-color: rgba(var(--hover-accent-rgb), 0.92);
+      box-shadow:
+        0 30px 58px rgba(9, 13, 17, 0.42),
+        0 0 0 2px rgba(var(--hover-accent-rgb), 0.32),
+        0 0 34px rgba(var(--hover-glow-rgb), 0.5);
+      border-color: rgba(var(--hover-accent-rgb), 0.85);
+      outline-color: rgba(var(--hover-accent-rgb), 0.98);
       background: linear-gradient(160deg, #d2d6da 0%, #c5cbd0 100%);
     }
 
