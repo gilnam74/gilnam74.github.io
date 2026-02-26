@@ -15,7 +15,7 @@
 body {
   margin: 0;
   font-family: "Space Grotesk", "IBM Plex Sans KR", sans-serif;
-  background: linear-gradient(var(--overlay), var(--overlay)), var(--wallpaper) center / cover no-repeat fixed;
+  background: linear-gradient(var(--overlay), var(--overlay)), var(--wallpaper) center / cover no-repeat;
   color: var(--text);
 }
 

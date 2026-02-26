@@ -136,23 +136,23 @@
     switch (kind) {
       case "rain":
       case "storm":
-        addParticle("wx-rain", kind === "storm" ? 90 : 65);
-        if (kind === "storm") addParticle("wx-spark", 12);
+        addParticle("wx-rain", kind === "storm" ? 62 : 44);
+        if (kind === "storm") addParticle("wx-spark", 8);
         break;
       case "snow":
-        addParticle("wx-snow", 56);
+        addParticle("wx-snow", 40);
         break;
       case "fog":
-        addParticle("wx-fog", 18);
+        addParticle("wx-fog", 12);
         break;
       case "cloudy":
-        addParticle("wx-fog", 8);
+        addParticle("wx-fog", 6);
         break;
       case "clear":
-        addParticle("wx-spark", 10);
+        addParticle("wx-spark", 8);
         break;
       default:
-        addParticle("wx-spark", 6);
+        addParticle("wx-spark", 5);
     }
     fx.classList.add("active");
   }
@@ -203,13 +203,22 @@
     img.src = path;
   }
 
-  function preloadAllWallpapers() {
-    Object.values(cities).forEach((city) => {
-      Object.values(city.wallpapers || {}).forEach((cssUrl) => {
-        preloadWallpaper(cssUrl);
-      });
-    });
+  function preloadSelectedWallpaper(cityKey) {
+    const city = cities[cityKey];
+    if (!city) return;
+    const time = getTimeParts(city);
+    const slot = getSlot(time.hour);
+    const selected = chooseWallpaper(city, slot);
+    preloadWallpaper(selected);
     preloadWallpaper("url(\"assets/images/unreal_wallpaper.png\")");
+  }
+
+  function scheduleSelectedPreload(cityKey) {
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(() => preloadSelectedWallpaper(cityKey), { timeout: 1600 });
+      return;
+    }
+    window.setTimeout(() => preloadSelectedWallpaper(cityKey), 200);
   }
 
   function renderChip(city, kind, dateTime) {
@@ -287,20 +296,32 @@
     saveCity(activeCity);
     // Apply city/time wallpaper immediately; weather info can follow after API returns.
     applyTheme(activeCity, latestKind);
+    scheduleSelectedPreload(activeCity);
     updateWeather(activeCity);
   });
 
   let pointerX = 0;
   let pointerY = 0;
-  window.addEventListener("pointermove", (event) => {
-    const x = (event.clientX / window.innerWidth - 0.5) * 10;
-    const y = (event.clientY / window.innerHeight - 0.5) * 10;
-    pointerX += (x - pointerX) * 0.12;
-    pointerY += (y - pointerY) * 0.12;
+  let targetX = 0;
+  let targetY = 0;
+  let pointerRaf = 0;
+  function renderPointer() {
+    pointerX += (targetX - pointerX) * 0.16;
+    pointerY += (targetY - pointerY) * 0.16;
     fx.style.transform = `translate3d(${pointerX}px, ${pointerY}px, 0)`;
+    if (Math.abs(targetX - pointerX) > 0.12 || Math.abs(targetY - pointerY) > 0.12) {
+      pointerRaf = window.requestAnimationFrame(renderPointer);
+      return;
+    }
+    pointerRaf = 0;
+  }
+  window.addEventListener("pointermove", (event) => {
+    targetX = (event.clientX / window.innerWidth - 0.5) * 10;
+    targetY = (event.clientY / window.innerHeight - 0.5) * 10;
+    if (!pointerRaf) pointerRaf = window.requestAnimationFrame(renderPointer);
   });
 
-  preloadAllWallpapers();
+  scheduleSelectedPreload(activeCity);
   applyTheme(activeCity, latestKind);
   updateWeather(activeCity);
   setInterval(() => updateWeather(activeCity), 10 * 60 * 1000);
