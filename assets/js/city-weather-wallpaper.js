@@ -101,6 +101,8 @@
   let latestWind = null;
   let lastSlot = "";
   let lastWallpaper = "";
+  let weatherRequestId = 0;
+  const preloadedWallpapers = new Set();
 
   function classify(code) {
     if (groups.clear.has(code)) return "clear";
@@ -188,6 +190,28 @@
     return selected || "url(\"assets/images/unreal_wallpaper.png\")";
   }
 
+  function extractUrlPath(cssUrl) {
+    const match = /^url\(["']?(.*?)["']?\)$/.exec(cssUrl);
+    return match ? match[1] : "";
+  }
+
+  function preloadWallpaper(cssUrl) {
+    const path = extractUrlPath(cssUrl);
+    if (!path || preloadedWallpapers.has(path)) return;
+    const img = new Image();
+    preloadedWallpapers.add(path);
+    img.src = path;
+  }
+
+  function preloadAllWallpapers() {
+    Object.values(cities).forEach((city) => {
+      Object.values(city.wallpapers || {}).forEach((cssUrl) => {
+        preloadWallpaper(cssUrl);
+      });
+    });
+    preloadWallpaper("url(\"assets/images/unreal_wallpaper.png\")");
+  }
+
   function renderChip(city, kind, dateTime) {
     const weatherLabel = weatherText[kind] || weatherText.unknown;
     const tempPart = latestTemp === null ? "--°C" : `${latestTemp}°C`;
@@ -234,8 +258,10 @@
   async function updateWeather(cityKey) {
     const city = cities[cityKey];
     if (!city) return;
+    const requestId = ++weatherRequestId;
     try {
       const current = await fetchWeather(city);
+      if (requestId !== weatherRequestId || cityKey !== activeCity) return;
       if (!current) throw new Error("missing weather payload");
       const code = Number(current.weather_code);
       const temp = Math.round(Number(current.temperature_2m));
@@ -247,6 +273,7 @@
       applyTheme(cityKey, kind);
       renderFx(kind);
     } catch (_err) {
+      if (requestId !== weatherRequestId || cityKey !== activeCity) return;
       latestKind = "unknown";
       latestTemp = null;
       latestWind = null;
@@ -258,8 +285,8 @@
   citySelect.addEventListener("change", () => {
     activeCity = citySelect.value in cities ? citySelect.value : "vancouver";
     saveCity(activeCity);
-    lastSlot = "";
-    lastWallpaper = "";
+    // Apply city/time wallpaper immediately; weather info can follow after API returns.
+    applyTheme(activeCity, latestKind);
     updateWeather(activeCity);
   });
 
@@ -273,6 +300,7 @@
     fx.style.transform = `translate3d(${pointerX}px, ${pointerY}px, 0)`;
   });
 
+  preloadAllWallpapers();
   applyTheme(activeCity, latestKind);
   updateWeather(activeCity);
   setInterval(() => updateWeather(activeCity), 10 * 60 * 1000);
