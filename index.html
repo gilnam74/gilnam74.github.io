@@ -149,20 +149,29 @@
     }
 
     .weather-panel {
+      --ui-fg: #f5fbff;
+      --ui-fg-strong: #9dd8ff;
+      --ui-stroke: rgba(206, 230, 255, 0.26);
       display: inline-flex;
       align-items: center;
       gap: 10px;
       background: transparent;
-      border: 1px solid rgba(206, 230, 255, 0.26);
+      border: 1px solid var(--ui-stroke);
       border-radius: 12px;
       padding: 8px 10px;
       backdrop-filter: blur(4px);
     }
 
+    body.slot-day .weather-panel {
+      --ui-fg: #0f1c2b;
+      --ui-fg-strong: #0f5f92;
+      --ui-stroke: rgba(12, 35, 57, 0.6);
+    }
+
     .weather-city {
       border: 1px solid rgba(184, 213, 245, 0.35);
       background: transparent;
-      color: #f5fbff;
+      color: var(--ui-fg);
       border-radius: 8px;
       font: inherit;
       font-size: 0.84rem;
@@ -198,21 +207,27 @@
     }
 
     .weather-city option {
-      background: rgba(13, 20, 30, 0.96);
-      color: #f5fbff;
+      background: transparent !important;
+      color: var(--ui-fg) !important;
     }
 
     .weather-chip {
-      color: #ecf5ff;
+      color: var(--ui-fg);
       font-size: 0.82rem;
       letter-spacing: 0.02em;
       white-space: normal;
       line-height: 1.35;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
     }
 
     .weather-chip strong {
-      color: #9dd8ff;
+      color: var(--ui-fg-strong);
       font-weight: 700;
+    }
+
+    body.slot-day .weather-city,
+    body.slot-day .weather-chip {
+      text-shadow: none;
     }
 
     .weather-fx {

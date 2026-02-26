@@ -193,8 +193,11 @@
       "weather-fog",
       "weather-storm",
     ];
+    const slotClasses = ["slot-morning", "slot-day", "slot-evening", "slot-night"];
     document.body.classList.remove(...classes);
+    document.body.classList.remove(...slotClasses);
     if (kind !== "unknown") document.body.classList.add(`weather-${kind}`);
+    document.body.classList.add(`slot-${slot}`);
     renderChip(c, kind, time.dateTime);
   }
 
