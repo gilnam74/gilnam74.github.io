@@ -34,6 +34,12 @@
       border: 1px solid #355067;
       background: #1b2a38;
     }
+    .h21-keynote-thmb {
+      width: var(--hero-image-width);
+      height: auto;
+      aspect-ratio: 1280 / 720;
+      object-fit: contain;
+    }
   </style>
   <script src="assets/js/brand-neon.js" defer></script>
 </head>
@@ -66,7 +72,7 @@
       </div>
     </div>
     <section class="hero">
-      <img src="assets/images/h21_keynote_thmb.png" alt="Houdini Foundation preview" width="1280" height="720" loading="lazy" />
+      <img class="h21-keynote-thmb" src="assets/images/h21_keynote_thmb.png" alt="Houdini Foundation preview" width="1280" height="720" loading="lazy" />
       <h1>Houdini Foundation</h1>
       <p class="meta">Duration: 6 weeks</p>
       <p>This 6-week beginner track builds practical Houdini fundamentals, from interface fluency to procedural thinking, basic simulation, and small production-ready outputs.</p>
