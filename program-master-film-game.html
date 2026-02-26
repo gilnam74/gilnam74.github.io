@@ -22,6 +22,12 @@
       --brand-sub: #b9ccda;
       --hero-image-width: 100%;
     }
+    .master-vfxgame-thmb {
+      width: calc(var(--hero-image-width) * 0.5);
+      height: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+    }
   </style>
   <script src="assets/js/brand-neon.js" defer></script>
 </head>
@@ -50,7 +56,7 @@
       </div>
     </div>
     <section class="hero">
-      <img src="assets/images/HoudiniVFXGameThumnail.jpg" alt="Houdini Master Program preview" width="600" height="600" loading="lazy" />
+      <img class="master-vfxgame-thmb" src="assets/images/HoudiniVFXGameThumnail.jpg" alt="Houdini Master Program preview" width="600" height="600" loading="lazy" />
       <h1>Houdini Master Program - Film &amp; Game</h1>
       <p class="meta">Duration: 16 weeks</p>
       <p>Advanced pipeline training for artists preparing for Film FX and Game FX production environments.</p>
