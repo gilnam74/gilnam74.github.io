@@ -38,6 +38,17 @@
           </div>
         </div>
       </a>
+      <div class="top-right">
+        <div class="weather-panel">
+          <select id="city-select" class="weather-city" aria-label="Select city weather">
+            <option value="vancouver" selected>Vancouver</option>
+            <option value="seoul">Seoul</option>
+            <option value="los_angeles">Los Angeles</option>
+            <option value="london">London</option>
+          </select>
+          <div class="weather-chip" id="weather-chip"><strong>Vancouver</strong> Weather loading...</div>
+        </div>
+      </div>
     </div>
     <section class="hero">
       <img src="assets/images/matrix_city.jpeg" alt="Procedural Generation Program preview" width="1600" height="666" loading="lazy" />
@@ -51,5 +62,7 @@
       </ul>
     </section>
   </main>
+  <div class="weather-fx" id="weather-fx" aria-hidden="true"></div>
+  <script src="assets/js/city-weather-wallpaper.js" defer></script>
 </body>
 </html>
