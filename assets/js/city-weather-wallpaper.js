@@ -6,21 +6,10 @@
       lon: 126.9780,
       tz: "Asia/Seoul",
       wallpapers: {
-        morning: [
-          "url(\"assets/images/city_seoul.jpg\")",
-        ],
-        day: [
-          "url(\"assets/images/city_seoul.jpg\")",
-          "url(\"assets/images/subpage_wall_2.jpg\")",
-        ],
-        evening: [
-          "url(\"assets/images/subpage_wall_4.jpg\")",
-          "url(\"assets/images/city_seoul.jpg\")",
-        ],
-        night: [
-          "url(\"assets/images/subpage_wall_5.jpg\")",
-          "url(\"assets/images/unreal_wallpaper.png\")",
-        ],
+        morning: "url(\"assets/images/city_seoul_morning.jpg\")",
+        day: "url(\"assets/images/city_seoul_day.jpg\")",
+        evening: "url(\"assets/images/city_seoul_evening.jpg\")",
+        night: "url(\"assets/images/city_seoul_night.jpg\")",
       },
     },
     vancouver: {
@@ -29,21 +18,10 @@
       lon: -123.1207,
       tz: "America/Vancouver",
       wallpapers: {
-        morning: [
-          "url(\"assets/images/city_vancouver.jpg\")",
-        ],
-        day: [
-          "url(\"assets/images/city_vancouver.jpg\")",
-          "url(\"assets/images/subpage_wall_2.jpg\")",
-        ],
-        evening: [
-          "url(\"assets/images/subpage_wall_1.jpg\")",
-          "url(\"assets/images/city_vancouver.jpg\")",
-        ],
-        night: [
-          "url(\"assets/images/unreal_wallpaper.png\")",
-          "url(\"assets/images/subpage_wall_3.jpg\")",
-        ],
+        morning: "url(\"assets/images/city_vancouver_morning.jpg\")",
+        day: "url(\"assets/images/city_vancouver_day.jpg\")",
+        evening: "url(\"assets/images/city_vancouver_evening.jpg\")",
+        night: "url(\"assets/images/city_vancouver_night.jpg\")",
       },
     },
     los_angeles: {
@@ -52,21 +30,10 @@
       lon: -118.2437,
       tz: "America/Los_Angeles",
       wallpapers: {
-        morning: [
-          "url(\"assets/images/city_los_angeles.jpg\")",
-        ],
-        day: [
-          "url(\"assets/images/city_los_angeles.jpg\")",
-          "url(\"assets/images/subpage_wall_1.jpg\")",
-        ],
-        evening: [
-          "url(\"assets/images/matrix_city.jpeg\")",
-          "url(\"assets/images/subpage_wall_4.jpg\")",
-        ],
-        night: [
-          "url(\"assets/images/unreal_wallpaper.png\")",
-          "url(\"assets/images/subpage_wall_3.jpg\")",
-        ],
+        morning: "url(\"assets/images/city_los_angeles_morning.jpg\")",
+        day: "url(\"assets/images/city_los_angeles_day.jpg\")",
+        evening: "url(\"assets/images/city_los_angeles_evening.jpg\")",
+        night: "url(\"assets/images/city_los_angeles_night.jpg\")",
       },
     },
     london: {
@@ -75,21 +42,10 @@
       lon: -0.1276,
       tz: "Europe/London",
       wallpapers: {
-        morning: [
-          "url(\"assets/images/city_london.jpg\")",
-        ],
-        day: [
-          "url(\"assets/images/city_london.jpg\")",
-          "url(\"assets/images/subpage_wall_2.jpg\")",
-        ],
-        evening: [
-          "url(\"assets/images/subpage_wall_4.jpg\")",
-          "url(\"assets/images/city_london.jpg\")",
-        ],
-        night: [
-          "url(\"assets/images/subpage_wall_5.jpg\")",
-          "url(\"assets/images/unreal_wallpaper.png\")",
-        ],
+        morning: "url(\"assets/images/city_london_morning.jpg\")",
+        day: "url(\"assets/images/city_london_day.jpg\")",
+        evening: "url(\"assets/images/city_london_evening.jpg\")",
+        night: "url(\"assets/images/city_london_night.jpg\")",
       },
     },
   };
@@ -206,11 +162,9 @@
     };
   }
 
-  function chooseWallpaper(city, slot, minuteKey) {
-    const list = (city.wallpapers && city.wallpapers[slot]) || [];
-    if (!list.length) return "url(\"assets/images/unreal_wallpaper.png\")";
-    const idx = Math.floor(minuteKey / 10) % list.length;
-    return list[idx];
+  function chooseWallpaper(city, slot) {
+    const selected = city.wallpapers && city.wallpapers[slot];
+    return selected || "url(\"assets/images/unreal_wallpaper.png\")";
   }
 
   function renderChip(city, kind, dateTime) {
@@ -225,7 +179,7 @@
     if (!c) return;
     const time = getTimeParts(c);
     const slot = getSlot(time.hour);
-    const selected = chooseWallpaper(c, slot, time.minuteKey);
+    const selected = chooseWallpaper(c, slot);
     if (slot !== lastSlot || selected !== lastWallpaper) {
       document.body.style.setProperty("--weather-bg", selected);
       lastSlot = slot;
