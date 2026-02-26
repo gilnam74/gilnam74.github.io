@@ -74,7 +74,28 @@
   const fx = document.getElementById("weather-fx");
   if (!citySelect || !chip || !fx) return;
 
+  const cityStorageKey = "doobob_selected_city";
+  function readSavedCity() {
+    try {
+      const saved = window.localStorage.getItem(cityStorageKey);
+      return saved && saved in cities ? saved : null;
+    } catch (_err) {
+      return null;
+    }
+  }
+  function saveCity(cityKey) {
+    try {
+      window.localStorage.setItem(cityStorageKey, cityKey);
+    } catch (_err) {
+      // ignore storage failures
+    }
+  }
+
+  const savedCity = readSavedCity();
+  if (savedCity) citySelect.value = savedCity;
   let activeCity = citySelect.value in cities ? citySelect.value : "vancouver";
+  if (activeCity !== citySelect.value) citySelect.value = activeCity;
+  saveCity(activeCity);
   let latestKind = "unknown";
   let latestTemp = null;
   let latestWind = null;
@@ -236,6 +257,7 @@
 
   citySelect.addEventListener("change", () => {
     activeCity = citySelect.value in cities ? citySelect.value : "vancouver";
+    saveCity(activeCity);
     lastSlot = "";
     lastWallpaper = "";
     updateWeather(activeCity);
