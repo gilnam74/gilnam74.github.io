@@ -402,13 +402,18 @@
       height: 48px;
       margin: 0 auto 14px;
       display: block;
+      color: #222a31;
       transition: transform 320ms cubic-bezier(.22, .61, .36, 1), filter 320ms ease;
+    }
+
+    .icon * {
+      stroke: currentColor;
     }
 
     .program-card:hover .icon {
       transform: translateY(-2px) scale(1.08);
+      color: var(--hover-accent);
       filter: drop-shadow(0 8px 14px rgba(34, 42, 49, 0.22));
-      animation: spin360 1.1s linear infinite;
     }
 
     .program-thumb {
@@ -420,11 +425,6 @@
       margin: 0 0 14px;
       display: block;
       box-shadow: 0 8px 18px rgba(9, 13, 17, 0.16);
-    }
-
-    @keyframes spin360 {
-      from { transform: translateY(-2px) scale(1.08) rotate(0deg); }
-      to { transform: translateY(-2px) scale(1.08) rotate(360deg); }
     }
 
     @keyframes laserSweep {
@@ -568,7 +568,10 @@
 
     <section class="program-grid">
       <a class="program-card" href="program-foundation.html" aria-label="Houdini Foundation, 6 weeks">
-        <img class="icon" width="48" height="48" src="assets/icons/film.svg" alt="" aria-hidden="true" />
+        <svg class="icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="16" rx="2" />
+          <path d="M8 4v16M16 4v16M3 9h5M3 15h5M16 9h5M16 15h5" />
+        </svg>
         <img class="program-thumb" src="assets/images/h21_keynote_thmb.png" alt="Houdini foundation visual preview" width="1280" height="720" loading="lazy" />
         <h2>Houdini Foundation (6 weeks)</h2>
         <p>Core Houdini essentials for beginners: modeling, attributes, simulations, and practical node workflow basics.</p>
@@ -576,7 +579,11 @@
       </a>
 
       <a class="program-card" href="program-master-film-game.html" aria-label="Houdini Master Program - Film and Game, 16 weeks">
-        <img class="icon" width="48" height="48" src="assets/icons/sparkles.svg" alt="" aria-hidden="true" />
+        <svg class="icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3l1.5 3.5L17 8l-3.5 1.5L12 13l-1.5-3.5L7 8l3.5-1.5L12 3z" />
+          <path d="M5 14l1 2.2L8.2 17 6 18l-1 2.2L4 18l-2.2-1 2.2-.8L5 14z" />
+          <path d="M18.5 13l.8 1.8 1.8.8-1.8.8-.8 1.8-.8-1.8-1.8-.8 1.8-.8.8-1.8z" />
+        </svg>
         <img class="program-thumb" src="assets/images/HoudiniVFXGameThumnail.jpg" alt="Houdini master film and game visual preview" width="600" height="600" loading="lazy" />
         <h2>Houdini Master Program - Film &amp; Game (16 weeks)</h2>
         <p>Advanced production track for Film and Game pipelines with FX, procedural assets, and studio-ready workflows.</p>
@@ -584,7 +591,10 @@
       </a>
 
       <a class="program-card" href="program-procedural-generation.html" aria-label="Procedural Generation Program, 16 weeks">
-        <img class="icon" width="48" height="48" src="assets/icons/cube.svg" alt="" aria-hidden="true" />
+        <svg class="icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" />
+          <path d="M12 12l8-4.5M12 12L4 7.5M12 12v9" />
+        </svg>
         <img class="program-thumb" src="assets/images/matrix_city.jpeg" alt="Procedural generation visual preview" width="1600" height="666" loading="lazy" />
         <h2>Procedural Generation Program (16 weeks)</h2>
         <p>Hands-on procedural workflow training focused on scalable content creation and technical art foundations.</p>
@@ -592,7 +602,11 @@
       </a>
 
       <a class="program-card" href="program-portfolio.html" aria-label="Portfolio Program">
-        <img class="icon" width="48" height="48" src="assets/icons/briefcase.svg" alt="" aria-hidden="true" />
+        <svg class="icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="7" width="18" height="13" rx="2" />
+          <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" />
+          <path d="M3 12h18" />
+        </svg>
         <img class="program-thumb" src="assets/images/portfolio_image.jpg" alt="Portfolio program visual preview" width="512" height="512" loading="lazy" />
         <h2>Portfolio Program</h2>
         <p>Mentored portfolio development focused on final shots, breakdown quality, and presentation for studio applications.</p>
