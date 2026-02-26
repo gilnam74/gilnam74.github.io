@@ -5,28 +5,92 @@
       lat: 37.5665,
       lon: 126.9780,
       tz: "Asia/Seoul",
-      bg: "url(\"assets/images/city_seoul.jpg\")",
+      wallpapers: {
+        morning: [
+          "url(\"assets/images/city_seoul.jpg\")",
+        ],
+        day: [
+          "url(\"assets/images/city_seoul.jpg\")",
+          "url(\"assets/images/subpage_wall_2.jpg\")",
+        ],
+        evening: [
+          "url(\"assets/images/subpage_wall_4.jpg\")",
+          "url(\"assets/images/city_seoul.jpg\")",
+        ],
+        night: [
+          "url(\"assets/images/subpage_wall_5.jpg\")",
+          "url(\"assets/images/unreal_wallpaper.png\")",
+        ],
+      },
     },
     vancouver: {
       label: "Vancouver",
       lat: 49.2827,
       lon: -123.1207,
       tz: "America/Vancouver",
-      bg: "url(\"assets/images/city_vancouver.jpg\")",
+      wallpapers: {
+        morning: [
+          "url(\"assets/images/city_vancouver.jpg\")",
+        ],
+        day: [
+          "url(\"assets/images/city_vancouver.jpg\")",
+          "url(\"assets/images/subpage_wall_2.jpg\")",
+        ],
+        evening: [
+          "url(\"assets/images/subpage_wall_1.jpg\")",
+          "url(\"assets/images/city_vancouver.jpg\")",
+        ],
+        night: [
+          "url(\"assets/images/unreal_wallpaper.png\")",
+          "url(\"assets/images/subpage_wall_3.jpg\")",
+        ],
+      },
     },
     los_angeles: {
       label: "Los Angeles",
       lat: 34.0522,
       lon: -118.2437,
       tz: "America/Los_Angeles",
-      bg: "url(\"assets/images/city_los_angeles.jpg\")",
+      wallpapers: {
+        morning: [
+          "url(\"assets/images/city_los_angeles.jpg\")",
+        ],
+        day: [
+          "url(\"assets/images/city_los_angeles.jpg\")",
+          "url(\"assets/images/subpage_wall_1.jpg\")",
+        ],
+        evening: [
+          "url(\"assets/images/matrix_city.jpeg\")",
+          "url(\"assets/images/subpage_wall_4.jpg\")",
+        ],
+        night: [
+          "url(\"assets/images/unreal_wallpaper.png\")",
+          "url(\"assets/images/subpage_wall_3.jpg\")",
+        ],
+      },
     },
     london: {
       label: "London",
       lat: 51.5072,
       lon: -0.1276,
       tz: "Europe/London",
-      bg: "url(\"assets/images/city_london.jpg\")",
+      wallpapers: {
+        morning: [
+          "url(\"assets/images/city_london.jpg\")",
+        ],
+        day: [
+          "url(\"assets/images/city_london.jpg\")",
+          "url(\"assets/images/subpage_wall_2.jpg\")",
+        ],
+        evening: [
+          "url(\"assets/images/subpage_wall_4.jpg\")",
+          "url(\"assets/images/city_london.jpg\")",
+        ],
+        night: [
+          "url(\"assets/images/subpage_wall_5.jpg\")",
+          "url(\"assets/images/unreal_wallpaper.png\")",
+        ],
+      },
     },
   };
 
@@ -55,6 +119,11 @@
   if (!citySelect || !chip || !fx) return;
 
   let activeCity = citySelect.value in cities ? citySelect.value : "vancouver";
+  let latestKind = "unknown";
+  let latestTemp = null;
+  let latestWind = null;
+  let lastSlot = "";
+  let lastWallpaper = "";
 
   function classify(code) {
     if (groups.clear.has(code)) return "clear";
@@ -109,10 +178,59 @@
     fx.classList.add("active");
   }
 
+  function getSlot(hour) {
+    if (hour >= 5 && hour <= 10) return "morning";
+    if (hour >= 11 && hour <= 16) return "day";
+    if (hour >= 17 && hour <= 20) return "evening";
+    return "night";
+  }
+
+  function getTimeParts(city) {
+    const now = new Date();
+    const formatter = new Intl.DateTimeFormat("en-CA", {
+      timeZone: city.tz,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    });
+    const parts = formatter.formatToParts(now);
+    const map = Object.fromEntries(parts.map((p) => [p.type, p.value]));
+    const hour = Number(map.hour || "0");
+    return {
+      hour,
+      dateTime: `${map.year}-${map.month}-${map.day} ${map.hour}:${map.minute}`,
+      minuteKey: Number(map.minute || "0"),
+    };
+  }
+
+  function chooseWallpaper(city, slot, minuteKey) {
+    const list = (city.wallpapers && city.wallpapers[slot]) || [];
+    if (!list.length) return "url(\"assets/images/unreal_wallpaper.png\")";
+    const idx = Math.floor(minuteKey / 10) % list.length;
+    return list[idx];
+  }
+
+  function renderChip(city, kind, dateTime) {
+    const weatherLabel = weatherText[kind] || weatherText.unknown;
+    const tempPart = latestTemp === null ? "--°C" : `${latestTemp}°C`;
+    const windPart = latestWind === null ? "-- km/h" : `${latestWind} km/h`;
+    chip.innerHTML = `<strong>${city.label}</strong> ${weatherLabel} · ${tempPart} · Wind ${windPart}<br>${dateTime}`;
+  }
+
   function applyTheme(cityKey, kind) {
     const c = cities[cityKey];
     if (!c) return;
-    document.body.style.setProperty("--weather-bg", c.bg);
+    const time = getTimeParts(c);
+    const slot = getSlot(time.hour);
+    const selected = chooseWallpaper(c, slot, time.minuteKey);
+    if (slot !== lastSlot || selected !== lastWallpaper) {
+      document.body.style.setProperty("--weather-bg", selected);
+      lastSlot = slot;
+      lastWallpaper = selected;
+    }
     const classes = [
       "weather-clear",
       "weather-cloudy",
@@ -123,6 +241,7 @@
     ];
     document.body.classList.remove(...classes);
     if (kind !== "unknown") document.body.classList.add(`weather-${kind}`);
+    renderChip(c, kind, time.dateTime);
   }
 
   async function fetchWeather(city) {
@@ -147,12 +266,15 @@
       const temp = Math.round(Number(current.temperature_2m));
       const wind = Math.round(Number(current.wind_speed_10m));
       const kind = classify(code);
-
-      chip.innerHTML = `<strong>${city.label}</strong> ${weatherText[kind]} · ${temp}°C · Wind ${wind} km/h`;
+      latestKind = kind;
+      latestTemp = temp;
+      latestWind = wind;
       applyTheme(cityKey, kind);
       renderFx(kind);
     } catch (_err) {
-      chip.innerHTML = `<strong>${city.label}</strong> Weather unavailable`;
+      latestKind = "unknown";
+      latestTemp = null;
+      latestWind = null;
       applyTheme(cityKey, "unknown");
       clearFx();
     }
@@ -160,6 +282,8 @@
 
   citySelect.addEventListener("change", () => {
     activeCity = citySelect.value in cities ? citySelect.value : "vancouver";
+    lastSlot = "";
+    lastWallpaper = "";
     updateWeather(activeCity);
   });
 
@@ -173,7 +297,8 @@
     fx.style.transform = `translate3d(${pointerX}px, ${pointerY}px, 0)`;
   });
 
-  applyTheme(activeCity, "unknown");
+  applyTheme(activeCity, latestKind);
   updateWeather(activeCity);
   setInterval(() => updateWeather(activeCity), 10 * 60 * 1000);
+  setInterval(() => applyTheme(activeCity, latestKind), 60 * 1000);
 })();
