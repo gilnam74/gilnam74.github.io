@@ -62,6 +62,38 @@
       gap: 10px;
     }
 
+    .logo-shell {
+      position: relative;
+      width: 68px;
+      height: 68px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      isolation: isolate;
+      background:
+        radial-gradient(circle at 18% 16%, rgba(126, 229, 255, 0.52), transparent 58%),
+        radial-gradient(circle at 82% 88%, rgba(255, 156, 112, 0.5), transparent 62%),
+        linear-gradient(155deg, rgba(236, 243, 249, 0.18), rgba(159, 175, 190, 0.1));
+      border: 1px solid rgba(228, 240, 252, 0.24);
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 8px 18px rgba(5, 10, 18, 0.36);
+      animation: logoAuraPulse 4.6s ease-in-out infinite;
+    }
+
+    .logo-shell::before {
+      content: "";
+      position: absolute;
+      inset: -6px;
+      border-radius: 18px;
+      background: conic-gradient(from 90deg, rgba(111, 219, 255, 0.32), rgba(255, 164, 112, 0.26), rgba(182, 132, 255, 0.24), rgba(111, 219, 255, 0.32));
+      filter: blur(8px);
+      opacity: 0.45;
+      z-index: -1;
+      animation: logoHaloSpin 9s linear infinite;
+    }
+
     .brand-main > div {
       display: flex;
       flex-direction: column;
@@ -72,9 +104,29 @@
       width: 60px;
       height: 60px;
       object-fit: contain;
-      border-radius: 10px;
+      border-radius: 12px;
       mix-blend-mode: screen;
-      opacity: 0.96;
+      opacity: 0.98;
+    }
+
+    .brand-logo {
+      filter:
+        saturate(1.14)
+        contrast(1.08)
+        brightness(1.03)
+        drop-shadow(0 2px 5px rgba(100, 228, 255, 0.32))
+        drop-shadow(0 5px 10px rgba(255, 150, 114, 0.24));
+      transition: transform 320ms ease, filter 320ms ease;
+    }
+
+    .brand-main:hover .brand-logo {
+      transform: translateY(-1px) scale(1.03);
+      filter:
+        saturate(1.2)
+        contrast(1.12)
+        brightness(1.06)
+        drop-shadow(0 2px 7px rgba(118, 231, 255, 0.48))
+        drop-shadow(0 8px 14px rgba(255, 150, 114, 0.32));
     }
 
     .brand h1 {
@@ -465,6 +517,16 @@
       to { transform: rotate(360deg) scale(1.02); opacity: 0.82; }
     }
 
+    @keyframes logoHaloSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes logoAuraPulse {
+      0%, 100% { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08), 0 8px 18px rgba(5, 10, 18, 0.36); }
+      50% { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12), 0 10px 22px rgba(5, 10, 18, 0.42); }
+    }
+
     @keyframes titleOrbitB {
       0%, 100% { transform: rotate(0deg) translateY(0); opacity: 0.68; }
       50% { transform: rotate(-180deg) translateY(-2px); opacity: 0.9; }
@@ -549,7 +611,9 @@
   <main class="wrap" aria-label="Program list">
     <header class="brand">
       <div class="brand-main">
-        <img src="assets/images/Doobob-Games-LogoHomePage.png" alt="DOOBOB logo" width="400" height="400" />
+        <span class="logo-shell">
+          <img class="brand-logo" src="assets/images/Doobob-Games-LogoHomePage.png" alt="DOOBOB logo" width="400" height="400" />
+        </span>
         <div>
           <h1><span class="char">D</span><span class="char">O</span><span class="char">O</span><span class="char">B</span><span class="char">O</span><span class="char">B</span></h1>
           <p class="subtitle">Visual Effect | Game | Commercial | Tech Art</p>
