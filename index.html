@@ -161,13 +161,45 @@
 
     .weather-city {
       border: 1px solid rgba(184, 213, 245, 0.35);
-      background: rgba(0, 0, 0, 0.18);
-      color: #ecf5ff;
+      background: transparent;
+      color: #f5fbff;
       border-radius: 8px;
       font: inherit;
-      font-size: 0.82rem;
-      padding: 7px 9px;
-      min-width: 120px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      padding: 7px 34px 7px 10px;
+      min-width: 148px;
+      line-height: 1.2;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-image:
+        linear-gradient(45deg, transparent 50%, #d5eaff 50%),
+        linear-gradient(135deg, #d5eaff 50%, transparent 50%);
+      background-position:
+        calc(100% - 16px) calc(50% - 2px),
+        calc(100% - 10px) calc(50% - 2px);
+      background-size: 6px 6px, 6px 6px;
+      background-repeat: no-repeat;
+      cursor: pointer;
+    }
+
+    .weather-city:hover {
+      border-color: rgba(206, 232, 255, 0.62);
+      background-color: rgba(255, 255, 255, 0.06);
+    }
+
+    .weather-city:focus {
+      outline: none;
+      border-color: rgba(124, 212, 255, 0.92);
+      box-shadow: 0 0 0 2px rgba(124, 212, 255, 0.28);
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .weather-city option {
+      background: rgba(13, 20, 30, 0.96);
+      color: #f5fbff;
     }
 
     .weather-chip {
