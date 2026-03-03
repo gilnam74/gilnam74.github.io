@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Houdini Foundation (6 weeks) | DOOBOB</title>
+  <title>Artist | Choi Gil Nam | DOOBOB</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
@@ -11,28 +11,231 @@
   <link rel="stylesheet" href="subpage-shared.css" />
   <style>
     :root {
-      --overlay: rgba(10, 17, 24, 0.72);
-      --text: #eaf0f4;
-      --back-color: #89d4ff;
-      --hero-bg: #203041;
-      --hero-border: #31485f;
-      --hero-img-border: #39526a;
-      --meta: #9fc3dd;
-      --copy: #cfdee8;
-      --brand-sub: #bcd2e2;
-      --hero-image-width: 50%;
+      --wallpaper: url("assets/images/city_london_evening.jpg");
+      --overlay: rgba(12, 14, 20, 0.76);
+      --text: #f6f0e6;
+      --back-color: #f6c37b;
+      --hero-bg: rgba(21, 23, 28, 0.92);
+      --hero-border: rgba(219, 178, 110, 0.24);
+      --hero-img-border: rgba(219, 178, 110, 0.32);
+      --meta: #dfb880;
+      --copy: #efe3d3;
+      --brand-sub: #e6d5bf;
+      --hero-image-width: 100%;
     }
 
-    h2 { margin: 24px 0 10px; font-size: 1.15rem; color: #e8f2f8; }
-    p { margin: 10px 0; }
-    ul { margin: 8px 0 0; padding-left: 20px; }
-    .week-list li { margin-bottom: 10px; }
-    .panel {
+    .hero {
+      padding: clamp(18px, 3vw, 28px);
+    }
+
+    .artist-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.95fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .artist-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--meta);
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .artist-copy h1 {
+      font-size: clamp(2.2rem, 6vw, 4.4rem);
+      line-height: 0.95;
+      margin: 0;
+      max-width: 7ch;
+    }
+
+    .artist-copy .meta {
+      margin: 0;
+      font-size: 0.98rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .lead {
+      margin: 0;
+      max-width: 56ch;
+      font-size: 1rem;
+    }
+
+    .jump-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .jump-links a,
+    .button-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 224, 180, 0.2);
+      color: #fff7ed;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .jump-links a:hover,
+    .button-link:hover {
+      background: rgba(246, 195, 123, 0.14);
+      border-color: rgba(246, 195, 123, 0.4);
+    }
+
+    .hero-portrait {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 223, 176, 0.16);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+        rgba(35, 33, 29, 0.88);
+    }
+
+    .hero-portrait img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid var(--hero-img-border);
+      margin: 0;
+    }
+
+    .portrait-caption {
+      margin: 0;
+      font-size: 0.88rem;
+      color: #e4d2bb;
+    }
+
+    .feature-grid,
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .feature-card,
+    .work-card,
+    .contact-card {
+      border-radius: 16px;
+      border: 1px solid rgba(255, 223, 176, 0.14);
+      background: rgba(255, 255, 255, 0.04);
+      overflow: hidden;
+    }
+
+    .feature-card {
+      padding: 18px;
+    }
+
+    .feature-card h2,
+    .section-title {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+      color: #fff4df;
+    }
+
+    .feature-card p,
+    .work-card p,
+    .contact-card p {
+      margin: 0;
+    }
+
+    .work-card img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+    }
+
+    .work-copy {
+      padding: 14px 16px 16px;
+    }
+
+    .work-copy h3 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+      color: #fff4df;
+    }
+
+    .section-block {
+      margin-top: 28px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .section-head p {
+      margin: 0;
+      max-width: 52ch;
+      font-size: 0.94rem;
+    }
+
+    .contact-card {
+      margin-top: 28px;
+      padding: 18px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) auto;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .contact-copy h2 {
+      margin: 0 0 8px;
+      color: #fff4df;
+      font-size: 1.08rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
       margin-top: 14px;
-      padding: 14px 16px;
-      border-radius: 12px;
-      border: 1px solid #355067;
-      background: #1b2a38;
+    }
+
+    @media (max-width: 900px) {
+      .artist-hero,
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .feature-grid,
+      .works-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
     .h21-keynote-thmb {
       width: var(--hero-image-width);
@@ -71,46 +274,91 @@
         </div>
       </div>
     </div>
+
     <section class="hero">
-      <img class="h21-keynote-thmb" src="assets/images/h21_keynote_thmb.png" alt="Houdini Foundation preview" width="1280" height="720" loading="lazy" />
-      <h1>Houdini Foundation</h1>
-      <p class="meta">Duration: 6 weeks</p>
-      <p>This 6-week beginner track builds practical Houdini fundamentals, from interface fluency to procedural thinking, basic simulation, and small production-ready outputs.</p>
+      <div class="artist-hero">
+        <div class="artist-copy">
+          <p class="eyebrow">Artist Profile</p>
+          <h1>Choi Gil Nam</h1>
+          <p class="meta">Visual Artist | Installation | Mixed Media</p>
+          <p class="lead">Built with the editorial rhythm of the reference site, this page introduces Choi Gil Nam through a direct profile block, a selected-works view, and a compact contact area. The links and featured projects are placeholders for now, as requested.</p>
+          <div class="jump-links" aria-label="Artist sections">
+            <a href="#selected-works">Selected Works</a>
+            <a href="#exhibitions">Exhibitions</a>
+            <a href="#contact">Contact</a>
+          </div>
 
-      <h2>Learning Goals</h2>
-      <ul>
-        <li>Understand node-based workflows and data flow logic.</li>
-        <li>Build procedural modeling setups with attribute control.</li>
-        <li>Create reusable scene structures with clean organization.</li>
-      </ul>
+          <div class="feature-grid" id="exhibitions">
+            <article class="feature-card">
+              <h2>Current Exhibition</h2>
+              <p>Signals in Quiet Space, Seoul, 2026. A room-scale installation built around layered projections, painted surfaces, and ambient sound.</p>
+            </article>
+            <article class="feature-card">
+              <h2>Practice</h2>
+              <p>Choi Gil Nam works across painting, moving image, and sculptural composition, balancing calm spatial composition with sharper graphic contrast.</p>
+            </article>
+          </div>
+        </div>
 
-      <h2>6-Week Curriculum</h2>
-      <ul class="week-list">
-        <li><strong>Week 1:</strong> Houdini UI, node graph basics, SOP context, and file discipline</li>
-        <li><strong>Week 2:</strong> Procedural modeling fundamentals with Group/Transform/Copy workflows</li>
-        <li><strong>Week 3:</strong> Attribute fundamentals, randomness, and controlled variation</li>
-        <li><strong>Week 4:</strong> Intro to VOP/VEX and simple parameter-driven setup design</li>
-        <li><strong>Week 5:</strong> Basic simulation intro (particles/RBD), cache concept, and scene cleanup</li>
-        <li><strong>Week 6:</strong> Final mini project, critique session, and next-step study roadmap</li>
-      </ul>
-
-      <div class="panel">
-        <h2>Final Deliverables</h2>
-        <ul>
-          <li>One procedural modeling output</li>
-          <li>One basic simulation shot</li>
-          <li>Node network captures with short process notes</li>
-        </ul>
+        <aside class="hero-portrait" aria-label="Featured portrait">
+          <img src="assets/images/mypicture_2026_v02.jpg" alt="Portrait of Choi Gil Nam" width="1280" height="1600" loading="lazy" />
+          <p class="portrait-caption">Studio portrait and lead image. Temporary visual connection using an available local asset.</p>
+        </aside>
       </div>
 
-      <div class="panel">
-        <h2>Recommended For</h2>
-        <ul>
-          <li>Students and artists starting Houdini for the first time</li>
-          <li>Creators with DCC experience who are new to procedural workflows</li>
-          <li>Learners preparing for Master or Procedural Generation tracks</li>
-        </ul>
+      <div class="section-block" id="selected-works">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Selected Works</h2>
+            <p>Four placeholder projects are arranged in a clean gallery grid to echo the reference site's portfolio structure while staying consistent with this project's existing style system.</p>
+          </div>
+          <a class="button-link" href="https://example.com/choi-gil-nam-archive">View Archive</a>
+        </div>
+
+        <div class="works-grid">
+          <article class="work-card">
+            <img src="assets/images/portfolio_image.jpg" alt="Archive Memory No. 1" width="512" height="512" loading="lazy" />
+            <div class="work-copy">
+              <h3>Archive Memory No. 1</h3>
+              <p>Layered portrait studies with warm highlights, scanned paper fragments, and handwritten field notes.</p>
+            </div>
+          </article>
+          <article class="work-card">
+            <img src="assets/images/subpage_wall_1.jpg" alt="Window Studies" width="1920" height="1080" loading="lazy" />
+            <div class="work-copy">
+              <h3>Window Studies</h3>
+              <p>A restrained installation concept built from repeated frames, translucent panels, and directional light.</p>
+            </div>
+          </article>
+          <article class="work-card">
+            <img src="assets/images/subpage_wall_3.jpg" alt="Afterimage Field" width="1920" height="1080" loading="lazy" />
+            <div class="work-copy">
+              <h3>Afterimage Field</h3>
+              <p>Projected textures and painted surfaces combined to create slow shifts in depth and perception.</p>
+            </div>
+          </article>
+          <article class="work-card">
+            <img src="assets/images/subpage_wall_5.jpg" alt="Stillness for Four Walls" width="1920" height="1080" loading="lazy" />
+            <div class="work-copy">
+              <h3>Stillness for Four Walls</h3>
+              <p>A gallery-room proposal using suspended forms, warm indirect lighting, and softly reflective materials.</p>
+            </div>
+          </article>
+        </div>
       </div>
+
+      <section class="contact-card" id="contact">
+        <div class="contact-copy">
+          <h2>Contact & Studio Notes</h2>
+          <p>For commissions, exhibitions, or collaborations, the links below are temporary stand-ins until final destinations are provided.</p>
+          <div class="contact-links">
+            <a class="button-link" href="mailto:choigilnam@example.com">Email Studio</a>
+            <a class="button-link" href="https://example.com/choi-gil-nam-press">Press Kit</a>
+            <a class="button-link" href="https://example.com/choi-gil-nam-instagram">Instagram</a>
+          </div>
+        </div>
+        <a class="button-link" href="https://example.com/choi-gil-nam-cv">Download CV</a>
+      </section>
     </section>
   </main>
   <div class="weather-fx" id="weather-fx" aria-hidden="true"></div>
