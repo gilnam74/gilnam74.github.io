@@ -174,6 +174,41 @@
       font-size: 0.92rem;
     }
 
+    .category-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 22px 0 8px;
+    }
+
+    .category-nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.42);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .category-nav a:hover {
+      background: rgba(29, 26, 22, 0.08);
+      color: var(--ink);
+    }
+
+    .gallery-section {
+      padding-top: 18px;
+      scroll-margin-top: 24px;
+    }
+
+    .gallery-section + .gallery-section {
+      margin-top: 26px;
+    }
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -394,57 +429,91 @@
         <p>Ten images are arranged in a tidy magazine-like grid to keep the page visually structured while still feeling close to the reference's quiet gallery presentation.</p>
       </div>
 
-      <div class="gallery">
-        <button class="art-card wide" type="button" data-full="assets/images/mypicture_2026_v02.jpg" data-alt="Portrait of Choi Gil Nam" data-caption="Portrait study / temporary lead image for the artist page.">
-          <img src="assets/images/mypicture_2026_v02.jpg" alt="Portrait of Choi Gil Nam" width="1280" height="1600" loading="lazy" />
-          <span class="card-copy"><strong>Portrait Study</strong><span>Lead portrait used as a temporary anchor image for the page.</span></span>
-        </button>
+      <nav class="category-nav" aria-label="Artwork categories">
+        <a href="#visual-art">Visual Art</a>
+        <a href="#film-art">Film Art</a>
+        <a href="#game-art">Game Art</a>
+      </nav>
 
-        <button class="art-card tall" type="button" data-full="assets/images/subpage_wall_1.jpg" data-alt="Installation frame study" data-caption="Installation frame study / temporary placeholder image.">
-          <img src="assets/images/subpage_wall_1.jpg" alt="Installation frame study" width="1920" height="1080" loading="lazy" />
-          <span class="card-copy"><strong>Frame Sequence</strong><span>Light, repetition, and interior framing.</span></span>
-        </button>
+      <section class="gallery-section" id="visual-art" aria-labelledby="visual-art-title">
+        <div class="section-head">
+          <div>
+            <h2 id="visual-art-title">Visual Art</h2>
+          </div>
+          <p>Portrait-led and installation-oriented studies that frame the quieter, gallery-facing side of the archive.</p>
+        </div>
+        <div class="gallery">
+          <button class="art-card wide" type="button" data-full="assets/images/mypicture_2026_v02.jpg" data-alt="Portrait of Choi Gil Nam" data-caption="Portrait study / temporary lead image for the artist page.">
+            <img src="assets/images/mypicture_2026_v02.jpg" alt="Portrait of Choi Gil Nam" width="1280" height="1600" loading="lazy" />
+            <span class="card-copy"><strong>Portrait Study</strong><span>Lead portrait used as a temporary anchor image for the page.</span></span>
+          </button>
 
-        <button class="art-card" type="button" data-full="assets/images/portfolio_image.jpg" data-alt="Portrait collage study" data-caption="Portrait collage study / temporary placeholder image.">
-          <img src="assets/images/portfolio_image.jpg" alt="Portrait collage study" width="512" height="512" loading="lazy" />
-          <span class="card-copy"><strong>Archive Memory</strong><span>Layered portrait fragments and warm highlights.</span></span>
-        </button>
+          <button class="art-card tall" type="button" data-full="assets/images/subpage_wall_1.jpg" data-alt="Installation frame study" data-caption="Installation frame study / temporary placeholder image.">
+            <img src="assets/images/subpage_wall_1.jpg" alt="Installation frame study" width="1920" height="1080" loading="lazy" />
+            <span class="card-copy"><strong>Frame Sequence</strong><span>Light, repetition, and interior framing.</span></span>
+          </button>
 
-        <button class="art-card" type="button" data-full="assets/images/subpage_wall_2.jpg" data-alt="Spatial composition study" data-caption="Spatial composition study / temporary placeholder image.">
-          <img src="assets/images/subpage_wall_2.jpg" alt="Spatial composition study" width="1920" height="1080" loading="lazy" />
-          <span class="card-copy"><strong>Quiet Room</strong><span>Spatial balance with soft architectural texture.</span></span>
-        </button>
+          <button class="art-card" type="button" data-full="assets/images/portfolio_image.jpg" data-alt="Portrait collage study" data-caption="Portrait collage study / temporary placeholder image.">
+            <img src="assets/images/portfolio_image.jpg" alt="Portrait collage study" width="512" height="512" loading="lazy" />
+            <span class="card-copy"><strong>Archive Memory</strong><span>Layered portrait fragments and warm highlights.</span></span>
+          </button>
 
-        <button class="art-card wide" type="button" data-full="assets/images/city_seoul_evening.jpg" data-alt="Seoul evening city image" data-caption="Urban atmosphere reference / temporary placeholder image.">
-          <img src="assets/images/city_seoul_evening.jpg" alt="Seoul evening city image" width="1920" height="1080" loading="lazy" />
-          <span class="card-copy"><strong>Seoul Evening</strong><span>Urban atmosphere reference integrated into the visual archive.</span></span>
-        </button>
+          <button class="art-card" type="button" data-full="assets/images/subpage_wall_2.jpg" data-alt="Spatial composition study" data-caption="Spatial composition study / temporary placeholder image.">
+            <img src="assets/images/subpage_wall_2.jpg" alt="Spatial composition study" width="1920" height="1080" loading="lazy" />
+            <span class="card-copy"><strong>Quiet Room</strong><span>Spatial balance with soft architectural texture.</span></span>
+          </button>
+        </div>
+      </section>
 
-        <button class="art-card" type="button" data-full="assets/images/subpage_wall_3.jpg" data-alt="Projected texture study" data-caption="Projected texture study / temporary placeholder image.">
-          <img src="assets/images/subpage_wall_3.jpg" alt="Projected texture study" width="1920" height="1080" loading="lazy" />
-          <span class="card-copy"><strong>Afterimage Field</strong><span>Layered projection and painted surfaces.</span></span>
-        </button>
+      <section class="gallery-section" id="film-art" aria-labelledby="film-art-title">
+        <div class="section-head">
+          <div>
+            <h2 id="film-art-title">Film Art</h2>
+          </div>
+          <p>Atmospheric frames and projection-based images grouped as cinematic studies and scene-driven visual compositions.</p>
+        </div>
+        <div class="gallery">
+          <button class="art-card wide" type="button" data-full="assets/images/city_seoul_evening.jpg" data-alt="Seoul evening city image" data-caption="Urban atmosphere reference / temporary placeholder image.">
+            <img src="assets/images/city_seoul_evening.jpg" alt="Seoul evening city image" width="1920" height="1080" loading="lazy" />
+            <span class="card-copy"><strong>Seoul Evening</strong><span>Urban atmosphere reference integrated into the visual archive.</span></span>
+          </button>
 
-        <button class="art-card tall" type="button" data-full="assets/images/city_london_morning.jpg" data-alt="London morning city image" data-caption="City archive plate / temporary placeholder image.">
-          <img src="assets/images/city_london_morning.jpg" alt="London morning city image" width="1920" height="1080" loading="lazy" />
-          <span class="card-copy"><strong>London Morning</strong><span>Documentary-style city plate used as a visual reference.</span></span>
-        </button>
+          <button class="art-card" type="button" data-full="assets/images/subpage_wall_3.jpg" data-alt="Projected texture study" data-caption="Projected texture study / temporary placeholder image.">
+            <img src="assets/images/subpage_wall_3.jpg" alt="Projected texture study" width="1920" height="1080" loading="lazy" />
+            <span class="card-copy"><strong>Afterimage Field</strong><span>Layered projection and painted surfaces.</span></span>
+          </button>
 
-        <button class="art-card" type="button" data-full="assets/images/subpage_wall_4.jpg" data-alt="Gallery wall study" data-caption="Gallery wall study / temporary placeholder image.">
-          <img src="assets/images/subpage_wall_4.jpg" alt="Gallery wall study" width="1920" height="1080" loading="lazy" />
-          <span class="card-copy"><strong>Gallery Wall</strong><span>Muted tones, suspended forms, and surface rhythm.</span></span>
-        </button>
+          <button class="art-card tall" type="button" data-full="assets/images/city_london_morning.jpg" data-alt="London morning city image" data-caption="City archive plate / temporary placeholder image.">
+            <img src="assets/images/city_london_morning.jpg" alt="London morning city image" width="1920" height="1080" loading="lazy" />
+            <span class="card-copy"><strong>London Morning</strong><span>Documentary-style city plate used as a visual reference.</span></span>
+          </button>
+        </div>
+      </section>
 
-        <button class="art-card" type="button" data-full="assets/images/subpage_wall_5.jpg" data-alt="Reflective room concept" data-caption="Reflective room concept / temporary placeholder image.">
-          <img src="assets/images/subpage_wall_5.jpg" alt="Reflective room concept" width="1920" height="1080" loading="lazy" />
-          <span class="card-copy"><strong>Stillness</strong><span>Reflective surfaces and soft indirect light.</span></span>
-        </button>
+      <section class="gallery-section" id="game-art" aria-labelledby="game-art-title">
+        <div class="section-head">
+          <div>
+            <h2 id="game-art-title">Game Art</h2>
+          </div>
+          <p>Environment-facing compositions, mood plates, and structured scene images grouped as playable-world references.</p>
+        </div>
+        <div class="gallery">
+          <button class="art-card" type="button" data-full="assets/images/subpage_wall_4.jpg" data-alt="Gallery wall study" data-caption="Gallery wall study / temporary placeholder image.">
+            <img src="assets/images/subpage_wall_4.jpg" alt="Gallery wall study" width="1920" height="1080" loading="lazy" />
+            <span class="card-copy"><strong>Gallery Wall</strong><span>Muted tones, suspended forms, and surface rhythm.</span></span>
+          </button>
 
-        <button class="art-card wide" type="button" data-full="assets/images/city_vancouver_night.jpg" data-alt="Vancouver night city image" data-caption="Night city archive plate / temporary placeholder image.">
-          <img src="assets/images/city_vancouver_night.jpg" alt="Vancouver night city image" width="1920" height="1080" loading="lazy" />
-          <span class="card-copy"><strong>Vancouver Night</strong><span>Final gallery image used to close the sequence with a darker note.</span></span>
-        </button>
-      </div>
+          <button class="art-card" type="button" data-full="assets/images/subpage_wall_5.jpg" data-alt="Reflective room concept" data-caption="Reflective room concept / temporary placeholder image.">
+            <img src="assets/images/subpage_wall_5.jpg" alt="Reflective room concept" width="1920" height="1080" loading="lazy" />
+            <span class="card-copy"><strong>Stillness</strong><span>Reflective surfaces and soft indirect light.</span></span>
+          </button>
+
+          <button class="art-card wide" type="button" data-full="assets/images/city_vancouver_night.jpg" data-alt="Vancouver night city image" data-caption="Night city archive plate / temporary placeholder image.">
+            <img src="assets/images/city_vancouver_night.jpg" alt="Vancouver night city image" width="1920" height="1080" loading="lazy" />
+            <span class="card-copy"><strong>Vancouver Night</strong><span>Final gallery image used to close the sequence with a darker note.</span></span>
+          </button>
+        </div>
+      </section>
     </section>
 
     <p class="footer-note">Temporary gallery build for DOOBOB / artist slide link updated</p>

@@ -174,6 +174,41 @@
       font-size: 0.92rem;
     }
 
+    .category-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 22px 0 8px;
+    }
+
+    .category-nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.42);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .category-nav a:hover {
+      background: rgba(29, 26, 22, 0.08);
+      color: var(--ink);
+    }
+
+    .gallery-section {
+      padding-top: 18px;
+      scroll-margin-top: 24px;
+    }
+
+    .gallery-section + .gallery-section {
+      margin-top: 26px;
+    }
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -394,57 +429,91 @@
         <p>총 10장의 이미지를 잡지형 그리드로 정리해, 참고 사이트의 미니멀한 갤러리 인상을 유지하면서도 화면이 단정하게 보이도록 구성했습니다.</p>
       </div>
 
-      <div class="gallery">
-        <button class="art-card wide" type="button" data-full="assets/images/mypicture_2026_v02.jpg" data-alt="Choi Gil Nam portrait" data-caption="포트레이트 스터디 / 아티스트 페이지의 메인 임시 이미지입니다.">
-          <img src="assets/images/mypicture_2026_v02.jpg" alt="Choi Gil Nam portrait" width="1280" height="1600" loading="lazy" />
-          <span class="card-copy"><strong>Portrait Study</strong><span>페이지의 첫 인상을 잡아주는 메인 포트레이트 이미지입니다.</span></span>
-        </button>
+      <nav class="category-nav" aria-label="작품 카테고리">
+        <a href="#visual-art">Visual Art</a>
+        <a href="#film-art">Film Art</a>
+        <a href="#game-art">Game Art</a>
+      </nav>
 
-        <button class="art-card tall" type="button" data-full="assets/images/subpage_wall_1.jpg" data-alt="Installation frame study" data-caption="설치 프레임 스터디 / 임시 플레이스홀더 이미지.">
-          <img src="assets/images/subpage_wall_1.jpg" alt="Installation frame study" width="1920" height="1080" loading="lazy" />
-          <span class="card-copy"><strong>Frame Sequence</strong><span>빛과 반복, 실내 프레이밍을 다루는 이미지입니다.</span></span>
-        </button>
+      <section class="gallery-section" id="visual-art" aria-labelledby="visual-art-title">
+        <div class="section-head">
+          <div>
+            <h2 id="visual-art-title">Visual Art</h2>
+          </div>
+          <p>포트레이트와 설치 작업 성격이 강한 이미지를 묶어, 갤러리 중심의 조용한 인상을 먼저 보여주는 섹션입니다.</p>
+        </div>
+        <div class="gallery">
+          <button class="art-card wide" type="button" data-full="assets/images/mypicture_2026_v02.jpg" data-alt="Choi Gil Nam portrait" data-caption="포트레이트 스터디 / 아티스트 페이지의 메인 임시 이미지입니다.">
+            <img src="assets/images/mypicture_2026_v02.jpg" alt="Choi Gil Nam portrait" width="1280" height="1600" loading="lazy" />
+            <span class="card-copy"><strong>Portrait Study</strong><span>페이지의 첫 인상을 잡아주는 메인 포트레이트 이미지입니다.</span></span>
+          </button>
 
-        <button class="art-card" type="button" data-full="assets/images/portfolio_image.jpg" data-alt="Portrait collage study" data-caption="인물 콜라주 스터디 / 임시 플레이스홀더 이미지.">
-          <img src="assets/images/portfolio_image.jpg" alt="Portrait collage study" width="512" height="512" loading="lazy" />
-          <span class="card-copy"><strong>Archive Memory</strong><span>겹쳐진 인물 파편과 따뜻한 색감을 담은 카드입니다.</span></span>
-        </button>
+          <button class="art-card tall" type="button" data-full="assets/images/subpage_wall_1.jpg" data-alt="Installation frame study" data-caption="설치 프레임 스터디 / 임시 플레이스홀더 이미지.">
+            <img src="assets/images/subpage_wall_1.jpg" alt="Installation frame study" width="1920" height="1080" loading="lazy" />
+            <span class="card-copy"><strong>Frame Sequence</strong><span>빛과 반복, 실내 프레이밍을 다루는 이미지입니다.</span></span>
+          </button>
 
-        <button class="art-card" type="button" data-full="assets/images/subpage_wall_2.jpg" data-alt="Spatial composition study" data-caption="공간 구성 스터디 / 임시 플레이스홀더 이미지.">
-          <img src="assets/images/subpage_wall_2.jpg" alt="Spatial composition study" width="1920" height="1080" loading="lazy" />
-          <span class="card-copy"><strong>Quiet Room</strong><span>차분한 구조감과 벽면 질감을 중심으로 한 구성입니다.</span></span>
-        </button>
+          <button class="art-card" type="button" data-full="assets/images/portfolio_image.jpg" data-alt="Portrait collage study" data-caption="인물 콜라주 스터디 / 임시 플레이스홀더 이미지.">
+            <img src="assets/images/portfolio_image.jpg" alt="Portrait collage study" width="512" height="512" loading="lazy" />
+            <span class="card-copy"><strong>Archive Memory</strong><span>겹쳐진 인물 파편과 따뜻한 색감을 담은 카드입니다.</span></span>
+          </button>
 
-        <button class="art-card wide" type="button" data-full="assets/images/city_seoul_evening.jpg" data-alt="Seoul evening city image" data-caption="도시 아카이브 레퍼런스 / 임시 플레이스홀더 이미지.">
-          <img src="assets/images/city_seoul_evening.jpg" alt="Seoul evening city image" width="1920" height="1080" loading="lazy" />
-          <span class="card-copy"><strong>Seoul Evening</strong><span>도시 분위기를 아카이브 레퍼런스로 끌어온 시퀀스입니다.</span></span>
-        </button>
+          <button class="art-card" type="button" data-full="assets/images/subpage_wall_2.jpg" data-alt="Spatial composition study" data-caption="공간 구성 스터디 / 임시 플레이스홀더 이미지.">
+            <img src="assets/images/subpage_wall_2.jpg" alt="Spatial composition study" width="1920" height="1080" loading="lazy" />
+            <span class="card-copy"><strong>Quiet Room</strong><span>차분한 구조감과 벽면 질감을 중심으로 한 구성입니다.</span></span>
+          </button>
+        </div>
+      </section>
 
-        <button class="art-card" type="button" data-full="assets/images/subpage_wall_3.jpg" data-alt="Projected texture study" data-caption="프로젝션 텍스처 스터디 / 임시 플레이스홀더 이미지.">
-          <img src="assets/images/subpage_wall_3.jpg" alt="Projected texture study" width="1920" height="1080" loading="lazy" />
-          <span class="card-copy"><strong>Afterimage Field</strong><span>투사 이미지와 표면 레이어를 겹쳐 만든 장면입니다.</span></span>
-        </button>
+      <section class="gallery-section" id="film-art" aria-labelledby="film-art-title">
+        <div class="section-head">
+          <div>
+            <h2 id="film-art-title">Film Art</h2>
+          </div>
+          <p>장면성과 분위기가 강한 이미지들을 묶어, 시네마틱한 프레임과 프로젝션 기반 작업처럼 보이도록 정리했습니다.</p>
+        </div>
+        <div class="gallery">
+          <button class="art-card wide" type="button" data-full="assets/images/city_seoul_evening.jpg" data-alt="Seoul evening city image" data-caption="도시 아카이브 레퍼런스 / 임시 플레이스홀더 이미지.">
+            <img src="assets/images/city_seoul_evening.jpg" alt="Seoul evening city image" width="1920" height="1080" loading="lazy" />
+            <span class="card-copy"><strong>Seoul Evening</strong><span>도시 분위기를 아카이브 레퍼런스로 끌어온 시퀀스입니다.</span></span>
+          </button>
 
-        <button class="art-card tall" type="button" data-full="assets/images/city_london_morning.jpg" data-alt="London morning city image" data-caption="도시 기록 이미지 / 임시 플레이스홀더 이미지.">
-          <img src="assets/images/city_london_morning.jpg" alt="London morning city image" width="1920" height="1080" loading="lazy" />
-          <span class="card-copy"><strong>London Morning</strong><span>다큐멘터리 톤의 도시 장면을 시각 참고용으로 배치했습니다.</span></span>
-        </button>
+          <button class="art-card" type="button" data-full="assets/images/subpage_wall_3.jpg" data-alt="Projected texture study" data-caption="프로젝션 텍스처 스터디 / 임시 플레이스홀더 이미지.">
+            <img src="assets/images/subpage_wall_3.jpg" alt="Projected texture study" width="1920" height="1080" loading="lazy" />
+            <span class="card-copy"><strong>Afterimage Field</strong><span>투사 이미지와 표면 레이어를 겹쳐 만든 장면입니다.</span></span>
+          </button>
 
-        <button class="art-card" type="button" data-full="assets/images/subpage_wall_4.jpg" data-alt="Gallery wall study" data-caption="갤러리 벽면 스터디 / 임시 플레이스홀더 이미지.">
-          <img src="assets/images/subpage_wall_4.jpg" alt="Gallery wall study" width="1920" height="1080" loading="lazy" />
-          <span class="card-copy"><strong>Gallery Wall</strong><span>절제된 톤과 매달린 구조, 표면 리듬을 보여줍니다.</span></span>
-        </button>
+          <button class="art-card tall" type="button" data-full="assets/images/city_london_morning.jpg" data-alt="London morning city image" data-caption="도시 기록 이미지 / 임시 플레이스홀더 이미지.">
+            <img src="assets/images/city_london_morning.jpg" alt="London morning city image" width="1920" height="1080" loading="lazy" />
+            <span class="card-copy"><strong>London Morning</strong><span>다큐멘터리 톤의 도시 장면을 시각 참고용으로 배치했습니다.</span></span>
+          </button>
+        </div>
+      </section>
 
-        <button class="art-card" type="button" data-full="assets/images/subpage_wall_5.jpg" data-alt="Reflective room concept" data-caption="반사 공간 컨셉 / 임시 플레이스홀더 이미지.">
-          <img src="assets/images/subpage_wall_5.jpg" alt="Reflective room concept" width="1920" height="1080" loading="lazy" />
-          <span class="card-copy"><strong>Stillness</strong><span>부드러운 반사 표면과 간접 조명을 담은 장면입니다.</span></span>
-        </button>
+      <section class="gallery-section" id="game-art" aria-labelledby="game-art-title">
+        <div class="section-head">
+          <div>
+            <h2 id="game-art-title">Game Art</h2>
+          </div>
+          <p>환경 연출과 무드 플레이트 느낌이 강한 이미지를 묶어, 플레이 가능한 세계관 레퍼런스처럼 보이도록 구성했습니다.</p>
+        </div>
+        <div class="gallery">
+          <button class="art-card" type="button" data-full="assets/images/subpage_wall_4.jpg" data-alt="Gallery wall study" data-caption="갤러리 벽면 스터디 / 임시 플레이스홀더 이미지.">
+            <img src="assets/images/subpage_wall_4.jpg" alt="Gallery wall study" width="1920" height="1080" loading="lazy" />
+            <span class="card-copy"><strong>Gallery Wall</strong><span>절제된 톤과 매달린 구조, 표면 리듬을 보여줍니다.</span></span>
+          </button>
 
-        <button class="art-card wide" type="button" data-full="assets/images/city_vancouver_night.jpg" data-alt="Vancouver night city image" data-caption="야간 도시 아카이브 / 임시 플레이스홀더 이미지.">
-          <img src="assets/images/city_vancouver_night.jpg" alt="Vancouver night city image" width="1920" height="1080" loading="lazy" />
-          <span class="card-copy"><strong>Vancouver Night</strong><span>조금 더 어두운 톤으로 시퀀스를 마무리하는 마지막 이미지입니다.</span></span>
-        </button>
-      </div>
+          <button class="art-card" type="button" data-full="assets/images/subpage_wall_5.jpg" data-alt="Reflective room concept" data-caption="반사 공간 컨셉 / 임시 플레이스홀더 이미지.">
+            <img src="assets/images/subpage_wall_5.jpg" alt="Reflective room concept" width="1920" height="1080" loading="lazy" />
+            <span class="card-copy"><strong>Stillness</strong><span>부드러운 반사 표면과 간접 조명을 담은 장면입니다.</span></span>
+          </button>
+
+          <button class="art-card wide" type="button" data-full="assets/images/city_vancouver_night.jpg" data-alt="Vancouver night city image" data-caption="야간 도시 아카이브 / 임시 플레이스홀더 이미지.">
+            <img src="assets/images/city_vancouver_night.jpg" alt="Vancouver night city image" width="1920" height="1080" loading="lazy" />
+            <span class="card-copy"><strong>Vancouver Night</strong><span>조금 더 어두운 톤으로 시퀀스를 마무리하는 마지막 이미지입니다.</span></span>
+          </button>
+        </div>
+      </section>
     </section>
 
     <p class="footer-note">Temporary gallery build for DOOBOB / artist slide link updated</p>
