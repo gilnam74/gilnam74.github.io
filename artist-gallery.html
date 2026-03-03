@@ -212,15 +212,13 @@
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 10px;
     }
 
     .art-card {
-      grid-column: span 3;
       display: block;
-      width: 80%;
-      margin: 0 auto;
+      width: 100%;
       padding: 0;
       border: 0;
       background: var(--panel);
@@ -238,11 +236,11 @@
     }
 
     .art-card.tall {
-      grid-column: span 3;
+      grid-column: auto;
     }
 
     .art-card.wide {
-      grid-column: span 3;
+      grid-column: auto;
     }
 
     .art-card img {
@@ -387,7 +385,7 @@
       .art-card,
       .art-card.tall,
       .art-card.wide {
-        grid-column: span 6;
+        grid-column: auto;
       }
     }
 
@@ -404,7 +402,7 @@
       }
 
       .gallery {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       }
 
       .art-card,
