@@ -120,6 +120,20 @@
       max-width: 6ch;
     }
 
+    .hero-title-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 26px;
+    }
+
+    .hero-thumb {
+      width: clamp(120px, 18vw, 220px);
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      flex: 0 0 auto;
+    }
+
     .hero-copy p {
       margin: 18px 0 0;
       max-width: 54ch;
@@ -380,6 +394,11 @@
         grid-template-columns: 1fr;
       }
 
+      .hero-title-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
       .art-card,
       .art-card.tall,
       .art-card.wide {
@@ -431,7 +450,10 @@
     <section class="hero" aria-label="Artist introduction">
       <div class="hero-copy">
         <p class="eyebrow">Artist</p>
-        <h1>Choi Gil Nam</h1>
+        <div class="hero-title-row">
+          <h1>Choi Gil Nam</h1>
+          <img class="hero-thumb" src="assets/images/gallery/mypictureThumnail.JPG" alt="Portrait of Choi Gil Nam" width="1280" height="1600" loading="lazy" />
+        </div>
         <p>Built in the spirit of the reference site, this page uses a restrained editorial layout, generous white space, and a clean image-led structure. The gallery below uses available local project images as temporary placeholders until final artwork is provided.</p>
         <nav class="category-nav" aria-label="Artwork categories">
           <a href="#visual-art">Visual Art</a>
@@ -450,11 +472,6 @@
           </div>
         </div>
         <div class="gallery">
-          <button class="art-card wide" type="button" data-full="assets/images/mypicture_2026_v02.jpg" data-alt="Portrait of Choi Gil Nam" data-caption="Portrait study / temporary lead image for the artist page.">
-            <img src="assets/images/mypicture_2026_v02.jpg" alt="Portrait of Choi Gil Nam" width="1280" height="1600" loading="lazy" />
-            <span class="card-copy"><strong>Portrait Study</strong><span>Lead portrait used as a temporary anchor image for the page.</span></span>
-          </button>
-
           <button class="art-card tall" type="button" data-full="assets/images/subpage_wall_1.jpg" data-alt="Installation frame study" data-caption="Installation frame study / temporary placeholder image.">
             <img src="assets/images/subpage_wall_1.jpg" alt="Installation frame study" width="1920" height="1080" loading="lazy" />
             <span class="card-copy"><strong>Frame Sequence</strong><span>Light, repetition, and interior framing.</span></span>

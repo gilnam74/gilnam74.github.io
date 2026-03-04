@@ -120,6 +120,20 @@
       max-width: 6ch;
     }
 
+    .hero-title-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 26px;
+    }
+
+    .hero-thumb {
+      width: clamp(120px, 18vw, 220px);
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      flex: 0 0 auto;
+    }
+
     .hero-copy p {
       margin: 18px 0 0;
       max-width: 54ch;
@@ -380,6 +394,11 @@
         grid-template-columns: 1fr;
       }
 
+      .hero-title-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
       .art-card,
       .art-card.tall,
       .art-card.wide {
@@ -431,7 +450,10 @@
     <section class="hero" aria-label="Artist introduction">
       <div class="hero-copy">
         <p class="eyebrow">Artist</p>
-        <h1>Choi Gil Nam</h1>
+        <div class="hero-title-row">
+          <h1>Choi Gil Nam</h1>
+          <img class="hero-thumb" src="assets/images/gallery/mypictureThumnail.JPG" alt="Choi Gil Nam portrait" width="1280" height="1600" loading="lazy" />
+        </div>
         <p>참고 사이트의 차분한 편집형 분위기를 바탕으로, 여백을 넉넉히 두고 이미지 중심으로 정리한 갤러리 페이지입니다. 아래 이미지는 최종 작품이 들어오기 전까지 프로젝트에 있는 로컬 이미지를 임시로 연결해 둔 상태입니다.</p>
         <nav class="category-nav" aria-label="작품 카테고리">
           <a href="#visual-art">Visual Art</a>
@@ -450,11 +472,6 @@
           </div>
         </div>
         <div class="gallery">
-          <button class="art-card wide" type="button" data-full="assets/images/mypicture_2026_v02.jpg" data-alt="Choi Gil Nam portrait" data-caption="포트레이트 스터디 / 아티스트 페이지의 메인 임시 이미지입니다.">
-            <img src="assets/images/mypicture_2026_v02.jpg" alt="Choi Gil Nam portrait" width="1280" height="1600" loading="lazy" />
-            <span class="card-copy"><strong>Portrait Study</strong><span>페이지의 첫 인상을 잡아주는 메인 포트레이트 이미지입니다.</span></span>
-          </button>
-
           <button class="art-card tall" type="button" data-full="assets/images/subpage_wall_1.jpg" data-alt="Installation frame study" data-caption="설치 프레임 스터디 / 임시 플레이스홀더 이미지.">
             <img src="assets/images/subpage_wall_1.jpg" alt="Installation frame study" width="1920" height="1080" loading="lazy" />
             <span class="card-copy"><strong>Frame Sequence</strong><span>빛과 반복, 실내 프레이밍을 다루는 이미지입니다.</span></span>
