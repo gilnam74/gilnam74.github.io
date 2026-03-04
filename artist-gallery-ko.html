@@ -388,6 +388,16 @@
       border-radius: 10px;
     }
 
+    .lightbox img.fit-width {
+      width: 100%;
+      height: auto;
+    }
+
+    .lightbox img.fit-height {
+      width: auto;
+      height: 100%;
+    }
+
     .lightbox-frame {
       width: 100%;
       height: 100%;
@@ -773,6 +783,25 @@
     let touchStartX = 0;
     let touchStartY = 0;
 
+    function applyImageFitMode() {
+      if (!lightbox.classList.contains("open") || lightboxImageWrap.classList.contains("hidden")) {
+        return;
+      }
+      if (!lightboxImage.naturalWidth || !lightboxImage.naturalHeight) {
+        return;
+      }
+
+      const imageRatio = lightboxImage.naturalWidth / lightboxImage.naturalHeight;
+      const wrapRatio = lightboxImageWrap.clientWidth / lightboxImageWrap.clientHeight;
+
+      lightboxImage.classList.remove("fit-width", "fit-height");
+      if (imageRatio >= wrapRatio) {
+        lightboxImage.classList.add("fit-width");
+      } else {
+        lightboxImage.classList.add("fit-height");
+      }
+    }
+
     function renderLightbox(index) {
       const card = artCards[index];
       if (!card) {
@@ -793,8 +822,14 @@
         lightboxVideoWrap.classList.add("hidden");
         lightboxImageWrap.classList.remove("hidden");
         lightboxVideo.src = "";
+        lightboxImage.classList.remove("fit-width", "fit-height");
         lightboxImage.src = card.dataset.full;
         lightboxImage.alt = card.dataset.alt;
+        if (lightboxImage.complete) {
+          applyImageFitMode();
+        } else {
+          lightboxImage.onload = applyImageFitMode;
+        }
         lightboxKind.textContent = "Image";
       }
 
@@ -817,6 +852,7 @@
       lightboxVideoWrap.classList.add("hidden");
       lightboxImage.src = "";
       lightboxImage.alt = "";
+      lightboxImage.classList.remove("fit-width", "fit-height");
       lightboxVideo.src = "";
       lightboxTitle.textContent = "";
       lightboxDescription.textContent = "";
@@ -885,6 +921,8 @@
         showAdjacent(1);
       }
     });
+
+    window.addEventListener("resize", applyImageFitMode);
   </script>
 </body>
 </html>
