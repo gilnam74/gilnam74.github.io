@@ -7,9 +7,9 @@
       tz: "Asia/Seoul",
       wallpapers: {
         morning: "url(\"assets/images/city_seoul_morning.jpg\")",
-        day: "url(\"assets/images/city_seoul_day.jpg\")",
+        day: "url(\"assets/images/city_seoul_evening.jpg\")",
         evening: "url(\"assets/images/city_seoul_evening.jpg\")",
-        night: "url(\"assets/images/city_seoul_night.jpg\")",
+        night: "url(\"assets/images/city_seoul_evening.jpg\")",
       },
     },
     vancouver: {
@@ -18,9 +18,9 @@
       lon: -123.1207,
       tz: "America/Vancouver",
       wallpapers: {
-        morning: "url(\"assets/images/city_vancouver_morning.jpg\")",
+        morning: "url(\"assets/images/city_vancouver_day.jpg\")",
         day: "url(\"assets/images/city_vancouver_day.jpg\")",
-        evening: "url(\"assets/images/city_vancouver_evening.jpg\")",
+        evening: "url(\"assets/images/city_vancouver_day.jpg\")",
         night: "url(\"assets/images/city_vancouver_night.jpg\")",
       },
     },
@@ -102,7 +102,6 @@
   let lastSlot = "";
   let lastWallpaper = "";
   let weatherRequestId = 0;
-  const preloadedWallpapers = new Set();
 
   function classify(code) {
     if (groups.clear.has(code)) return "clear";
@@ -190,37 +189,6 @@
     return selected || "url(\"assets/images/unreal_wallpaper.png\")";
   }
 
-  function extractUrlPath(cssUrl) {
-    const match = /^url\(["']?(.*?)["']?\)$/.exec(cssUrl);
-    return match ? match[1] : "";
-  }
-
-  function preloadWallpaper(cssUrl) {
-    const path = extractUrlPath(cssUrl);
-    if (!path || preloadedWallpapers.has(path)) return;
-    const img = new Image();
-    preloadedWallpapers.add(path);
-    img.src = path;
-  }
-
-  function preloadSelectedWallpaper(cityKey) {
-    const city = cities[cityKey];
-    if (!city) return;
-    const time = getTimeParts(city);
-    const slot = getSlot(time.hour);
-    const selected = chooseWallpaper(city, slot);
-    preloadWallpaper(selected);
-    preloadWallpaper("url(\"assets/images/unreal_wallpaper.png\")");
-  }
-
-  function scheduleSelectedPreload(cityKey) {
-    if ("requestIdleCallback" in window) {
-      window.requestIdleCallback(() => preloadSelectedWallpaper(cityKey), { timeout: 1600 });
-      return;
-    }
-    window.setTimeout(() => preloadSelectedWallpaper(cityKey), 200);
-  }
-
   function renderChip(city, kind, dateTime) {
     const weatherLabel = weatherText[kind] || weatherText.unknown;
     const tempPart = latestTemp === null ? "--°C" : `${latestTemp}°C`;
@@ -258,10 +226,16 @@
       `&longitude=${city.lon}` +
       `&current=temperature_2m,weather_code,wind_speed_10m` +
       `&timezone=${encodeURIComponent(city.tz)}`;
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`weather request failed: ${res.status}`);
-    const data = await res.json();
-    return data.current || null;
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), 8000);
+    try {
+      const res = await fetch(url, { signal: controller.signal, cache: "no-store" });
+      if (!res.ok) throw new Error(`weather request failed: ${res.status}`);
+      const data = await res.json();
+      return data.current || null;
+    } finally {
+      window.clearTimeout(timeoutId);
+    }
   }
 
   async function updateWeather(cityKey) {
@@ -296,7 +270,6 @@
     saveCity(activeCity);
     // Apply city/time wallpaper immediately; weather info can follow after API returns.
     applyTheme(activeCity, latestKind);
-    scheduleSelectedPreload(activeCity);
     updateWeather(activeCity);
   });
 
@@ -315,15 +288,50 @@
     }
     pointerRaf = 0;
   }
-  window.addEventListener("pointermove", (event) => {
-    targetX = (event.clientX / window.innerWidth - 0.5) * 10;
-    targetY = (event.clientY / window.innerHeight - 0.5) * 10;
-    if (!pointerRaf) pointerRaf = window.requestAnimationFrame(renderPointer);
-  });
+  const allowPointerFx =
+    window.matchMedia("(pointer: fine)").matches &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (allowPointerFx) {
+    window.addEventListener("pointermove", (event) => {
+      targetX = (event.clientX / window.innerWidth - 0.5) * 10;
+      targetY = (event.clientY / window.innerHeight - 0.5) * 10;
+      if (!pointerRaf) pointerRaf = window.requestAnimationFrame(renderPointer);
+    });
+  }
 
-  scheduleSelectedPreload(activeCity);
+  let weatherTimer = 0;
+  let themeTimer = 0;
+  function stopTimers() {
+    if (weatherTimer) {
+      window.clearInterval(weatherTimer);
+      weatherTimer = 0;
+    }
+    if (themeTimer) {
+      window.clearInterval(themeTimer);
+      themeTimer = 0;
+    }
+  }
+  function startTimers() {
+    if (!weatherTimer) {
+      weatherTimer = window.setInterval(() => updateWeather(activeCity), 10 * 60 * 1000);
+    }
+    if (!themeTimer) {
+      themeTimer = window.setInterval(() => applyTheme(activeCity, latestKind), 60 * 1000);
+    }
+  }
+
   applyTheme(activeCity, latestKind);
   updateWeather(activeCity);
-  setInterval(() => updateWeather(activeCity), 10 * 60 * 1000);
-  setInterval(() => applyTheme(activeCity, latestKind), 60 * 1000);
+  if (!document.hidden) {
+    startTimers();
+  }
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      stopTimers();
+      return;
+    }
+    applyTheme(activeCity, latestKind);
+    updateWeather(activeCity);
+    startTimers();
+  });
 })();
