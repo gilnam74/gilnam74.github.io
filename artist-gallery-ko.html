@@ -272,8 +272,17 @@
       aspect-ratio: 1 / 1;
       height: auto;
       object-fit: cover;
+      object-position: center center;
       display: block;
       transition: transform 220ms ease, filter 220ms ease;
+    }
+
+    .art-card.focus-top img {
+      object-position: center top;
+    }
+
+    .art-card.focus-bottom img {
+      object-position: center bottom;
     }
 
     .art-card:hover img,
@@ -642,12 +651,12 @@
             <span class="card-copy"><strong>Miracle Mile Rain Show at Las Vegas</strong><span>Miracle Mile Rain Show at Las Vegas / With Giantstep US as an Effect Supervisor.</span></span>
           </button>
 
-          <button class="art-card" type="button" data-full="assets/images/gallery/zombieTogeter.jpg" data-alt="Zombie Together artwork" data-caption="Zombie Together / 최신 pull로 내려받은 이미지를 gallery 폴더로 분리해 연결했습니다.">
+          <button class="art-card focus-bottom" type="button" data-full="assets/images/gallery/zombieTogeter.jpg" data-alt="Zombie Together artwork" data-caption="Zombie Together / 최신 pull로 내려받은 이미지를 gallery 폴더로 분리해 연결했습니다.">
             <img src="assets/images/gallery/zombieTogeter.jpg" alt="Zombie Together artwork" width="1920" height="1080" loading="lazy" />
             <span class="card-copy"><strong>Zombie Together</strong><span>최신 추가 이미지를 전용 gallery 폴더에서 관리하도록 바꿨습니다.</span></span>
           </button>
 
-          <button class="art-card" type="button" data-full="assets/images/gallery/visualArt_01.jpg" data-alt="Visual art image 01" data-caption="Visual art image 01 / 새로 추가된 갤러리 이미지입니다.">
+          <button class="art-card focus-top" type="button" data-full="assets/images/gallery/visualArt_01.jpg" data-alt="Visual art image 01" data-caption="Visual art image 01 / 새로 추가된 갤러리 이미지입니다.">
             <img src="assets/images/gallery/visualArt_01.jpg" alt="Visual art image 01" width="1200" height="1200" loading="lazy" />
             <span class="card-copy"><strong>Visual Art 01</strong><span>새로 추가된 갤러리 이미지입니다.</span></span>
           </button>
