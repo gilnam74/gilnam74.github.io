@@ -756,9 +756,9 @@
             <span class="card-copy"><strong>Game Art Reel</strong><span>Vimeo-linked game art work presented inside the same lightbox layout.</span></span>
           </button>
 
-          <button class="art-card" type="button" data-full="assets/images/subpage_wall_4.jpg" data-alt="Gallery wall study" data-caption="Gallery wall study / temporary placeholder image.">
-            <img src="assets/images/subpage_wall_4.jpg" alt="Gallery wall study" width="1920" height="1080" loading="lazy" />
-            <span class="card-copy"><strong>Gallery Wall</strong><span>Muted tones, suspended forms, and surface rhythm.</span></span>
+          <button class="art-card" type="button" data-full="assets/images/subpage_wall_4.jpg" data-alt="Zombie Realtime FX course thumbnail" data-playlist="zombie-realtime-fx" data-caption="All lesson links and summaries from SideFX Zombie Realtime FX are listed in this card detail view.">
+            <img src="assets/images/subpage_wall_4.jpg" alt="Zombie Realtime FX course thumbnail" width="1920" height="1080" loading="lazy" />
+            <span class="card-copy"><strong>Zombie Realtime FX (SideFX)</strong><span>Open to view the full lesson list, links, and descriptions.</span></span>
           </button>
 
           <button class="art-card" type="button" data-full="assets/images/city_vancouver_night.jpg" data-alt="Vancouver night city image" data-caption="Night city archive plate / temporary placeholder image.">
@@ -827,6 +827,7 @@
     const playlistCatalog = {
       "procedural-thinking": {
         source: "https://www.sidefx.com/tutorials/procedural-thinking/",
+        intro: "I created an official tutorial in collaboration with SideFX. Full lesson list from the SideFX tutorial page:",
         defaultEmbed: "https://www.youtube.com/embed/hueMNT2X-Uw?autoplay=1",
         projectFiles: "https://media.sidefx.com/files/tutorials/procedural-thinking/Project_Files.zip",
         lessons: [
@@ -881,6 +882,32 @@
             description: "Building a reusable path-driven animation system for synchronized position and rotation."
           }
         ]
+      },
+      "zombie-realtime-fx": {
+        source: "https://www.sidefx.com/tutorials/zombie-realtime-fx/",
+        intro: "I created an official tutorial in collaboration with SideFX. Full lesson list from the SideFX tutorial page:",
+        defaultEmbed: "https://player.vimeo.com/video/1067393721?autoplay=1",
+        projectFiles: "https://media.sidefx.com/files/tutorials/zombie-realtime-fx/zombie_projectfiles.zip",
+        lessons: [
+          { title: "1.0 Explode | Overview [1:29]", link: "https://player.vimeo.com/video/1067393721", embed: "https://player.vimeo.com/video/1067393721?autoplay=1", description: "Learn how to create complex-looking game effects using Houdini's sophisticated setups, including severed-arm blood effects and Unreal Engine integration." },
+          { title: "1.1 Explode | Cutoff Zombie's Arm [15:21]", link: "https://player.vimeo.com/video/1067393758", embed: "https://player.vimeo.com/video/1067393758?autoplay=1", description: "Create a severed arm setup using cutting nodes in Houdini." },
+          { title: "1.2 Explode | Arm Amputation Simulation [18:20]", link: "https://player.vimeo.com/video/1067393802", embed: "https://player.vimeo.com/video/1067393802?autoplay=1", description: "Build amputation effects with RBD Bullet Solver and Vellum, including tearing nerves and muscles." },
+          { title: "1.3 Explode | Blood Simulation [9:04]", link: "https://player.vimeo.com/video/1067393828", embed: "https://player.vimeo.com/video/1067393828?autoplay=1", description: "Use POP Solver and post-processing to create blood splatter interaction effects." },
+          { title: "1.4 Explode | Houdini To Unreal [21:38]", link: "https://player.vimeo.com/video/1067393872", embed: "https://player.vimeo.com/video/1067393872?autoplay=1", description: "Export Houdini results to Unreal and connect VAT to materials for playback." },
+          { title: "2.0 Growth | Overview [1:19]", link: "https://player.vimeo.com/video/1067394018", embed: "https://player.vimeo.com/video/1067394018?autoplay=1", description: "Overview of growth-based zombie FX workflow and Unreal pipeline." },
+          { title: "2.1 Growth | Vein Setup [23:52]", link: "https://player.vimeo.com/video/1067393911", embed: "https://player.vimeo.com/video/1067393911?autoplay=1", description: "Set up procedural vein growth with Solver and Find Shortest Path." },
+          { title: "2.2 Growth | Growth Control in VEX [8:06]", link: "https://player.vimeo.com/video/1067393948", embed: "https://player.vimeo.com/video/1067393948?autoplay=1", description: "Create artist-controlled timing for growth using VEX." },
+          { title: "2.3 Growth | Meshing With VDB [6:18]", link: "https://player.vimeo.com/video/1067393971", embed: "https://player.vimeo.com/video/1067393971?autoplay=1", description: "Convert growth curves to mesh and shape form with VDB." },
+          { title: "2.4 Growth | Houdini To Unreal [9:19]", link: "https://player.vimeo.com/video/1067393989", embed: "https://player.vimeo.com/video/1067393989?autoplay=1", description: "Export and connect growth FX to Unreal materials and VAT." },
+          { title: "3.0 Frozen | Overview [1:02]", link: "https://player.vimeo.com/video/1067394966", embed: "https://player.vimeo.com/video/1067394966?autoplay=1", description: "Overview of progressive freezing effect using SOP Solver and VEX." },
+          { title: "3.1 Frozen | Ice Setup [20:47]", link: "https://player.vimeo.com/video/1067394806", embed: "https://player.vimeo.com/video/1067394806?autoplay=1", description: "Create directional point growth and sharp ice formations with SOP Solver." },
+          { title: "3.2 Frozen | Convert To Mesh [7:12]", link: "https://player.vimeo.com/video/1067394858", embed: "https://player.vimeo.com/video/1067394858?autoplay=1", description: "Convert frozen simulation result to game-ready mesh." },
+          { title: "3.3 Frozen | Advect Particles using SOP Solver [9:04]", link: "https://player.vimeo.com/video/1067394890", embed: "https://player.vimeo.com/video/1067394890?autoplay=1", description: "Control particle advection inside one solver setup for production-efficient FX." },
+          { title: "3.4 Frozen | Houdini To Unreal [11:02]", link: "https://player.vimeo.com/video/1067394926", embed: "https://player.vimeo.com/video/1067394926?autoplay=1", description: "Export frozen setup from Houdini to Unreal." },
+          { title: "4.0 Burn | Overview [1:06]", link: "https://player.vimeo.com/video/1067395042", embed: "https://player.vimeo.com/video/1067395042?autoplay=1", description: "Overview of zombie burn/disintegration workflow using RBD and POP ashes." },
+          { title: "4.1 Burn | RBD Destruction and Particles [22:43]", link: "https://player.vimeo.com/video/1067394988", embed: "https://player.vimeo.com/video/1067394988?autoplay=1", description: "Break apart moving character and manage deforming/active attributes for destruction." },
+          { title: "4.2 Burn | Houdini To Unreal Texture Transition [17:31]", link: "https://player.vimeo.com/video/1067395010", embed: "https://player.vimeo.com/video/1067395010?autoplay=1", description: "Export burn setup and drive texture transitions plus VAT playback in Unreal materials." }
+        ]
       }
     };
     let currentIndex = -1;
@@ -907,7 +934,7 @@
       const descriptionFragment = document.createDocumentFragment();
       const intro = document.createElement("p");
       intro.className = "playlist-intro";
-      intro.textContent = "I created an official tutorial in collaboration with SideFX. Full lesson list from the SideFX tutorial page:";
+      intro.textContent = playlist.intro || "Full lesson list from the SideFX tutorial page:";
       descriptionFragment.appendChild(intro);
 
       const source = document.createElement("p");
@@ -928,10 +955,17 @@
         heading.textContent = lesson.title;
         item.appendChild(heading);
 
+        const lessonLinkUrl = lesson.link || lesson.watch || lesson.embed || "";
+        const embedUrl = lesson.embed || toEmbedUrl(lesson.watch || "");
         const lessonLink = document.createElement("a");
-        lessonLink.href = lesson.watch;
-        lessonLink.dataset.embed = toEmbedUrl(lesson.watch);
-        lessonLink.textContent = lesson.watch;
+        lessonLink.href = lessonLinkUrl || "#";
+        if (embedUrl) {
+          lessonLink.dataset.embed = embedUrl;
+        } else {
+          lessonLink.target = "_blank";
+          lessonLink.rel = "noopener noreferrer";
+        }
+        lessonLink.textContent = lessonLinkUrl;
         item.appendChild(lessonLink);
 
         const summary = document.createElement("p");
