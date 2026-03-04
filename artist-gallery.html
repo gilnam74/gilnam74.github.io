@@ -450,6 +450,42 @@
       font-size: 0.95rem;
     }
 
+    .lightbox-description a,
+    .lightbox-meta-item span a {
+      color: #f6c37b;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .lightbox-description a:hover,
+    .lightbox-meta-item span a:hover {
+      color: #ffd8a5;
+    }
+
+    .playlist-intro,
+    .playlist-source {
+      margin: 0 0 8px;
+    }
+
+    .playlist-list {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .playlist-list strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .playlist-list p {
+      margin: 4px 0 0;
+      color: rgba(245, 241, 232, 0.82);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
     .lightbox-meta {
       display: grid;
       gap: 10px;
@@ -691,9 +727,9 @@
             <span class="card-copy"><strong>Film Art Reel</strong><span>A collection of Hollywood film scenes I contributed to as a digital artist.</span></span>
           </button>
 
-          <button class="art-card" type="button" data-full="assets/images/city_seoul_evening.jpg" data-alt="Seoul evening city image" data-caption="Urban atmosphere reference / temporary placeholder image.">
+          <button class="art-card" type="button" data-full="assets/images/city_seoul_evening.jpg" data-alt="Procedural Thinking course thumbnail" data-playlist="procedural-thinking" data-caption="All lesson links and summaries from SideFX Procedural Thinking are listed in this card detail view.">
             <img src="assets/images/city_seoul_evening.jpg" alt="Seoul evening city image" width="1920" height="1080" loading="lazy" />
-            <span class="card-copy"><strong>Seoul Evening</strong><span>Urban atmosphere reference integrated into the visual archive.</span></span>
+            <span class="card-copy"><strong>Procedural Thinking (SideFX)</strong><span>Open to view the full lesson list, links, and descriptions.</span></span>
           </button>
 
           <button class="art-card" type="button" data-full="assets/images/subpage_wall_3.jpg" data-alt="Projected texture study" data-caption="Projected texture study / temporary placeholder image.">
@@ -788,9 +824,136 @@
     const prevButton = document.getElementById("lightbox-prev");
     const nextButton = document.getElementById("lightbox-next");
     const artCards = Array.from(document.querySelectorAll(".art-card"));
+    const playlistCatalog = {
+      "procedural-thinking": {
+        source: "https://www.sidefx.com/tutorials/procedural-thinking/",
+        projectFiles: "https://media.sidefx.com/files/tutorials/procedural-thinking/Project_Files.zip",
+        lessons: [
+          {
+            title: "Introduction",
+            watch: "https://www.youtube.com/watch?v=hueMNT2X-Uw",
+            description: "Build a reusable procedural ground-interaction setup in Houdini and apply it to POP, MPM, and RBD simulations."
+          },
+          {
+            title: "1 | Vectors",
+            watch: "https://www.youtube.com/watch?v=zECfwgeWFSI",
+            description: "Core vector concepts for direction and magnitude in motion, force, color, and FX control."
+          },
+          {
+            title: "2 | Ripple Math",
+            watch: "https://www.youtube.com/watch?v=P1jGDGDvZ1E",
+            description: "Using sine/cosine and essential math functions to drive procedural patterns and shader motion."
+          },
+          {
+            title: "3 | Normals",
+            watch: "https://www.youtube.com/watch?v=h060u08HQWs",
+            description: "How normals affect shading, lighting, and simulation direction/surface interaction."
+          },
+          {
+            title: "4 | Shader Coding",
+            watch: "https://www.youtube.com/watch?v=XYR7sRMuDxo",
+            description: "Step-by-step VEX shader construction and understanding data flow between geometry and shading."
+          },
+          {
+            title: "5 | Ground Interaction Setup",
+            watch: "https://www.youtube.com/watch?v=kh37hB740BM",
+            description: "Combining vectors, normals, math, and shading ideas into a robust reusable FX setup."
+          },
+          {
+            title: "6 | Ground Interaction Particles",
+            watch: "https://www.youtube.com/watch?v=rJAkJg7-HNY",
+            description: "Applying the setup in POP Solver and driving debris rotation using velocity-based orientation."
+          },
+          {
+            title: "7 | Ground Interaction RBD & MPM",
+            watch: "https://www.youtube.com/watch?v=95Rv8a6-g4A",
+            description: "Extending the same logic to MPM and RBD workflows for soft and rigid body interactions."
+          },
+          {
+            title: "8 | Transformation Setup",
+            watch: "https://www.youtube.com/watch?v=U5Y1HOISdB4",
+            description: "Using matrices and packed intrinsic data for controllable procedural motion and transformation."
+          },
+          {
+            title: "9 | Path Transformation",
+            watch: "https://www.youtube.com/watch?v=vbtWTppB3X8",
+            description: "Building a reusable path-driven animation system for synchronized position and rotation."
+          }
+        ]
+      }
+    };
     let currentIndex = -1;
     let touchStartX = 0;
     let touchStartY = 0;
+
+    function renderPlaylistDetails(playlist) {
+      const descriptionFragment = document.createDocumentFragment();
+      const intro = document.createElement("p");
+      intro.className = "playlist-intro";
+      intro.textContent = "Full lesson list from the SideFX tutorial page:";
+      descriptionFragment.appendChild(intro);
+
+      const source = document.createElement("p");
+      source.className = "playlist-source";
+      const sourceLink = document.createElement("a");
+      sourceLink.href = playlist.source;
+      sourceLink.target = "_blank";
+      sourceLink.rel = "noopener noreferrer";
+      sourceLink.textContent = "Open source page";
+      source.appendChild(sourceLink);
+      descriptionFragment.appendChild(source);
+
+      const lessonList = document.createElement("ol");
+      lessonList.className = "playlist-list";
+      playlist.lessons.forEach((lesson) => {
+        const item = document.createElement("li");
+        const heading = document.createElement("strong");
+        heading.textContent = lesson.title;
+        item.appendChild(heading);
+
+        const lessonLink = document.createElement("a");
+        lessonLink.href = lesson.watch;
+        lessonLink.target = "_blank";
+        lessonLink.rel = "noopener noreferrer";
+        lessonLink.textContent = lesson.watch;
+        item.appendChild(lessonLink);
+
+        const summary = document.createElement("p");
+        summary.textContent = lesson.description;
+        item.appendChild(summary);
+
+        lessonList.appendChild(item);
+      });
+      descriptionFragment.appendChild(lessonList);
+      lightboxDescription.replaceChildren(descriptionFragment);
+
+      const captionFragment = document.createDocumentFragment();
+      const sourceText = document.createElement("span");
+      sourceText.textContent = "Source: ";
+      captionFragment.appendChild(sourceText);
+
+      const sourceLinkInline = document.createElement("a");
+      sourceLinkInline.href = playlist.source;
+      sourceLinkInline.target = "_blank";
+      sourceLinkInline.rel = "noopener noreferrer";
+      sourceLinkInline.textContent = "SideFX Procedural Thinking";
+      captionFragment.appendChild(sourceLinkInline);
+
+      if (playlist.projectFiles) {
+        const separator = document.createElement("span");
+        separator.textContent = " · ";
+        captionFragment.appendChild(separator);
+
+        const filesLink = document.createElement("a");
+        filesLink.href = playlist.projectFiles;
+        filesLink.target = "_blank";
+        filesLink.rel = "noopener noreferrer";
+        filesLink.textContent = "Project Files";
+        captionFragment.appendChild(filesLink);
+      }
+
+      lightboxCaption.replaceChildren(captionFragment);
+    }
 
     function applyImageFitMode() {
       if (!lightbox.classList.contains("open") || lightboxImageWrap.classList.contains("hidden")) {
@@ -817,6 +980,7 @@
         return;
       }
       const title = card.querySelector(".card-copy strong")?.textContent?.trim() || card.dataset.alt || "";
+      const playlist = card.dataset.playlist ? playlistCatalog[card.dataset.playlist] : null;
       const description = card.dataset.description !== undefined
         ? card.dataset.description
         : (card.querySelector(".card-copy span")?.textContent?.trim() || card.dataset.caption || "");
@@ -845,8 +1009,13 @@
       }
 
       lightboxTitle.textContent = title;
-      lightboxDescription.textContent = description;
-      lightboxCaption.textContent = card.dataset.caption || "";
+      if (playlist) {
+        lightboxKind.textContent = "Video Series";
+        renderPlaylistDetails(playlist);
+      } else {
+        lightboxDescription.textContent = description;
+        lightboxCaption.textContent = card.dataset.caption || "";
+      }
     }
 
     function openLightbox(index) {
