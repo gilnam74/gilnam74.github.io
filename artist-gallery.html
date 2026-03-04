@@ -244,25 +244,13 @@
       background: var(--panel);
       border-radius: 0;
       overflow: hidden;
-      cursor: grab;
-      user-select: none;
+      cursor: zoom-in;
       text-align: left;
       transition: transform 180ms ease;
     }
 
     .art-card:hover {
       transform: translateY(-2px);
-    }
-
-    .art-card.is-dragging {
-      opacity: 0.35;
-      cursor: grabbing;
-      transform: scale(0.98);
-    }
-
-    .gallery.is-drag-target {
-      outline: 1px dashed var(--line);
-      outline-offset: 4px;
     }
 
     .art-card.tall {
@@ -606,180 +594,10 @@
     const closeButton = document.getElementById("lightbox-close");
     const prevButton = document.getElementById("lightbox-prev");
     const nextButton = document.getElementById("lightbox-next");
-    let artCards = [];
-    const galleries = Array.from(document.querySelectorAll(".gallery"));
-    const orderStoragePrefix = "gallery-order:shared:";
-    const legacyOrderStoragePrefix = `gallery-order:${window.location.pathname}:`;
+    const artCards = Array.from(document.querySelectorAll(".art-card"));
     let currentIndex = -1;
     let touchStartX = 0;
     let touchStartY = 0;
-    let draggedCard = null;
-    let suppressClick = false;
-
-    function refreshArtCards() {
-      artCards = Array.from(document.querySelectorAll(".art-card"));
-    }
-
-    function getGalleryStorageKey(gallery, index) {
-      const galleryId = gallery.closest(".gallery-section")?.id || `gallery-${index}`;
-      return `${orderStoragePrefix}${galleryId}`;
-    }
-
-    function getLegacyGalleryStorageKey(gallery, index) {
-      const galleryId = gallery.closest(".gallery-section")?.id || `gallery-${index}`;
-      return `${legacyOrderStoragePrefix}${galleryId}`;
-    }
-
-    function getCardOrderId(card, index) {
-      if (!card.dataset.orderId) {
-        card.dataset.orderId = card.dataset.full || card.dataset.embed || card.querySelector("img")?.getAttribute("src") || `card-${index}`;
-      }
-
-      return card.dataset.orderId;
-    }
-
-    function loadGalleryOrder(gallery, index) {
-      const storageKey = getGalleryStorageKey(gallery, index);
-      const legacyStorageKey = getLegacyGalleryStorageKey(gallery, index);
-      const cards = Array.from(gallery.querySelectorAll(".art-card"));
-      const cardMap = new Map();
-
-      cards.forEach((card, cardIndex) => {
-        cardMap.set(getCardOrderId(card, cardIndex), card);
-      });
-
-      try {
-        const sharedOrderValue = window.localStorage.getItem(storageKey);
-        const fallbackOrderValue = sharedOrderValue === null ? window.localStorage.getItem(legacyStorageKey) : null;
-        const storedOrder = JSON.parse((sharedOrderValue ?? fallbackOrderValue) || "[]");
-        if (!Array.isArray(storedOrder)) {
-          return;
-        }
-
-        if (sharedOrderValue === null && fallbackOrderValue !== null) {
-          window.localStorage.setItem(storageKey, fallbackOrderValue);
-        }
-
-        storedOrder.forEach((cardId) => {
-          const card = cardMap.get(cardId);
-          if (!card) {
-            return;
-          }
-
-          gallery.appendChild(card);
-          cardMap.delete(cardId);
-        });
-      } catch (error) {
-        return;
-      }
-
-      cardMap.forEach((card) => {
-        gallery.appendChild(card);
-      });
-    }
-
-    function saveGalleryOrder(gallery, index) {
-      const storageKey = getGalleryStorageKey(gallery, index);
-      const order = Array.from(gallery.querySelectorAll(".art-card")).map((card, cardIndex) => getCardOrderId(card, cardIndex));
-
-      try {
-        window.localStorage.setItem(storageKey, JSON.stringify(order));
-      } catch (error) {
-        return;
-      }
-
-      refreshArtCards();
-    }
-
-    function moveDraggedCard(gallery, event) {
-      const targetCard = event.target.closest(".art-card");
-      if (!draggedCard || draggedCard.parentElement !== gallery) {
-        return;
-      }
-
-      if (!targetCard || targetCard === draggedCard || targetCard.parentElement !== gallery) {
-        if (gallery.lastElementChild !== draggedCard) {
-          gallery.appendChild(draggedCard);
-        }
-
-        return;
-      }
-
-      const rect = targetCard.getBoundingClientRect();
-      const beforeTarget = event.clientY < rect.top + (rect.height / 2)
-        || (
-          Math.abs(event.clientY - (rect.top + (rect.height / 2))) < rect.height / 3
-          && event.clientX < rect.left + (rect.width / 2)
-        );
-
-      if (beforeTarget) {
-        if (targetCard !== draggedCard.nextElementSibling) {
-          gallery.insertBefore(draggedCard, targetCard);
-        }
-      } else if (targetCard.nextElementSibling !== draggedCard) {
-        gallery.insertBefore(draggedCard, targetCard.nextElementSibling);
-      }
-    }
-
-    function markSuppressClick() {
-      suppressClick = true;
-      window.setTimeout(() => {
-        suppressClick = false;
-      }, 0);
-    }
-
-    function initializeSortableGalleries() {
-      galleries.forEach((gallery, galleryIndex) => {
-        loadGalleryOrder(gallery, galleryIndex);
-
-        gallery.addEventListener("dragover", (event) => {
-          if (!draggedCard || draggedCard.parentElement !== gallery) {
-            return;
-          }
-
-          event.preventDefault();
-          gallery.classList.add("is-drag-target");
-          moveDraggedCard(gallery, event);
-        });
-
-        gallery.addEventListener("drop", (event) => {
-          if (!draggedCard || draggedCard.parentElement !== gallery) {
-            return;
-          }
-
-          event.preventDefault();
-          gallery.classList.remove("is-drag-target");
-          saveGalleryOrder(gallery, galleryIndex);
-          markSuppressClick();
-        });
-
-        Array.from(gallery.querySelectorAll(".art-card")).forEach((card, cardIndex) => {
-          getCardOrderId(card, cardIndex);
-          card.draggable = true;
-
-          card.addEventListener("dragstart", (event) => {
-            draggedCard = card;
-            card.classList.add("is-dragging");
-            gallery.classList.add("is-drag-target");
-
-            if (event.dataTransfer) {
-              event.dataTransfer.effectAllowed = "move";
-              event.dataTransfer.setData("text/plain", card.dataset.orderId || "");
-            }
-          });
-
-          card.addEventListener("dragend", () => {
-            card.classList.remove("is-dragging");
-            gallery.classList.remove("is-drag-target");
-            draggedCard = null;
-            refreshArtCards();
-            markSuppressClick();
-          });
-        });
-      });
-
-      refreshArtCards();
-    }
 
     function renderLightbox(index) {
       const card = artCards[index];
@@ -833,18 +651,8 @@
       renderLightbox(nextIndex);
     }
 
-    initializeSortableGalleries();
-
-    artCards.forEach((card) => {
-      card.addEventListener("click", (event) => {
-        if (suppressClick) {
-          event.preventDefault();
-          return;
-        }
-
-        refreshArtCards();
-        openLightbox(artCards.indexOf(card));
-      });
+    artCards.forEach((card, index) => {
+      card.addEventListener("click", () => openLightbox(index));
     });
 
     closeButton.addEventListener("click", closeLightbox);
