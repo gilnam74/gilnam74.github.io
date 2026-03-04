@@ -330,8 +330,8 @@
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 20px;
-      background: rgba(18, 16, 14, 0.88);
+      padding: 16px;
+      background: rgba(8, 8, 8, 0.94);
       z-index: 100;
     }
 
@@ -340,17 +340,36 @@
     }
 
     .lightbox-inner {
-      width: min(1000px, 100%);
-      max-height: 100%;
+      width: min(96vw, 1680px);
+      height: min(94vh, 1080px);
       display: grid;
-      gap: 12px;
-      justify-items: center;
+      grid-template-columns: minmax(0, 1fr) clamp(280px, 24vw, 380px);
+      gap: 0;
+      margin: 0;
+      background: #111;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.45);
     }
 
     .lightbox-media {
-      width: min(1000px, 100%);
+      width: 100%;
+      height: 100%;
       display: grid;
       place-items: center;
+      background: #050505;
+      padding: 24px;
+    }
+
+    .lightbox-media-column {
+      min-width: 0;
+      height: 100%;
+      display: grid;
+    }
+
+    .lightbox-media-column .lightbox-media {
+      grid-area: 1 / 1;
     }
 
     .lightbox-media.hidden {
@@ -358,29 +377,80 @@
     }
 
     .lightbox img {
-      width: auto;
+      width: 100%;
+      height: 100%;
       max-width: 100%;
-      max-height: min(78vh, 900px);
+      max-height: 100%;
       object-fit: contain;
-      border-radius: 16px;
-      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
     }
 
     .lightbox-frame {
       width: 100%;
-      aspect-ratio: 16 / 9;
+      height: 100%;
       border: 0;
-      border-radius: 16px;
-      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
       background: #000;
     }
 
-    .lightbox figcaption {
-      color: #f6f1e7;
-      text-align: center;
+    .lightbox-panel {
+      display: grid;
+      align-content: start;
+      gap: 18px;
+      padding: 28px 24px;
+      background: #161616;
+      color: #f5f1e8;
+      overflow-y: auto;
+    }
+
+    .lightbox-panel-label {
+      margin: 0;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(245, 241, 232, 0.6);
+    }
+
+    .lightbox-title {
+      margin: 0;
+      font-family: "Cormorant Garamond", "IBM Plex Sans KR", serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+    }
+
+    .lightbox figcaption,
+    .lightbox-description {
+      margin: 0;
+      color: rgba(245, 241, 232, 0.86);
+      text-align: left;
       line-height: 1.7;
-      max-width: 60ch;
+      font-size: 0.95rem;
+    }
+
+    .lightbox-meta {
+      display: grid;
+      gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .lightbox-meta-item {
+      display: grid;
+      gap: 4px;
+    }
+
+    .lightbox-meta-item strong {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(245, 241, 232, 0.55);
+      font-weight: 600;
+    }
+
+    .lightbox-meta-item span {
       font-size: 0.92rem;
+      color: rgba(245, 241, 232, 0.88);
     }
 
     .lightbox-nav {
@@ -434,6 +504,16 @@
       .art-card.wide {
         grid-column: auto;
       }
+
+      .lightbox-inner {
+        width: min(96vw, 1200px);
+        height: min(92vh, 980px);
+        grid-template-columns: 1fr;
+      }
+
+      .lightbox-media {
+        min-height: 54vh;
+      }
     }
 
     @media (max-width: 640px) {
@@ -466,6 +546,29 @@
       .card-copy {
         opacity: 1;
         transform: translateY(0);
+      }
+
+      .lightbox {
+        padding: 8px;
+      }
+
+      .lightbox-inner {
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+      }
+
+      .lightbox-media,
+      .lightbox-panel {
+        padding: 16px;
+      }
+
+      .lightbox-media {
+        min-height: 44vh;
+      }
+
+      .lightbox-title {
+        font-size: 2rem;
       }
     }
 
@@ -616,20 +719,36 @@
     <button class="lightbox-nav lightbox-next" id="lightbox-next" type="button" aria-label="다음 이미지">›</button>
     <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close image">×</button>
     <figure class="lightbox-inner">
-      <div class="lightbox-media" id="lightbox-image-wrap">
-        <img id="lightbox-image" src="" alt="" />
+      <div class="lightbox-media-column">
+        <div class="lightbox-media" id="lightbox-image-wrap">
+          <img id="lightbox-image" src="" alt="" />
+        </div>
+        <div class="lightbox-media hidden" id="lightbox-video-wrap">
+          <iframe
+            class="lightbox-frame"
+            id="lightbox-video"
+            src=""
+            title="Embedded Vimeo video"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
-      <div class="lightbox-media hidden" id="lightbox-video-wrap">
-        <iframe
-          class="lightbox-frame"
-          id="lightbox-video"
-          src=""
-          title="Embedded Vimeo video"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-      <figcaption id="lightbox-caption"></figcaption>
+      <figcaption class="lightbox-panel">
+        <p class="lightbox-panel-label">Artwork Detail</p>
+        <h3 class="lightbox-title" id="lightbox-title"></h3>
+        <p class="lightbox-description" id="lightbox-description"></p>
+        <div class="lightbox-meta">
+          <div class="lightbox-meta-item">
+            <strong>View Type</strong>
+            <span id="lightbox-kind"></span>
+          </div>
+          <div class="lightbox-meta-item">
+            <strong>Archive Note</strong>
+            <span id="lightbox-caption"></span>
+          </div>
+        </div>
+      </figcaption>
     </figure>
   </div>
 
@@ -639,6 +758,9 @@
     const lightboxVideoWrap = document.getElementById("lightbox-video-wrap");
     const lightboxImage = document.getElementById("lightbox-image");
     const lightboxVideo = document.getElementById("lightbox-video");
+    const lightboxTitle = document.getElementById("lightbox-title");
+    const lightboxDescription = document.getElementById("lightbox-description");
+    const lightboxKind = document.getElementById("lightbox-kind");
     const lightboxCaption = document.getElementById("lightbox-caption");
     const closeButton = document.getElementById("lightbox-close");
     const prevButton = document.getElementById("lightbox-prev");
@@ -653,6 +775,8 @@
       if (!card) {
         return;
       }
+      const title = card.querySelector(".card-copy strong")?.textContent?.trim() || card.dataset.alt || "";
+      const description = card.querySelector(".card-copy span")?.textContent?.trim() || card.dataset.caption || "";
 
       currentIndex = index;
       if (card.dataset.kind === "video") {
@@ -661,14 +785,18 @@
         lightboxImage.src = "";
         lightboxImage.alt = "";
         lightboxVideo.src = card.dataset.embed || "";
+        lightboxKind.textContent = "Video";
       } else {
         lightboxVideoWrap.classList.add("hidden");
         lightboxImageWrap.classList.remove("hidden");
         lightboxVideo.src = "";
         lightboxImage.src = card.dataset.full;
         lightboxImage.alt = card.dataset.alt;
+        lightboxKind.textContent = "Image";
       }
 
+      lightboxTitle.textContent = title;
+      lightboxDescription.textContent = description;
       lightboxCaption.textContent = card.dataset.caption || "";
     }
 
@@ -687,6 +815,9 @@
       lightboxImage.src = "";
       lightboxImage.alt = "";
       lightboxVideo.src = "";
+      lightboxTitle.textContent = "";
+      lightboxDescription.textContent = "";
+      lightboxKind.textContent = "";
       lightboxCaption.textContent = "";
       currentIndex = -1;
     }
