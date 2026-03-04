@@ -608,7 +608,8 @@
     const nextButton = document.getElementById("lightbox-next");
     let artCards = [];
     const galleries = Array.from(document.querySelectorAll(".gallery"));
-    const orderStoragePrefix = `gallery-order:${window.location.pathname}:`;
+    const orderStoragePrefix = "gallery-order:shared:";
+    const legacyOrderStoragePrefix = `gallery-order:${window.location.pathname}:`;
     let currentIndex = -1;
     let touchStartX = 0;
     let touchStartY = 0;
@@ -624,6 +625,11 @@
       return `${orderStoragePrefix}${galleryId}`;
     }
 
+    function getLegacyGalleryStorageKey(gallery, index) {
+      const galleryId = gallery.closest(".gallery-section")?.id || `gallery-${index}`;
+      return `${legacyOrderStoragePrefix}${galleryId}`;
+    }
+
     function getCardOrderId(card, index) {
       if (!card.dataset.orderId) {
         card.dataset.orderId = card.dataset.full || card.dataset.embed || card.querySelector("img")?.getAttribute("src") || `card-${index}`;
@@ -634,6 +640,7 @@
 
     function loadGalleryOrder(gallery, index) {
       const storageKey = getGalleryStorageKey(gallery, index);
+      const legacyStorageKey = getLegacyGalleryStorageKey(gallery, index);
       const cards = Array.from(gallery.querySelectorAll(".art-card"));
       const cardMap = new Map();
 
@@ -642,9 +649,15 @@
       });
 
       try {
-        const storedOrder = JSON.parse(window.localStorage.getItem(storageKey) || "[]");
+        const sharedOrderValue = window.localStorage.getItem(storageKey);
+        const fallbackOrderValue = sharedOrderValue === null ? window.localStorage.getItem(legacyStorageKey) : null;
+        const storedOrder = JSON.parse((sharedOrderValue ?? fallbackOrderValue) || "[]");
         if (!Array.isArray(storedOrder)) {
           return;
+        }
+
+        if (sharedOrderValue === null && fallbackOrderValue !== null) {
+          window.localStorage.setItem(storageKey, fallbackOrderValue);
         }
 
         storedOrder.forEach((cardId) => {
