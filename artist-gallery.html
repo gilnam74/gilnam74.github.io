@@ -286,8 +286,15 @@
     }
 
     .art-card.fit-contain img {
+      aspect-ratio: 16 / 9;
       object-fit: contain;
+      object-position: center center;
       background: #0f0f10;
+    }
+
+    .art-card.fit-contain:hover img,
+    .art-card.fit-contain:focus-visible img {
+      transform: none;
     }
 
     .art-card:hover img,
@@ -568,6 +575,10 @@
 
       .art-card img {
         aspect-ratio: 1 / 1;
+      }
+
+      .art-card.fit-contain img {
+        aspect-ratio: 16 / 9;
       }
 
       .card-copy {
