@@ -727,8 +727,8 @@
             <span class="card-copy"><strong>Film Art Reel</strong><span>A collection of Hollywood film scenes I contributed to as a digital artist.</span></span>
           </button>
 
-          <button class="art-card" type="button" data-full="assets/images/city_seoul_evening.jpg" data-alt="Procedural Thinking course thumbnail" data-playlist="procedural-thinking" data-caption="All lesson links and summaries from SideFX Procedural Thinking are listed in this card detail view.">
-            <img src="assets/images/city_seoul_evening.jpg" alt="Seoul evening city image" width="1920" height="1080" loading="lazy" />
+          <button class="art-card" type="button" data-full="assets/images/title.webp" data-alt="Procedural Thinking course thumbnail" data-playlist="procedural-thinking" data-caption="All lesson links and summaries from SideFX Procedural Thinking are listed in this card detail view.">
+            <img src="assets/images/title.webp" alt="Procedural Thinking course thumbnail" width="1792" height="1024" loading="lazy" />
             <span class="card-copy"><strong>Procedural Thinking (SideFX)</strong><span>Open to view the full lesson list, links, and descriptions.</span></span>
           </button>
 
@@ -827,6 +827,7 @@
     const playlistCatalog = {
       "procedural-thinking": {
         source: "https://www.sidefx.com/tutorials/procedural-thinking/",
+        defaultEmbed: "https://www.youtube.com/embed/hueMNT2X-Uw?autoplay=1",
         projectFiles: "https://media.sidefx.com/files/tutorials/procedural-thinking/Project_Files.zip",
         lessons: [
           {
@@ -886,11 +887,27 @@
     let touchStartX = 0;
     let touchStartY = 0;
 
+    function toEmbedUrl(watchUrl) {
+      const match = /(?:v=|youtu\.be\/)([A-Za-z0-9_-]{11})/.exec(watchUrl || "");
+      if (!match) {
+        return "";
+      }
+      return `https://www.youtube.com/embed/${match[1]}?autoplay=1`;
+    }
+
+    function showVideoInLightbox(embedUrl) {
+      lightboxImageWrap.classList.add("hidden");
+      lightboxVideoWrap.classList.remove("hidden");
+      lightboxImage.src = "";
+      lightboxImage.alt = "";
+      lightboxVideo.src = embedUrl;
+    }
+
     function renderPlaylistDetails(playlist) {
       const descriptionFragment = document.createDocumentFragment();
       const intro = document.createElement("p");
       intro.className = "playlist-intro";
-      intro.textContent = "Full lesson list from the SideFX tutorial page:";
+      intro.textContent = "I created an official tutorial in collaboration with SideFX. Full lesson list from the SideFX tutorial page:";
       descriptionFragment.appendChild(intro);
 
       const source = document.createElement("p");
@@ -913,8 +930,7 @@
 
         const lessonLink = document.createElement("a");
         lessonLink.href = lesson.watch;
-        lessonLink.target = "_blank";
-        lessonLink.rel = "noopener noreferrer";
+        lessonLink.dataset.embed = toEmbedUrl(lesson.watch);
         lessonLink.textContent = lesson.watch;
         item.appendChild(lessonLink);
 
@@ -986,12 +1002,9 @@
         : (card.querySelector(".card-copy span")?.textContent?.trim() || card.dataset.caption || "");
 
       currentIndex = index;
-      if (card.dataset.kind === "video") {
-        lightboxImageWrap.classList.add("hidden");
-        lightboxVideoWrap.classList.remove("hidden");
-        lightboxImage.src = "";
-        lightboxImage.alt = "";
-        lightboxVideo.src = card.dataset.embed || "";
+      if (card.dataset.kind === "video" || playlist) {
+        const embedUrl = playlist ? playlist.defaultEmbed : (card.dataset.embed || "");
+        showVideoInLightbox(embedUrl);
         lightboxKind.textContent = "Video";
       } else {
         lightboxVideoWrap.classList.add("hidden");
@@ -1057,6 +1070,20 @@
     closeButton.addEventListener("click", closeLightbox);
     prevButton.addEventListener("click", () => showAdjacent(-1));
     nextButton.addEventListener("click", () => showAdjacent(1));
+
+    lightboxDescription.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLAnchorElement)) {
+        return;
+      }
+      const embed = target.dataset.embed;
+      if (!embed) {
+        return;
+      }
+      event.preventDefault();
+      showVideoInLightbox(embed);
+      lightboxKind.textContent = "Video Series";
+    });
 
     lightbox.addEventListener("click", (event) => {
       if (event.target === lightbox) {

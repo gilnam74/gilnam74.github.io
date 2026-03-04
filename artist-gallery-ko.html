@@ -727,8 +727,8 @@
             <span class="card-copy"><strong>Film Art Reel</strong><span>디지털 아티스트로서 참여했던 헐리우드 영화 장면들 모음</span></span>
           </button>
 
-          <button class="art-card" type="button" data-full="assets/images/city_seoul_evening.jpg" data-alt="Procedural Thinking course thumbnail" data-playlist="procedural-thinking" data-caption="SideFX Procedural Thinking의 전체 레슨 링크와 요약이 이 상세 보기 안에 정리되어 있습니다.">
-            <img src="assets/images/city_seoul_evening.jpg" alt="Seoul evening city image" width="1920" height="1080" loading="lazy" />
+          <button class="art-card" type="button" data-full="assets/images/title.webp" data-alt="Procedural Thinking course thumbnail" data-playlist="procedural-thinking" data-caption="SideFX Procedural Thinking의 전체 레슨 링크와 요약이 이 상세 보기 안에 정리되어 있습니다.">
+            <img src="assets/images/title.webp" alt="Procedural Thinking course thumbnail" width="1792" height="1024" loading="lazy" />
             <span class="card-copy"><strong>Procedural Thinking (SideFX)</strong><span>클릭하면 전체 레슨 링크와 설명을 확인할 수 있습니다.</span></span>
           </button>
 
@@ -827,6 +827,7 @@
     const playlistCatalog = {
       "procedural-thinking": {
         source: "https://www.sidefx.com/tutorials/procedural-thinking/",
+        defaultEmbed: "https://www.youtube.com/embed/hueMNT2X-Uw?autoplay=1",
         projectFiles: "https://media.sidefx.com/files/tutorials/procedural-thinking/Project_Files.zip",
         lessons: [
           {
@@ -886,11 +887,27 @@
     let touchStartX = 0;
     let touchStartY = 0;
 
+    function toEmbedUrl(watchUrl) {
+      const match = /(?:v=|youtu\.be\/)([A-Za-z0-9_-]{11})/.exec(watchUrl || "");
+      if (!match) {
+        return "";
+      }
+      return `https://www.youtube.com/embed/${match[1]}?autoplay=1`;
+    }
+
+    function showVideoInLightbox(embedUrl) {
+      lightboxImageWrap.classList.add("hidden");
+      lightboxVideoWrap.classList.remove("hidden");
+      lightboxImage.src = "";
+      lightboxImage.alt = "";
+      lightboxVideo.src = embedUrl;
+    }
+
     function renderPlaylistDetails(playlist) {
       const descriptionFragment = document.createDocumentFragment();
       const intro = document.createElement("p");
       intro.className = "playlist-intro";
-      intro.textContent = "SideFX 튜토리얼 원본의 전체 레슨 목록입니다:";
+      intro.textContent = "저는 SideFX와 협업하여 공식 튜토리얼을 제작했습니다. 아래는 SideFX 튜토리얼 페이지의 전체 레슨 목록입니다:";
       descriptionFragment.appendChild(intro);
 
       const source = document.createElement("p");
@@ -913,8 +930,7 @@
 
         const lessonLink = document.createElement("a");
         lessonLink.href = lesson.watch;
-        lessonLink.target = "_blank";
-        lessonLink.rel = "noopener noreferrer";
+        lessonLink.dataset.embed = toEmbedUrl(lesson.watch);
         lessonLink.textContent = lesson.watch;
         item.appendChild(lessonLink);
 
@@ -986,12 +1002,9 @@
         : (card.querySelector(".card-copy span")?.textContent?.trim() || card.dataset.caption || "");
 
       currentIndex = index;
-      if (card.dataset.kind === "video") {
-        lightboxImageWrap.classList.add("hidden");
-        lightboxVideoWrap.classList.remove("hidden");
-        lightboxImage.src = "";
-        lightboxImage.alt = "";
-        lightboxVideo.src = card.dataset.embed || "";
+      if (card.dataset.kind === "video" || playlist) {
+        const embedUrl = playlist ? playlist.defaultEmbed : (card.dataset.embed || "");
+        showVideoInLightbox(embedUrl);
         lightboxKind.textContent = "Video";
       } else {
         lightboxVideoWrap.classList.add("hidden");
@@ -1057,6 +1070,20 @@
     closeButton.addEventListener("click", closeLightbox);
     prevButton.addEventListener("click", () => showAdjacent(-1));
     nextButton.addEventListener("click", () => showAdjacent(1));
+
+    lightboxDescription.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLAnchorElement)) {
+        return;
+      }
+      const embed = target.dataset.embed;
+      if (!embed) {
+        return;
+      }
+      event.preventDefault();
+      showVideoInLightbox(embed);
+      lightboxKind.textContent = "Video Series";
+    });
 
     lightbox.addEventListener("click", (event) => {
       if (event.target === lightbox) {
