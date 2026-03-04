@@ -646,7 +646,7 @@
           </div>
         </div>
         <div class="gallery">
-          <button class="art-card" type="button" data-kind="video" data-embed="https://www.youtube.com/embed/O4JWdi4vjWU?autoplay=1" data-alt="The Rain Show YouTube Shorts thumbnail" data-caption="라스베가스에 있는 Miracle Mile shop에서 상영되고 있는 미디어 아트 영상이다. GiantStep US 와 함께 했던 작업이고 Effect Supervisor로서 모든 시각효과를 감독하였다.">
+          <button class="art-card" type="button" data-kind="video" data-embed="https://www.youtube.com/embed/O4JWdi4vjWU?autoplay=1" data-alt="The Rain Show YouTube Shorts thumbnail" data-description="" data-caption="라스베가스에 있는 Miracle Mile shop에서 상영되고 있는 미디어 아트 영상이다. GiantStep US 와 함께 했던 작업이고 Effect Supervisor로서 모든 시각효과를 감독하였다.">
             <img src="assets/images/gallery/MMS-26136_W1_The_Rain_Show_Web_Thumbnail.jpg" alt="The Rain Show YouTube Shorts thumbnail" width="1280" height="720" loading="lazy" />
             <span class="card-copy"><strong>Miracle Mile Rain Show at Las Vegas</strong><span>라스베가스에 있는 Miracle Mile shop에서 상영되고 있는 미디어 아트 영상이다. GiantStep US 와 함께 했던 작업이고 Effect Supervisor로서 모든 시각효과를 감독하였다.</span></span>
           </button>
@@ -817,7 +817,9 @@
         return;
       }
       const title = card.querySelector(".card-copy strong")?.textContent?.trim() || card.dataset.alt || "";
-      const description = card.querySelector(".card-copy span")?.textContent?.trim() || card.dataset.caption || "";
+      const description = card.dataset.description !== undefined
+        ? card.dataset.description
+        : (card.querySelector(".card-copy span")?.textContent?.trim() || card.dataset.caption || "");
 
       currentIndex = index;
       if (card.dataset.kind === "video") {
