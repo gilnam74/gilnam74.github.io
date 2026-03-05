@@ -24,7 +24,7 @@
     }
     .wrap {
       width: min(1120px, 92vw);
-      padding: 22px 0 6px;
+      padding: 18px 0 2px;
       margin: 0 auto;
     }
     .top {
@@ -39,32 +39,37 @@
       border-color: rgba(206, 230, 255, 0.34);
     }
     .section-nav {
-      margin-top: 12px;
+      margin-top: 8px;
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 14px;
+      align-items: center;
+      padding: 6px 0 8px;
+      border-bottom: 1px solid rgba(198, 220, 239, 0.3);
     }
     .section-nav a {
       text-decoration: none;
-      color: #e9f2f9;
-      border: 1px solid rgba(200, 225, 245, 0.42);
-      background: rgba(15, 24, 35, 0.36);
-      border-radius: 999px;
-      padding: 7px 12px;
-      font-size: 0.84rem;
+      color: rgba(227, 239, 249, 0.86);
+      padding: 4px 0;
+      font-size: 0.82rem;
       font-weight: 600;
-      letter-spacing: 0.01em;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      border-bottom: 1px solid transparent;
+      transition: color 180ms ease, border-color 180ms ease;
     }
     .section-nav a:hover {
-      background: rgba(25, 40, 56, 0.52);
-      border-color: rgba(220, 238, 252, 0.68);
+      color: #f7fbff;
+      border-color: rgba(247, 251, 255, 0.7);
     }
     main.container {
-      margin-top: 6px;
+      margin-top: 2px;
       color: #1d2738;
     }
     main.container section {
       box-shadow: 0 14px 30px rgba(10, 16, 24, 0.12);
+      padding-top: 24px;
+      padding-bottom: 24px;
     }
     main.container h1,
     main.container h2,
@@ -78,8 +83,15 @@
     .card li,
     .feature-card p {
       color: #2f3d54;
-      line-height: 1.7;
+      line-height: 1.58;
     }
+    .portal-copy p { margin-top: 10px; }
+    .section-intro { margin-bottom: 12px; }
+    .phase-content ul,
+    .card ul,
+    .feature-card ul { margin-top: 8px; }
+    .phase-content li,
+    .card li { margin-bottom: 2px; }
     ul { color: #2f3d54; }
     .phase-label,
     .cta,
