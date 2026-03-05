@@ -1,73 +1,282 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Houdini Master Program - Film &amp; Game (16 weeks) | DOOBOB</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="subpage-shared.css" />
-  <style>
-    :root {
-      --overlay: rgba(9, 16, 22, 0.72);
-      --text: #e7edf2;
-      --back-color: #f2b36c;
-      --hero-bg: #1f2f3d;
-      --hero-border: #2d465b;
-      --hero-img-border: #3a566e;
-      --meta: #f1c18b;
-      --copy: #d0dde6;
-      --brand-sub: #b9ccda;
-      --hero-image-width: 100%;
-    }
-    .hero img.master-vfxgame-thmb {
-      width: calc(var(--hero-image-width) * 0.25);
-      height: auto;
-      aspect-ratio: 1 / 1;
-      object-fit: contain;
-    }
-  </style>
-  <script src="assets/js/brand-neon.js" defer></script>
+  <title>Houdini Master Program – Film &amp; Game (DOOBOB)</title>
+  <meta name="description" content="DOOBOB Houdini Master Program: Film FX, Game FX, Procedural Tech Art를 12개월 프로덕션 중심 커리큘럼으로 학습합니다." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=IBM+Plex+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="wrap">
-    <div class="top">
-      <a class="home-link" href="index.html" aria-label="Back to Programs">
-        <div class="site-brand">
-          <img src="assets/images/Doobob-Games-LogoHomePage.png" alt="DOOBOB logo" width="400" height="400" />
-          <div>
-            <h1 data-neon>DOOBOB</h1>
-            <p>Visual Effect | Game | Commercial | Tech Art</p>
-          </div>
-        </div>
-      </a>
-      <div class="top-right">
-        <div class="weather-panel">
-          <select id="city-select" class="weather-city" aria-label="Select city weather">
-            <option value="vancouver" selected>Vancouver</option>
-            <option value="seoul">Seoul</option>
-            <option value="los_angeles">Los Angeles</option>
-            <option value="london">London</option>
-          </select>
-          <div class="weather-chip" id="weather-chip"><strong>Vancouver</strong> Weather loading...</div>
-        </div>
+  <header>
+    <div class="container topbar">
+      <div class="brand">
+        <img src="assets/images/Doobob-Games-LogoHomePage.png" alt="DOOBOB logo" width="400" height="400" />
+        DOOBOB • Houdini Master Program
       </div>
+      <nav aria-label="Program sections">
+        <a href="#overview">Overview</a>
+        <a href="#phases">Phases</a>
+        <a href="#tracks">Tracks</a>
+        <a href="#studio">Studio Model</a>
+        <a href="#instructor">Instructor</a>
+        <a href="#career">Career</a>
+        <a href="https://doobob.net">Program Hub</a>
+      </nav>
     </div>
-    <section class="hero">
-      <img class="master-vfxgame-thmb" src="assets/images/HoudiniVFXGameThumnail.jpg" alt="Houdini Master Program preview" width="600" height="600" loading="lazy" />
-      <h1>Houdini Master Program - Film &amp; Game</h1>
-      <p class="meta">Duration: 16 weeks</p>
-      <p>Advanced pipeline training for artists preparing for Film FX and Game FX production environments.</p>
-      <ul>
-        <li>Mid to high complexity simulation and effects</li>
-        <li>Pipeline-ready setup for Unreal and real-time output</li>
-        <li>Production-style assignments with quality checkpoints</li>
-      </ul>
+  </header>
+
+  <main class="container">
+    <section class="portal-hero" id="overview">
+      <article class="portal-copy">
+        <span class="kicker">Advanced Diploma / Master Certificate</span>
+        <h1>Houdini Master Program – Film &amp; Game (DOOBOB)</h1>
+        <p>
+          단 12개월, DOOBOB의 프로덕션 중심 트레이닝으로 블록버스터급 FX를 완성하세요.
+          커리큘럼은 헐리우드 FX, Game FX, Tech Art, Procedural Asset 제작 워크플로우를 중심으로 구성됩니다.
+        </p>
+        <div class="hero-stats">
+          <div class="stat"><strong>12 Months</strong>48–52 weeks</div>
+          <div class="stat"><strong>3 Tracks</strong>Film / Game / Tech Art</div>
+          <div class="stat"><strong>Workflow</strong>Houdini → Unreal / Niagara / PCG</div>
+          <div class="stat"><strong>Outcome</strong>Demo Reel + Portfolio + Studio Workflow</div>
+        </div>
+        <div class="pill-links">
+          <a href="#phases">Phases</a>
+          <a href="#tracks">Tracks</a>
+          <a href="#career">Career</a>
+          <a href="https://doobob.net">Program Hub</a>
+        </div>
+      </article>
+      <aside class="portal-art" aria-label="Learning portal key visual">
+        <img src="assets/images/title.webp" alt="Houdini FX visual" loading="lazy" />
+      </aside>
+    </section>
+
+    <section id="vision">
+      <h2>Program Vision</h2>
+      <p class="section-intro">
+        Houdini Specialist를 넘어 Real-Time Workflow를 이해하는 Production-ready artist를 육성합니다.
+        핵심 차별 요소는 FX + Environment + Tech Art 융합, Mentor 중심 피드백, Studio-style 팀 제작입니다.
+      </p>
+      <div class="portal-grid">
+        <article class="feature-card">
+          <h3>Procedural Mindset</h3>
+          <p>노드/속성/시스템 관점으로 재사용 가능한 디자인 구조를 설계합니다.</p>
+          <a class="feature-link" href="#phases">See Structure</a>
+        </article>
+        <article class="feature-card">
+          <h3>Real-Time Integration</h3>
+          <p>Houdini 결과물을 Unreal, Niagara, PCG 파이프라인으로 연결합니다.</p>
+          <a class="feature-link" href="#tracks">View Tracks</a>
+        </article>
+        <article class="feature-card">
+          <h3>Studio Simulation</h3>
+          <p>실무처럼 역할 분화된 팀 스프린트와 산업 멘토 크리틱으로 완성도를 높입니다.</p>
+          <a class="feature-link" href="#studio">Studio Model</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="phases">
+      <span class="kicker">Program Structure</span>
+      <h2>Overall Structure</h2>
+      <p class="section-intro">총 4개 Phase로 기초부터 포트폴리오 제작까지 연결됩니다.</p>
+      <div class="phase-stack" aria-label="Phase curriculum layout">
+        <article class="phase-row">
+          <div class="phase-label">
+            <span class="phase-chip">PHASE 01</span>
+            <strong>12 Weeks</strong>
+          </div>
+          <div class="phase-content">
+            <h3>Procedural Foundations</h3>
+            <p>Houdini 사고방식과 노드 기반 제작.</p>
+            <ul>
+              <li>Houdini Fundamentals, Procedural Modeling, Attributes &amp; VEX</li>
+              <li>Lookdev &amp; Lighting, Intro FX, USD Scene Structure</li>
+              <li>Project: Procedural Asset Pack / Parametric Props / Modular Kit</li>
+            </ul>
+          </div>
+        </article>
+        <article class="phase-row">
+          <div class="phase-label">
+            <span class="phase-chip">PHASE 02</span>
+            <strong>12 Weeks</strong>
+          </div>
+          <div class="phase-content">
+            <h3>FX &amp; Simulation Specialist</h3>
+            <p>시뮬레이션 핵심 능력 집중.</p>
+            <ul>
+              <li>Particles, RBD, Pyro, FLIP, Vellum, Groom</li>
+              <li>FX Optimization, Rendering &amp; Caching</li>
+              <li>Project: FX Shot (Film) + FX Asset (Game)</li>
+            </ul>
+          </div>
+        </article>
+        <article class="phase-row">
+          <div class="phase-label">
+            <span class="phase-chip">PHASE 03</span>
+            <strong>12 Weeks</strong>
+          </div>
+          <div class="phase-content">
+            <h3>Track Specialization</h3>
+            <p>Film / Game / Procedural Tech Art 트랙 심화.</p>
+            <ul>
+              <li>목표 직무 기반 모듈 선택</li>
+              <li>트랙별 대표 산출물 제작</li>
+              <li>캡스톤 초안 및 실무형 리뷰</li>
+            </ul>
+          </div>
+        </article>
+        <article class="phase-row">
+          <div class="phase-label">
+            <span class="phase-chip">PHASE 04</span>
+            <strong>12-16 Weeks</strong>
+          </div>
+          <div class="phase-content">
+            <h3>Master Production</h3>
+            <p>포트폴리오와 실전 제작.</p>
+            <ul>
+              <li>Industry mentor pairing, Studio sprint</li>
+              <li>Demo reel, Career branding, Interview prep</li>
+              <li>Final: AAA FX shots / Real-time system / Procedural tools</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="tracks">
+      <span class="kicker">Track Specialization</span>
+      <h2>Phase 3 Tracks</h2>
+      <p class="section-intro">트랙마다 결과물의 기준이 다릅니다. Film은 샷 완성도, Game은 실시간 최적화, Tech Art는 툴/파이프라인 재사용성이 핵심입니다.</p>
+      <div class="triple">
+        <article class="card track">
+          <h3>Film FX Track</h3>
+          <p>고품질 시뮬레이션 샷을 설계, 라이팅, 렌더, 컴포지팅까지 완성.</p>
+          <ul>
+            <li>Hero Pyro/FLIP/RBD/Vellum 시뮬레이션</li>
+            <li>Solaris/USD, Karma, AOVs, Nuke comp</li>
+            <li>포트폴리오: Film FX Shots 2–3 + Breakdown Package</li>
+          </ul>
+        </article>
+        <article class="card track">
+          <h3>Game FX Track</h3>
+          <p>게임 플레이 환경에서 안정적으로 동작하는 리얼타임 FX 제작.</p>
+          <ul>
+            <li>Niagara 시스템, 이벤트, 리본, GPU/CPU</li>
+            <li>Shader/Material 기반 stylized FX</li>
+            <li>포트폴리오: FX Pack 10~20 + Playable Showcase + Budget Sheet</li>
+          </ul>
+        </article>
+        <article class="card track">
+          <h3>Procedural Tech Art Track</h3>
+          <p>아티스트와 레벨팀을 위한 프로시저럴 툴/월드 시스템 구축.</p>
+          <ul>
+            <li>HDA 설계/배포, Houdini Engine for Unreal</li>
+            <li>PCG Graph + Houdini Hybrid Workflow</li>
+            <li>포트폴리오: Environment Toolset + UE PCG Demo</li>
+          </ul>
+        </article>
+      </div>
+      <div class="banner">
+        <img src="assets/images/twiterBanner.png" alt="Team-based digital production workspace" loading="lazy" />
+      </div>
+    </section>
+
+    <section id="studio">
+      <span class="kicker">Studio Model</span>
+      <h2>DOOBOB Studio Production Model</h2>
+      <div class="columns">
+        <article class="card">
+          <h3>Junior Studio Concept</h3>
+          <ul>
+            <li>역할 분화: FX Artist / Procedural Modeler / Tech Artist / Environment Artist</li>
+            <li>팀 프로젝트: Game level FX package, Cinematic destruction, Procedural city tool</li>
+            <li>실무형 스프린트로 협업/핸드오프/피드백 루프 경험</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>DOOBOB Signature Modules</h3>
+          <ul>
+            <li>Procedural Thinking for Artists</li>
+            <li>Houdini for Level Design</li>
+            <li>Real-Time FX Architecture</li>
+            <li>FX Optimization for Games</li>
+            <li>Procedural World Systems / AI + Houdini Workflows</li>
+          </ul>
+        </article>
+      </div>
+      <div class="cta">
+        <h3>Delivery Model</h3>
+        <p>Weekly Lab · Live FX Demo · Mentor Critique · Studio Review · Recorded Library</p>
+      </div>
+    </section>
+
+    <section id="instructor">
+      <span class="kicker">Instructor</span>
+      <h2>대표 인스트럭터: Gil Nam Choi</h2>
+      <div class="columns">
+        <article class="card">
+          <img class="instructor-headshot" src="assets/images/mypicture_2026_v02.jpg" alt="Gil Nam Choi 프로필 사진" width="388" height="387" loading="lazy" />
+          <h3>핵심 경력</h3>
+          <ul>
+            <li>블록버스터 영화 VFX와 AAA 게임 개발 분야 20년+ 경력</li>
+            <li>ILM, MPC, Weta FX, DNEG, Scanline, Method Games에서 리드/슈퍼바이저 역할 수행</li>
+            <li>Kong Studios Technical Art Director로 Houdini-Unreal 및 AI 파이프라인 리드</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>대표 크레딧 &amp; 교육 이력</h3>
+          <ul>
+            <li>대표 영화: Kraven the Hunter, Shazam 2, The Adam Project, The Tomorrow War, Justice League, Sonic, Aquaman, Warcraft, Avengers: Age of Ultron, Transformers: Age of Extinction, Pacific Rim</li>
+            <li>대표 게임: Call of Duty: Vanguard, Back 4 Blood, 현재 진행 중인 미공개 AAA 프로젝트</li>
+            <li>VCAD Head of Media Program, SideFX Houdini Certified Instructor, KPU Houdini 멘토</li>
+            <li>MA in Multimedia (De Montfort University, UK)</li>
+          </ul>
+        </article>
+      </div>
+      <div class="source-links" aria-label="External profile sources">
+        <a href="https://www.linkedin.com/in/choi-gil-nam-6a441132/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+        <a href="https://vimeo.com/326981893" target="_blank" rel="noopener noreferrer">Film Showreel</a>
+        <a href="https://vimeo.com/784287548" target="_blank" rel="noopener noreferrer">Game Reel</a>
+        <a href="https://www.youtube.com/@doobobvfx" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+    </section>
+
+    <section id="career">
+      <span class="kicker">Admissions</span>
+      <h2>Career &amp; Admissions</h2>
+      <div class="columns">
+        <article class="card">
+          <h3>Career Outcomes</h3>
+          <ul>
+            <li>FX Artist (Film)</li>
+            <li>FX Artist (Games)</li>
+            <li>Technical Artist</li>
+            <li>Procedural Artist</li>
+            <li>Houdini Environment Artist / Simulation Artist</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Admission Level</h3>
+          <ul>
+            <li>3D fundamentals or equivalent</li>
+            <li>또는 DOOBOB 3D/GDD 졸업자</li>
+            <li>또는 포트폴리오 심사</li>
+          </ul>
+        </article>
+      </div>
     </section>
   </main>
-  <div class="weather-fx" id="weather-fx" aria-hidden="true"></div>
-  <script src="assets/js/city-weather-wallpaper.js" defer></script>
+
+  <footer>
+    <div class="container">
+      Houdini Master Program – Film &amp; Game (DOOBOB) · Advanced Diploma / Master Certificate
+    </div>
+  </footer>
 </body>
 </html>
