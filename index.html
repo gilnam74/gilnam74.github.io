@@ -591,7 +591,7 @@
     </header>
 
     <section class="program-grid">
-      <a class="program-card" href="artist-gallery.html" aria-label="Artist page for Choi Gil Nam">
+      <a class="program-card" href="artist-gallery.html" data-href-en="artist-gallery.html" data-href-ko="artist-gallery-ko.html" aria-label="Artist page for Choi Gil Nam">
         <svg class="icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="5" cy="6" r="1.8" />
           <circle cx="12" cy="4.8" r="1.8" />
@@ -607,7 +607,7 @@
         <span class="learn-more">LEARN MORE</span>
       </a>
 
-      <a class="program-card" href="program-master-film-game.html" aria-label="Houdini Master Program - Film and Game, 12 months">
+      <a class="program-card" href="program-master-film-game-en.html" data-href-en="program-master-film-game-en.html" data-href-ko="program-master-film-game.html" aria-label="Houdini Master Program - Film and Game, 12 months">
         <svg class="icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M4.5 13.2c1.5-4.4 6-7.5 10.3-7.2 3 .2 5.1 1.9 5.1 4.2 0 2.4-2.3 4.2-5.4 4.4-2.5.2-4.9 1.2-6.1 2.8" />
           <path d="M7.2 18.8c2.2-1.2 4.4-1.8 7-1.9" />
@@ -652,6 +652,45 @@
     </footer>
   </main>
   <div class="weather-fx" id="weather-fx" aria-hidden="true"></div>
+  <script>
+    (function applyRegionalProgramLinks() {
+      var cards = document.querySelectorAll(".program-card[data-href-en][data-href-ko]");
+      if (!cards.length) return;
+
+      var timeZone = "";
+      try {
+        timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+      } catch (_) {}
+
+      var languages = [];
+      if (Array.isArray(navigator.languages) && navigator.languages.length) {
+        languages = navigator.languages;
+      } else if (navigator.language) {
+        languages = [navigator.language];
+      }
+
+      var isKoreanLanguage = languages.some(function (tag) {
+        return String(tag || "").toLowerCase().startsWith("ko");
+      });
+
+      var isKoreanRegion = languages.some(function (tag) {
+        try {
+          return new Intl.Locale(tag).region === "KR";
+        } catch (_) {
+          return false;
+        }
+      });
+
+      var isKoreaTimeZone = /(^|\/)seoul$/i.test(timeZone);
+      var shouldUseKorean = isKoreanLanguage || isKoreanRegion || isKoreaTimeZone;
+      var key = shouldUseKorean ? "hrefKo" : "hrefEn";
+
+      cards.forEach(function (card) {
+        var target = card.dataset[key];
+        if (target) card.href = target;
+      });
+    })();
+  </script>
   <script src="assets/js/city-weather-wallpaper.js" defer></script>
 </body>
 </html>
