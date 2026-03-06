@@ -24,12 +24,29 @@ function toEmbedUrl(watchUrl) {
   return `https://www.youtube.com/embed/${match[1]}?autoplay=1`;
 }
 
+function withLoop(embedUrl) {
+  if (!embedUrl) return embedUrl;
+  const ytMatch = /youtube\.com\/embed\/([A-Za-z0-9_-]{11})/.exec(embedUrl);
+  if (ytMatch) {
+    const url = new URL(embedUrl);
+    url.searchParams.set("loop", "1");
+    url.searchParams.set("playlist", ytMatch[1]);
+    return url.toString();
+  }
+  if (embedUrl.includes("vimeo.com")) {
+    const url = new URL(embedUrl);
+    url.searchParams.set("loop", "1");
+    return url.toString();
+  }
+  return embedUrl;
+}
+
 function showVideoInLightbox(embedUrl) {
   lightboxImageWrap.classList.add("hidden");
   lightboxVideoWrap.classList.remove("hidden");
   lightboxImage.src = "";
   lightboxImage.alt = "";
-  lightboxVideo.src = embedUrl;
+  lightboxVideo.src = withLoop(embedUrl);
 }
 
 function setRichTextContent(target, text, linkUrl) {
@@ -300,3 +317,8 @@ document.addEventListener("keydown", (event) => {
 });
 
 window.addEventListener("resize", applyImageFitMode);
+
+const firstVideoIndex = artCards.findIndex(card => card.dataset.kind === "video" || card.dataset.playlist);
+if (firstVideoIndex !== -1) {
+  openLightbox(firstVideoIndex);
+}
