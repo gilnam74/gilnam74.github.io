@@ -27,7 +27,7 @@ a {
 }
 
 .page {
-  width: min(1180px, calc(100% - 40px));
+  width: min(1500px, calc(100% - 40px));
   margin: 0 auto;
   padding: 28px 0 56px;
 }
@@ -247,7 +247,7 @@ h1 {
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: var(--card-gap);
 }
 
@@ -572,6 +572,10 @@ h1 {
   .hero-title-row {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .lightbox-inner {
