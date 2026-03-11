@@ -66,7 +66,7 @@
       margin-top: 2px;
     }
     main.container section {
-      box-shadow: 0 14px 30px rgba(2, 8, 6, 0.32);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
       padding-top: 28px;
       padding-bottom: 28px;
       padding-left: clamp(20px, 4vw, 60px);
@@ -81,133 +81,102 @@
       margin-bottom: 0;
       border-radius: 0;
     }
-    main.container h1 {
-      color: #f0fbf5;
-    }
-    main.container h2 {
-      color: #f0fbf5;
-      font-size: clamp(1.3rem, 2.8vw, 1.85rem);
-      margin-bottom: 10px;
-    }
+    main.container h1,
+    main.container h2,
     main.container h3 {
-      color: #d8f5e8;
+      color: #0d1f18;
     }
     .kicker {
-      color: #5ecba1;
+      color: #1a6644;
       font-weight: 700;
     }
-    .portal-copy p,
-    .phase-content p,
-    .track p,
-    .feature-card p {
-      color: #b8d8c8;
-      line-height: 1.65;
-    }
-    .portal-copy p { margin-top: 10px; }
+    p, li { color: #1e2e26; line-height: 1.7; }
     .section-intro {
       margin-bottom: 16px;
-      color: #b8d8c8;
+      color: #1e2e26;
       font-size: 1rem;
       line-height: 1.7;
       max-width: 72ch;
     }
-    .card li,
-    .phase-content li,
-    .feature-card li {
-      color: #b8d8c8;
-      line-height: 1.65;
-      margin-bottom: 4px;
-    }
-    .phase-content ul,
-    .card ul,
-    .feature-card ul { margin-top: 8px; }
-    ul { color: #b8d8c8; }
-    li { line-height: 1.65; }
-    .phase-label,
-    .cta,
-    .cta h3,
-    .cta p {
-      color: #e8fff4;
-    }
+    li { margin-bottom: 4px; }
+    ul { color: #1e2e26; }
     .portal-copy,
     .feature-card,
     .card,
     .phase-content {
-      background-color: rgba(8, 26, 19, 0.97);
-      border: 1px solid rgba(94, 203, 161, 0.28);
+      background-color: #f5fdf8;
+      border: 1px solid rgba(30, 100, 70, 0.18);
     }
     .feature-card h3,
     .card h3 {
-      color: #7ee8bc;
+      color: #0d4a30;
       font-size: 1.05rem;
       margin-bottom: 8px;
     }
     .stat {
-      background: rgba(3, 14, 10, 0.96);
-      border: 1px solid rgba(94, 203, 161, 0.45);
+      background: #e8f8f0;
+      border: 1px solid rgba(30, 100, 70, 0.25);
       border-radius: 12px;
       padding: 12px;
+      color: #1e2e26;
     }
     .stat strong {
       display: block;
-      color: #7ee8bc;
+      color: #0d4a30;
       font-size: 1.05rem;
       margin-bottom: 3px;
     }
-    .stat {
-      color: #b8d8c8;
-      font-size: 0.88rem;
-    }
     .pill-links a {
-      color: #b8d8c8;
-      border-color: rgba(94, 203, 161, 0.4);
-      background: rgba(94, 203, 161, 0.08);
+      color: #0d4a30;
+      border-color: rgba(30, 100, 70, 0.35);
+      background: rgba(30, 100, 70, 0.08);
     }
     .feature-link {
-      color: #5ecba1 !important;
+      color: #1a6644 !important;
       font-weight: 600;
     }
+    .phase-label {
+      color: #f0faf5;
+    }
     .phase-row {
-      background: rgba(5, 18, 13, 0.98);
-      border-left: 3px solid rgba(94, 203, 161, 0.55);
+      background: #f5fdf8;
+      border-left: 3px solid #2d9b6a;
+    }
+    .phase-content {
+      background-color: #ffffff;
     }
     .phase-content h3 {
-      color: #7ee8bc;
+      color: #0d4a30;
       font-size: 1.05rem;
     }
     .phase-content p,
     .phase-content li {
-      color: #b8d8c8;
+      color: #1e2e26;
     }
+    .cta h3, .cta p { color: #f0faf5; }
     #vision {
-      background:
-        radial-gradient(circle at 12% 18%, rgba(80, 170, 130, 0.18), transparent 48%),
-        linear-gradient(180deg, rgba(6, 20, 15, 0.97), rgba(8, 24, 18, 0.98));
+      background: linear-gradient(180deg, #edfaf4, #e4f7ef);
+      border: 1px solid rgba(45, 155, 106, 0.2);
     }
     #phases {
-      background:
-        radial-gradient(circle at 84% 14%, rgba(50, 160, 110, 0.2), transparent 50%),
-        linear-gradient(180deg, rgba(7, 22, 16, 0.98), rgba(6, 20, 15, 0.97));
+      background: linear-gradient(180deg, #e8f8f1, #dff5ea);
+      border: 1px solid rgba(45, 155, 106, 0.2);
     }
     #modules {
-      background:
-        radial-gradient(circle at 14% 18%, rgba(60, 150, 105, 0.18), transparent 46%),
-        linear-gradient(180deg, rgba(6, 20, 15, 0.98), rgba(7, 22, 16, 0.98));
+      background: linear-gradient(180deg, #edfaf4, #e4f7ef);
+      border: 1px solid rgba(45, 155, 106, 0.2);
     }
     #studio {
-      background:
-        radial-gradient(circle at 84% 24%, rgba(70, 165, 115, 0.2), transparent 48%),
-        linear-gradient(180deg, rgba(7, 22, 16, 0.98), rgba(6, 20, 15, 0.97));
+      background: linear-gradient(180deg, #e8f8f1, #dff5ea);
+      border: 1px solid rgba(45, 155, 106, 0.2);
     }
     #instructor {
-      background:
-        radial-gradient(circle at 12% 18%, rgba(90, 160, 125, 0.18), transparent 46%),
-        linear-gradient(180deg, rgba(6, 20, 15, 0.97), rgba(7, 22, 16, 0.98));
+      background: linear-gradient(180deg, #edfaf4, #e4f7ef);
+      border: 1px solid rgba(45, 155, 106, 0.2);
     }
     #career {
-      background:
-        radial-gradient(circle at 86% 18%, rgba(75, 155, 105, 0.2), transparent 48%),
-        linear-gradient(180deg, rgba(7, 22, 16, 0.98), rgba(6, 20, 15, 0.97));
+      background: linear-gradient(180deg, #e8f8f1, #dff5ea);
+      border: 1px solid rgba(45, 155, 106, 0.2);
     }
   </style>
   <script src="assets/js/brand-neon.js" defer></script>
