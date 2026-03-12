@@ -117,16 +117,18 @@
     /* ── HERO ── */
     #hero {
       min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
       position: relative;
       overflow: hidden;
     }
     .hero-left {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding: 140px 64px 80px 56px;
+      justify-content: flex-end;
+      padding: 140px 56px 80px 56px;
+      max-width: 800px;
       position: relative;
       z-index: 2;
     }
@@ -997,15 +999,6 @@
       </div>
     </div>
 
-    <div class="hero-right">
-      <div class="hero-img-wrap">
-        <!-- decorative floaters -->
-        <div class="float-circle" style="width:180px;height:180px;top:60px;left:40px;animation-delay:0s;"></div>
-        <div class="float-circle" style="width:90px;height:90px;bottom:120px;right:60px;animation-delay:2s;"></div>
-        <div class="float-circle" style="width:50px;height:50px;top:180px;right:120px;animation-delay:1s;"></div>
-        <div class="hero-portrait-label">Canada · CA</div>
-      </div>
-    </div>
   </section>
 
   <!-- RIBBON -->
