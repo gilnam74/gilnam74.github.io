@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Houdini Master Program – Film &amp; Game (DOOBOB)</title>
-  <meta name="description" content="DOOBOB Houdini Master Program: a 12-month production-focused curriculum for Film FX, Game FX, and Procedural Tech Art." />
+  <meta name="description" content="DOOBOB Houdini Master Program: a 12-week intensive for Film FX and Game FX with live mentoring and portfolio-focused training." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=IBM+Plex+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet" />
@@ -138,6 +138,35 @@
         radial-gradient(circle at 86% 18%, rgba(171, 136, 108, 0.12), transparent 44%),
         linear-gradient(180deg, rgba(246, 243, 237, 0.98), rgba(240, 236, 229, 0.98));
     }
+    #contact {
+      background:
+        radial-gradient(circle at 18% 16%, rgba(87, 132, 170, 0.12), transparent 42%),
+        linear-gradient(180deg, rgba(237, 242, 249, 0.98), rgba(229, 236, 246, 0.98));
+    }
+    .curriculum-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+    .curriculum-card h3 {
+      margin-bottom: 8px;
+    }
+    .curriculum-card p {
+      margin: 0 0 10px;
+      color: #2f3d54;
+      line-height: 1.58;
+    }
+    .curriculum-card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .curriculum-card li,
+    .contact-list li {
+      margin-bottom: 6px;
+    }
+    .contact-list {
+      padding-left: 18px;
+    }
   </style>
   <script src="assets/js/brand-neon.js" defer></script>
 </head>
@@ -171,11 +200,12 @@
     </div>
     <nav class="section-nav" aria-label="Program categories">
       <a href="#overview">Overview</a>
-      <a href="#phases">Phases</a>
-      <a href="#tracks">Tracks</a>
-      <a href="#studio">Studio Model</a>
+      <a href="#phases">Curriculum</a>
+      <a href="#tracks">Live</a>
+      <a href="#studio">Method</a>
       <a href="#instructor">Instructor</a>
-      <a href="#career">Career</a>
+      <a href="#career">Outcomes</a>
+      <a href="#contact">Contact</a>
       <a href="https://doobob.net">Program Hub</a>
     </nav>
   </div>
@@ -183,23 +213,27 @@
   <main class="container">
     <section class="portal-hero" id="overview">
       <article class="portal-copy">
-        <span class="kicker">Advanced Diploma / Master Certificate</span>
+        <span class="kicker">12-Week Intensive / Live Mentoring</span>
         <h1>Houdini Master Program – Film &amp; Game (DOOBOB)</h1>
         <p>
-          Build blockbuster-level FX in just 12 months through DOOBOB's production-first training model.
-          The curriculum is structured around Hollywood FX, Game FX, Tech Art, and procedural asset production workflows.
+          Hello. I have worked on dozens of Hollywood films at studios including DNEG, ILM, Weta, and MPC.
+          Until recently I was an Effects Supervisor at DNEG while also teaching at a university in Canada, and I am currently continuing my career as a Technical Art Director at a game company in Los Angeles.
+        </p>
+        <p>
+          This course is designed around 20+ years of production and teaching experience. It is built to help you gain the essential skills every FX artist needs:
+          practical FX knowledge, how to structure a strong portfolio, and how to keep learning independently. It is also valuable for artists who want to apply Houdini effectively in game production.
         </p>
         <div class="hero-stats">
-          <div class="stat"><strong>12 Months</strong>48–52 weeks</div>
-          <div class="stat"><strong>3 Tracks</strong>Film / Game / Tech Art</div>
-          <div class="stat"><strong>Workflow</strong>Houdini → Unreal / Niagara / PCG</div>
-          <div class="stat"><strong>Outcome</strong>Demo Reel + Portfolio + Studio Workflow</div>
+          <div class="stat"><strong>12 Weeks</strong>12 intensive modules</div>
+          <div class="stat"><strong>LIVE</strong>Every Saturday, 12 PM and 2 PM KST</div>
+          <div class="stat"><strong>Students</strong>1,000+ students worldwide</div>
+          <div class="stat"><strong>Outcome</strong>FX Portfolio + Demo Reel + Self-Study Method</div>
         </div>
         <div class="pill-links">
-          <a href="#phases">Phases</a>
-          <a href="#tracks">Tracks</a>
-          <a href="#career">Career</a>
-          <a href="https://doobob.net">Program Hub</a>
+          <a href="#phases">Curriculum</a>
+          <a href="https://www.youtube.com/watch?v=SWRqMSMWlNk&amp;list=PLL_XS_cEwVyWaYiGo-JqO0Iwi2C8Ujh_R" target="_blank" rel="noopener noreferrer">Student Demo Reel</a>
+          <a href="https://doobob.net/artist-gallery.html" target="_blank" rel="noopener noreferrer">Instructor Reel</a>
+          <a href="https://open.kakao.com/o/sN0QsFcc" target="_blank" rel="noopener noreferrer">1:1 Consultation</a>
         </div>
       </article>
       <aside class="portal-art" aria-label="Learning portal key visual">
@@ -208,162 +242,198 @@
     </section>
 
     <section id="vision">
-      <h2>Program Vision</h2>
+      <h2>What This Course Focuses On</h2>
       <p class="section-intro">
-        We train production-ready artists who go beyond Houdini specialization to understand full real-time workflows.
-        Our key differentiators are FX + Environment + Tech Art integration, mentor-driven feedback, and studio-style team production.
+        I will not tell you this course is easy. But if you want to study properly, accurately, and reach your target, this program is designed to give you a clear path and honest feedback.
       </p>
       <div class="portal-grid">
         <article class="feature-card">
-          <h3>Procedural Mindset</h3>
-          <p>Design reusable systems through a node, attribute, and pipeline-driven way of thinking.</p>
-          <a class="feature-link" href="#phases">See Structure</a>
+          <h3>Practical FX Knowledge</h3>
+          <p>From particles and RBD to pyro, volumes, and rendering, the course is structured around real production thinking.</p>
+          <a class="feature-link" href="#phases">View Curriculum</a>
         </article>
         <article class="feature-card">
-          <h3>Real-Time Integration</h3>
-          <p>Connect Houdini outputs directly into Unreal, Niagara, and PCG pipelines.</p>
-          <a class="feature-link" href="#tracks">View Tracks</a>
+          <h3>Portfolio Strategy</h3>
+          <p>Learn what to build, in what order, and to what quality level so your work functions as a job-ready portfolio.</p>
+          <a class="feature-link" href="#career">See Outcomes</a>
         </article>
         <article class="feature-card">
-          <h3>Studio Simulation</h3>
-          <p>Increase production quality through role-based team sprints and industry mentor critiques.</p>
-          <a class="feature-link" href="#studio">Studio Model</a>
+          <h3>How To Keep Learning</h3>
+          <p>The goal is not only to finish the class, but to build the habits and analysis skills needed to keep improving on your own.</p>
+          <a class="feature-link" href="#studio">View Method</a>
         </article>
       </div>
     </section>
 
     <section id="phases">
-      <span class="kicker">Program Structure</span>
-      <h2>Overall Structure</h2>
-      <p class="section-intro">The program is divided into four phases, from fundamentals to portfolio-ready production.</p>
-      <div class="phase-stack" aria-label="Phase curriculum layout">
-        <article class="phase-row">
-          <div class="phase-label">
-            <span class="phase-chip">PHASE 01</span>
-            <strong>12 Weeks</strong>
-          </div>
-          <div class="phase-content">
-            <h3>Procedural Foundations</h3>
-            <p>Houdini mindset and node-based creation workflows.</p>
-            <ul>
-              <li>Houdini Fundamentals, Procedural Modeling, Attributes &amp; VEX</li>
-              <li>Lookdev &amp; Lighting, Intro FX, USD Scene Structure</li>
-              <li>Project: Procedural Asset Pack / Parametric Props / Modular Kit</li>
-            </ul>
-          </div>
+      <span class="kicker">12 Modules</span>
+      <h2>Curriculum</h2>
+      <p class="section-intro">The course moves step by step from foundational Houdini FX concepts to portfolio-driven project work across twelve modules.</p>
+      <div class="curriculum-grid" aria-label="12 module curriculum">
+        <article class="card curriculum-card">
+          <h3>Module 01</h3>
+          <p>Controlling particles the way you want</p>
+          <ul>
+            <li>Houdini interface, reference gathering, particle fundamentals, POP</li>
+            <li>Handling fast-moving objects, solver fundamentals, collision workflow</li>
+            <li>Introduction to Newtonian physics</li>
+          </ul>
         </article>
-        <article class="phase-row">
-          <div class="phase-label">
-            <span class="phase-chip">PHASE 02</span>
-            <strong>12 Weeks</strong>
-          </div>
-          <div class="phase-content">
-            <h3>FX &amp; Simulation Specialist</h3>
-            <p>Focused development of core simulation skills.</p>
-            <ul>
-              <li>Particles, RBD, Pyro, FLIP, Vellum, Groom</li>
-              <li>FX Optimization, Rendering &amp; Caching</li>
-              <li>Project: FX Shot (Film) + FX Asset (Game)</li>
-            </ul>
-          </div>
+        <article class="card curriculum-card">
+          <h3>Module 02</h3>
+          <p>Introduction to Math in Houdini</p>
+          <ul>
+            <li>Core math functions you actually need</li>
+            <li>Vector addition, subtraction, multiplication</li>
+            <li>Dot product and cross product</li>
+          </ul>
         </article>
-        <article class="phase-row">
-          <div class="phase-label">
-            <span class="phase-chip">PHASE 03</span>
-            <strong>12 Weeks</strong>
-          </div>
-          <div class="phase-content">
-            <h3>Track Specialization</h3>
-            <p>Advanced specialization in Film / Game / Procedural Tech Art tracks.</p>
-            <ul>
-              <li>Select modules based on your target role</li>
-              <li>Create flagship deliverables for each track</li>
-              <li>Build capstone drafts with production-style reviews</li>
-            </ul>
-          </div>
+        <article class="card curriculum-card">
+          <h3>Module 03</h3>
+          <p>VEX</p>
+          <ul>
+            <li>Building an infection solver</li>
+            <li>Using Attribute Wrangle effectively</li>
+          </ul>
         </article>
-        <article class="phase-row">
-          <div class="phase-label">
-            <span class="phase-chip">PHASE 04</span>
-            <strong>12-16 Weeks</strong>
-          </div>
-          <div class="phase-content">
-            <h3>Master Production</h3>
-            <p>Portfolio development and real production practice.</p>
-            <ul>
-              <li>Industry mentor pairing, Studio sprint</li>
-              <li>Demo reel, Career branding, Interview prep</li>
-              <li>Final: AAA FX shots / Real-time system / Procedural tools</li>
-            </ul>
-          </div>
+        <article class="card curriculum-card">
+          <h3>Module 04</h3>
+          <p>Disintegration Project</p>
+          <ul>
+            <li>Emit particles</li>
+            <li>Growth effect using the infection solver</li>
+            <li>Vellum cloth</li>
+          </ul>
+        </article>
+        <article class="card curriculum-card">
+          <h3>Module 05</h3>
+          <p>RBD Destruction: Building Destruction I</p>
+          <ul>
+            <li>Planning a destruction setup strategically</li>
+            <li>Fracturing, RBD Bullet Solver, constraints</li>
+          </ul>
+        </article>
+        <article class="card curriculum-card">
+          <h3>Module 06</h3>
+          <p>RBD Destruction: Building Destruction II</p>
+          <ul>
+            <li>Secondary particles and volumes</li>
+            <li>Rendering</li>
+          </ul>
+        </article>
+        <article class="card curriculum-card">
+          <h3>Module 07</h3>
+          <p>Burning Character: Sticky Fire Advanced Technique</p>
+          <ul>
+            <li>Smoke sourcing</li>
+            <li>Pyro simulation</li>
+            <li>Rendering</li>
+          </ul>
+        </article>
+        <article class="card curriculum-card">
+          <h3>Module 08</h3>
+          <p>Character-driven underwater effects</p>
+          <ul>
+            <li>Essential elements for underwater scenes</li>
+            <li>Bubble and blood setup</li>
+          </ul>
+        </article>
+        <article class="card curriculum-card">
+          <h3>Module 09</h3>
+          <p>Procedural Effects for VFX and Games</p>
+          <ul>
+            <li>Recreating a Frozen-style effect</li>
+            <li>Ground deformation effect study</li>
+          </ul>
+        </article>
+        <article class="card curriculum-card">
+          <h3>Module 10</h3>
+          <p>Zombie Burning and Zombie Explosion</p>
+          <ul>
+            <li>Growth effect using the infection solver</li>
+            <li>Applied RBD workflow</li>
+          </ul>
+        </article>
+        <article class="card curriculum-card">
+          <h3>Module 11</h3>
+          <p>Recreating the Ground Interaction effect from Transformers</p>
+          <ul>
+            <li>Understanding the core ground interaction formula</li>
+            <li>Using dot product and reflect</li>
+            <li>Expanding the setup into multiple variations</li>
+          </ul>
+        </article>
+        <article class="card curriculum-card">
+          <h3>Module 12</h3>
+          <p>Recreating the Venom transformation effect for VFX and games</p>
+          <ul>
+            <li>Procedural trail setup</li>
+            <li>POP Fluid and VDB post process</li>
+            <li>UV transfer</li>
+          </ul>
         </article>
       </div>
     </section>
 
     <section id="tracks">
-      <span class="kicker">Track Specialization</span>
-      <h2>Phase 3 Tracks</h2>
-      <p class="section-intro">Each track has distinct output standards: Film prioritizes shot quality, Game emphasizes real-time optimization, and Tech Art focuses on tool and pipeline reusability.</p>
+      <span class="kicker">LIVE !!!</span>
+      <h2>Live Classes &amp; Review Format</h2>
+      <p class="section-intro">The course combines scheduled live sessions with flexible review support throughout the week.</p>
       <div class="triple">
         <article class="card track">
-          <h3>Film FX Track</h3>
-          <p>Deliver high-quality simulation shots through design, lighting, rendering, and compositing.</p>
+          <h3>Live Sessions</h3>
+          <p>Live classes are held every Saturday at 12 PM and 2 PM in Korean Standard Time.</p>
           <ul>
-            <li>Hero Pyro/FLIP/RBD/Vellum simulations</li>
-            <li>Solaris/USD, Karma, AOVs, Nuke comp</li>
-            <li>Portfolio: 2-3 Film FX shots + breakdown package</li>
+            <li>Real-time demos and Q&amp;A</li>
+            <li>Repeat explanation of core concepts</li>
+            <li>A structure designed for review and repetition</li>
           </ul>
         </article>
         <article class="card track">
-          <h3>Game FX Track</h3>
-          <p>Create real-time FX that run reliably in gameplay environments.</p>
+          <h3>Assignment / Portfolio Review</h3>
+          <p>You can receive assignment and portfolio reviews at any time during the week.</p>
           <ul>
-            <li>Niagara systems, events, ribbons, GPU/CPU workflows</li>
-            <li>Shader/material-based stylized FX</li>
-            <li>Portfolio: FX pack (10-20) + playable showcase + budget sheet</li>
+            <li>Feedback on individual work</li>
+            <li>Portfolio direction and correction</li>
+            <li>Clear standards for job-ready results</li>
           </ul>
         </article>
         <article class="card track">
-          <h3>Procedural Tech Art Track</h3>
-          <p>Build procedural tools and world systems for artists and level teams.</p>
+          <h3>For Film and Games</h3>
+          <p>The course covers both film-style FX thinking and practical ways to use Houdini in game production.</p>
           <ul>
-            <li>HDA design/deployment, Houdini Engine for Unreal</li>
-            <li>PCG Graph + Houdini Hybrid Workflow</li>
-            <li>Portfolio: Environment toolset + UE PCG demo</li>
+            <li>Designed for aspiring FX artists</li>
+            <li>Helpful for artists targeting game studios</li>
+            <li>Built to expand real production applications</li>
           </ul>
         </article>
-      </div>
-      <div class="banner">
-        <img src="assets/images/twiterBanner.png" alt="Team-based digital production workspace" loading="lazy" />
       </div>
     </section>
 
     <section id="studio">
-      <span class="kicker">Studio Model</span>
-      <h2>DOOBOB Studio Production Model</h2>
+      <span class="kicker">Study Method</span>
+      <h2>How You Learn</h2>
       <div class="columns">
         <article class="card">
-          <h3>Junior Studio Concept</h3>
+          <h3>Learn Through Production Thinking</h3>
           <ul>
-            <li>Role specialization: FX Artist / Procedural Modeler / Tech Artist / Environment Artist</li>
-            <li>Team projects: game level FX package, cinematic destruction, procedural city tool</li>
-            <li>Experience collaboration, handoff, and feedback loops through production-style sprints</li>
+            <li>Built around how working FX artists actually solve problems</li>
+            <li>Reference analysis, setup strategy, and iteration loops</li>
+            <li>Not just tool explanations, but decision-making criteria</li>
           </ul>
         </article>
         <article class="card">
-          <h3>DOOBOB Signature Modules</h3>
+          <h3>Not Easy, But Accurate</h3>
           <ul>
-            <li>Procedural Thinking for Artists</li>
-            <li>Houdini for Level Design</li>
-            <li>Real-Time FX Architecture</li>
-            <li>FX Optimization for Games</li>
-            <li>Procedural World Systems / AI + Houdini Workflows</li>
+            <li>Like training in the mountains, the course asks for fundamentals and repetition</li>
+            <li>We talk honestly about how much time you need to invest</li>
+            <li>The goal is to help you study correctly and reach your target</li>
           </ul>
         </article>
       </div>
       <div class="cta">
-        <h3>Delivery Model</h3>
-        <p>Weekly Lab · Live FX Demo · Mentor Critique · Studio Review · Recorded Library</p>
+        <h3>What You Take Away</h3>
+        <p>Practical FX knowledge, portfolio-building ability, and a method for continuing to grow after the course ends.</p>
       </div>
     </section>
 
@@ -373,51 +443,74 @@
       <div class="columns">
         <article class="card">
           <img class="instructor-headshot" src="assets/images/mypicture_2026_v02.jpg" alt="Portrait of Gil Nam Choi" width="388" height="387" loading="lazy" />
-          <h3>Career Highlights</h3>
+          <h3>Current Roles &amp; Production Background</h3>
           <ul>
-            <li>20+ years in blockbuster film VFX and AAA game development</li>
-            <li>Lead/supervisor roles at ILM, MPC, Weta FX, DNEG, Scanline, and Method Games</li>
-            <li>Technical Art Director at Kong Studios, leading Houdini-Unreal and AI pipelines</li>
+            <li>Current Head of Media Program at Visual College of Art and Design (Canada)</li>
+            <li>Recently served as an Effects Supervisor at DNEG</li>
+            <li>Currently working as a Technical Art Director at a game company in Los Angeles</li>
+            <li>FX TD experience at Weta Digital, ILM, Digital Domain, MPC, and more</li>
+            <li>Credits include Shazam 2, The Suicide Squad, Zack Snyder's Justice League, Black Widow, Aquaman, Sonic, Avengers: Age of Ultron, The Mandalorian Season 2, Transformers, and Pacific Rim</li>
           </ul>
         </article>
         <article class="card">
-          <h3>Selected Credits &amp; Teaching</h3>
+          <h3>Teaching Experience</h3>
           <ul>
-            <li>Selected films: Kraven the Hunter, Shazam 2, The Adam Project, The Tomorrow War, Justice League, Sonic, Aquaman, Warcraft, Avengers: Age of Ultron, Transformers: Age of Extinction, Pacific Rim</li>
-            <li>Selected games: Call of Duty: Vanguard, Back 4 Blood, and ongoing undisclosed AAA project</li>
-            <li>Head of Media Program at VCAD, SideFX Houdini Certified Instructor, KPU Houdini mentor</li>
-            <li>MA in Multimedia (De Montfort University, UK)</li>
+            <li>Launched official SideFX tutorials</li>
+            <li>Lead FX Trainer at Technicolor Academy for Europe and North America</li>
+            <li>Launched online classes with Gnomon School</li>
+            <li>Delivered 150+ hours of online lectures through platforms such as Balchagi, Beaverhouse, and yiihuu.com</li>
+            <li>Taught at Capilano University, Vanarts, AAU, 3dsense, Nanyang Polytechnic, and multiple universities in the UK and Korea</li>
           </ul>
         </article>
       </div>
       <div class="source-links" aria-label="External profile sources">
-        <a href="https://www.linkedin.com/in/choi-gil-nam-6a441132/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
-        <a href="https://vimeo.com/326981893" target="_blank" rel="noopener noreferrer">Film Showreel</a>
-        <a href="https://vimeo.com/784287548" target="_blank" rel="noopener noreferrer">Game Reel</a>
+        <a href="https://doobob.net/artist-gallery.html" target="_blank" rel="noopener noreferrer">Instructor Reel</a>
         <a href="https://www.youtube.com/@doobobvfx" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="https://www.linkedin.com/in/choi-gil-nam-6a441132/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
       </div>
     </section>
 
     <section id="career">
-      <span class="kicker">Admissions</span>
-      <h2>Career &amp; Admissions</h2>
+      <span class="kicker">Career Outcomes</span>
+      <h2>Student Outcomes</h2>
       <div class="columns">
         <article class="card">
-          <h3>Career Outcomes</h3>
+          <h3>Placement &amp; Progression</h3>
           <ul>
-            <li>FX Artist (Film)</li>
-            <li>FX Artist (Games)</li>
-            <li>Technical Artist</li>
-            <li>Procedural Artist</li>
-            <li>Houdini Environment Artist / Simulation Artist</li>
+            <li>More than 1,000 students from Korea and abroad have completed the program</li>
+            <li>Graduates have joined studios such as ILM, MPC, DNEG, Sony Imageworks, Walt Disney Animation Studios, and Scanline VFX</li>
+            <li>Students have also been hired by Korean studios including Dexter, Giantstep, M83, Westworld, and 4th Creative</li>
           </ul>
         </article>
         <article class="card">
-          <h3>Admission Level</h3>
+          <h3>Demo Reels</h3>
           <ul>
-            <li>3D fundamentals or equivalent</li>
-            <li>or DOOBOB 3D/GDD graduate</li>
-            <li>or portfolio review</li>
+            <li><a href="https://www.youtube.com/watch?v=SWRqMSMWlNk&amp;list=PLL_XS_cEwVyWaYiGo-JqO0Iwi2C8Ujh_R" target="_blank" rel="noopener noreferrer">Watch Student Demo Reel</a></li>
+            <li><a href="https://doobob.net/artist-gallery.html" target="_blank" rel="noopener noreferrer">View Instructor Demo Reel</a></li>
+            <li>The course is structured around results that can function in a real hiring portfolio</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <span class="kicker">Contact</span>
+      <h2>Please consult before enrolling</h2>
+      <div class="columns">
+        <article class="card">
+          <h3>Recommended For</h3>
+          <ul class="contact-list">
+            <li>Artists who want to learn Houdini FX in a clear and accurate direction</li>
+            <li>Students who want portfolio feedback based on production standards</li>
+            <li>Artists who want to expand Houdini use across both film and games</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Consultation Links</h3>
+          <ul class="contact-list">
+            <li><a href="https://open.kakao.com/o/gieQUGbc" target="_blank" rel="noopener noreferrer">Kakao Group Chat</a></li>
+            <li><a href="https://open.kakao.com/o/sN0QsFcc" target="_blank" rel="noopener noreferrer">1:1 Consultation</a></li>
+            <li>If you want to study properly and reach your target, get in touch.</li>
           </ul>
         </article>
       </div>
@@ -426,7 +519,7 @@
 
   <footer>
     <div class="container">
-      Houdini Master Program – Film &amp; Game (DOOBOB) · Advanced Diploma / Master Certificate
+      Houdini Master Program – Film &amp; Game (DOOBOB) · 12-Week Intensive / Live Mentoring
     </div>
   </footer>
   <div class="weather-fx" id="weather-fx" aria-hidden="true"></div>
