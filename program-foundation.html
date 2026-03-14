@@ -4,35 +4,294 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Artist | Choi Gil Nam | DOOBOB</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=IBM+Plex+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="subpage-shared.css" />
   <style>
+    /* ─── Apple-style Design System ─────────────────────────────── */
     :root {
-      --wallpaper: url("assets/images/city_london_evening.jpg");
-      --overlay: rgba(12, 14, 20, 0.76);
-      --text: #f6f0e6;
-      --back-color: #f6c37b;
-      --hero-bg: rgba(21, 23, 28, 0.92);
-      --hero-border: rgba(219, 178, 110, 0.24);
-      --hero-img-border: rgba(219, 178, 110, 0.32);
-      --meta: #dfb880;
-      --copy: #efe3d3;
-      --brand-sub: #e6d5bf;
-      --hero-image-width: 100%;
+      --apple-white:   #ffffff;
+      --apple-light:   #f5f5f7;
+      --apple-text:    #1d1d1f;
+      --apple-sub:     #6e6e73;
+      --apple-blue:    #0071e3;
+      --apple-blue-hv: #0077ed;
+      --apple-border:  #d2d2d7;
+      --apple-radius:  18px;
+      --apple-font:    -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, "Space Grotesk", "IBM Plex Sans KR", sans-serif;
+      --apple-max:     1200px;
+      /* keep these so weather/neon JS still reads them */
+      --overlay: rgba(9, 16, 22, 0.72);
+      --text: #e7edf2;
+      --back-color: #f2b36c;
+      --meta: #f1c18b;
+      --brand-sub: #b9ccda;
     }
 
-    .hero {
-      padding: clamp(18px, 3vw, 28px);
+    /* ─── Global reset ───────────────────────────────────────────── */
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--apple-font);
+      color: var(--apple-text);
+      background: var(--apple-white) !important;
+      background-image: none !important;
+      margin: 0;
     }
 
+    /* Keep weather-fx overlay but invisible on white bg */
+    .weather-fx {
+      opacity: 0 !important;
+      pointer-events: none;
+    }
+
+    /* ─── Header ─────────────────────────────────────────────────── */
+    .apple-header {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--apple-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .apple-header-inner {
+      width: min(var(--apple-max), 94vw);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      flex-wrap: wrap;
+    }
+
+    /* ─── Brand / Logo ───────────────────────────────────────────── */
+    .home-link {
+      text-decoration: none;
+      color: inherit;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .site-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .site-brand img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      border-radius: 8px;
+      mix-blend-mode: normal;
+      opacity: 1;
+    }
+
+    .site-brand > div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 1px;
+    }
+
+    .site-brand h1 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--apple-text);
+      font-family: var(--apple-font);
+      text-shadow: none !important;
+    }
+
+    .site-brand h1 .char {
+      color: var(--apple-text) !important;
+      text-shadow: none !important;
+      animation: none !important;
+    }
+
+    .site-brand h1::before,
+    .site-brand h1::after { display: none; }
+
+    .site-brand p {
+      margin: 0;
+      font-size: 0.62rem;
+      color: var(--apple-sub);
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── Top-right: lang + weather ─────────────────────────────── */
+    .top-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      margin-left: auto;
+    }
+
+    .lang {
+      display: inline-flex;
+      gap: 4px;
+      font-size: 0.82rem;
+    }
+
+    .lang a {
+      color: var(--apple-sub);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: all 160ms ease;
+    }
+
+    .lang a.active {
+      background: var(--apple-text);
+      color: #fff;
+      border-color: var(--apple-text);
+    }
+
+    .lang a:not(.active):hover {
+      border-color: var(--apple-border);
+    }
+
+    .weather-panel {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--apple-light);
+      border: 1px solid var(--apple-border);
+      border-radius: 12px;
+      padding: 6px 10px;
+      backdrop-filter: none;
+    }
+
+    .weather-city {
+      border: 1px solid var(--apple-border);
+      background: #fff;
+      color: var(--apple-text);
+      border-radius: 8px;
+      font: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 5px 28px 5px 8px;
+      min-width: 120px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-image:
+        linear-gradient(45deg, transparent 50%, var(--apple-sub) 50%),
+        linear-gradient(135deg, var(--apple-sub) 50%, transparent 50%);
+      background-position:
+        calc(100% - 14px) calc(50% - 2px),
+        calc(100% - 8px) calc(50% - 2px);
+      background-size: 5px 5px, 5px 5px;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      text-shadow: none;
+    }
+
+    .weather-city option {
+      background: #fff;
+      color: var(--apple-text);
+    }
+
+    .weather-chip {
+      color: var(--apple-sub);
+      font-size: 0.74rem;
+      letter-spacing: 0.01em;
+      white-space: normal;
+      line-height: 1.3;
+    }
+
+    .weather-chip strong {
+      color: var(--apple-text);
+      font-weight: 700;
+    }
+
+    /* ─── Section Nav ────────────────────────────────────────────── */
+    .section-nav {
+      margin-top: 0 !important;
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 0 !important;
+      align-items: center !important;
+      padding: 0 !important;
+      border-bottom: 1px solid var(--apple-border) !important;
+      background: rgba(255,255,255,0.92) !important;
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+    }
+
+    .section-nav-inner {
+      width: min(var(--apple-max), 94vw);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      align-items: center;
+    }
+
+    .section-nav a,
+    nav .section-nav a,
+    nav.section-nav a {
+      display: inline-block !important;
+      text-decoration: none !important;
+      color: var(--apple-sub) !important;
+      padding: 12px 14px !important;
+      font-size: 0.78rem !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.01em !important;
+      text-transform: none !important;
+      border-bottom: 2px solid transparent !important;
+      margin-bottom: -1px !important;
+      transition: color 160ms ease, border-color 160ms ease !important;
+      white-space: nowrap !important;
+      background: none !important;
+      border-radius: 0 !important;
+    }
+
+    .section-nav a:hover,
+    nav .section-nav a:hover,
+    nav.section-nav a:hover {
+      color: var(--apple-text) !important;
+      border-bottom-color: var(--apple-text) !important;
+      background: none !important;
+    }
+
+    /* ─── Page layout ────────────────────────────────────────────── */
+    .page-content {
+      width: min(var(--apple-max), 94vw);
+      margin: 0 auto;
+      padding: 64px 0 80px;
+    }
+
+    /* ─── Kicker / Eyebrow ───────────────────────────────────────── */
+    .kicker,
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--apple-blue);
+      margin-bottom: 12px;
+    }
+
+    /* ─── Hero artist block ──────────────────────────────────────── */
     .artist-hero {
       display: grid;
       grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.95fr);
-      gap: 24px;
-      align-items: stretch;
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 56px;
     }
 
     .artist-copy {
@@ -41,35 +300,33 @@
       gap: 16px;
     }
 
-    .eyebrow {
-      margin: 0;
-      color: var(--meta);
-      font-size: 0.82rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-
     .artist-copy h1 {
-      font-size: clamp(2.2rem, 6vw, 4.4rem);
-      line-height: 0.95;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      color: var(--apple-text);
       margin: 0;
-      max-width: 7ch;
     }
 
     .artist-copy .meta {
-      margin: 0;
-      font-size: 0.98rem;
-      letter-spacing: 0.06em;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
+      color: var(--apple-sub);
+      margin: 0;
     }
 
     .lead {
-      margin: 0;
-      max-width: 56ch;
       font-size: 1rem;
+      color: var(--apple-sub);
+      line-height: 1.65;
+      max-width: 56ch;
+      margin: 0;
     }
 
+    /* Jump links row */
     .jump-links {
       display: flex;
       flex-wrap: wrap;
@@ -82,84 +339,133 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 42px;
-      padding: 10px 16px;
+      min-height: 40px;
+      padding: 8px 20px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 224, 180, 0.2);
-      color: #fff7ed;
+      border: 1px solid rgba(0, 113, 227, 0.25);
+      color: var(--apple-blue);
       text-decoration: none;
-      font-size: 0.92rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      background: rgba(255, 255, 255, 0.04);
+      font-size: 0.88rem;
+      font-weight: 500;
+      background: rgba(0, 113, 227, 0.06);
+      transition: background 160ms ease, border-color 160ms ease;
     }
 
     .jump-links a:hover,
     .button-link:hover {
-      background: rgba(246, 195, 123, 0.14);
-      border-color: rgba(246, 195, 123, 0.4);
+      background: rgba(0, 113, 227, 0.13);
+      border-color: rgba(0, 113, 227, 0.5);
     }
 
+    /* Feature grid within artist-copy */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .feature-card {
+      background: var(--apple-light);
+      border: 1px solid var(--apple-border);
+      border-radius: 16px;
+      padding: 18px 20px;
+      transition: box-shadow 200ms ease;
+    }
+
+    .feature-card:hover {
+      box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+    }
+
+    .feature-card h2 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--apple-text);
+      margin: 0 0 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-card p {
+      font-size: 0.88rem;
+      color: var(--apple-sub);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Hero portrait panel */
     .hero-portrait {
-      min-height: 100%;
       display: flex;
       flex-direction: column;
       gap: 12px;
-      padding: 14px;
-      border-radius: 18px;
-      border: 1px solid rgba(255, 223, 176, 0.16);
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
-        rgba(35, 33, 29, 0.88);
+      padding: 16px;
+      border-radius: var(--apple-radius);
+      border: 1px solid var(--apple-border);
+      background: var(--apple-light);
     }
 
     .hero-portrait img {
       width: 100%;
       aspect-ratio: 4 / 5;
       object-fit: cover;
-      border-radius: 14px;
-      border: 1px solid var(--hero-img-border);
+      border-radius: 12px;
+      border: 1px solid var(--apple-border);
       margin: 0;
+      display: block;
     }
 
     .portrait-caption {
       margin: 0;
-      font-size: 0.88rem;
-      color: #e4d2bb;
+      font-size: 0.82rem;
+      color: var(--apple-sub);
+      line-height: 1.5;
     }
 
-    .feature-grid,
+    /* ─── Section block ──────────────────────────────────────────── */
+    .section-block {
+      margin-top: 64px;
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--apple-text);
+      margin: 0 0 8px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .section-head p {
+      margin: 0;
+      max-width: 52ch;
+      font-size: 0.94rem;
+      color: var(--apple-sub);
+      line-height: 1.6;
+    }
+
+    /* Works grid */
     .works-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 16px;
-      margin-top: 22px;
     }
 
-    .feature-card,
-    .work-card,
-    .contact-card {
+    .work-card {
       border-radius: 16px;
-      border: 1px solid rgba(255, 223, 176, 0.14);
-      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--apple-border);
+      background: var(--apple-white);
       overflow: hidden;
+      transition: box-shadow 200ms ease;
     }
 
-    .feature-card {
-      padding: 18px;
-    }
-
-    .feature-card h2,
-    .section-title {
-      margin: 0 0 10px;
-      font-size: 1.1rem;
-      color: #fff4df;
-    }
-
-    .feature-card p,
-    .work-card p,
-    .contact-card p {
-      margin: 0;
+    .work-card:hover {
+      box-shadow: 0 8px 28px rgba(0,0,0,0.08);
     }
 
     .work-card img {
@@ -170,55 +476,75 @@
     }
 
     .work-copy {
-      padding: 14px 16px 16px;
+      padding: 14px 16px 18px;
     }
 
     .work-copy h3 {
       margin: 0 0 6px;
       font-size: 1rem;
-      color: #fff4df;
+      font-weight: 700;
+      color: var(--apple-text);
+      letter-spacing: -0.01em;
     }
 
-    .section-block {
-      margin-top: 28px;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 14px;
-    }
-
-    .section-head p {
+    .work-copy p {
       margin: 0;
-      max-width: 52ch;
-      font-size: 0.94rem;
+      font-size: 0.88rem;
+      color: var(--apple-sub);
+      line-height: 1.6;
     }
 
+    /* ─── Contact card ───────────────────────────────────────────── */
     .contact-card {
-      margin-top: 28px;
-      padding: 18px;
+      margin-top: 56px;
+      padding: 32px 36px;
+      border-radius: var(--apple-radius);
+      border: 1px solid var(--apple-border);
+      background: var(--apple-light);
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) auto;
-      gap: 16px;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
       align-items: center;
     }
 
     .contact-copy h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--apple-text);
       margin: 0 0 8px;
-      color: #fff4df;
-      font-size: 1.08rem;
+      letter-spacing: -0.02em;
+    }
+
+    .contact-copy p {
+      font-size: 0.92rem;
+      color: var(--apple-sub);
+      line-height: 1.6;
+      margin: 0;
     }
 
     .contact-links {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 14px;
+      margin-top: 16px;
     }
 
+    /* ─── Footer ─────────────────────────────────────────────────── */
+    footer {
+      background: var(--apple-light);
+      border-top: 1px solid var(--apple-border);
+      padding: 28px 0;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--apple-sub);
+    }
+
+    footer .wrap {
+      width: min(var(--apple-max), 94vw);
+      margin: 0 auto;
+    }
+
+    /* ─── Responsive ─────────────────────────────────────────────── */
     @media (max-width: 900px) {
       .artist-hero,
       .contact-card {
@@ -231,33 +557,34 @@
       .works-grid {
         grid-template-columns: 1fr;
       }
-
       .section-head {
         align-items: flex-start;
         flex-direction: column;
       }
-    }
-    .h21-keynote-thmb {
-      width: var(--hero-image-width);
-      height: auto;
-      aspect-ratio: 1280 / 720;
-      object-fit: contain;
+      .apple-header-inner { padding: 12px 0; }
+      nav.section-nav a { padding: 10px 10px !important; font-size: 0.73rem !important; }
+      .top-right { width: 100%; justify-content: space-between; }
+      .weather-panel { width: 100%; }
+      .page-content { padding: 40px 0 60px; }
     }
   </style>
   <script src="assets/js/brand-neon.js" defer></script>
 </head>
 <body>
-  <main class="wrap">
-    <div class="top">
+
+  <!-- ─── Sticky Header ─────────────────────────────────────────── -->
+  <header class="apple-header">
+    <div class="apple-header-inner">
       <a class="home-link" href="index.html" aria-label="Back to Programs">
         <div class="site-brand">
-          <img src="assets/images/Doobob-Games-LogoHomePage.png" alt="DOOBOB logo" width="400" height="400" />
+          <img src="assets/images/Doobob-Games-LogoHomePage.png" alt="DOOBOB logo" width="36" height="36" />
           <div>
             <h1 data-neon>DOOBOB</h1>
             <p>Visual Effect | Game | Commercial | Tech Art</p>
           </div>
         </div>
       </a>
+
       <div class="top-right">
         <div class="lang" aria-label="Language switch">
           <a href="program-foundation.html" class="active">EN</a>
@@ -275,92 +602,118 @@
       </div>
     </div>
 
-    <section class="hero">
-      <div class="artist-hero">
-        <div class="artist-copy">
-          <p class="eyebrow">Artist Profile</p>
-          <h1>Choi Gil Nam</h1>
-          <p class="meta">Visual Artist | Installation | Mixed Media</p>
-          <p class="lead">Built with the editorial rhythm of the reference site, this page introduces Choi Gil Nam through a direct profile block, a selected-works view, and a compact contact area. The links and featured projects are placeholders for now, as requested.</p>
-          <div class="jump-links" aria-label="Artist sections">
-            <a href="#selected-works">Selected Works</a>
-            <a href="#exhibitions">Exhibitions</a>
-            <a href="#contact">Contact</a>
-          </div>
-
-          <div class="feature-grid" id="exhibitions">
-            <article class="feature-card">
-              <h2>Current Exhibition</h2>
-              <p>Signals in Quiet Space, Seoul, 2026. A room-scale installation built around layered projections, painted surfaces, and ambient sound.</p>
-            </article>
-            <article class="feature-card">
-              <h2>Practice</h2>
-              <p>Choi Gil Nam works across painting, moving image, and sculptural composition, balancing calm spatial composition with sharper graphic contrast.</p>
-            </article>
-          </div>
-        </div>
-
-        <aside class="hero-portrait" aria-label="Featured portrait">
-          <img src="assets/images/mypicture_2026_v02.jpg" alt="Portrait of Choi Gil Nam" width="1280" height="1600" loading="lazy" />
-          <p class="portrait-caption">Studio portrait and lead image. Temporary visual connection using an available local asset.</p>
-        </aside>
+    <!-- Section nav inside header -->
+    <nav class="section-nav" aria-label="Artist sections">
+      <div class="section-nav-inner">
+        <a href="#overview">Profile</a>
+        <a href="#exhibitions">Exhibitions</a>
+        <a href="#selected-works">Works</a>
+        <a href="#contact">Contact</a>
+        <a href="https://doobob.net">Program Hub</a>
       </div>
+    </nav>
+  </header>
 
-      <div class="section-block" id="selected-works">
-        <div class="section-head">
-          <div>
-            <h2 class="section-title">Selected Works</h2>
-            <p>Four placeholder projects are arranged in a clean gallery grid to echo the reference site's portfolio structure while staying consistent with this project's existing style system.</p>
-          </div>
-          <a class="button-link" href="https://example.com/choi-gil-nam-archive">View Archive</a>
+  <!-- ─── Page Content ──────────────────────────────────────────── -->
+  <div class="page-content">
+
+    <!-- Artist Hero -->
+    <div class="artist-hero" id="overview">
+      <div class="artist-copy">
+        <p class="eyebrow">Artist Profile</p>
+        <h1>Choi Gil Nam</h1>
+        <p class="meta">Visual Artist | Installation | Mixed Media</p>
+        <p class="lead">Built with the editorial rhythm of the reference site, this page introduces Choi Gil Nam through a direct profile block, a selected-works view, and a compact contact area. The links and featured projects are placeholders for now, as requested.</p>
+
+        <div class="jump-links" aria-label="Artist sections">
+          <a href="#selected-works">Selected Works</a>
+          <a href="#exhibitions">Exhibitions</a>
+          <a href="#contact">Contact</a>
         </div>
 
-        <div class="works-grid">
-          <article class="work-card">
-            <img src="assets/images/portfolio_image.jpg" alt="Archive Memory No. 1" width="512" height="512" loading="lazy" />
-            <div class="work-copy">
-              <h3>Archive Memory No. 1</h3>
-              <p>Layered portrait studies with warm highlights, scanned paper fragments, and handwritten field notes.</p>
-            </div>
+        <div class="feature-grid" id="exhibitions">
+          <article class="feature-card">
+            <h2>Current Exhibition</h2>
+            <p>Signals in Quiet Space, Seoul, 2026. A room-scale installation built around layered projections, painted surfaces, and ambient sound.</p>
           </article>
-          <article class="work-card">
-            <img src="assets/images/subpage_wall_1.jpg" alt="Window Studies" width="1920" height="1080" loading="lazy" />
-            <div class="work-copy">
-              <h3>Window Studies</h3>
-              <p>A restrained installation concept built from repeated frames, translucent panels, and directional light.</p>
-            </div>
-          </article>
-          <article class="work-card">
-            <img src="assets/images/subpage_wall_3.jpg" alt="Afterimage Field" width="1920" height="1080" loading="lazy" />
-            <div class="work-copy">
-              <h3>Afterimage Field</h3>
-              <p>Projected textures and painted surfaces combined to create slow shifts in depth and perception.</p>
-            </div>
-          </article>
-          <article class="work-card">
-            <img src="assets/images/subpage_wall_5.jpg" alt="Stillness for Four Walls" width="1920" height="1080" loading="lazy" />
-            <div class="work-copy">
-              <h3>Stillness for Four Walls</h3>
-              <p>A gallery-room proposal using suspended forms, warm indirect lighting, and softly reflective materials.</p>
-            </div>
+          <article class="feature-card">
+            <h2>Practice</h2>
+            <p>Choi Gil Nam works across painting, moving image, and sculptural composition, balancing calm spatial composition with sharper graphic contrast.</p>
           </article>
         </div>
       </div>
 
-      <section class="contact-card" id="contact">
-        <div class="contact-copy">
-          <h2>Contact & Studio Notes</h2>
-          <p>For commissions, exhibitions, or collaborations, the links below are temporary stand-ins until final destinations are provided.</p>
-          <div class="contact-links">
-            <a class="button-link" href="mailto:choigilnam@example.com">Email Studio</a>
-            <a class="button-link" href="https://example.com/choi-gil-nam-press">Press Kit</a>
-            <a class="button-link" href="https://example.com/choi-gil-nam-instagram">Instagram</a>
-          </div>
+      <aside class="hero-portrait" aria-label="Featured portrait">
+        <img src="assets/images/mypicture_2026_v02.jpg" alt="Portrait of Choi Gil Nam" width="1280" height="1600" loading="lazy" />
+        <p class="portrait-caption">Studio portrait and lead image. Temporary visual connection using an available local asset.</p>
+      </aside>
+    </div>
+
+    <!-- Selected Works -->
+    <div class="section-block" id="selected-works">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Selected Works</h2>
+          <p>Four placeholder projects are arranged in a clean gallery grid to echo the reference site's portfolio structure while staying consistent with this project's existing style system.</p>
         </div>
-        <a class="button-link" href="https://example.com/choi-gil-nam-cv">Download CV</a>
-      </section>
+        <a class="button-link" href="https://example.com/choi-gil-nam-archive">View Archive</a>
+      </div>
+
+      <div class="works-grid">
+        <article class="work-card">
+          <img src="assets/images/portfolio_image.jpg" alt="Archive Memory No. 1" width="512" height="512" loading="lazy" />
+          <div class="work-copy">
+            <h3>Archive Memory No. 1</h3>
+            <p>Layered portrait studies with warm highlights, scanned paper fragments, and handwritten field notes.</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <img src="assets/images/subpage_wall_1.jpg" alt="Window Studies" width="1920" height="1080" loading="lazy" />
+          <div class="work-copy">
+            <h3>Window Studies</h3>
+            <p>A restrained installation concept built from repeated frames, translucent panels, and directional light.</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <img src="assets/images/subpage_wall_3.jpg" alt="Afterimage Field" width="1920" height="1080" loading="lazy" />
+          <div class="work-copy">
+            <h3>Afterimage Field</h3>
+            <p>Projected textures and painted surfaces combined to create slow shifts in depth and perception.</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <img src="assets/images/subpage_wall_5.jpg" alt="Stillness for Four Walls" width="1920" height="1080" loading="lazy" />
+          <div class="work-copy">
+            <h3>Stillness for Four Walls</h3>
+            <p>A gallery-room proposal using suspended forms, warm indirect lighting, and softly reflective materials.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <section class="contact-card" id="contact">
+      <div class="contact-copy">
+        <h2>Contact &amp; Studio Notes</h2>
+        <p>For commissions, exhibitions, or collaborations, the links below are temporary stand-ins until final destinations are provided.</p>
+        <div class="contact-links">
+          <a class="button-link" href="mailto:choigilnam@example.com">Email Studio</a>
+          <a class="button-link" href="https://example.com/choi-gil-nam-press">Press Kit</a>
+          <a class="button-link" href="https://example.com/choi-gil-nam-instagram">Instagram</a>
+        </div>
+      </div>
+      <a class="button-link" href="https://example.com/choi-gil-nam-cv">Download CV</a>
     </section>
-  </main>
+
+  </div><!-- /.page-content -->
+
+  <footer>
+    <div class="wrap">
+      Artist | Choi Gil Nam | DOOBOB
+    </div>
+  </footer>
+
+  <!-- Weather FX overlay (invisible on white bg but kept for JS compatibility) -->
   <div class="weather-fx" id="weather-fx" aria-hidden="true"></div>
   <script src="assets/js/city-weather-wallpaper.js" defer></script>
 </body>

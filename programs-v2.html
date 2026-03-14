@@ -3,212 +3,336 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DOOBOB Programs V2</title>
-  <meta name="description" content="DOOBOB new program gateway with four dedicated program pages." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+  <title>DOOBOB Programs</title>
+  <meta name="description" content="DOOBOB program gateway with four dedicated program pages." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #2f2438;
-      --panel: #eee5d9;
-      --ink: #2a2431;
-      --line: #d9cbb8;
-      --accent: #d9734e;
+      --apple-white:   #ffffff;
+      --apple-light:   #f5f5f7;
+      --apple-text:    #1d1d1f;
+      --apple-sub:     #6e6e73;
+      --apple-blue:    #0071e3;
+      --apple-blue-hv: #0077ed;
+      --apple-border:  #d2d2d7;
+      --apple-radius:  18px;
+      --apple-font:    -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, "Space Grotesk", sans-serif;
+      --apple-max:     1200px;
     }
 
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
+      font-family: var(--apple-font);
+      color: var(--apple-text);
+      background: var(--apple-white);
       margin: 0;
       min-height: 100vh;
-      font-family: "Google Sans", "Google Sans Text", "Product Sans", sans-serif;
-      background: #33444f;
-      color: #efeaf2;
-      padding: 28px;
     }
 
-    .wrap {
-      width: min(1280px, 100%);
+    /* ─── Header ─────────────────────────────────────────────── */
+    .apple-header {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--apple-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .apple-header-inner {
+      width: min(var(--apple-max), 94vw);
       margin: 0 auto;
-    }
-
-    .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
-      margin-bottom: 24px;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      flex-wrap: wrap;
     }
 
-    .brand > div {
+    /* ─── Brand ──────────────────────────────────────────────── */
+    .home-link {
+      text-decoration: none;
+      color: inherit;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .site-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .site-brand img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      border-radius: 8px;
+      mix-blend-mode: normal;
+    }
+
+    .site-brand > div {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
-      height: 54px;
-      gap: 0;
+      gap: 1px;
     }
 
-    .brand img {
-      width: 54px;
-      height: 54px;
-      object-fit: contain;
-      border-radius: 10px;
-      mix-blend-mode: screen;
-      opacity: 0.96;
-    }
-
-    .brand h1 {
-      margin: 0;
-      font-size: clamp(1.7rem, 3.2vw, 2.3rem);
-      font-weight: 600;
-      line-height: 1;
-      letter-spacing: 0.02em;
-    }
-
-    .subtitle {
+    .site-brand h1 {
       margin: 0;
       font-size: 1rem;
-      line-height: 1.05;
-      color: #e6ddeb;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--apple-text);
+      font-family: var(--apple-font);
+      text-shadow: none !important;
+    }
+
+    .site-brand p {
+      margin: 0;
+      font-size: 0.62rem;
+      color: var(--apple-sub);
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── Main / Hero ────────────────────────────────────────── */
+    .page-hero {
+      text-align: center;
+      padding: 72px 0 56px;
+      background: var(--apple-white);
+    }
+
+    .page-hero-inner {
+      width: min(var(--apple-max), 94vw);
+      margin: 0 auto;
+    }
+
+    .hero-kicker {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--apple-blue);
+      margin-bottom: 16px;
+    }
+
+    .page-hero h2 {
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.06;
+      color: var(--apple-text);
+      margin: 0 0 16px;
+    }
+
+    .page-hero p {
+      font-size: 1.05rem;
+      color: var(--apple-sub);
+      line-height: 1.65;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ─── Program Grid ───────────────────────────────────────── */
+    .programs-section {
+      background: var(--apple-light);
+      padding: 56px 0 80px;
+    }
+
+    .programs-inner {
+      width: min(var(--apple-max), 94vw);
+      margin: 0 auto;
     }
 
     .program-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 24px;
+      gap: 20px;
     }
 
     .program-card {
       display: block;
       text-decoration: none;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      outline: 3px solid rgba(255, 255, 255, 0.34);
-      outline-offset: -3px;
-      border-radius: 20px;
-      padding: 24px;
-      color: var(--ink);
-      text-align: center;
-      box-shadow: 0 14px 30px rgba(12, 10, 16, 0.25);
-      transition: transform 280ms ease, box-shadow 280ms ease, border-color 220ms ease;
+      background: var(--apple-white);
+      border: 1px solid var(--apple-border);
+      border-radius: var(--apple-radius);
+      padding: 0;
+      color: var(--apple-text);
+      overflow: hidden;
+      transition: box-shadow 200ms ease, transform 200ms ease;
+      cursor: pointer;
     }
 
     .program-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 22px 44px rgba(12, 10, 16, 0.36);
-      border-color: #b9977e;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.10);
+      transform: translateY(-4px);
     }
 
-    .icon {
-      width: 48px;
-      height: 48px;
-      margin: 0 auto 14px;
-      display: block;
+    .program-thumb-wrap {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: var(--apple-light);
     }
 
     .program-thumb {
       width: 100%;
-      height: 150px;
+      height: 100%;
       object-fit: cover;
-      border-radius: 12px;
-      border: 1px solid rgba(42, 36, 49, 0.15);
-      margin: 0 0 14px;
       display: block;
+      transition: transform 300ms ease;
+    }
+
+    .program-card:hover .program-thumb {
+      transform: scale(1.04);
+    }
+
+    .program-card-body {
+      padding: 20px 20px 24px;
     }
 
     .program-card h2 {
-      margin: 0;
-      font-size: clamp(1.15rem, 1.45vw, 1.45rem);
-      line-height: 1.3;
-      font-weight: 600;
-      min-height: 3.9em;
-      text-wrap: balance;
+      margin: 0 0 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.35;
+      color: var(--apple-text);
     }
 
     .program-card p {
-      margin: 14px 0 18px;
-      font-size: 0.98rem;
-      line-height: 1.55;
-      color: #4f4458;
+      margin: 0 0 18px;
+      font-size: 0.86rem;
+      line-height: 1.6;
+      color: var(--apple-sub);
     }
 
     .learn-more {
-      color: #31243a;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      border-bottom: 2px solid transparent;
-      padding-bottom: 3px;
+      display: inline-block;
+      background: var(--apple-blue);
+      color: #fff;
+      text-decoration: none;
+      padding: 9px 22px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      transition: background 160ms ease;
     }
 
-    .program-card:hover .learn-more {
-      border-bottom-color: var(--accent);
-    }
+    .learn-more:hover { background: var(--apple-blue-hv); }
 
+    /* ─── Footer ─────────────────────────────────────────────── */
     .site-footer {
-      margin-top: 22px;
+      background: var(--apple-light);
+      border-top: 1px solid var(--apple-border);
+      padding: 28px 0;
       text-align: center;
-      color: #e3d7ea;
-      font-size: 0.92rem;
+      font-size: 0.78rem;
+      color: var(--apple-sub);
     }
 
-    @media (max-width: 1280px) {
+    /* ─── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 1100px) {
       .program-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
-    @media (max-width: 760px) {
+    @media (max-width: 600px) {
       .program-grid { grid-template-columns: 1fr; }
-      .program-card h2 { min-height: 0; }
+      .page-hero { padding: 52px 0 40px; }
     }
   </style>
 </head>
 <body>
-  <main class="wrap" aria-label="Program list">
-    <header class="brand">
-      <img src="assets/images/Doobob-Games-LogoHomePage.png" alt="DOOBOB logo" width="400" height="400" />
-      <div>
-        <h1>DOOBOB Programs V2</h1>
-        <p class="subtitle">New Link Hub • Separate Program Pages</p>
+
+  <!-- ─── Header ───────────────────────────────────────────────── -->
+  <header class="apple-header">
+    <div class="apple-header-inner">
+      <a class="home-link" href="index.html" aria-label="DOOBOB Home">
+        <div class="site-brand">
+          <img src="assets/images/Doobob-Games-LogoHomePage.png" alt="DOOBOB logo" width="36" height="36" />
+          <div>
+            <h1>DOOBOB</h1>
+            <p>Visual Effect | Game | Commercial | Tech Art</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <!-- ─── Hero ─────────────────────────────────────────────────── -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <span class="hero-kicker">Program Hub</span>
+      <h2>DOOBOB Programs</h2>
+      <p>New link hub — separate dedicated program pages for each course.</p>
+    </div>
+  </div>
+
+  <!-- ─── Program Grid ──────────────────────────────────────────── -->
+  <section class="programs-section" aria-label="Program list">
+    <div class="programs-inner">
+      <div class="program-grid">
+
+        <a class="program-card" href="program-foundation.html" aria-label="Houdini Foundation, 6 weeks">
+          <div class="program-thumb-wrap">
+            <img class="program-thumb" src="assets/images/title.webp" alt="Houdini foundation visual preview" width="1792" height="1024" loading="lazy" />
+          </div>
+          <div class="program-card-body">
+            <h2>Houdini Foundation (6 weeks)</h2>
+            <p>Start with core Houdini concepts and practical node workflow fundamentals.</p>
+            <span class="learn-more">Open Page</span>
+          </div>
+        </a>
+
+        <a class="program-card" href="program-master-film-game.html" aria-label="Houdini Master Program - Film and Game, 16 weeks">
+          <div class="program-thumb-wrap">
+            <img class="program-thumb" src="assets/images/HoudiniVFXGameThumnail.jpg" alt="Houdini master film and game visual preview" width="600" height="600" loading="lazy" />
+          </div>
+          <div class="program-card-body">
+            <h2>Houdini Master Program – Film &amp; Game (16 weeks)</h2>
+            <p>Advanced production training for cinematic FX and game-ready procedural workflows.</p>
+            <span class="learn-more">Open Page</span>
+          </div>
+        </a>
+
+        <a class="program-card" href="program-procedural-generation.html" aria-label="Procedural Generation Program, 12 weeks">
+          <div class="program-thumb-wrap">
+            <img class="program-thumb" src="assets/images/procedural_generation_banner.svg" alt="Procedural generation visual preview" width="1200" height="630" loading="lazy" />
+          </div>
+          <div class="program-card-body">
+            <h2>Procedural Generation Program (12 weeks)</h2>
+            <p>Build scalable systems for procedural assets, environments, and reusable content tools.</p>
+            <span class="learn-more">Open Page</span>
+          </div>
+        </a>
+
+        <a class="program-card" href="program-portfolio.html" aria-label="Portfolio Program">
+          <div class="program-thumb-wrap">
+            <img class="program-thumb" src="assets/images/twiterBanner.png" alt="Portfolio program visual preview" width="1500" height="500" loading="lazy" />
+          </div>
+          <div class="program-card-body">
+            <h2>Portfolio Program</h2>
+            <p>Finalize a studio-ready portfolio with mentor feedback and polished breakdowns.</p>
+            <span class="learn-more">Open Page</span>
+          </div>
+        </a>
+
       </div>
-    </header>
+    </div>
+  </section>
 
-    <section class="program-grid">
-      <a class="program-card" href="program-foundation.html" aria-label="Houdini Foundation, 6 weeks">
-        <img class="icon" width="48" height="48" src="assets/icons/academic-cap.svg" alt="" aria-hidden="true" />
-        <img class="program-thumb" src="assets/images/title.webp" alt="Houdini foundation visual preview" width="1792" height="1024" loading="lazy" />
-        <h2>Houdini Foundation (6 weeks)</h2>
-        <p>Start with core Houdini concepts and practical node workflow fundamentals.</p>
-        <span class="learn-more">OPEN PAGE</span>
-      </a>
+  <footer class="site-footer">
+    © 2026 DOOBOB. All rights reserved.
+  </footer>
 
-      <a class="program-card" href="program-master-film-game.html" aria-label="Houdini Master Program - Film and Game, 16 weeks">
-        <img class="icon" width="48" height="48" src="assets/icons/sparkles.svg" alt="" aria-hidden="true" />
-        <img class="program-thumb" src="assets/images/HoudiniVFXGameThumnail.jpg" alt="Houdini master film and game visual preview" width="600" height="600" loading="lazy" />
-        <h2>Houdini Master Program - Film &amp; Game (16 weeks)</h2>
-        <p>Advanced production training for cinematic FX and game-ready procedural workflows.</p>
-        <span class="learn-more">OPEN PAGE</span>
-      </a>
-
-      <a class="program-card" href="program-procedural-generation.html" aria-label="Procedural Generation Program, 12 weeks">
-        <img class="icon" width="48" height="48" src="assets/icons/cube.svg" alt="" aria-hidden="true" />
-        <img class="program-thumb" src="assets/images/procedural_generation_banner.svg" alt="Procedural generation visual preview" width="1200" height="630" loading="lazy" />
-        <h2>Procedural Generation Program (12 weeks)</h2>
-        <p>Build scalable systems for procedural assets, environments, and reusable content tools.</p>
-        <span class="learn-more">OPEN PAGE</span>
-      </a>
-
-      <a class="program-card" href="program-portfolio.html" aria-label="Portfolio Program">
-        <img class="icon" width="48" height="48" src="assets/icons/briefcase.svg" alt="" aria-hidden="true" />
-        <img class="program-thumb" src="assets/images/twiterBanner.png" alt="Portfolio program visual preview" width="1500" height="500" loading="lazy" />
-        <h2>Portfolio Program</h2>
-        <p>Finalize a studio-ready portfolio with mentor feedback and polished breakdowns.</p>
-        <span class="learn-more">OPEN PAGE</span>
-      </a>
-    </section>
-
-    <footer class="site-footer">
-      © 2026 DOOBOB. All rights reserved.
-    </footer>
-  </main>
 </body>
 </html>

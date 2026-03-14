@@ -7,15 +7,398 @@
   <meta name="description" content="Artist gallery for Choi Gil Nam." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans+KR:wght@400;500;700&family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/artist-gallery.css">
   <style>
-    body { font-family: "Manrope", "IBM Plex Sans KR", sans-serif; }
+    /* ─── Apple-style Design System ─────────────────────────────── */
+    :root {
+      --apple-white:   #ffffff;
+      --apple-light:   #f5f5f7;
+      --apple-text:    #1d1d1f;
+      --apple-sub:     #6e6e73;
+      --apple-blue:    #0071e3;
+      --apple-blue-hv: #0077ed;
+      --apple-border:  #d2d2d7;
+      --apple-radius:  18px;
+      --apple-font:    -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, "Space Grotesk", "IBM Plex Sans KR", sans-serif;
+      --apple-max:     1500px;
+    }
+
+    /* ─── Global overrides ───────────────────────────────────────── */
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Manrope", "IBM Plex Sans KR", var(--apple-font), sans-serif;
+      color: var(--apple-text);
+      background: var(--apple-white) !important;
+      background-image: none !important;
+      margin: 0;
+    }
+
     h1, h2 { font-family: "Cormorant Garamond", "IBM Plex Sans KR", serif; }
+
+    /* ─── Apple Sticky Header ────────────────────────────────────── */
+    .apple-header {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--apple-border);
+      position: sticky;
+      top: 0;
+      z-index: 90;
+    }
+
+    .apple-header-inner {
+      width: min(var(--apple-max), 94vw);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      flex-wrap: wrap;
+    }
+
+    /* ─── Brand / Logo ───────────────────────────────────────────── */
+    .home-link {
+      text-decoration: none;
+      color: inherit;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .site-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .site-brand img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      border-radius: 8px;
+      mix-blend-mode: normal;
+      opacity: 1;
+    }
+
+    .site-brand > div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 1px;
+    }
+
+    .site-brand h1 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--apple-text);
+      font-family: var(--apple-font);
+      text-shadow: none !important;
+    }
+
+    .site-brand p {
+      margin: 0;
+      font-size: 0.62rem;
+      color: var(--apple-sub);
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── Top-right: lang toggle ─────────────────────────────────── */
+    .top-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      margin-left: auto;
+    }
+
+    .lang {
+      display: inline-flex;
+      gap: 4px;
+      font-size: 0.82rem;
+    }
+
+    .lang a {
+      color: var(--apple-sub);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: all 160ms ease;
+    }
+
+    .lang a.active {
+      background: var(--apple-text);
+      color: #fff;
+      border-color: var(--apple-text);
+    }
+
+    .lang a:not(.active):hover {
+      border-color: var(--apple-border);
+    }
+
+    /* ─── Section Nav ────────────────────────────────────────────── */
+    .section-nav {
+      margin-top: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      align-items: center;
+      padding: 0;
+      border-bottom: 1px solid var(--apple-border);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+    }
+
+    .section-nav-inner {
+      width: min(var(--apple-max), 94vw);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      align-items: center;
+    }
+
+    .section-nav a {
+      text-decoration: none;
+      color: var(--apple-sub);
+      padding: 12px 14px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      text-transform: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 160ms ease, border-color 160ms ease;
+      white-space: nowrap;
+    }
+
+    .section-nav a:hover {
+      color: var(--apple-text);
+      border-color: var(--apple-text);
+    }
+
+    /* ─── Page wrapper override ──────────────────────────────────── */
+    .page {
+      width: min(1500px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+      background: transparent;
+    }
+
+    /* ─── Topbar: hide old topbar (replaced by apple-header) ───── */
+    .topbar {
+      display: none !important;
+    }
+
+    /* ─── Hero section — original layout restored ────────────────── */
+    .hero {
+      background: var(--apple-white);
+      border-bottom: 1px solid var(--apple-border);
+      padding: 34px 0 30px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(250px, 0.85fr);
+      gap: 28px;
+    }
+
+    .eyebrow {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--apple-sub);
+      margin-bottom: 10px;
+      font-family: var(--apple-font);
+    }
+
+    h1 {
+      font-family: "Cormorant Garamond", "IBM Plex Sans KR", serif;
+      font-size: clamp(3rem, 8vw, 6.3rem);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      line-height: 0.62;
+      color: var(--apple-text);
+      margin: 0;
+      max-width: 6ch;
+    }
+
+    .hero-title-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 26px;
+    }
+
+    .hero-copy p {
+      color: #332d25;
+      font-size: 0.98rem;
+      line-height: 1.8;
+      margin: 18px 0 0;
+      max-width: 72ch;
+    }
+
+    /* ─── Category nav (hero) ────────────────────────────────────── */
+    .category-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 20px 0 0;
+    }
+
+    .category-nav a {
+      display: inline-block;
+      text-decoration: none;
+      color: var(--apple-blue);
+      background: rgba(0, 113, 227, 0.08);
+      border: 1px solid rgba(0, 113, 227, 0.25);
+      border-radius: 999px;
+      padding: 7px 18px;
+      font-size: 0.84rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      text-transform: none;
+      transition: background 160ms ease, border-color 160ms ease;
+    }
+
+    .category-nav a + a::before {
+      display: none;
+    }
+
+    .category-nav a:hover {
+      background: rgba(0, 113, 227, 0.14);
+      border-color: rgba(0, 113, 227, 0.5);
+      color: var(--apple-blue);
+    }
+
+    /* ─── Gallery sections ───────────────────────────────────────── */
+    .gallery-section {
+      padding-top: 36px;
+      scroll-margin-top: 80px;
+    }
+
+    .gallery-section + .gallery-section {
+      margin-top: 24px;
+    }
+
+    .section-head {
+      padding: 0 0 16px;
+      border-bottom: 1px solid var(--apple-border);
+      margin-bottom: 16px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-family: "Cormorant Garamond", "IBM Plex Sans KR", serif;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 600;
+      color: var(--apple-text);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    /* ─── Footer note ────────────────────────────────────────────── */
+    .footer-note {
+      padding-top: 32px;
+      color: var(--apple-sub);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-top: 1px solid var(--apple-border);
+      margin-top: 16px;
+    }
+
+    /* ─── LinkedIn link ──────────────────────────────────────────── */
+    .linkedin-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      flex: 0 0 auto;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .linkedin-link img {
+      width: 28px;
+      height: 28px;
+      display: block;
+      object-fit: contain;
+    }
+
+    .linkedin-link:hover,
+    .linkedin-link:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(10, 102, 194, 0.28);
+      outline: none;
+    }
+
+    /* hero-thumb on Apple white bg */
+    .hero-thumb {
+      width: clamp(72px, 7vw, 100px);
+      height: clamp(72px, 7vw, 100px);
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      border: 2px solid var(--apple-border);
+    }
+
+    /* ─── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 760px) {
+      .apple-header-inner { padding: 12px 0; }
+      .section-nav a { padding: 10px 10px; font-size: 0.73rem; }
+      .top-right { width: 100%; justify-content: flex-end; }
+      .hero-title-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+      h1 { font-size: 2.4rem; }
+    }
   </style>
 </head>
 <body>
+
+  <!-- ─── Apple Sticky Header ───────────────────────────────────── -->
+  <header class="apple-header">
+    <div class="apple-header-inner">
+      <a class="home-link" href="index.html" aria-label="Back to Home">
+        <div class="site-brand">
+          <img src="assets/images/Doobob-Games-LogoHomePage.png" alt="DOOBOB logo" width="36" height="36" />
+          <div>
+            <h1 style="font-family: var(--apple-font); font-size: 1rem; font-weight: 700; margin: 0; color: var(--apple-text);">DOOBOB</h1>
+            <p>Visual Effect | Game | Commercial | Tech Art</p>
+          </div>
+        </div>
+      </a>
+
+      <div class="top-right">
+        <div class="lang" aria-label="Language switch">
+          <a href="artist-gallery.html">EN</a>
+          <a href="artist-gallery-ko.html" class="active">KO</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section nav -->
+    <nav class="section-nav" aria-label="갤러리 카테고리">
+      <div class="section-nav-inner">
+        <a href="#media-art">Media Art</a>
+        <a href="#film-art">Film Art</a>
+        <a href="#game-art">Game Art</a>
+        <a href="#fine-art">Fine Art</a>
+        <a href="index.html">홈으로</a>
+      </div>
+    </nav>
+  </header>
+
   <main class="page">
+    <!-- Hide old topbar via CSS; keep for accessibility fallback -->
     <header class="topbar">
       <a class="back-link" href="index.html">Back to Home</a>
       <div class="top-actions">
@@ -39,12 +422,6 @@
         </div>
         <p>Visual College of Art and Design의 Head of Media로, Creative Director, Supervisor, Digital Artist로서 헐리우드의 수많은 영화에 참여하였습니다. SideFX, Gnomon, Unreal Fest에서 스피커로도 활발히 활동하고 있습니다.</p>
         <p>예술과 기술이 만나는 지점을 탐구합니다 — 새로운 디지털 프로세스를 통해 형태, 움직임, 시각적 표현을 만들어갑니다.</p>
-        <nav class="category-nav" aria-label="작품 카테고리">
-          <a href="#media-art">Media Art</a>
-          <a href="#film-art">Film Art</a>
-          <a href="#game-art">Game Art</a>
-          <a href="#fine-art">Fine Art</a>
-        </nav>
       </div>
     </section>
 
@@ -173,9 +550,9 @@
   </main>
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" type="button" aria-label="이전 이미지">‹</button>
-    <button class="lightbox-nav lightbox-next" id="lightbox-next" type="button" aria-label="다음 이미지">›</button>
-    <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close image">×</button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" type="button" aria-label="이전 이미지">&#8249;</button>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next" type="button" aria-label="다음 이미지">&#8250;</button>
+    <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close image">&times;</button>
     <figure class="lightbox-inner">
       <div class="lightbox-media-column">
         <div class="lightbox-media" id="lightbox-image-wrap">
