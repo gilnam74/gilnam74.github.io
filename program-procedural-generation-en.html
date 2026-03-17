@@ -846,6 +846,14 @@
     }
   </style>
   <script src="assets/js/brand-neon.js" defer></script>
+  <script>
+    function openWhopEnroll(e) {
+      if (e) e.preventDefault();
+      var returnUrl = encodeURIComponent(window.location.href);
+      var checkoutUrl = 'https://whop.com/doobob/procedural-generation-houdini-unreal/?redirect_url=' + returnUrl;
+      window.open(checkoutUrl, '_blank', 'noopener,noreferrer');
+    }
+  </script>
 </head>
 <body>
 
@@ -888,6 +896,7 @@
         <a href="#studio">Studio Model</a>
         <a href="#instructor">Instructor</a>
         <a href="#career">Career</a>
+        <a href="#enroll">Enroll</a>
         <a href="https://doobob.net">Program Hub</a>
       </div>
     </nav>
@@ -919,7 +928,7 @@
           <div class="stat"><strong>Outcome</strong>Procedural Toolset + Portfolio</div>
         </div>
 
-        <a class="signup-btn-top" href="https://discord.gg/xeTbN243" target="_blank" rel="noopener noreferrer">1:1 Consultation →</a>
+        <a class="signup-btn-top" href="https://whop.com/doobob/procedural-generation-houdini-unreal/" onclick="openWhopEnroll(event)">Enroll Now →</a>
 
       </div>
     </section>
@@ -1164,6 +1173,19 @@
           <a href="https://vimeo.com/326981893" target="_blank" rel="noopener noreferrer">Film Showreel</a>
           <a href="https://vimeo.com/784287548" target="_blank" rel="noopener noreferrer">Game Reel</a>
           <a href="https://www.youtube.com/@doobobvfx" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enroll -->
+    <section id="enroll" style="background:var(--apple-light);padding:80px 0;text-align:center;">
+      <div class="section-inner" style="display:flex;flex-direction:column;align-items:center;">
+        <span class="kicker">Enroll Now</span>
+        <h2>Enroll</h2>
+        <p class="section-intro" style="text-align:center;margin-left:auto;margin-right:auto;">Join the 12-week intensive live mentoring program.<br>Pricing and checkout are handled securely on Whop.</p>
+        <div class="signup-cta-wrap">
+          <a class="signup-btn" href="https://whop.com/doobob/procedural-generation-houdini-unreal/" onclick="openWhopEnroll(event)">Enroll Now →</a>
+          <span class="signup-note">Payment is processed securely through the Whop platform</span>
         </div>
       </div>
     </section>
