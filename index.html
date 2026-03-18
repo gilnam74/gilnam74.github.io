@@ -241,7 +241,7 @@
 
     .program-thumb-wrap {
       width: 100%;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 4 / 3;
       overflow: hidden;
       background: var(--apple-light);
     }
@@ -259,25 +259,25 @@
     }
 
     .program-card-body {
-      padding: 20px 20px 24px;
+      padding: 28px 28px 32px;
       display: flex;
       flex-direction: column;
       flex: 1;
     }
 
     .program-card h2 {
-      margin: 0 0 10px;
-      font-size: 1rem;
+      margin: 0 0 12px;
+      font-size: 1.3rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.35;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
       color: var(--apple-text);
     }
 
     .program-card p {
-      margin: 0 0 18px;
-      font-size: 0.86rem;
-      line-height: 1.6;
+      margin: 0 0 24px;
+      font-size: 0.95rem;
+      line-height: 1.65;
       color: var(--apple-sub);
     }
 
@@ -285,18 +285,22 @@
       display: inline-block;
       margin-top: auto;
       align-self: flex-start;
-      background: var(--apple-blue);
-      color: #fff;
+      background: transparent;
+      color: var(--apple-text);
       text-decoration: none;
-      padding: 9px 22px;
+      padding: 10px 24px;
       border-radius: 999px;
-      font-size: 0.84rem;
-      font-weight: 600;
+      border: 1.5px solid var(--apple-text);
+      font-size: 0.9rem;
+      font-weight: 500;
       letter-spacing: 0.01em;
-      transition: background 160ms ease;
+      transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
     }
 
-    .learn-more:hover { background: var(--apple-blue-hv); }
+    .learn-more:hover {
+      background: var(--apple-text);
+      color: #fff;
+    }
 
     .coming {
       display: inline-block;
