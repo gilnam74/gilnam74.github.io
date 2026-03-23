@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DOOBOB Programs</title>
-  <meta name="description" content="DOOBOB program gateway: Houdini Foundation, Houdini Master, Procedural Generation, and Portfolio Program." />
+  <title>DOOBOB</title>
+  <meta name="description" content="DOOBOB — Visual Effect | Game | Commercial | Tech Art | Media Art" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -35,10 +35,6 @@
       flex-direction: column;
     }
 
-    body > main, body > section {
-      flex: 1;
-    }
-
     /* ─── Header ─────────────────────────────────────────────── */
     .apple-header {
       background: rgba(255, 255, 255, 0.92);
@@ -51,14 +47,12 @@
     }
 
     .apple-header-inner {
-      width: min(var(--apple-max), 94vw);
-      margin: 0 auto;
+      width: 100%;
+      padding: 14px 32px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      padding: 14px 0;
-      flex-wrap: wrap;
     }
 
     /* ─── Brand ──────────────────────────────────────────────── */
@@ -76,103 +70,67 @@
     }
 
     .site-brand img {
-      width: 36px;
-      height: 36px;
+      width: 54px;
+      height: 54px;
       object-fit: contain;
-      border-radius: 8px;
-      mix-blend-mode: normal;
+      border-radius: 10px;
     }
 
     .site-brand > div {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
       gap: 1px;
     }
 
     .site-brand h1 {
       margin: 0;
-      font-size: 1rem;
+      font-size: 1.5rem;
       font-weight: 700;
       letter-spacing: 0.04em;
       color: var(--apple-text);
-      font-family: var(--apple-font);
-      text-shadow: none !important;
     }
 
     .site-brand p {
       margin: 0;
-      font-size: 0.62rem;
+      font-size: 0.93rem;
       color: var(--apple-sub);
       letter-spacing: 0.04em;
     }
 
-    /* ─── Top-right ──────────────────────────────────────────── */
-    .top-right {
+    /* ─── Nav in header ──────────────────────────────────────── */
+    .header-nav {
       display: flex;
       align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      margin-left: auto;
+      gap: 4px;
     }
 
-    .weather-panel {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--apple-light);
-      border: 1px solid var(--apple-border);
-      border-radius: 12px;
-      padding: 6px 10px;
-    }
-
-    .weather-city {
-      border: 1px solid var(--apple-border);
-      background: #fff;
-      color: var(--apple-text);
-      border-radius: 8px;
-      font: inherit;
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 5px 28px 5px 8px;
-      min-width: 120px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      background-image:
-        linear-gradient(45deg, transparent 50%, var(--apple-sub) 50%),
-        linear-gradient(135deg, var(--apple-sub) 50%, transparent 50%);
-      background-position:
-        calc(100% - 14px) calc(50% - 2px),
-        calc(100% - 8px)  calc(50% - 2px);
-      background-size: 5px 5px, 5px 5px;
-      background-repeat: no-repeat;
-      cursor: pointer;
-    }
-
-    .weather-city option { background: #fff; color: var(--apple-text); }
-
-    .weather-chip {
+    .header-nav a {
+      display: inline-block;
+      padding: 8px 16px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
       color: var(--apple-sub);
-      font-size: 0.74rem;
-      letter-spacing: 0.01em;
-      white-space: normal;
-      line-height: 1.3;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: color 160ms ease, background 160ms ease;
+      white-space: nowrap;
     }
 
-    .weather-chip strong { color: var(--apple-text); font-weight: 700; }
+    .header-nav a:hover {
+      color: var(--apple-text);
+      background: rgba(0, 0, 0, 0.05);
+    }
 
-    /* ─── Main / Hero ────────────────────────────────────────── */
-    .page-hero {
-      text-align: center;
-      padding: 72px 0 56px;
+    /* ─── Hero Video ─────────────────────────────────────────── */
+    .hero-video-section {
       background: var(--apple-white);
+      padding: 24px 0 0;
     }
 
-    .page-hero-inner {
-      width: min(var(--apple-max), 94vw);
+    .hero-video-inner {
+      width: min(1600px, 96vw);
       margin: 0 auto;
     }
 
@@ -183,24 +141,60 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--apple-blue);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
-    .page-hero h2 {
-      font-size: clamp(2rem, 4.5vw, 3rem);
+    .hero-text h2 {
+      font-size: clamp(1.6rem, 3.2vw, 2.6rem);
       font-weight: 700;
       letter-spacing: -0.04em;
-      line-height: 1.06;
+      line-height: 1.1;
       color: var(--apple-text);
       margin: 0 0 16px;
+      white-space: nowrap;
     }
 
-    .page-hero p {
+    .hero-text p {
       font-size: 1.05rem;
       color: var(--apple-sub);
       line-height: 1.65;
       max-width: 560px;
-      margin: 0 auto;
+      margin: 0 0 28px;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--apple-text);
+      color: #fff;
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 160ms ease;
+      margin-bottom: 40px;
+    }
+
+    .hero-cta:hover { background: var(--apple-blue); }
+
+    /* 16:9 video container with rounded corners */
+    .hero-video-player {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.14);
+    }
+
+    .hero-video-player iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     /* ─── Program Grid ───────────────────────────────────────── */
@@ -302,18 +296,6 @@
       color: #fff;
     }
 
-    .coming {
-      display: inline-block;
-      padding: 7px 16px;
-      border-radius: 999px;
-      background: var(--apple-light);
-      color: var(--apple-sub);
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      border: 1px solid var(--apple-border);
-    }
-
     /* ─── Footer ─────────────────────────────────────────────── */
     .site-footer {
       background: var(--apple-light);
@@ -324,25 +306,25 @@
       color: var(--apple-sub);
     }
 
-    /* hide weather-fx on white bg */
-    .weather-fx { opacity: 0 !important; pointer-events: none; }
-
     /* ─── Responsive ─────────────────────────────────────────── */
     @media (max-width: 1100px) {
       .program-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
+    @media (max-width: 680px) {
+      .header-nav a { padding: 7px 10px; font-size: 0.76rem; }
+    }
+
     @media (max-width: 600px) {
       .program-grid { grid-template-columns: 1fr; }
-      .page-hero { padding: 52px 0 40px; }
-      .top-right { width: 100%; justify-content: space-between; }
-      .weather-panel { width: 100%; }
+      .apple-header-inner { flex-wrap: wrap; padding: 10px 0; gap: 8px; }
+      .header-nav { width: 100%; justify-content: flex-end; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ─── Header ───────────────────────────────────────────────── -->
+  <!-- ─── Header (fixed, dark-glass over video) ─────────────── -->
   <header class="apple-header">
     <div class="apple-header-inner">
       <a class="home-link" href="index.html" aria-label="DOOBOB Home">
@@ -350,25 +332,38 @@
           <img src="assets/images/Doobob-Games-LogoHomePage.png" alt="DOOBOB logo" width="400" height="400" />
           <div>
             <h1>DOOBOB</h1>
-            <p>Visual Effect | Game | Commercial | Tech Art</p>
+            <p>Visual Effect | Game | Commercial | Tech Art | Media Art</p>
           </div>
         </div>
       </a>
-      <div class="top-right">
-        <div class="weather-panel">
-          <select id="city-select" class="weather-city" aria-label="Select city weather">
-            <option value="vancouver" selected>Vancouver</option>
-            <option value="seoul">Seoul</option>
-            <option value="los_angeles">Los Angeles</option>
-            <option value="london">London</option>
-          </select>
-          <div class="weather-chip" id="weather-chip"><strong>Vancouver</strong> Weather loading...</div>
-        </div>
-      </div>
+      <nav class="header-nav" aria-label="Main navigation">
+        <a href="about.html">About</a>
+        <a href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
+        <a href="careers.html">Careers</a>
+      </nav>
     </div>
   </header>
 
-  <!-- ─── Program Grid ──────────────────────────────────────────── -->
+  <!-- ─── Hero Video ────────────────────────────────────────── -->
+  <section class="hero-video-section" aria-label="Film Art Reel showcase">
+    <div class="hero-video-inner">
+      <div class="hero-text">
+        <h2>Where AI Meets Visual Storytelling</h2>
+        <a class="hero-cta" href="work.html">View Our Work</a>
+      </div>
+      <div class="hero-video-player">
+        <iframe
+          src="https://player.vimeo.com/video/326981893?autoplay=1&loop=1&muted=1&background=1"
+          allow="autoplay; fullscreen"
+          allowfullscreen
+          title="DOOBOB Film Art Reel">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Program Grid ──────────────────────────────────────── -->
   <section class="programs-section" aria-label="Program list">
     <div class="programs-inner">
       <div class="program-grid">
@@ -437,8 +432,6 @@
     © 2026 DOOBOB. All rights reserved.
   </footer>
 
-  <div class="weather-fx" id="weather-fx" aria-hidden="true"></div>
-
   <script>
     (function applyRegionalProgramLinks() {
       var cards = document.querySelectorAll(".program-card[data-href-en][data-href-ko]");
@@ -466,6 +459,5 @@
       });
     })();
   </script>
-  <script src="assets/js/city-weather-wallpaper.js" defer></script>
 </body>
 </html>

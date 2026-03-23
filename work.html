@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work | DOOBOB</title>
+  <meta name="description" content="DOOBOB video portfolio — VFX, Game, Commercial, Tech Art, and Media Art works." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --apple-white:   #ffffff;
+      --apple-light:   #f5f5f7;
+      --apple-text:    #1d1d1f;
+      --apple-sub:     #6e6e73;
+      --apple-blue:    #0071e3;
+      --apple-border:  #d2d2d7;
+      --apple-radius:  18px;
+      --apple-font:    -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, "Space Grotesk", sans-serif;
+      --apple-max:     1280px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--apple-font);
+      color: var(--apple-text);
+      background: var(--apple-white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── Header ─────────────────────────────────────────────── */
+    .apple-header {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--apple-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .apple-header-inner {
+      width: min(var(--apple-max), 94vw);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      flex-wrap: wrap;
+    }
+    .home-link { text-decoration: none; color: inherit; display: inline-flex; align-items: center; }
+    .site-brand { display: inline-flex; align-items: center; gap: 10px; }
+    .site-brand img { width: 36px; height: 36px; object-fit: contain; border-radius: 8px; }
+    .site-brand > div { display: flex; flex-direction: column; gap: 1px; }
+    .site-brand h1 { font-size: 1rem; font-weight: 700; letter-spacing: 0.04em; color: var(--apple-text); }
+    .site-brand p { font-size: 0.62rem; color: var(--apple-sub); letter-spacing: 0.04em; }
+
+    /* ─── Site Nav ───────────────────────────────────────────── */
+    .site-nav {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--apple-border);
+      position: sticky;
+      top: 65px;
+      z-index: 99;
+    }
+    .site-nav-inner {
+      width: min(var(--apple-max), 94vw);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+    }
+    .site-nav a {
+      display: inline-block;
+      padding: 13px 20px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--apple-sub);
+      text-decoration: none;
+      transition: color 160ms ease;
+      white-space: nowrap;
+    }
+    .site-nav a:hover { color: var(--apple-text); }
+    .site-nav a.active { color: var(--apple-text); border-bottom: 2px solid var(--apple-text); }
+
+    /* ─── Page Hero ──────────────────────────────────────────── */
+    .page-hero {
+      padding: 64px 0 48px;
+      text-align: center;
+      background: var(--apple-white);
+    }
+    .page-hero-inner { width: min(var(--apple-max), 94vw); margin: 0 auto; }
+    .hero-kicker {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--apple-blue);
+      margin-bottom: 14px;
+    }
+    .page-hero h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--apple-text);
+      margin-bottom: 14px;
+    }
+    .page-hero p {
+      font-size: 1rem;
+      color: var(--apple-sub);
+      line-height: 1.65;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* ─── Filter Bar ─────────────────────────────────────────── */
+    .filter-bar {
+      background: var(--apple-white);
+      padding: 0 0 36px;
+    }
+    .filter-bar-inner {
+      width: min(var(--apple-max), 94vw);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .filter-btn {
+      display: inline-block;
+      padding: 8px 20px;
+      border-radius: 999px;
+      border: 1.5px solid var(--apple-border);
+      background: transparent;
+      color: var(--apple-sub);
+      font: inherit;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+    }
+    .filter-btn:hover {
+      border-color: var(--apple-text);
+      color: var(--apple-text);
+    }
+    .filter-btn.active {
+      background: var(--apple-text);
+      color: #fff;
+      border-color: var(--apple-text);
+    }
+
+    /* ─── Work Grid ──────────────────────────────────────────── */
+    .work-section {
+      background: var(--apple-light);
+      padding: 0 0 80px;
+      flex: 1;
+    }
+    .work-inner {
+      width: min(var(--apple-max), 94vw);
+      margin: 0 auto;
+      padding-top: 48px;
+    }
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    /* ─── Video Card ─────────────────────────────────────────── */
+    .video-card {
+      background: var(--apple-white);
+      border: 1px solid var(--apple-border);
+      border-radius: var(--apple-radius);
+      overflow: hidden;
+      cursor: pointer;
+      transition: box-shadow 200ms ease, transform 200ms ease;
+    }
+    .video-card:hover {
+      box-shadow: 0 12px 36px rgba(0,0,0,0.10);
+      transform: translateY(-4px);
+    }
+    .video-thumb-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #0a0a0a;
+      overflow: hidden;
+    }
+    .video-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 300ms ease, opacity 200ms ease;
+    }
+    .video-card:hover .video-thumb { transform: scale(1.04); opacity: 0.85; }
+    .play-btn {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 200ms ease;
+    }
+    .video-card:hover .play-btn { opacity: 1; }
+    .play-btn svg {
+      width: 56px;
+      height: 56px;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+    }
+    .video-card-body { padding: 20px 22px 22px; }
+    .video-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--apple-blue);
+      margin-bottom: 8px;
+    }
+    .video-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      color: var(--apple-text);
+      margin-bottom: 6px;
+    }
+    .video-card p {
+      font-size: 0.85rem;
+      color: var(--apple-sub);
+      line-height: 1.55;
+    }
+
+    /* hidden when filtered out */
+    .video-card[hidden] { display: none; }
+
+    /* ─── Modal ──────────────────────────────────────────────── */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.82);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal-box {
+      position: relative;
+      width: min(960px, 100%);
+      background: #000;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+    }
+    .modal-video-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+    .modal-video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .modal-close {
+      position: absolute;
+      top: -48px;
+      right: 0;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 8px;
+      line-height: 1;
+      opacity: 0.8;
+      transition: opacity 160ms;
+    }
+    .modal-close:hover { opacity: 1; }
+
+    /* ─── Footer ─────────────────────────────────────────────── */
+    .site-footer {
+      background: var(--apple-light);
+      border-top: 1px solid var(--apple-border);
+      padding: 28px 0;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--apple-sub);
+    }
+
+    /* ─── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 1000px) { .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 600px) {
+      .work-grid { grid-template-columns: 1fr; }
+      .page-hero { padding: 48px 0 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── Header ───────────────────────────────────────────────── -->
+  <header class="apple-header">
+    <div class="apple-header-inner">
+      <a class="home-link" href="index.html" aria-label="DOOBOB Home">
+        <div class="site-brand">
+          <img src="assets/images/Doobob-Games-LogoHomePage.png" alt="DOOBOB logo" width="400" height="400" />
+          <div>
+            <h1>DOOBOB</h1>
+            <p>Visual Effect | Game | Commercial | Tech Art | Media Art</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <!-- ─── Nav Bar ──────────────────────────────────────────────── -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="site-nav-inner">
+      <a href="about.html">About</a>
+      <a href="work.html" class="active">Work</a>
+      <a href="contact.html">Contact</a>
+      <a href="careers.html">Careers</a>
+    </div>
+  </nav>
+
+  <!-- ─── Hero ─────────────────────────────────────────────────── -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <span class="hero-kicker">Portfolio</span>
+      <h2>Our Work</h2>
+      <p>VFX, game, commercial, and media art projects driven by AI and procedural pipelines.</p>
+    </div>
+  </section>
+
+  <!-- ─── Filter ────────────────────────────────────────────────── -->
+  <div class="filter-bar">
+    <div class="filter-bar-inner">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="vfx">VFX</button>
+      <button class="filter-btn" data-filter="game">Game</button>
+      <button class="filter-btn" data-filter="commercial">Commercial</button>
+      <button class="filter-btn" data-filter="tech-art">Tech Art</button>
+      <button class="filter-btn" data-filter="media-art">Media Art</button>
+    </div>
+  </div>
+
+  <!-- ─── Work Grid ─────────────────────────────────────────────── -->
+  <section class="work-section" aria-label="Work portfolio">
+    <div class="work-inner">
+      <div class="work-grid" id="work-grid">
+
+        <!-- data-embed: full Vimeo/YouTube embed URL  |  data-video-id: YouTube ID shorthand -->
+
+        <div class="video-card" data-category="vfx" data-embed="https://player.vimeo.com/video/326981893?autoplay=1">
+          <div class="video-thumb-wrap">
+            <img class="video-thumb" src="assets/images/gallery/FilmArt.JPG" alt="Film Art Reel thumbnail" loading="lazy" />
+            <div class="play-btn" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.18)"/>
+                <polygon points="26,20 48,32 26,44" fill="white"/>
+              </svg>
+            </div>
+          </div>
+          <div class="video-card-body">
+            <span class="video-tag">VFX</span>
+            <h3>Film Art Reel</h3>
+            <p>Kraven the Hunter, Shazam 2, The Adam Project, Justice League, Avengers: Age of Ultron, Pacific Rim, Transformers and more.</p>
+          </div>
+        </div>
+
+        <div class="video-card" data-category="vfx" data-embed="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1">
+          <div class="video-thumb-wrap">
+            <img class="video-thumb" src="assets/images/HoudiniVFXGameThumnail.jpg" alt="Houdini VFX reel thumbnail" loading="lazy" />
+            <div class="play-btn" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.18)"/>
+                <polygon points="26,20 48,32 26,44" fill="white"/>
+              </svg>
+            </div>
+          </div>
+          <div class="video-card-body">
+            <span class="video-tag">VFX</span>
+            <h3>Houdini VFX Reel 2025</h3>
+            <p>Destruction, fluid simulation, and pyro FX for film production pipeline.</p>
+          </div>
+        </div>
+
+        <div class="video-card" data-category="game" data-embed="https://player.vimeo.com/video/784287548?autoplay=1">
+          <div class="video-thumb-wrap">
+            <img class="video-thumb" src="assets/images/HoudiniVFXGameThumnail.jpg" alt="Game FX thumbnail" loading="lazy" />
+            <div class="play-btn" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.18)"/>
+                <polygon points="26,20 48,32 26,44" fill="white"/>
+              </svg>
+            </div>
+          </div>
+          <div class="video-card-body">
+            <span class="video-tag">Game</span>
+            <h3>Real-time Game FX Pack</h3>
+            <p>Niagara-based particle systems and procedural environment tools for UE5.</p>
+          </div>
+        </div>
+
+        <div class="video-card" data-category="commercial" data-embed="https://www.youtube.com/embed/N9d1-qtOWmw?autoplay=1">
+          <div class="video-thumb-wrap">
+            <img class="video-thumb" src="assets/images/matrix_city.jpeg" alt="Commercial reel thumbnail" loading="lazy" />
+            <div class="play-btn" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.18)"/>
+                <polygon points="26,20 48,32 26,44" fill="white"/>
+              </svg>
+            </div>
+          </div>
+          <div class="video-card-body">
+            <span class="video-tag">Commercial</span>
+            <h3>AI-Driven City Visualization</h3>
+            <p>Procedural city generation for a broadcast commercial campaign.</p>
+          </div>
+        </div>
+
+        <div class="video-card" data-category="commercial" data-embed="https://player.vimeo.com/video/1166855862?autoplay=1">
+          <div class="video-thumb-wrap">
+            <img class="video-thumb" src="https://vumbnail.com/1166855862.jpg" alt="Commercial reel thumbnail" loading="lazy" onerror="this.src='assets/images/matrix_city.jpeg'" />
+            <div class="play-btn" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.18)"/>
+                <polygon points="26,20 48,32 26,44" fill="white"/>
+              </svg>
+            </div>
+          </div>
+          <div class="video-card-body">
+            <span class="video-tag">Commercial</span>
+            <h3>Commercial Reel</h3>
+            <p>Commercial production reel featuring AI-assisted visual effects and procedural workflows.</p>
+          </div>
+        </div>
+
+        <div class="video-card" data-category="tech-art" data-embed="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1">
+          <div class="video-thumb-wrap">
+            <img class="video-thumb" src="assets/images/portfolio_image.jpg" alt="Tech Art thumbnail" loading="lazy" />
+            <div class="play-btn" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.18)"/>
+                <polygon points="26,20 48,32 26,44" fill="white"/>
+              </svg>
+            </div>
+          </div>
+          <div class="video-card-body">
+            <span class="video-tag">Tech Art</span>
+            <h3>Procedural Pipeline Tools</h3>
+            <p>Custom HDA library for automated LOD generation and asset packaging.</p>
+          </div>
+        </div>
+
+        <div class="video-card" data-category="media-art" data-embed="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1">
+          <div class="video-thumb-wrap">
+            <img class="video-thumb" src="assets/images/aipowered_banner.png" alt="Media Art thumbnail" loading="lazy" />
+            <div class="play-btn" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.18)"/>
+                <polygon points="26,20 48,32 26,44" fill="white"/>
+              </svg>
+            </div>
+          </div>
+          <div class="video-card-body">
+            <span class="video-tag">Media Art</span>
+            <h3>Generative AI Installation</h3>
+            <p>Interactive media art piece combining AI image generation with real-time rendering.</p>
+          </div>
+        </div>
+
+        <div class="video-card" data-category="vfx" data-embed="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1">
+          <div class="video-thumb-wrap">
+            <img class="video-thumb" src="assets/images/houd_foundations.jpeg" alt="VFX breakdown thumbnail" loading="lazy" />
+            <div class="play-btn" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.18)"/>
+                <polygon points="26,20 48,32 26,44" fill="white"/>
+              </svg>
+            </div>
+          </div>
+          <div class="video-card-body">
+            <span class="video-tag">VFX</span>
+            <h3>Crowd & Destruction Breakdown</h3>
+            <p>Behind-the-scenes look at crowd simulation and building collapse FX.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Footer ────────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    © 2026 DOOBOB. All rights reserved.
+  </footer>
+
+  <!-- ─── Video Modal ───────────────────────────────────────────── -->
+  <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-label="Video player">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="Close video">✕</button>
+      <div class="modal-video-wrap">
+        <iframe id="modal-iframe" src="" allow="autoplay; fullscreen" allowfullscreen title="Work video"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ── Filter ──────────────────────────────────────────────────
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.video-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        cards.forEach(card => {
+          if (f === 'all' || card.dataset.category === f) {
+            card.removeAttribute('hidden');
+          } else {
+            card.setAttribute('hidden', '');
+          }
+        });
+      });
+    });
+
+    // ── Modal ───────────────────────────────────────────────────
+    const modal    = document.getElementById('modal');
+    const iframe   = document.getElementById('modal-iframe');
+    const closeBtn = document.getElementById('modal-close');
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const embedUrl = card.dataset.embed;
+        if (!embedUrl) return;
+        iframe.src = embedUrl;
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeModal() {
+      modal.classList.remove('open');
+      iframe.src = '';
+      document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  </script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | DOOBOB</title>
+  <meta name="description" content="Get in touch with DOOBOB Studios — VFX, Game, Commercial, and Tech Art inquiries." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --apple-white:   #ffffff;
+      --apple-light:   #f5f5f7;
+      --apple-text:    #1d1d1f;
+      --apple-sub:     #6e6e73;
+      --apple-blue:    #0071e3;
+      --apple-blue-hv: #0077ed;
+      --apple-border:  #d2d2d7;
+      --apple-radius:  18px;
+      --apple-font:    -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, "Space Grotesk", sans-serif;
+      --apple-max:     1200px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--apple-font);
+      color: var(--apple-text);
+      background: var(--apple-white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── Header ─────────────────────────────────────────────── */
+    .apple-header {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--apple-border);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .apple-header-inner {
+      width: min(var(--apple-max), 94vw);
+      margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 14px 0; flex-wrap: wrap;
+    }
+    .home-link { text-decoration: none; color: inherit; display: inline-flex; align-items: center; }
+    .site-brand { display: inline-flex; align-items: center; gap: 10px; }
+    .site-brand img { width: 36px; height: 36px; object-fit: contain; border-radius: 8px; }
+    .site-brand > div { display: flex; flex-direction: column; gap: 1px; }
+    .site-brand h1 { font-size: 1rem; font-weight: 700; letter-spacing: 0.04em; color: var(--apple-text); }
+    .site-brand p { font-size: 0.62rem; color: var(--apple-sub); letter-spacing: 0.04em; }
+
+    /* ─── Site Nav ───────────────────────────────────────────── */
+    .site-nav {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--apple-border);
+      position: sticky; top: 65px; z-index: 99;
+    }
+    .site-nav-inner { width: min(var(--apple-max), 94vw); margin: 0 auto; display: flex; align-items: center; }
+    .site-nav a {
+      display: inline-block; padding: 13px 20px;
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em;
+      text-transform: uppercase; color: var(--apple-sub);
+      text-decoration: none; transition: color 160ms ease; white-space: nowrap;
+    }
+    .site-nav a:hover { color: var(--apple-text); }
+    .site-nav a.active { color: var(--apple-text); border-bottom: 2px solid var(--apple-text); }
+
+    /* ─── Page Hero ──────────────────────────────────────────── */
+    .page-hero { padding: 80px 0 64px; text-align: center; background: var(--apple-white); }
+    .page-hero-inner { width: min(var(--apple-max), 94vw); margin: 0 auto; }
+    .hero-kicker {
+      display: inline-block; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--apple-blue); margin-bottom: 14px;
+    }
+    .page-hero h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700;
+      letter-spacing: -0.04em; color: var(--apple-text); margin-bottom: 14px;
+    }
+    .page-hero p { font-size: 1rem; color: var(--apple-sub); line-height: 1.65; max-width: 520px; margin: 0 auto; }
+
+    /* ─── Contact Layout ─────────────────────────────────────── */
+    .contact-section { background: var(--apple-light); padding: 64px 0 80px; flex: 1; }
+    .contact-inner {
+      width: min(var(--apple-max), 94vw);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* info panel */
+    .contact-info {
+      display: flex; flex-direction: column; gap: 20px;
+    }
+    .info-card {
+      background: var(--apple-white);
+      border: 1px solid var(--apple-border);
+      border-radius: var(--apple-radius);
+      padding: 28px 28px;
+    }
+    .info-card h4 {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--apple-blue); margin-bottom: 10px;
+    }
+    .info-card p { font-size: 0.9rem; color: var(--apple-sub); line-height: 1.65; }
+    .info-card a { color: var(--apple-text); text-decoration: none; font-weight: 500; }
+    .info-card a:hover { color: var(--apple-blue); }
+
+    /* form */
+    .contact-form-wrap {
+      background: var(--apple-white);
+      border: 1px solid var(--apple-border);
+      border-radius: var(--apple-radius);
+      padding: 40px 44px;
+    }
+    .contact-form-wrap h3 {
+      font-size: 1.3rem; font-weight: 700; letter-spacing: -0.03em;
+      margin-bottom: 28px; color: var(--apple-text);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .form-group label { font-size: 0.82rem; font-weight: 600; color: var(--apple-text); }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font: inherit;
+      font-size: 0.9rem;
+      color: var(--apple-text);
+      background: var(--apple-light);
+      border: 1px solid var(--apple-border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+      outline: none;
+      resize: vertical;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--apple-blue);
+      box-shadow: 0 0 0 3px rgba(0,113,227,0.12);
+    }
+    .form-group textarea { min-height: 140px; }
+    .submit-btn {
+      display: inline-block;
+      background: var(--apple-text);
+      color: #fff;
+      font: inherit;
+      font-size: 0.92rem;
+      font-weight: 600;
+      padding: 14px 36px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      transition: background 160ms ease;
+      letter-spacing: 0.01em;
+    }
+    .submit-btn:hover { background: var(--apple-blue); }
+
+    /* ─── Footer ─────────────────────────────────────────────── */
+    .site-footer {
+      background: var(--apple-light); border-top: 1px solid var(--apple-border);
+      padding: 28px 0; text-align: center; font-size: 0.78rem; color: var(--apple-sub);
+    }
+
+    /* ─── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 860px) {
+      .contact-inner { grid-template-columns: 1fr; }
+      .contact-form-wrap { padding: 32px 24px; }
+    }
+    @media (max-width: 560px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── Header ───────────────────────────────────────────────── -->
+  <header class="apple-header">
+    <div class="apple-header-inner">
+      <a class="home-link" href="index.html" aria-label="DOOBOB Home">
+        <div class="site-brand">
+          <img src="assets/images/Doobob-Games-LogoHomePage.png" alt="DOOBOB logo" width="400" height="400" />
+          <div>
+            <h1>DOOBOB</h1>
+            <p>Visual Effect | Game | Commercial | Tech Art | Media Art</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <!-- ─── Nav Bar ──────────────────────────────────────────────── -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="site-nav-inner">
+      <a href="about.html">About</a>
+      <a href="work.html">Work</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="careers.html">Careers</a>
+    </div>
+  </nav>
+
+  <!-- ─── Hero ─────────────────────────────────────────────────── -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <span class="hero-kicker">Get In Touch</span>
+      <h2>Contact Us</h2>
+      <p>Project inquiries, collaborations, or general questions — we'd love to hear from you.</p>
+    </div>
+  </section>
+
+  <!-- ─── Contact ──────────────────────────────────────────────── -->
+  <section class="contact-section">
+    <div class="contact-inner">
+
+      <!-- Info -->
+      <div class="contact-info">
+        <div class="info-card">
+          <h4>Email</h4>
+          <p><a href="mailto:hello@doobob.com">hello@doobob.com</a></p>
+        </div>
+        <div class="info-card">
+          <h4>Studio Locations</h4>
+          <p>Vancouver, BC, Canada<br>Seoul, South Korea<br>Los Angeles, CA, USA</p>
+        </div>
+        <div class="info-card">
+          <h4>Project Types</h4>
+          <p>VFX · Game · Commercial<br>Tech Art · Media Art · Education</p>
+        </div>
+        <div class="info-card">
+          <h4>Response Time</h4>
+          <p>We typically respond within 1–2 business days.</p>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="contact-form-wrap">
+        <h3>Send a Message</h3>
+        <form action="#" method="post" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" placeholder="Gil" autocomplete="given-name" required />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" placeholder="Nam" autocomplete="family-name" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject">
+              <option value="">Select a topic…</option>
+              <option value="vfx">VFX Project</option>
+              <option value="game">Game Development</option>
+              <option value="commercial">Commercial</option>
+              <option value="tech-art">Tech Art / Tools</option>
+              <option value="media-art">Media Art</option>
+              <option value="education">Education / Training</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us about your project…" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    © 2026 DOOBOB. All rights reserved.
+  </footer>
+
+</body>
+</html>

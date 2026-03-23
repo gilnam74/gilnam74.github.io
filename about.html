@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | DOOBOB</title>
+  <meta name="description" content="About DOOBOB — AI-driven studios for VFX, Game, Commercial, Tech Art, and Media Art." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --apple-white:   #ffffff;
+      --apple-light:   #f5f5f7;
+      --apple-text:    #1d1d1f;
+      --apple-sub:     #6e6e73;
+      --apple-blue:    #0071e3;
+      --apple-border:  #d2d2d7;
+      --apple-radius:  18px;
+      --apple-font:    -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, "Space Grotesk", sans-serif;
+      --apple-max:     1200px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--apple-font);
+      color: var(--apple-text);
+      background: var(--apple-white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── Header ─────────────────────────────────────────────── */
+    .apple-header {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--apple-border);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .apple-header-inner {
+      width: min(var(--apple-max), 94vw);
+      margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 14px 0; flex-wrap: wrap;
+    }
+    .home-link { text-decoration: none; color: inherit; display: inline-flex; align-items: center; }
+    .site-brand { display: inline-flex; align-items: center; gap: 10px; }
+    .site-brand img { width: 36px; height: 36px; object-fit: contain; border-radius: 8px; }
+    .site-brand > div { display: flex; flex-direction: column; gap: 1px; }
+    .site-brand h1 { font-size: 1rem; font-weight: 700; letter-spacing: 0.04em; color: var(--apple-text); }
+    .site-brand p { font-size: 0.62rem; color: var(--apple-sub); letter-spacing: 0.04em; }
+
+    /* ─── Site Nav ───────────────────────────────────────────── */
+    .site-nav {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--apple-border);
+      position: sticky; top: 65px; z-index: 99;
+    }
+    .site-nav-inner { width: min(var(--apple-max), 94vw); margin: 0 auto; display: flex; align-items: center; }
+    .site-nav a {
+      display: inline-block; padding: 13px 20px;
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em;
+      text-transform: uppercase; color: var(--apple-sub);
+      text-decoration: none; transition: color 160ms ease; white-space: nowrap;
+    }
+    .site-nav a:hover { color: var(--apple-text); }
+    .site-nav a.active { color: var(--apple-text); border-bottom: 2px solid var(--apple-text); }
+
+    /* ─── Page Hero ──────────────────────────────────────────── */
+    .page-hero {
+      padding: 80px 0 64px;
+      text-align: center;
+      background: var(--apple-white);
+    }
+    .page-hero-inner { width: min(var(--apple-max), 94vw); margin: 0 auto; }
+    .hero-kicker {
+      display: inline-block; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--apple-blue); margin-bottom: 14px;
+    }
+    .page-hero h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700;
+      letter-spacing: -0.04em; color: var(--apple-text); margin-bottom: 20px;
+    }
+    .page-hero p {
+      font-size: 1.05rem; color: var(--apple-sub); line-height: 1.7;
+      max-width: 640px; margin: 0 auto;
+    }
+
+    /* ─── Content ────────────────────────────────────────────── */
+    .content-section { padding: 72px 0 80px; background: var(--apple-light); flex: 1; }
+    .content-inner { width: min(var(--apple-max), 94vw); margin: 0 auto; }
+
+    /* mission */
+    .mission-block {
+      background: var(--apple-white);
+      border: 1px solid var(--apple-border);
+      border-radius: var(--apple-radius);
+      padding: 56px 60px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .mission-block h3 {
+      font-size: 1.6rem; font-weight: 700; letter-spacing: -0.03em;
+      margin-bottom: 18px; color: var(--apple-text);
+    }
+    .mission-block p {
+      font-size: 1.05rem; color: var(--apple-sub);
+      line-height: 1.75; max-width: 700px; margin: 0 auto;
+    }
+
+    /* pillars grid */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .pillar-card {
+      background: var(--apple-white);
+      border: 1px solid var(--apple-border);
+      border-radius: var(--apple-radius);
+      padding: 36px 32px;
+    }
+    .pillar-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .pillar-card h4 {
+      font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em;
+      margin-bottom: 10px; color: var(--apple-text);
+    }
+    .pillar-card p { font-size: 0.9rem; color: var(--apple-sub); line-height: 1.65; }
+
+    /* stats row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .stat-card {
+      background: var(--apple-white);
+      border: 1px solid var(--apple-border);
+      border-radius: var(--apple-radius);
+      padding: 32px 28px;
+      text-align: center;
+    }
+    .stat-card .num {
+      display: block;
+      font-size: 2.4rem; font-weight: 700; letter-spacing: -0.04em;
+      color: var(--apple-text); margin-bottom: 6px;
+    }
+    .stat-card .label { font-size: 0.82rem; color: var(--apple-sub); font-weight: 500; }
+
+    /* ─── Footer ─────────────────────────────────────────────── */
+    .site-footer {
+      background: var(--apple-light); border-top: 1px solid var(--apple-border);
+      padding: 28px 0; text-align: center; font-size: 0.78rem; color: var(--apple-sub);
+    }
+
+    /* ─── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .pillars-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .stats-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .mission-block { padding: 40px 28px; }
+    }
+    @media (max-width: 560px) {
+      .pillars-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── Header ───────────────────────────────────────────────── -->
+  <header class="apple-header">
+    <div class="apple-header-inner">
+      <a class="home-link" href="index.html" aria-label="DOOBOB Home">
+        <div class="site-brand">
+          <img src="assets/images/Doobob-Games-LogoHomePage.png" alt="DOOBOB logo" width="400" height="400" />
+          <div>
+            <h1>DOOBOB</h1>
+            <p>Visual Effect | Game | Commercial | Tech Art | Media Art</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <!-- ─── Nav Bar ──────────────────────────────────────────────── -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="site-nav-inner">
+      <a href="about.html" class="active">About</a>
+      <a href="work.html">Work</a>
+      <a href="contact.html">Contact</a>
+      <a href="careers.html">Careers</a>
+    </div>
+  </nav>
+
+  <!-- ─── Hero ─────────────────────────────────────────────────── -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <span class="hero-kicker">Who We Are</span>
+      <h2>AI-Driven Creative Studio</h2>
+      <p>DOOBOB bridges cutting-edge AI technology with world-class visual storytelling — delivering film VFX, game art, commercial production, and media art experiences.</p>
+    </div>
+  </section>
+
+  <!-- ─── Content ──────────────────────────────────────────────── -->
+  <section class="content-section">
+    <div class="content-inner">
+
+      <div class="mission-block">
+        <h3>Our Mission</h3>
+        <p>We exist to push the boundaries of real-time and procedural production. By integrating AI pipelines into every stage of the creative process — from concept to final delivery — we help studios, brands, and artists produce work that was previously impossible.</p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <span class="pillar-icon">🎬</span>
+          <h4>Visual Effects</h4>
+          <p>Houdini-based destruction, fluid, pyro, and crowd simulation for film and broadcast production.</p>
+        </div>
+        <div class="pillar-card">
+          <span class="pillar-icon">🎮</span>
+          <h4>Game Development</h4>
+          <p>Real-time FX, procedural environments, and Unreal Engine technical art for interactive experiences.</p>
+        </div>
+        <div class="pillar-card">
+          <span class="pillar-icon">📡</span>
+          <h4>Commercial</h4>
+          <p>AI-accelerated production pipelines for broadcast commercials, brand identity, and motion design.</p>
+        </div>
+        <div class="pillar-card">
+          <span class="pillar-icon">⚙️</span>
+          <h4>Tech Art</h4>
+          <p>Custom tools, HDAs, and pipeline automation that bridge art and engineering across disciplines.</p>
+        </div>
+        <div class="pillar-card">
+          <span class="pillar-icon">🖼</span>
+          <h4>Media Art</h4>
+          <p>Generative and interactive installations combining AI, real-time rendering, and spatial computing.</p>
+        </div>
+        <div class="pillar-card">
+          <span class="pillar-icon">🤖</span>
+          <h4>AI Integration</h4>
+          <p>Embedding large language models and diffusion tools directly into creative and production workflows.</p>
+        </div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <span class="num">10+</span>
+          <span class="label">Years of Industry Experience</span>
+        </div>
+        <div class="stat-card">
+          <span class="num">50+</span>
+          <span class="label">Projects Delivered</span>
+        </div>
+        <div class="stat-card">
+          <span class="num">3</span>
+          <span class="label">Global Studio Locations</span>
+        </div>
+        <div class="stat-card">
+          <span class="num">AI</span>
+          <span class="label">Driven Every Step</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    © 2026 DOOBOB. All rights reserved.
+  </footer>
+
+</body>
+</html>
