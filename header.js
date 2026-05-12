@@ -2,10 +2,21 @@
   var mount = document.getElementById('site-header');
   if (!mount) return;
 
+  var rawPage = window.location.pathname.split('/').pop() || 'index.html';
+  var isWorkPage = rawPage === 'work.html' || rawPage === 'work-ko.html';
+  var isKorean = rawPage === 'work-ko.html';
+  var homeHref = 'index.html';
+  var langSwitch = isWorkPage ? [
+    '    <div class="header-lang" aria-label="' + (isKorean ? '언어 전환' : 'Language switch') + '">',
+    '      <a href="work.html"' + (!isKorean ? ' class="active"' : '') + '>EN</a>',
+    '      <a href="work-ko.html"' + (isKorean ? ' class="active"' : '') + '>KO</a>',
+    '    </div>'
+  ].join('\n') : '';
+
   mount.innerHTML = [
     '<header class="apple-header">',
     '  <div class="apple-header-inner">',
-    '    <a class="home-link" href="index.html" aria-label="DOOBOB Home">',
+    '    <a class="home-link" href="' + homeHref + '" aria-label="DOOBOB Home">',
     '      <div class="site-brand">',
     '        <img src="assets/images/Doobob-Games-LogoHomePage.png" alt="DOOBOB logo" width="400" height="400" />',
     '        <div>',
@@ -14,12 +25,13 @@
     '        </div>',
     '      </div>',
     '    </a>',
-    '    <nav class="header-nav" aria-label="Main navigation">',
-    '      <a href="about.html">About</a>',
-    '      <a href="work.html">Work</a>',
-    '      <a href="contact.html">Contact</a>',
-    '      <a href="careers.html">Careers</a>',
+    '    <nav class="header-nav" aria-label="' + (isKorean ? '주요 내비게이션' : 'Main navigation') + '">',
+    '      <a href="about.html">' + (isKorean ? '소개' : 'About') + '</a>',
+    '      <a href="' + (isKorean ? 'work-ko.html' : 'work.html') + '">' + (isKorean ? '작업' : 'Work') + '</a>',
+    '      <a href="contact.html">' + (isKorean ? '문의' : 'Contact') + '</a>',
+    '      <a href="careers.html">' + (isKorean ? '채용' : 'Careers') + '</a>',
     '    </nav>',
+    langSwitch,
     '  </div>',
     '</header>',
     '<div class="social-bar">',
@@ -35,8 +47,8 @@
   ].join('\n');
 
   // Set active nav link based on current filename
-  var page = window.location.pathname.split('/').pop() || 'index.html';
-  if (page.startsWith('work-')) page = 'work.html';
+  var page = rawPage;
+  if (page.startsWith('work-')) page = isKorean ? 'work-ko.html' : 'work.html';
 
   mount.querySelectorAll('.header-nav a').forEach(function (a) {
     if (a.getAttribute('href') === page) a.classList.add('active');
