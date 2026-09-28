@@ -437,10 +437,22 @@
           </div>
         </div>
         <div class="gallery">
-          <button class="art-card" type="button" data-kind="video" data-embed="https://www.youtube.com/embed/dtRNrxpDMII?autoplay=1&amp;playsinline=1&amp;rel=0" data-alt="Tech art video thumbnail" data-description="Watch on YouTube" data-description-link="https://youtu.be/dtRNrxpDMII" data-caption="Tech art video.">
-            <img src="https://img.youtube.com/vi/dtRNrxpDMII/maxresdefault.jpg" alt="Tech art video thumbnail" width="1280" height="720" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/dtRNrxpDMII/hqdefault.jpg'" />
-            <span class="card-copy"><strong>Tech Art Video</strong><span>Watch the tech art video.</span></span>
+          <button class="art-card" type="button" data-kind="video" data-embed="https://www.youtube.com/embed/dtRNrxpDMII?autoplay=1&amp;playsinline=1&amp;rel=0" data-alt="Game Development video thumbnail" data-description-template="game-development-description" data-caption="https://youtu.be/dtRNrxpDMII">
+            <img src="https://img.youtube.com/vi/dtRNrxpDMII/maxresdefault.jpg" alt="Game Development video thumbnail" width="1280" height="720" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/dtRNrxpDMII/hqdefault.jpg'" />
+            <span class="card-copy"><strong>Game Development</strong><span>Using an AI-driven game development pipeline, I was able to build the entire playable prototype by myself in approximately three days.</span></span>
           </button>
+          <template id="game-development-description">
+            <strong>Using an AI-driven game development pipeline, I was able to build the entire playable prototype by myself in approximately three days.</strong><br /><br />
+            <strong>City Sample, Game Animation Sample, Lyra, and Paragon assets</strong>.<br />
+            <a href="https://www.linkedin.com/showcase/unreal-engine-for-design-visualization/" target="_blank" rel="noopener noreferrer"><strong>Unreal Engine</strong></a><br />
+            <a href="https://www.linkedin.com/company/sidefx-software/" target="_blank" rel="noopener noreferrer"><strong>SideFX Software</strong></a> Houdini<br />
+            <a href="https://www.linkedin.com/company/meshyai/" target="_blank" rel="noopener noreferrer"><strong>MeshyAI</strong></a><br />
+            GPT Image gen<br /><br />
+            <strong>Procedural City:</strong> Around 200 buildings with parameter-driven control over size, number of floors, and appearance, while managing navigable spaces and collision.<br /><br />
+            <strong>Dynamic Weather:</strong> Day/night cycles, heavy rain, and snowstorms integrated with lighting, fog, wet surfaces, and snow accumulation.<br /><br />
+            <strong>Character &amp; Combat:</strong> Motion Matching locomotion using Game Animation Sample, Lyra-based combat systems, and enemy AI capable of patrolling, chasing, and searching.<br /><br />
+            <strong>Performance-Focused Development:</strong> Instancing, lightweight materials, and distance/visibility-based update management. In a recent 1080p test scene, these optimizations reduced draw calls by approximately <strong>29%</strong>.
+          </template>
 
           <button class="art-card" type="button" data-kind="video" data-embed="https://www.youtube.com/embed/CnhPFIcG5q8?autoplay=1" data-alt="AI Mesh Generator thumbnail" data-description="A Houdini-centered toolchain that converts text prompts and reference images into production-ready 3D meshes. The project focuses on usable topology, rapid ideation, and integration with real-time and VFX pipelines." data-caption="Tech art tool development for AI-assisted mesh generation, pipeline integration, and downstream use in game engine and procedural workflows.">
             <img src="https://img.youtube.com/vi/CnhPFIcG5q8/maxresdefault.jpg" alt="AI Mesh Generator thumbnail" width="1280" height="720" loading="lazy" />

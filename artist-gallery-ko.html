@@ -436,10 +436,22 @@
           </div>
         </div>
         <div class="gallery">
-          <button class="art-card" type="button" data-kind="video" data-embed="https://www.youtube.com/embed/dtRNrxpDMII?autoplay=1&amp;playsinline=1&amp;rel=0" data-alt="테크 아트 영상 썸네일" data-description="YouTube에서 보기" data-description-link="https://youtu.be/dtRNrxpDMII" data-caption="테크 아트 영상입니다.">
-            <img src="https://img.youtube.com/vi/dtRNrxpDMII/maxresdefault.jpg" alt="테크 아트 영상 썸네일" width="1280" height="720" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/dtRNrxpDMII/hqdefault.jpg'" />
-            <span class="card-copy"><strong>테크 아트 영상</strong><span>테크 아트 영상을 감상하세요.</span></span>
+          <button class="art-card" type="button" data-kind="video" data-embed="https://www.youtube.com/embed/dtRNrxpDMII?autoplay=1&amp;playsinline=1&amp;rel=0" data-alt="게임 개발 영상 썸네일" data-description-template="game-development-description" data-caption="https://youtu.be/dtRNrxpDMII">
+            <img src="https://img.youtube.com/vi/dtRNrxpDMII/maxresdefault.jpg" alt="게임 개발 영상 썸네일" width="1280" height="720" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/dtRNrxpDMII/hqdefault.jpg'" />
+            <span class="card-copy"><strong>게임 개발</strong><span>AI 기반 게임 개발 파이프라인을 활용해 약 3일 만에 플레이 가능한 전체 프로토타입을 혼자 제작했습니다.</span></span>
           </button>
+          <template id="game-development-description">
+            <strong>AI 기반 게임 개발 파이프라인을 활용해 약 3일 만에 플레이 가능한 전체 프로토타입을 혼자 제작했습니다.</strong><br /><br />
+            <strong>City Sample, Game Animation Sample, Lyra, Paragon 에셋</strong> 활용.<br />
+            <a href="https://www.linkedin.com/showcase/unreal-engine-for-design-visualization/" target="_blank" rel="noopener noreferrer"><strong>Unreal Engine</strong></a><br />
+            <a href="https://www.linkedin.com/company/sidefx-software/" target="_blank" rel="noopener noreferrer"><strong>SideFX Software</strong></a> Houdini<br />
+            <a href="https://www.linkedin.com/company/meshyai/" target="_blank" rel="noopener noreferrer"><strong>MeshyAI</strong></a><br />
+            GPT 이미지 생성<br /><br />
+            <strong>프로시저럴 도시:</strong> 약 200개 건물의 크기, 층수, 외형을 파라미터로 제어하고, 이동 가능한 공간과 충돌을 관리했습니다.<br /><br />
+            <strong>동적 날씨:</strong> 낮과 밤의 변화, 폭우, 눈보라를 조명, 안개, 젖은 표면, 눈 쌓임 효과와 통합했습니다.<br /><br />
+            <strong>캐릭터 및 전투:</strong> Game Animation Sample의 Motion Matching 기반 이동, Lyra 기반 전투 시스템, 순찰·추적·수색이 가능한 적 AI를 구현했습니다.<br /><br />
+            <strong>성능 중심 개발:</strong> 인스턴싱, 경량 머티리얼, 거리 및 가시성 기반 업데이트 관리를 적용했습니다. 최근 1080p 테스트 장면에서 이러한 최적화로 드로 콜을 약 <strong>29%</strong> 줄였습니다.
+          </template>
 
           <button class="art-card" type="button" data-kind="video" data-embed="https://www.youtube.com/embed/CnhPFIcG5q8?autoplay=1" data-alt="AI Mesh Generator thumbnail" data-description="텍스트 프롬프트와 레퍼런스 이미지를 실제 제작에 사용할 수 있는 3D 메쉬로 바꾸는 Houdini 중심 툴체인입니다. 빠른 아이데이션과 활용 가능한 토폴로지, 게임 엔진 및 VFX 파이프라인 연동에 초점을 맞췄습니다." data-caption="AI 기반 메쉬 생성, 파이프라인 연동, 후속 게임 엔진 및 프로시저럴 워크플로 활용을 위한 테크 아트 툴 개발입니다.">
             <img src="https://img.youtube.com/vi/CnhPFIcG5q8/maxresdefault.jpg" alt="AI Mesh Generator thumbnail" width="1280" height="720" loading="lazy" />

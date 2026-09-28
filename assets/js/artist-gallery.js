@@ -214,6 +214,10 @@ function renderLightbox(index) {
     renderPlaylistDetails(playlist);
   } else {
     setRichTextContent(lightboxDescription, description, card.dataset.descriptionLink || "");
+    const descriptionTemplate = document.getElementById(card.dataset.descriptionTemplate || "");
+    if (descriptionTemplate instanceof HTMLTemplateElement) {
+      lightboxDescription.replaceChildren(descriptionTemplate.content.cloneNode(true));
+    }
     setRichTextContent(lightboxCaption, card.dataset.caption || "");
   }
 }
