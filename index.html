@@ -3,363 +3,386 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DOOBOB</title>
-  <meta name="description" content="DOOBOB — Visual Effect | Game | Commercial | Tech Art | Media Art" />
-  <link rel="preconnect" href="https://www.youtube.com" />
-  <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <title>DOOBOB | Art Gallery</title>
+  <meta name="description" content="DOOBOB showcase gallery for film art, game art, tech art, media art, and AI-assisted production workflows." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans+KR:wght@400;500;700&family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/artist-gallery.css">
   <style>
-    :root {
-      --apple-white:   #ffffff;
-      --apple-light:   #f5f5f7;
-      --apple-text:    #1d1d1f;
-      --apple-sub:     #6e6e73;
-      --apple-blue:    #0071e3;
-      --apple-blue-hv: #0077ed;
-      --apple-border:  #d2d2d7;
-      --apple-radius:  18px;
-      --apple-font:    -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, "Space Grotesk", sans-serif;
-      --apple-max:     1200px;
-    }
-
-    * { box-sizing: border-box; }
+    :root { --apple-white: #ffffff; --apple-light: #f5f5f7; --apple-text: #1d1d1f; --apple-sub: #6e6e73; --apple-blue: #0071e3; --apple-border: #d2d2d7; --apple-font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, "Space Grotesk", "IBM Plex Sans KR", sans-serif; --apple-max: 1500px; }
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--apple-font);
-      color: var(--apple-text);
-      background: var(--apple-white);
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* ─── Header ─────────────────────────────────────────────── */
-    .apple-header {
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 1px solid var(--apple-border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .apple-header-inner {
-      width: min(1280px, 94vw);
-      margin: 0 auto;
-      padding: 14px 0;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    /* ─── Brand ──────────────────────────────────────────────── */
-    .home-link {
-      text-decoration: none;
-      color: inherit;
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .site-brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 0px;
-    }
-
-    .site-brand img {
-      width: 54px;
-      height: 54px;
-      object-fit: contain;
-      border-radius: 10px;
-    }
-
-    .site-brand > div {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .site-brand h1 {
-      margin: 0;
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      color: var(--apple-text);
-    }
-
-    .site-brand p {
-      margin: -4px 0 0;
-      font-size: 0.8rem;
-      color: var(--apple-sub);
-      letter-spacing: 0.04em;
-    }
-
-    /* ─── Nav in header ──────────────────────────────────────── */
-    .header-nav {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .header-nav a {
-      display: inline-block;
-      padding: 8px 16px;
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--apple-sub);
-      text-decoration: none;
-      transition: color 160ms ease;
-      white-space: nowrap;
-    }
-
-    .header-nav a:hover {
-      color: var(--apple-text);
-      border-bottom: 2px solid var(--apple-text);
-    }
-
-    /* ─── Social Bar ─────────────────────────────────────────── */
-    .social-bar {
-      background: var(--apple-white);
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      padding: 6px 0;
-    }
-    .social-bar-inner {
-      width: min(1280px, 94vw);
-      margin: 0 auto;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 16px;
-      padding-right: 16px;
-    }
-    .social-bar a {
-      display: inline-flex;
-      align-items: center;
-      color: var(--apple-sub);
-      text-decoration: none;
-      transition: color 160ms ease;
-    }
-    .social-bar a:hover { color: var(--apple-text); }
-    .social-bar svg { width: 16px; height: 16px; fill: currentColor; }
-
-    /* ─── Hero Video ─────────────────────────────────────────── */
-    .hero-video-section {
-      background: var(--apple-white);
-      padding: 32px 0 48px;
-    }
-
-    .hero-video-inner {
-      width: min(1440px, 96vw);
-      margin: 0 auto;
-    }
-
-    .hero-kicker {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--apple-blue);
-      margin-bottom: 14px;
-    }
-
-    .hero-text {
-      text-align: center;
-      padding: 0 0 32px;
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .hero-text h2 {
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      line-height: 1.1;
-      color: var(--apple-text);
-      margin: 0 0 18px;
-      white-space: normal;
-    }
-
-    .hero-text p {
-      font-size: 1.05rem;
-      color: var(--apple-sub);
-      line-height: 1.7;
-      max-width: 640px;
-      margin: 0 auto;
-    }
-
-    .hero-cta {
-      display: inline-block;
-      background: var(--apple-text);
-      color: #fff;
-      font: inherit;
-      font-size: 0.9rem;
-      font-weight: 600;
-      padding: 12px 28px;
-      border-radius: 999px;
-      text-decoration: none;
-      transition: background 160ms ease;
-      margin-bottom: 40px;
-    }
-
-    .hero-cta:hover { background: var(--apple-blue); }
-    /* 16:9 video container with rounded corners */
-    .hero-video-player {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border-radius: 20px;
-      overflow: hidden;
-      background: #000;
-      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.14);
-    }
-
-    .hero-video-player iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-      opacity: 0;
-      transition: opacity 260ms ease;
-    }
-
-    .hero-video-player.is-ready iframe {
-      opacity: 1;
-    }
-
-    .hero-video-poster {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transform: scale(1.01);
-      transition: opacity 260ms ease, visibility 0s linear 260ms;
-    }
-
-    .hero-video-player.is-ready .hero-video-poster {
-      opacity: 0;
-      visibility: hidden;
-    }
-
-
-    /* ─── Footer ─────────────────────────────────────────────── */
-    .site-footer {
-      background: var(--apple-light);
-      border-top: 1px solid var(--apple-border);
-      padding: 28px 0;
-      text-align: center;
-      font-size: 0.78rem;
-      color: var(--apple-sub);
-    }
-
-    /* ─── Responsive ─────────────────────────────────────────── */
-    /* ─── Responsive ─────────────────────────────────────────── */
-
-    @media (max-width: 680px) {
-      .header-nav a { padding: 7px 10px; font-size: 0.76rem; }
-    }
-
-    @media (max-width: 600px) {
-      .apple-header-inner { flex-wrap: wrap; padding: 10px 0; gap: 8px; }
-      .header-nav { width: 100%; justify-content: flex-end; }
-      .hero-text { padding: 0 0 24px; }
-      .hero-text p { font-size: 0.92rem; line-height: 1.55; }
-    }
+    body { font-family: "Manrope", var(--apple-font), sans-serif; color: var(--apple-text); background: var(--apple-white) !important; background-image: none !important; margin: 0; }
+    .apple-header { background: rgba(255,255,255,0.92); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--apple-border); position: sticky; top: 0; z-index: 90; }
+    .apple-header-inner { width: min(var(--apple-max), 94vw); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; flex-wrap: wrap; }
+    .site-brand { display: inline-flex; align-items: center; gap: 10px; }
+    .site-brand img { width: 36px; height: 36px; object-fit: contain; border-radius: 8px; }
+    .site-brand > div { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; }
+    .site-brand h1 { margin: 0; font-family: var(--apple-font); font-size: 1rem; font-weight: 700; letter-spacing: 0.04em; color: var(--apple-text); }
+    .site-brand p { margin: 0; font-size: 0.62rem; color: var(--apple-sub); letter-spacing: 0.04em; }
+    .section-nav { border-top: 1px solid rgba(210,210,215,0.5); border-bottom: 1px solid var(--apple-border); background: rgba(255,255,255,0.92); }
+    .section-nav-inner { width: min(var(--apple-max), 94vw); margin: 0 auto; display: flex; align-items: center; gap: 0; }
+    .section-nav a { text-decoration: none; color: var(--apple-text); padding: 12px 14px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; border-bottom: 2px solid var(--apple-text); }
+    .page { width: min(1500px, calc(100% - 40px)); margin: 0 auto; padding: 28px 0 56px; background: transparent; }
+    .topbar { display: none !important; }
+    .hero { grid-template-columns: 1fr; background: var(--apple-white); border-bottom: 1px solid var(--apple-border); padding: 34px 0 30px; }
+    .eyebrow { font-family: var(--apple-font); color: var(--apple-sub); }
+    h1 { max-width: none; line-height: 0.9; font-size: clamp(3rem, 8vw, 6rem); color: var(--apple-text); }
+    .hero-copy p { color: #332d25; }
+    .gallery-section { padding-top: 30px; scroll-margin-top: 86px; }
+    .section-head { padding: 0 0 16px; border-bottom: 1px solid var(--apple-border); margin-bottom: 16px; }
+    .section-head h2 { font-family: var(--apple-font); font-size: clamp(1.3rem, 2.2vw, 2rem); letter-spacing: 0.12em; text-transform: uppercase; }
+    .art-card { background: #fff; border: 1px solid rgba(29,29,31,0.08); box-shadow: 0 14px 28px rgba(20,17,13,0.1); }
+    .card-copy { bottom: 48px; }
+    .card-tech { display: block; height: 48px; padding: 9px 12px 10px; color: #6e6e73; background: #fff; font-size: 0.68rem; font-weight: 700; line-height: 1.35; letter-spacing: 0.08em; text-transform: uppercase; overflow: hidden; }
+    .footer-note { border-top: 1px solid var(--apple-border); margin-top: 18px; }
+    @media (max-width: 760px) { .apple-header-inner { padding: 12px 0; } .section-nav a { padding: 10px 0; } .hero-title-row { flex-direction: column; align-items: flex-start; gap: 12px; } h1 { font-size: 2.7rem; } }
   </style>
 </head>
 <body>
-
-  <!-- ─── Header (fixed, dark-glass over video) ─────────────── -->
   <header class="apple-header">
     <div class="apple-header-inner">
       <a class="home-link" href="index.html" aria-label="DOOBOB Home">
         <div class="site-brand">
-          <img src="assets/images/Doobob-Games-LogoHomePage.png" alt="DOOBOB logo" width="400" height="400" />
+          <img src="assets/images/Doobob-Games-LogoHomePage.png" alt="DOOBOB logo" width="36" height="36" />
           <div>
             <h1>DOOBOB</h1>
-            <p>Visual Effect | Game | Commercial | Tech Art | Media Art</p>
+            <p>Visual Effect | Game | Commercial | Tech Art</p>
           </div>
         </div>
       </a>
-      <nav class="header-nav" aria-label="Main navigation">
-        <a href="about.html">About</a>
-        <a href="work.html">Work</a>
-        <a href="contact.html">Contact</a>
-        <a href="careers.html">Careers</a>
-      </nav>
     </div>
+    <nav class="section-nav" aria-label="Gallery categories">
+      <div class="section-nav-inner">
+        <a href="#showcase">SHOWCASE</a>
+      </div>
+    </nav>
   </header>
 
-  <!-- ─── Social Bar ───────────────────────────────────────────── -->
-  <div class="social-bar">
-    <div class="social-bar-inner">
-      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-      <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-      <a href="#" aria-label="X"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-      <a href="#" aria-label="Threads"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.851 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.583-1.313-.876-2.387-.876h-.03c-.87.006-2.235.168-3.043 1.606l-1.818-.917C5.97 5.507 7.995 4.54 10.049 4.52h.069c1.613 0 2.931.43 3.913 1.278 1.12.967 1.764 2.403 1.915 4.268.48.19.94.41 1.37.657 1.34.77 2.293 1.838 2.758 3.067.712 1.888.585 4.663-1.744 6.95-1.819 1.781-3.997 2.548-7.144 2.56zm.17-8.521c-.041 0-.083 0-.124.002-1.059.06-1.867.353-2.367.847-.393.382-.588.882-.557 1.41.064 1.182 1.24 1.88 3.147 1.775 1.186-.065 2.042-.5 2.544-1.29.342-.536.572-1.335.683-2.352a11.72 11.72 0 0 0-3.326-.392z"/></svg></a>
-      <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-    </div>
+  <main class="page">
+    <section class="hero" aria-label="Artist introduction">
+      <div class="hero-copy">
+        <p class="eyebrow">SHOWCASE</p>
+        <div class="hero-title-row">
+          <h1>Choi Gil Nam</h1>
+          <a class="linkedin-link" href="https://www.linkedin.com/in/choi-gil-nam-6a441132/" target="_blank" rel="noopener noreferrer" aria-label="Choi Gil Nam LinkedIn profile">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/250px-LinkedIn_logo_initials.png" alt="LinkedIn" width="250" height="250" loading="lazy" decoding="async" />
+          </a>
+          <img class="hero-thumb" src="assets/images/gallery/mypictureThumnail.JPG" alt="Portrait of Choi Gil Nam" width="1280" height="1600" loading="eager" fetchpriority="high" decoding="async" />
+        </div>
+        <p>Film art, game art, tech art, media art, and AI-assisted production work collected into one showcase.</p>
+      </div>
+    </section>
+
+    <section class="gallery-section" id="showcase" aria-labelledby="showcase-title">
+      <div class="section-head">
+        <h2 id="showcase-title">SHOWCASE</h2>
+      </div>
+            <div class="gallery">
+          <button class="art-card" type="button" data-kind="video" data-embed="https://player.vimeo.com/video/326981893?autoplay=1" data-alt="Film art Vimeo reel" data-description="" data-caption="Credits&#10;&#10;Kraven the Hunter&#10;Shazam2(Film)&#10;The AdamProject(Film)&#10;The Tomorrow War(Film)&#10;Justice League(Film), Zack Snyder&#10;Suicide Squad 2(Film)&#10;Black Widow(Film)&#10;Sonic(Film)&#10;Aquaman(Film)&#10;Meg: A Novel of Deep Terror(Film)&#10;Nut Job2(Film)&#10;Warcraft(Film), Duncan Jones&#10;The Great Wall(Film), Yimou Zhang&#10;Avengers: Age of Ultron(Film), Joss Whedon&#10;Paranormal Activity: The Ghost Dimension&#10;Hitman: Agent 47(Film), Aleksander Bach&#10;Transformers:Age of Extinction(Film), Michael Bay&#10;Parcific Rim(Film), Guillermo del Toro&#10;more...">
+            <img src="assets/images/gallery/FilmArt.JPG" alt="Film art Vimeo reel thumbnail" width="1280" height="720" loading="lazy" />
+            <span class="card-copy"><strong>Film Art Reel</strong><span></span></span>
+            <span class="card-tech">SHOWCASE / Film Art / VFX / Compositing</span>
+          </button>
+
+          <button class="art-card" type="button" data-kind="video" data-embed="https://player.vimeo.com/video/784287548?autoplay=1" data-alt="Game art Vimeo reel" data-description="" data-caption="A collection of TechArt, FX, and Procedural Tool work I developed in game production.">
+            <img src="assets/images/gallery/GameArt.JPG" alt="Game art Vimeo reel thumbnail" width="699" height="828" loading="lazy" />
+            <span class="card-copy"><strong>GameArtReel</strong><span>A collection of TechArt, FX, and Procedural Tool work I developed in game production.</span></span>
+            <span class="card-tech">SHOWCASE / Game Art / Tech Art / FX</span>
+          </button>
+
+          <button class="art-card" type="button" data-kind="video" data-embed="https://www.youtube.com/embed/dtRNrxpDMII?autoplay=1&amp;playsinline=1&amp;rel=0" data-alt="Game Development video thumbnail" data-description-template="game-development-description" data-caption="https://youtu.be/dtRNrxpDMII">
+            <img src="https://img.youtube.com/vi/dtRNrxpDMII/maxresdefault.jpg" alt="Game Development video thumbnail" width="1280" height="720" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/dtRNrxpDMII/hqdefault.jpg'" />
+            <span class="card-copy"><strong>Game Development</strong><span>AI-driven playable prototype built with Unreal Engine, Houdini, and production-ready systems.</span></span>
+            <span class="card-tech">SHOWCASE / Game Development / Unreal Engine / AI Pipeline</span>
+          </button>
+
+          <button class="art-card show-subcopy" type="button" data-kind="video" data-embed="https://www.youtube.com/embed/H605u670Svo?autoplay=1&amp;playsinline=1&amp;rel=0" data-alt="Photoshop to Game video thumbnail" data-description-template="photoshop-to-game-description" data-caption="https://youtu.be/H605u670Svo">
+            <img src="https://img.youtube.com/vi/H605u670Svo/maxresdefault.jpg" alt="Photoshop to Game video thumbnail" width="1280" height="720" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/H605u670Svo/hqdefault.jpg'" />
+            <span class="card-copy"><strong>Photoshop to Game</strong><span>A hand-painted Photoshop game map becomes a playable 3D world with AI and procedural tools.</span></span>
+            <span class="card-tech">SHOWCASE / Photoshop / MeshyAI / Houdini / Unreal Engine</span>
+          </button>
+
+          <button class="art-card" type="button" data-kind="video" data-embed="https://www.youtube.com/embed/B0G2S6ICX_M?autoplay=1" data-alt="Houdini MCP thumbnail" data-description="I built my own SideFX Software Houdini MCP and started experimenting with using it to translate ideas and algorithms from research papers into actual procedural modeling systems in Houdini." data-description-link="https://youtu.be/B0G2S6ICX_M?si=ZSu9rs6NCecKLQj5" data-caption="Research paper ideas and algorithms translated into procedural modeling systems through a custom Houdini MCP tool.">
+            <img src="https://img.youtube.com/vi/B0G2S6ICX_M/maxresdefault.jpg" alt="Houdini MCP thumbnail" width="1280" height="720" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/B0G2S6ICX_M/hqdefault.jpg'" />
+            <span class="card-copy"><strong>Houdini MCP</strong><span>Custom Houdini MCP for translating research paper ideas into procedural modeling systems.</span></span>
+            <span class="card-tech">SHOWCASE / Houdini MCP / Research / Procedural Modeling</span>
+          </button>
+
+          <button class="art-card" type="button" data-kind="video" data-embed="https://www.youtube.com/embed/CnhPFIcG5q8?autoplay=1" data-alt="AI Mesh Generator thumbnail" data-description="A Houdini-centered toolchain that converts text prompts and reference images into production-ready 3D meshes." data-caption="Tech art tool development for AI-assisted mesh generation, pipeline integration, and downstream use in game engine and procedural workflows.">
+            <img src="https://img.youtube.com/vi/CnhPFIcG5q8/maxresdefault.jpg" alt="AI Mesh Generator thumbnail" width="1280" height="720" loading="lazy" />
+            <span class="card-copy"><strong>AI Mesh Generator</strong><span>Houdini-based toolchain for turning prompts and reference images into usable production meshes.</span></span>
+            <span class="card-tech">SHOWCASE / AI Mesh / Houdini / Pipeline Tool</span>
+          </button>
+
+          <button class="art-card" type="button" data-kind="viewer" data-kind-label="Interactive Viewer" data-embed="fat3.html" data-alt="Museum - 3D Gaussian Splatting thumbnail" data-description="AI-generated imagery reconstructed into a navigable 3D Gaussian Splatting scene." data-caption="Spatial capture experiment that turns generated imagery into an immersive museum-like scene using 3D Gaussian Splatting.">
+            <img src="assets/images/gallery/frame_000001.jpg" alt="Museum - 3D Gaussian Splatting thumbnail" width="1756" height="1176" loading="lazy" />
+            <span class="card-copy"><strong>Museum - 3D Gaussian Splatting</strong><span>AI-generated imagery reconstructed into a navigable spatial scene.</span></span>
+            <span class="card-tech">SHOWCASE / 3D Gaussian Splatting / Spatial AI</span>
+          </button>
+
+          <button class="art-card" type="button" data-kind="viewer" data-kind-label="Interactive Viewer" data-embed="zombie3D_02.html" data-alt="Zombie - 3D Gaussian Splatting thumbnail" data-description="A zombie character study reconstructed as a navigable 3D Gaussian Splatting viewer." data-caption="Character-focused 3D Gaussian Splatting viewer built as an interactive zombie study.">
+            <img src="assets/images/gallery/zombie_05.JPG" alt="Zombie - 3D Gaussian Splatting thumbnail" width="1606" height="1603" loading="lazy" />
+            <span class="card-copy"><strong>Zombie - 3D Gaussian Splatting</strong><span>Interactive zombie reconstruction presented as a navigable 3D Gaussian Splatting scene.</span></span>
+            <span class="card-tech">SHOWCASE / 3D Gaussian Splatting / Character Study</span>
+          </button>
+
+          <button class="art-card" type="button" data-kind="video" data-embed="https://www.youtube.com/embed/Fth7AlBPoj0?autoplay=1&amp;playsinline=1&amp;rel=0" data-alt="MIRIAM game concept thumbnail" data-description="Open Original Resource" data-description-link="https://www.youtube.com/watch?v=Fth7AlBPoj0" data-caption="MIRIAM is a psychological horror concept built using Unreal Engine 5, Houdini, and AI-assisted cinematic workflows.">
+            <img src="https://img.youtube.com/vi/Fth7AlBPoj0/maxresdefault.jpg" alt="MIRIAM game concept thumbnail" width="1280" height="720" loading="lazy" onerror="this.src='https://img.youtube.com/vi/Fth7AlBPoj0/hqdefault.jpg'" />
+            <span class="card-copy"><strong>MIRIAM</strong><span>Psychological horror game concept built with Unreal Engine 5, Houdini, and AI-assisted cinematic workflows.</span></span>
+            <span class="card-tech">SHOWCASE / Game Concept / Unreal Engine 5 / Houdini</span>
+          </button>
+
+          <button class="art-card" type="button" data-full="assets/images/gallery/zombie.jpg" data-alt="Zombie Realtime FX course thumbnail" data-playlist="zombie-realtime-fx" data-caption="All lesson links and summaries from SideFX Zombie Realtime FX are listed in this card detail view.">
+            <img src="assets/images/gallery/zombie.jpg" alt="Zombie Realtime FX course thumbnail" width="600" height="600" loading="lazy" />
+            <span class="card-copy"><strong>Zombie Realtime FX (SideFX)</strong><span>Open to view the full lesson list, links, and descriptions.</span></span>
+            <span class="card-tech">SHOWCASE / SideFX / Realtime FX / Houdini to Unreal</span>
+          </button>
+
+          <button class="art-card" type="button" data-kind="video" data-embed="https://www.youtube.com/embed/mDEjPY3VptE?autoplay=1" data-alt="Unreal Fest Presentation" data-description="https://youtu.be/mDEjPY3VptE" data-caption="I gave a presentation on how to bring film-quality visuals into a game engine.">
+            <img src="assets/images/gallery/Unreal-Fest-cover.webp" alt="Unreal Fest Presentation thumbnail" width="640" height="360" loading="lazy" />
+            <span class="card-copy"><strong>Unreal Fest Presentation</strong><span>Unreal Fest presentation session.</span></span>
+            <span class="card-tech">SHOWCASE / Unreal Engine / Speaker / Film-to-Game Workflow</span>
+          </button>
+
+          <button class="art-card" type="button" data-kind="video" data-embed="https://www.youtube.com/embed/CPHRPGJRGzM?autoplay=1" data-alt="Gnomon Presentation" data-description="Open Original Resource" data-description-link="https://youtu.be/CPHRPGJRGzM" data-caption="Online live presentation at a major CG school in Los Angeles.">
+            <img src="assets/images/gallery/game-art-fourth-thumbnail.png" alt="Gnomon Presentation thumbnail" width="225" height="225" loading="lazy" />
+            <span class="card-copy"><strong>Gnomon Presentation</strong><span>Online live session at a major CG school in Los Angeles.</span></span>
+            <span class="card-tech">SHOWCASE / Gnomon / Tech Art / Presentation</span>
+          </button>
+
+          <button class="art-card" type="button" data-kind="video" data-embed="https://www.youtube.com/embed/cwu-n2N23jY?autoplay=1" data-alt="PAINTer thumbnail" data-description="PAINTer asks whether authorship belongs to the hand, the tool, or the system." data-caption="AI animation short exploring the boundary between artist and technician.">
+            <img src="assets/images/gallery/finalShot-thumb.webp" alt="PAINTer thumbnail" width="960" height="542" loading="lazy" />
+            <span class="card-copy"><strong>PAINTer</strong><span>AI animation short examining authorship, intuition, and the boundary between artist and technician.</span></span>
+            <span class="card-tech">SHOWCASE / AI Animation / Direction / Image Synthesis</span>
+          </button>
+
+          <button class="art-card show-subcopy" type="button" data-kind="video" data-embed="https://www.youtube.com/embed/WjH0x4_O9gE?autoplay=1" data-alt="From the Highest Place animated short film thumbnail" data-description="From the Highest Place animated short film." data-caption="AI-assisted cinematic animation project.">
+            <img src="https://img.youtube.com/vi/WjH0x4_O9gE/hqdefault.jpg" alt="From the Highest Place animated short film thumbnail" width="480" height="360" loading="lazy" />
+            <span class="card-copy"><strong>From the Highest Place</strong><span>Animated short film built through procedural generation, Gaussian Splatting, and AI-assisted cinematic workflows.</span></span>
+            <span class="card-tech">SHOWCASE / AI Cinematic / Procedural / Gaussian Splatting</span>
+          </button>
+
+          <button class="art-card" type="button" data-full="assets/images/gallery/proceduralThinking.png" data-alt="Procedural Thinking course thumbnail" data-playlist="procedural-thinking" data-caption="All lesson links and summaries from SideFX Procedural Thinking are listed in this card detail view.">
+            <img src="assets/images/gallery/proceduralThinking.png" alt="Procedural Thinking course thumbnail" width="1536" height="1024" loading="lazy" />
+            <span class="card-copy"><strong>Procedural Thinking (SideFX)</strong><span>Open to view the full lesson list, links, and descriptions.</span></span>
+            <span class="card-tech">SHOWCASE / SideFX / Houdini / Procedural Thinking</span>
+          </button>
+
+          <button class="art-card" type="button" data-full="assets/images/gallery/Gnomon.JPG" data-alt="Create Disintegration VFX in Houdini & Nuke artwork" data-caption="Create Disintegration VFX in Houdini & Nuke / Gnomon School lecture image.">
+            <img src="assets/images/gallery/film-art-third-thumbnail.jpg" alt="Film Art third card thumbnail" width="900" height="900" loading="lazy" />
+            <span class="card-copy"><strong>Create Disintegration VFX (Gnomon)</strong><span>Gnomon School lecture artwork preview.</span></span>
+            <span class="card-tech">SHOWCASE / Houdini / Nuke / VFX Education</span>
+          </button>
+
+          <button class="art-card tall" type="button" data-kind="video" data-embed="https://www.youtube.com/embed/wGYM3dMGZL8?autoplay=1" data-alt="Shaping The Future" data-description="Open Original Resource" data-description-link="https://www.youtube.com/watch?v=wGYM3dMGZL8" data-caption="A session sharing knowledge needed in the current industry and for the future.">
+            <img src="assets/images/gallery/shaping-the-future-thumbnail.jpg" alt="Shaping The Future thumbnail" width="501" height="500" loading="lazy" />
+            <span class="card-copy"><strong>Shaping The Future</strong><span>Industry Speaker Series</span></span>
+            <span class="card-tech">SHOWCASE / Education / VFX / Game Development</span>
+          </button>
+
+          <button class="art-card" type="button" data-kind="video" data-embed="https://www.youtube.com/embed/OfbfOX0CsPA?autoplay=1" data-alt="Signal Habitat video thumbnail" data-description="Signal Habitat, DMAF 2006. as Invited Artist." data-caption="DOOBOB YouTube video.">
+            <img src="https://img.youtube.com/vi/OfbfOX0CsPA/maxresdefault.jpg" alt="Signal Habitat video thumbnail" width="1280" height="720" loading="lazy" />
+            <span class="card-copy"><strong>Signal Habitat</strong><span>DMAF 2006. as Invited Artist.</span></span>
+            <span class="card-tech">SHOWCASE / Media Art / Installation / Video</span>
+          </button>
+
+          <button class="art-card" type="button" data-kind="video" data-embed="https://www.youtube.com/embed/O4JWdi4vjWU?autoplay=1" data-alt="The Rain Show YouTube Shorts thumbnail" data-description="Client: Miracle Mile Shops Las Vegas, GiantStep US." data-caption="Media art film created for the Miracle Mile rain show in Las Vegas.">
+            <img src="assets/images/gallery/MMS-26136_W1_The_Rain_Show_Web_Thumbnail.jpg" alt="The Rain Show YouTube Shorts thumbnail" width="1280" height="720" loading="lazy" />
+            <span class="card-copy"><strong>Miracle Mile Rain Show at Las Vegas</strong><span>Large-format media art film for the Miracle Mile rain show in Las Vegas.</span></span>
+            <span class="card-tech">SHOWCASE / Media Art / Large Format / VFX Supervision</span>
+          </button>
+
+          <button class="art-card focus-bottom" type="button" data-full="assets/images/gallery/zombieTogeter.jpg" data-alt="Dead or Alive artwork" data-caption="An effects-based sculpting approach that utilizes VDB noise and simulation techniques for procedural modeling.">
+            <img src="assets/images/gallery/zombieTogeter.jpg" alt="Dead or Alive artwork" width="1920" height="1080" loading="lazy" />
+            <span class="card-copy"><strong>Dead or Alive</strong><span>Procedural Effect Driven Sculpting</span></span>
+            <span class="card-tech">SHOWCASE / Procedural Sculpting / VDB / Simulation</span>
+          </button>
+
+          <button class="art-card" type="button" data-kind="video" data-embed="https://www.youtube.com/embed/MIctPNS4nJE?autoplay=1" data-alt="Mud thumbnail" data-description="" data-caption="Motivation">
+            <img src="https://img.youtube.com/vi/MIctPNS4nJE/maxresdefault.jpg" alt="Mud thumbnail" width="1280" height="720" loading="lazy" />
+            <span class="card-copy"><strong>Mud</strong><span>Motivation</span></span>
+            <span class="card-tech">SHOWCASE / Media Art / Motion / Mood Study</span>
+          </button>
+
+          <button class="art-card" type="button" data-kind="video" data-embed="https://www.youtube.com/embed/6gvMCo8gROo?autoplay=1" data-alt="Prison thumbnail" data-caption="Procedurally sculpted character displayed in a glass case.">
+            <img src="https://img.youtube.com/vi/6gvMCo8gROo/maxresdefault.jpg" alt="Prison thumbnail" width="1280" height="720" loading="lazy" />
+            <span class="card-copy"><strong>Prison</strong><span>Procedural Effect Driven Sculpting</span></span>
+            <span class="card-tech">SHOWCASE / Houdini / Procedural Sculpting / VDB</span>
+          </button>
+
+          <button class="art-card focus-top" type="button" data-full="assets/images/gallery/visualArt_01.jpg" data-alt="Visual art image 01" data-caption="Won first place at an art exhibition held at ILM.">
+            <img src="assets/images/gallery/visualArt_01.jpg" alt="Visual art image 01" width="1200" height="1200" loading="lazy" />
+            <span class="card-copy"><strong>Lady</strong><span>Acrylic paint</span></span>
+            <span class="card-tech">SHOWCASE / Fine Art / Acrylic Paint</span>
+          </button>
+
+          <button class="art-card" type="button" data-full="assets/images/gallery/visualArt_02.jpg" data-alt="Drawing 02" data-caption="Drawing is where observation meets intuition.">
+            <img src="assets/images/gallery/visualArt_02.jpg" alt="Drawing 02" width="1200" height="1200" loading="lazy" />
+            <span class="card-copy"><strong>Drawing</strong><span>Pencil on paper</span></span>
+            <span class="card-tech">SHOWCASE / Fine Art / Pencil on Paper</span>
+          </button>
+
+          <button class="art-card" type="button" data-full="assets/images/gallery/visualArt_03.jpg" data-alt="Drawing 03" data-caption="Drawing strips away the complexity of medium and leaves only the essentials.">
+            <img src="assets/images/gallery/visualArt_03.jpg" alt="Drawing 03" width="1200" height="1200" loading="lazy" />
+            <span class="card-copy"><strong>Drawing</strong><span>Pencil on paper</span></span>
+            <span class="card-tech">SHOWCASE / Fine Art / Pencil on Paper</span>
+          </button>
+
+          <button class="art-card" type="button" data-full="assets/images/gallery/visualArt_04.jpg" data-alt="Drawing 04" data-caption="There is an honesty in drawing that other mediums rarely offer.">
+            <img src="assets/images/gallery/visualArt_04.jpg" alt="Drawing 04" width="1200" height="1200" loading="lazy" />
+            <span class="card-copy"><strong>Drawing</strong><span>Pencil on paper</span></span>
+            <span class="card-tech">SHOWCASE / Fine Art / Pencil on Paper</span>
+          </button>
+      </div>
+
+      <template id="game-development-description">
+        <strong>Using an AI-driven game development pipeline, I was able to build the entire playable prototype by myself in approximately three days.</strong><br /><br />
+        <strong>City Sample, Game Animation Sample, Lyra, and Paragon assets</strong>.<br />
+        Unreal Engine<br />SideFX Software Houdini<br />MeshyAI<br />GPT Image gen<br /><br />
+        <strong>Procedural City:</strong> Around 200 buildings with parameter-driven control over size, number of floors, and appearance.<br /><br />
+        <strong>Dynamic Weather:</strong> Day/night cycles, heavy rain, and snowstorms integrated with lighting, fog, wet surfaces, and snow accumulation.<br /><br />
+        <strong>Character &amp; Combat:</strong> Motion Matching locomotion, Lyra-based combat systems, and enemy AI.
+      </template>
+
+      <template id="photoshop-to-game-description">
+        Painting the game map directly in Photoshop still gives the world a distinctly human-made feel.<br /><br />
+        The human defines the composition, direction, and creative intent, while AI and procedural tools help turn those ideas into a playable 3D world.<br /><br />
+        #photoshop #meshyai #houdini #unrealengine - AI-assisted workflow
+      </template>
+    </section>
+
+    <p class="footer-note">Artwork by Choi Gil Nam</p>
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" type="button" aria-label="Previous image">&#8249;</button>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next" type="button" aria-label="Next image">&#8250;</button>
+    <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close image">&times;</button>
+    <figure class="lightbox-inner">
+      <div class="lightbox-media-column">
+        <div class="lightbox-media" id="lightbox-image-wrap">
+          <img id="lightbox-image" src="" alt="" />
+        </div>
+        <div class="lightbox-media hidden" id="lightbox-video-wrap">
+          <iframe
+            class="lightbox-frame"
+            id="lightbox-video"
+            src=""
+            title="Embedded Vimeo video"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+      <figcaption class="lightbox-panel">
+        <p class="lightbox-panel-label">Artwork Detail</p>
+        <h3 class="lightbox-title" id="lightbox-title"></h3>
+        <p class="lightbox-description" id="lightbox-description"></p>
+        <div class="lightbox-meta">
+          <div class="lightbox-meta-item">
+            <strong>View Type</strong>
+            <span id="lightbox-kind"></span>
+          </div>
+          <div class="lightbox-meta-item">
+            <strong>Archive Note</strong>
+            <span id="lightbox-caption"></span>
+          </div>
+        </div>
+      </figcaption>
+    </figure>
   </div>
 
-  <!-- ─── Hero Video ────────────────────────────────────────── -->
-  <section class="hero-video-section" aria-label="Film Art Reel showcase">
-    <div class="hero-video-inner">
-      <div class="hero-text">
-        <span class="hero-kicker">Game in Development</span>
-        <h2>The city changes every time you die.</h2>
-        <p>MIRIAM is a psychological horror game concept currently in development.</p>
-        <p>Built using Unreal Engine 5, Houdini, and AI-assisted cinematic workflows.</p>
-      </div>
-      <div class="hero-video-player">
-        <img
-          class="hero-video-poster"
-          src="assets/images/gallery/FilmArt.JPG"
-          alt="DOOBOB reel poster"
-          width="60093"
-          height="33795"
-          fetchpriority="high"
-          decoding="async" />
-        <iframe
-          id="hero-video"
-          src="https://www.youtube.com/embed/Fth7AlBPoj0?autoplay=1&mute=1&loop=1&playlist=Fth7AlBPoj0&playsinline=1&controls=0&rel=0&modestbranding=1"
-          allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
-          allowfullscreen
-          title="DOOBOB Film Art Reel">
-        </iframe>
-      </div>
-
-    </div>
-  </section>
-
-
-  <footer class="site-footer">
-    © 2026 DOOBOB. All rights reserved.
-  </footer>
+  
 
   <script>
-    const heroVideo = document.getElementById('hero-video');
-    const heroVideoPlayer = heroVideo?.closest('.hero-video-player');
-
-    if (heroVideo && heroVideoPlayer) {
-      heroVideo.addEventListener('load', () => {
-        heroVideoPlayer.classList.add('is-ready');
-      }, { once: true });
-    }
+    window.PLAYLIST_CATALOG = {
+      "procedural-thinking": {
+        source: "https://www.sidefx.com/tutorials/procedural-thinking/",
+        intro: "I created an official tutorial in collaboration with SideFX. Full lesson list from the SideFX tutorial page:",
+        defaultEmbed: "https://www.youtube.com/embed/hueMNT2X-Uw?autoplay=1",
+        projectFiles: "https://media.sidefx.com/files/tutorials/procedural-thinking/Project_Files.zip",
+        lessons: [
+          {
+            title: "Introduction",
+            watch: "https://www.youtube.com/watch?v=hueMNT2X-Uw",
+            description: "Build a reusable procedural ground-interaction setup in Houdini and apply it to POP, MPM, and RBD simulations."
+          },
+          {
+            title: "1 | Vectors",
+            watch: "https://www.youtube.com/watch?v=zECfwgeWFSI",
+            description: "Core vector concepts for direction and magnitude in motion, force, color, and FX control."
+          },
+          {
+            title: "2 | Ripple Math",
+            watch: "https://www.youtube.com/watch?v=P1jGDGDvZ1E",
+            description: "Using sine/cosine and essential math functions to drive procedural patterns and shader motion."
+          },
+          {
+            title: "3 | Normals",
+            watch: "https://www.youtube.com/watch?v=h060u08HQWs",
+            description: "How normals affect shading, lighting, and simulation direction/surface interaction."
+          },
+          {
+            title: "4 | Shader Coding",
+            watch: "https://www.youtube.com/watch?v=XYR7sRMuDxo",
+            description: "Step-by-step VEX shader construction and understanding data flow between geometry and shading."
+          },
+          {
+            title: "5 | Ground Interaction Setup",
+            watch: "https://www.youtube.com/watch?v=kh37hB740BM",
+            description: "Combining vectors, normals, math, and shading ideas into a robust reusable FX setup."
+          },
+          {
+            title: "6 | Ground Interaction Particles",
+            watch: "https://www.youtube.com/watch?v=rJAkJg7-HNY",
+            description: "Applying the setup in POP Solver and driving debris rotation using velocity-based orientation."
+          },
+          {
+            title: "7 | Ground Interaction RBD & MPM",
+            watch: "https://www.youtube.com/watch?v=95Rv8a6-g4A",
+            description: "Extending the same logic to MPM and RBD workflows for soft and rigid body interactions."
+          },
+          {
+            title: "8 | Transformation Setup",
+            watch: "https://www.youtube.com/watch?v=U5Y1HOISdB4",
+            description: "Using matrices and packed intrinsic data for controllable procedural motion and transformation."
+          },
+          {
+            title: "9 | Path Transformation",
+            watch: "https://www.youtube.com/watch?v=vbtWTppB3X8",
+            description: "Building a reusable path-driven animation system for synchronized position and rotation."
+          }
+        ]
+      },
+      "zombie-realtime-fx": {
+        source: "https://www.sidefx.com/tutorials/zombie-realtime-fx/",
+        intro: "I created an official tutorial in collaboration with SideFX. Full lesson list from the SideFX tutorial page:",
+        defaultEmbed: "https://player.vimeo.com/video/1067393721?autoplay=1",
+        projectFiles: "https://media.sidefx.com/files/tutorials/zombie-realtime-fx/zombie_projectfiles.zip",
+        lessons: [
+          { title: "1.0 Explode | Overview [1:29]", link: "https://player.vimeo.com/video/1067393721", embed: "https://player.vimeo.com/video/1067393721?autoplay=1", description: "Learn how to create complex-looking game effects using Houdini's sophisticated setups, including severed-arm blood effects and Unreal Engine integration." },
+          { title: "1.1 Explode | Cutoff Zombie's Arm [15:21]", link: "https://player.vimeo.com/video/1067393758", embed: "https://player.vimeo.com/video/1067393758?autoplay=1", description: "Create a severed arm setup using cutting nodes in Houdini." },
+          { title: "1.2 Explode | Arm Amputation Simulation [18:20]", link: "https://player.vimeo.com/video/1067393802", embed: "https://player.vimeo.com/video/1067393802?autoplay=1", description: "Build amputation effects with RBD Bullet Solver and Vellum, including tearing nerves and muscles." },
+          { title: "1.3 Explode | Blood Simulation [9:04]", link: "https://player.vimeo.com/video/1067393828", embed: "https://player.vimeo.com/video/1067393828?autoplay=1", description: "Use POP Solver and post-processing to create blood splatter interaction effects." },
+          { title: "1.4 Explode | Houdini To Unreal [21:38]", link: "https://player.vimeo.com/video/1067393872", embed: "https://player.vimeo.com/video/1067393872?autoplay=1", description: "Export Houdini results to Unreal and connect VAT to materials for playback." },
+          { title: "2.0 Growth | Overview [1:19]", link: "https://player.vimeo.com/video/1067394018", embed: "https://player.vimeo.com/video/1067394018?autoplay=1", description: "Overview of growth-based zombie FX workflow and Unreal pipeline." },
+          { title: "2.1 Growth | Vein Setup [23:52]", link: "https://player.vimeo.com/video/1067393911", embed: "https://player.vimeo.com/video/1067393911?autoplay=1", description: "Set up procedural vein growth with Solver and Find Shortest Path." },
+          { title: "2.2 Growth | Growth Control in VEX [8:06]", link: "https://player.vimeo.com/video/1067393948", embed: "https://player.vimeo.com/video/1067393948?autoplay=1", description: "Create artist-controlled timing for growth using VEX." },
+          { title: "2.3 Growth | Meshing With VDB [6:18]", link: "https://player.vimeo.com/video/1067393971", embed: "https://player.vimeo.com/video/1067393971?autoplay=1", description: "Convert growth curves to mesh and shape form with VDB." },
+          { title: "2.4 Growth | Houdini To Unreal [9:19]", link: "https://player.vimeo.com/video/1067393989", embed: "https://player.vimeo.com/video/1067393989?autoplay=1", description: "Export and connect growth FX to Unreal materials and VAT." },
+          { title: "3.0 Frozen | Overview [1:02]", link: "https://player.vimeo.com/video/1067394966", embed: "https://player.vimeo.com/video/1067394966?autoplay=1", description: "Overview of progressive freezing effect using SOP Solver and VEX." },
+          { title: "3.1 Frozen | Ice Setup [20:47]", link: "https://player.vimeo.com/video/1067394806", embed: "https://player.vimeo.com/video/1067394806?autoplay=1", description: "Create directional point growth and sharp ice formations with SOP Solver." },
+          { title: "3.2 Frozen | Convert To Mesh [7:12]", link: "https://player.vimeo.com/video/1067394858", embed: "https://player.vimeo.com/video/1067394858?autoplay=1", description: "Convert frozen simulation result to game-ready mesh." },
+          { title: "3.3 Frozen | Advect Particles using SOP Solver [9:04]", link: "https://player.vimeo.com/video/1067394890", embed: "https://player.vimeo.com/video/1067394890?autoplay=1", description: "Control particle advection inside one solver setup for production-efficient FX." },
+          { title: "3.4 Frozen | Houdini To Unreal [11:02]", link: "https://player.vimeo.com/video/1067394926", embed: "https://player.vimeo.com/video/1067394926?autoplay=1", description: "Export frozen setup from Houdini to Unreal." },
+          { title: "4.0 Burn | Overview [1:06]", link: "https://player.vimeo.com/video/1067395042", embed: "https://player.vimeo.com/video/1067395042?autoplay=1", description: "Overview of zombie burn/disintegration workflow using RBD and POP ashes." },
+          { title: "4.1 Burn | RBD Destruction and Particles [22:43]", link: "https://player.vimeo.com/video/1067394988", embed: "https://player.vimeo.com/video/1067394988?autoplay=1", description: "Break apart moving character and manage deforming/active attributes for destruction." },
+          { title: "4.2 Burn | Houdini To Unreal Texture Transition [17:31]", link: "https://player.vimeo.com/video/1067395010", embed: "https://player.vimeo.com/video/1067395010?autoplay=1", description: "Export burn setup and drive texture transitions plus VAT playback in Unreal materials." }
+        ]
+      }
+    };
   </script>
-
+  <script src="assets/js/artist-gallery.js"></script>
 </body>
 </html>
