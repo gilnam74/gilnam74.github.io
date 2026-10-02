@@ -159,6 +159,48 @@ h1 {
   font-size: 0.98rem;
 }
 
+/* Keep the artist masthead consistent across the gallery entry pages. */
+.page .hero {
+  grid-template-columns: minmax(0, 1fr);
+  padding-top: clamp(40px, 7vw, 96px);
+}
+
+.hero .hero-copy {
+  min-width: 0;
+  container-type: inline-size;
+}
+
+.hero-copy p.eyebrow {
+  margin: 0 0 clamp(28px, 5vw, 56px);
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(0.875rem, 2.75vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.2em;
+  color: #45413b;
+}
+
+.hero-copy .hero-title-row {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 20px 26px;
+}
+
+.hero-title-row h1 {
+  flex: 0 0 100%;
+  max-width: none;
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2rem, 16vw, 10rem);
+  font-size: clamp(2rem, 17cqw, 10rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+  color: #202020;
+}
+
 .hero-copy .meta {
   margin-top: 16px;
   font-size: 0.82rem;
