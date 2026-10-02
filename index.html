@@ -33,8 +33,11 @@
     .section-head { padding: 0 0 16px; border-bottom: 1px solid var(--apple-border); margin-bottom: 16px; }
     .section-head h2, .hero-title-row .artist-name { font-family: var(--apple-font); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
     .section-head h2 { font-size: clamp(1.3rem, 2.2vw, 2rem); }
-    .hero-title-row .artist-name { flex: 0 0 auto; width: min(100%, 320px); aspect-ratio: 1; display: grid; grid-template-rows: repeat(3, 1fr); align-items: center; justify-items: center; padding: 0.2em; font-size: min(18cqw, 64px); line-height: 1; white-space: normal; color: var(--apple-text); }
-    .artist-name span { display: block; padding-left: 0.12em; }
+    .hero-copy .hero-title-row { display: grid; grid-template-columns: 3.4em 30px 52px; grid-template-rows: repeat(2, 52px); align-items: center; gap: 8px 12px; font-size: clamp(24px, 3vw, 32px); }
+    .hero-title-row .artist-name { grid-area: 1 / 1 / 3 / 4; display: grid; grid-template-rows: repeat(2, 52px); align-items: center; gap: 8px; margin: 0; font-size: inherit; line-height: 1.15; white-space: nowrap; color: var(--apple-text); }
+    .artist-name span { display: block; }
+    .hero-title-row .linkedin-link { grid-area: 2 / 2; width: 30px; height: 30px; z-index: 1; }
+    .hero-title-row .hero-thumb { grid-area: 2 / 3; width: 52px; height: 52px; }
     .art-card { background: #fff; border: 1px solid rgba(29,29,31,0.08); box-shadow: 0 14px 28px rgba(20,17,13,0.1); }
     .card-copy { bottom: 48px; }
     .card-tech { display: block; height: 48px; padding: 9px 12px 10px; color: #6e6e73; background: #fff; font-size: 0.68rem; font-weight: 700; line-height: 1.35; letter-spacing: 0.08em; text-transform: uppercase; overflow: hidden; }
@@ -62,7 +65,7 @@
       <div class="hero-copy">
         <p class="eyebrow">Artist</p>
         <div class="hero-title-row">
-          <h1 class="artist-name" aria-label="Choi Gil Nam"><span>Choi</span><span>Gil</span><span>Nam</span></h1>
+          <h1 class="artist-name" aria-label="Choi Gil Nam"><span>Choi Gil</span><span>Nam</span></h1>
           <a class="linkedin-link" href="https://www.linkedin.com/in/choi-gil-nam-6a441132/" target="_blank" rel="noopener noreferrer" aria-label="Choi Gil Nam LinkedIn profile">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/250px-LinkedIn_logo_initials.png" alt="LinkedIn" width="250" height="250" loading="lazy" decoding="async" />
           </a>
