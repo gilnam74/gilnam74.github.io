@@ -162,7 +162,7 @@ h1 {
 /* Keep the artist masthead consistent across the gallery entry pages. */
 .page .hero {
   grid-template-columns: minmax(0, 1fr);
-  padding-top: clamp(40px, 7vw, 96px);
+  padding-top: clamp(12px, 2vw, 24px);
 }
 
 .hero .hero-copy {
